@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbt-rpc
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dbt-rpc
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: dbt-rpc
+    spec:
+      containers:
+        - name: dbt-rpc
+          image: gcr.io/PROJECT_ID/IMAGE_DBT:TAG
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: credentials-dev
+              mountPath: /credentials/dev.json
+              readOnly: true
+            - name: credentials-prod
+              mountPath: /credentials/prod.json
+              readOnly: true
+      volumes:
+        - name: credentials-dev
+          secret:
+            secretName: dbt-rpc-credentials-dev
+        - name: credentials-prod
+          secret:
+            secretName: dbt-rpc-credentials-prod
+      restartPolicy: Always

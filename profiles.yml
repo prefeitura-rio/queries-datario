@@ -1,0 +1,17 @@
+default:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: escritorio-temp
+      dataset: dbt-test
+      threads: 2
+      keyfile: /credentials/dev.json
+    prod:
+      type: bigquery
+      method: service-account
+      project: escritorio-temp
+      dataset: dbt-test
+      threads: 2
+      keyfile: /credentials/prod.json
