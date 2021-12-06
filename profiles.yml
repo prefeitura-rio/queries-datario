@@ -5,13 +5,13 @@ default:
       type: bigquery
       method: service-account
       project: escritorio-temp
-      dataset: dbt-test
+      dataset: dbt_test
       threads: 2
       keyfile: /credentials/dev.json
     prod:
       type: bigquery
       method: service-account
       project: escritorio-temp
-      dataset: dbt-test
+      dataset: dbt_test
       threads: 2
       keyfile: /credentials/prod.json
