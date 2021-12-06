@@ -33,8 +33,8 @@ spec:
       volumes:
         - name: credentials-dev
           secret:
-            secretName: dbt-rpc-credentials-dev
+            secretName: credentials-dev
         - name: credentials-prod
           secret:
-            secretName: dbt-rpc-credentials-prod
+            secretName: credentials-prod
       restartPolicy: Always
