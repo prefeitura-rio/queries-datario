@@ -7,11 +7,11 @@ default:
       project: datario-dev
       dataset: dbt_test
       threads: 2
-      keyfile: /credentials/dev.json
+      keyfile: /credentials-dev/dev.json
     prod:
       type: bigquery
       method: service-account
       project: escritorio-temp
       dataset: datario
       threads: 2
-      keyfile: /credentials/prod.json
+      keyfile: /credentials-prod/prod.json

@@ -25,10 +25,10 @@ spec:
             - containerPort: 80
           volumeMounts:
             - name: credentials-dev
-              mountPath: /credentials/
+              mountPath: /credentials-dev/
               readOnly: true
             - name: credentials-prod
-              mountPath: /credentials/
+              mountPath: /credentials-prod/
               readOnly: true
       volumes:
         - name: credentials-dev
