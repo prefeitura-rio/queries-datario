@@ -5,7 +5,8 @@ default:
       type: bigquery
       method: service-account
       project: datario-dev
-      dataset: dbt_test
+      dataset: dbt
+      location: southamerica-east1
       threads: 2
       keyfile: /credentials-dev/dev.json
     prod:
@@ -13,5 +14,6 @@ default:
       method: service-account
       project: datario
       dataset: dbt
+      location: southamerica-east1
       threads: 2
       keyfile: /credentials-prod/prod.json
