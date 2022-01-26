@@ -1,0 +1,14 @@
+
+version: 2
+
+models:
+  - name: just_a_few
+    meta:
+      owner: "SME"
+      model_maturity: "alpha"
+    description: "Um subconjunto de 1000 linhas da tabela original com menos colunas"
+    columns:
+      - name: denominacao
+        description: "Nome da escola ou instituição"
+      - name: endereco
+        description: "Endereço da escola ou instituição"
