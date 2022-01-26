@@ -4,7 +4,7 @@ default:
     dev:
       type: bigquery
       method: service-account
-      project: escritorio-temp
+      project: datario-dev
       dataset: dbt_test
       threads: 2
       keyfile: /credentials/dev.json
@@ -12,6 +12,6 @@ default:
       type: bigquery
       method: service-account
       project: escritorio-temp
-      dataset: dbt_test
+      dataset: datario
       threads: 2
       keyfile: /credentials/prod.json
