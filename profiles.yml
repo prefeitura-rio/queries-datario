@@ -11,7 +11,7 @@ default:
     prod:
       type: bigquery
       method: service-account
-      project: escritorio-temp
-      dataset: datario
+      project: datario
+      dataset: dbt
       threads: 2
       keyfile: /credentials-prod/prod.json
