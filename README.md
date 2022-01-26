@@ -25,3 +25,34 @@ Esse é um template para um pacote DBT a ser importado no [repositório principa
 - Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
 - Find [dbt events](https://events.getdbt.com) near you
 - Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+
+## Como desenvolver novos modelos
+
+1. Caso seja um `dataset-id` já existente, acesse `models/<dataset-id>` e pule para o passo 5.
+
+2. Caso seja um novo `dataset-id`, crie um novo diretório `models/<dataset-id>`.
+
+3. No arquivo `dbt_project.yml` registre o `dataset-id` junto aos já existentes, conforme exemplo abaixo:
+
+```yaml
+models:
+  emd:
+    dataset-id:
+      +materialized: view # Materialization type (view, table or incremental)
+      +schema: dataset-id # Overrides the default schema (defaults to what is set on profiles.yml)
+```
+
+4. No diretório `models/<dataset-id>`, crie um arquivo `schema.yml` para preencher metadados de suas tabelas. Exemplo abaixo:
+
+```yaml
+version: 2
+
+models:
+  - name: my_first_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+```
+
+5. Desenvolva seus modelos (que corresponderão a tabelas) no diretório `models/<dataset-id>`.
