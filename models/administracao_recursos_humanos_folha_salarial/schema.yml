@@ -1,0 +1,9 @@
+
+version: 2
+
+models:
+  - name: cargo
+    meta:
+      owner: "SMFP"
+      model_maturity: "alpha"
+    description: "lalalalala"

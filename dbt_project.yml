@@ -31,6 +31,15 @@ clean-targets: # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   emd:
+    administracao_recursos_humanos_folha_salarial:
+      +materialized: table
+      +schema: administracao_recursos_humanos_folha_salarial
+    administracao_servicos_publicos_1746:
+      +materialized: table
+      +schema: administracao_servicos_publicos_1746
+    educacao_basica:
+      +materialized: table
+      +schema: educacao_basica
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view # Materialization type (view, table or incremental)
