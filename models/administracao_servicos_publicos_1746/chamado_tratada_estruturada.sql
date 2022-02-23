@@ -9,8 +9,8 @@ WITH waze_inicial AS (
     --CONCAT(ts, lat, long) as pre_chave,
     ST_GEOGPOINT(long,lat) as wkt_geometry_waze,
     'waze' as identificador_tabela
-    FROM `rj-escritorio-dev.seconserva_buracos.alertas_waze_2021`
-    WHERE long is not null and DATE_DIFF(CURRENT_DATE(), ts, DAY) <= 30), --63,359
+    FROM `rj-escritorio-dev.seconserva_buracos.alertas_waze`
+    WHERE long is not null and ts >= '2022-02-01'), --63,359
 
     waze_cluster AS (
     SELECT 
@@ -47,9 +47,10 @@ WITH waze_inicial AS (
     *,
     coordenada_geografica wkt_geometry_1746,
     '1746' as identificador_tabela
-    FROM `rj-escritorio-dev.seconserva_buracos.chamados_1746`
-    WHERE data_inicio >= '2021-01-01'),
- 
+    FROM `rj-escritorio-dev.seconserva_buracos.chamados_1746_geolocalizados`
+    WHERE data_inicio >= '2021-01-01'
+        AND id_subtipo = '78'),
+
     join_waze AS (
     SELECT
     w.*,
@@ -70,18 +71,53 @@ WITH waze_inicial AS (
     FROM join_waze
     WHERE bairro_logradouros is not NULL),
     
+    join_1746_latlong AS (
+        WITH join_repetido AS (    
+            (SELECT
+            d.*,
+            d.bairro bairro_chamado,
+            l.*,
+            l.bairro bairro_logradouros
+            FROM (SELECT * FROM d1746 WHERE coordenada_geografica IS NOT NULL) as d
+            LEFT JOIN (SELECT * FROM logradouros WHERE ordem_nome = 1) as l 
+            ON ST_INTERSECTS(d.wkt_geometry_1746 , ST_BUFFER(l.wkt_geometry_logradouros, 20)))
+            )
+        
+        SELECT 
+        arr.*
+        FROM (
+            SELECT ARRAY_AGG(jr LIMIT 1)[OFFSET(0)] arr
+            FROM join_repetido jr
+            GROUP BY id_chamado
+        ) 
+    ), --join por latlong
+
+    join_1746_id_logradouro AS (
+        WITH join_repetido AS (    
+            (SELECT
+            d.*,
+            d.bairro bairro_chamado,
+            l.*,
+            l.bairro bairro_logradouros
+            FROM (SELECT * FROM d1746 WHERE coordenada_geografica IS NULL) as d
+            LEFT JOIN (SELECT * FROM logradouros WHERE ordem_nome = 1 AND ordem_trecho = 1) as l 
+            ON CAST(d.id_logradouro as FLOAT64) = CAST(l.id_logradouro as FLOAT64)))
+            
+        
+        SELECT 
+        arr.*
+        FROM (
+            SELECT ARRAY_AGG(jr LIMIT 1)[OFFSET(0)] arr
+            FROM join_repetido jr
+            GROUP BY id_chamado
+        ) 
+    ),
+
     join_1746 AS (
-    SELECT
-    d.*,
-    d.bairro bairro_chamado,
-    l.*,
-    l.bairro bairro_logradouros,
-    FROM d1746 as d
-    LEFT JOIN logradouros as l 
-    --ON ST_INTERSECTS(d.wkt_geometry_1746 , ST_BUFFER(l.wkt_geometry_logradouros, 20))
-    ON CAST(d.id_logradouro as FLOAT64) = CAST(l.id_logradouro as FLOAT64)
-    WHERE l.ordem_nome = 1
-            AND l.ordem_trecho = 1),  
+        SELECT * FROM join_1746_latlong
+        UNION ALL 
+        SELECT * FROM join_1746_id_logradouro
+    ),
 
     ---COMECO UNION
     union_waze_1746 AS(
