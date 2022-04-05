@@ -27,6 +27,11 @@ jobs:
         run: |-
           python3 .github/workflows/scripts/metadata_automation.py
 
+      - name: Checkout to branch
+        run: |-
+          git_branch=${GITHUB_REF#refs/heads/}
+          git checkout $git_branch
+
       - name: Commit changed files
         uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
         with:
