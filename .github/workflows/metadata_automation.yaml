@@ -31,4 +31,3 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'Update metadata'
-          file_pattern: 'models/**/schema.yml'
