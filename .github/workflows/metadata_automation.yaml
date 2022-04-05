@@ -23,6 +23,11 @@ jobs:
         run: |-
           pip install -r requirements-actions.txt
 
+      - name: Checkout to the head ref
+        run: |-
+          git fetch --depth=1
+          git checkout ${{ github.head_ref }}
+
       - name: Update metadata
         run: |-
           python3 .github/workflows/scripts/metadata_automation.py
