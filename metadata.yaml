@@ -1,4 +1,5 @@
 models:
-  example:
-    my_first_dbt_model:
+  dados_mestres:
+    bairros:
       spreadsheet_id: "1fkeJyFbp95lkDjZ84CTNF6TB8Uc"
+    
