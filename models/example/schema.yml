@@ -15,4 +15,12 @@ models:
     - not_null
   description: A starter dbt model
   name: my_first_model
+- columns:
+  - description: The primary key for this table
+    name: id
+    tests:
+    - unique
+    - not_null
+  description: A starter dbt model
+  name: my_first_model
 version: 2
