@@ -1,0 +1,46 @@
+models:
+- columns:
+  - description: Código do bairro dado pela prefeitura do Rio de Janeiro.
+    name: id_bairro
+  - description: Nome do bairro.
+    name: nome
+  - description: Código da área de planejamento onde está localizado a região de planejamento
+      do bairro. Ver atributo nome_regiao_planejamento.
+    name: id_area_planejamento
+  - description: Nome da região de planejamento. Deve respeitar o atributo id_regiao_planejamento.
+    name: nome_regiao_planejamento
+  - description: Código da região de planejamento onde está localizado o região administrativa
+      do bairro. Ver atributo REGIAO_ADM.
+    name: id_regiao_planejamento
+  - description: Código da região administrativa onde está locallizado o bairro.
+    name: id_regiao_administrativa
+  - description: Nome da região administrativa onde está localizado o bairro. Este
+      atributo deve respeitar o atributo id_regiao_administrativa.
+    name: nome_regiao_administrativa
+  - description: Área (m²) do bairro. Tem o mesmo valor do atributo SHAPE.STArea().
+    name: area
+  - description: Perímetro (m) do bairro.
+    name: perimetro
+  - description: Geometria do bairro no banco do ArcGIS.
+    name: geometry
+  description: '**Descrição:** Bairros da Cidade do Rio de Janeiro
+
+    **Frequência de atualização:** Segundo aprovação / delimitação / implantação
+
+    **Cobertura temporal:** Segundo atualização
+
+    **Órgão gestor dos dados:** IPP / Câmara dos Vereadores
+
+    **Publicado por (Nome):** IPP
+
+    **Publicado por (E-mail):** contato.siurb@gmail.com
+
+    **Banco de origem:** srv000420/BaseGeo
+
+    **View ou Tabela de Origem:** BaseGeo.DBO.LimiteBairro
+
+    **Query de extração:** -
+
+    '
+  name: bairros
+version: 2
