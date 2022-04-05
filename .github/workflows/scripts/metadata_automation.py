@@ -2,11 +2,35 @@
 Automates metadata ingestion from Google Sheets to the models.
 """
 
+import base64
+from io import BytesIO
+import json
+from os import getenv
 from pathlib import Path
+from typing import List
 
+from google.oauth2 import service_account
+import gspread
+import pandas as pd
+import requests
 import yaml
 
 METADATA_FILE_PATH = "metadata.yaml"
+
+
+def download_spreadsheet(
+    spreadsheet_id: str, gspread_client: gspread.Client = None
+) -> BytesIO:
+    """
+    Downloads a spreadsheet from Google Sheets.
+    """
+    if not gspread_client:
+        gspread_client = get_gspread_client()
+    url = "https://www.googleapis.com/drive/v3/files/" + spreadsheet_id + "?alt=media"
+    res = requests.get(
+        url, headers={"Authorization": "Bearer " + gspread_client.auth.token}
+    )
+    return BytesIO(res.content)
 
 
 def dump_metadata_into_schema_yaml(
@@ -24,16 +48,19 @@ def dump_metadata_into_schema_yaml(
         # If we find a model with the same name, we delete it.
         schema["models"] = [m for m in schema["models"] if m["name"] != table_id]
     schema["models"].append(metadata)
-    with open(schema_yaml_path, "w") as f:
-        yaml.dump(schema, f)
+    with open(schema_yaml_path, "w", encoding="utf-8") as f:
+        yaml.safe_dump(schema, f, encoding="utf-8", allow_unicode=True)
 
 
-def fetch_metadata_from_google_sheets(spreadsheet_id: str):
+def fetch_metadata_from_google_sheets(
+    spreadsheet_id: str, table_id: str, gspread_client: gspread.Client = None
+) -> dict:
     """
     Fetches the metadata from Google Sheets.
-    """
-    return {
-        "name": "my_first_model",
+
+    Model:
+    {   
+        "name": "table_id",
         "description": "A starter dbt model",
         "columns": [
             {
@@ -46,13 +73,75 @@ def fetch_metadata_from_google_sheets(spreadsheet_id: str):
             },
         ],
     }
+    """
+    if not gspread_client:
+        gspread_client = get_gspread_client()
+    spreadsheet: BytesIO = download_spreadsheet(spreadsheet_id, gspread_client)
+    df_table_metadata = pd.read_excel(spreadsheet, sheet_name="tabela", header=None)
+    df_columns_metadata = pd.read_excel(spreadsheet, sheet_name="colunas")
+    table_description = format_table_description(df_table_metadata)
+    columns_metadata = format_columns_metadata(df_columns_metadata)
+    metadata = {
+        "name": table_id,
+        "description": table_description,
+        "columns": columns_metadata,
+    }
+    return metadata
+
+
+def format_columns_metadata(dataframe: pd.DataFrame) -> List[dict]:
+    """
+    Formats the columns metadata.
+    """
+    columns_metadata = []
+    for row in dataframe.iterrows():
+        if pd.isna(row[1]["Nome da coluna"]):
+            continue
+        column_metadata = {
+            "name": row[1]["Nome da coluna"],
+            "description": row[1]["Descrição da coluna"],
+        }
+        columns_metadata.append(column_metadata)
+    return columns_metadata
+
+
+def format_table_description(dataframe: pd.DataFrame) -> str:
+    """
+    Formats the table description.
+    """
+    text = ""
+    for row in dataframe.iterrows():
+        text += f"**{row[1][0]}:** {row[1][1]}\n"
+    return text
+
+
+def get_credentials_from_env(scopes: list = None) -> service_account.Credentials:
+    """Gets credentials from env vars"""
+    env: str = getenv("GKE_SA_KEY")
+    info: dict = json.loads(base64.b64decode(env))
+    cred = service_account.Credentials.from_service_account_info(info)
+    if scopes:
+        cred = cred.with_scopes(scopes)
+    return cred
+
+
+def get_gspread_client() -> gspread.Client:
+    """Gets gspread client"""
+    GSPREAD_SCOPE = [
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive",
+    ]
+    cred = get_credentials_from_env(scopes=GSPREAD_SCOPE)
+    client = gspread.Client(auth=cred)
+    client.login()
+    return client
 
 
 def load_yaml(filepath: str) -> dict:
     """
     Loads a YAML file.
     """
-    with open(filepath, "r") as f:
+    with open(filepath, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
@@ -89,7 +178,7 @@ if __name__ == "__main__":
 
                 # Fetch the metadata from Google Sheets
                 table_metadata = fetch_metadata_from_google_sheets(
-                    table["spreadsheet_id"]
+                    table["spreadsheet_id"], table_id,
                 )
 
                 # Dump the metadata into the schema.yaml file

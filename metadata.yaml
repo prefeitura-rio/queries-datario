@@ -1,4 +1,4 @@
 models:
   example:
     my_first_dbt_model:
-      spreadsheet_id: "algum-id-aqui"
+      spreadsheet_id: "1fkeJyFbp95lkDjZ84CTNF6TB8Uc"
