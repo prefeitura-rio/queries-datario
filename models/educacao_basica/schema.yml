@@ -1,0 +1,68 @@
+models:
+- columns:
+  - description: Ano em que a turma existe ou existiu. Uma turma é identificada pela
+      unidade escolar onde ela esta, pelo seu número e por seu ano.
+    name: ano
+  - description: Identificador da escola na base de dados.
+    name: id_escola
+  - description: Identificador que é a concatenação do identificador da escola (esc_id)
+      com o identificador da dependência (número que identifica unicamente cada dependência
+      na escola) na base de dados.
+    name: id_dependencia
+  - description: Identificador da turma na base de dados.
+    name: id_turma
+  - description: Identificador da turma. É dado pela escola. É único em determinada
+      escola e determinado ano. Há uma padronização, ex. 1601 é para o sexto ano.
+    name: id_turma_escola
+  - description: Tipo do curso que a turma está fazendo. Ex. Ensino fundamental 1,
+      Ensino fundamental classe especial, Educação infantil pré-escola. Este tipo
+      pode variar de ano a ano.
+    name: curso
+  - description: Nível do ensino da turma. Pode ser Fundamental ou Educação Infantil.
+    name: nivel_ensino
+  - description: Modalidade do ensino da turma. Pode ser Regular, Especial ou EJA.
+    name: modalidade
+  - description: Série da turma. Em unidades escolares da prefeitura em geral se vai
+      do 1ª a 9ª ano. Em dados mais antigos pode ir da 1ª a 8ª série.
+    name: grupamento
+  - description: Turno da turma. Pode ser Manhã, Tarde, Noite ou Integral. Pode ser
+      primeiro turno ou segundo turno em turmas mais antigas.
+    name: turno
+  - description: Nome da dependência que é ocupada pela turma como sala de aula.
+    name: sala
+  - description: Área, em metros quadrados, da dependência que é ocupada pela turma.
+    name: area_sala
+  - description: Capacidade, em número de alunos, da dependência que é ocupada pela
+      turma.
+    name: capacidade_sala
+  - description: 'Tipo da dependência ocupada pela turma. Ex.: Sala de Aula, Auditório,
+      Laboratório de Informática, despensa, rampa de acesso etc.Informática, despensa,
+      rampa de acesso etc.'
+    name: tipo_sala
+  - description: Utilização atual da dependência ocupada pela turma. Ex. os mesmos
+      do tipo de depêndencia(Tipo_Sala). Pode diferir do tipo de dependência, pois
+      o tipo de dependência é tipo oficial da dependência, que pode ser diferente
+      da utilização real.
+    name: sala_util_como
+  description: '**Descrição:** Turma de alunos, atuais ou passadas, em unidades escolares
+    pertencentes ou de interesse da prefeitura do Rio de Janeiro.
+
+    **Frequência de atualização:** Mensal
+
+    **Cobertura temporal:** até data corrente
+
+    **Órgão gestor dos dados:** Secretaria Municipal de Educação
+
+    **Publicado por (Nome):** Nuno Caminada Silva
+
+    **Publicado por (E-mail):** nuno.silva@rioeduca.net
+
+    **Banco de origem:** clustersqlsme.GestaoEscolar
+
+    **View ou Tabela de Origem:** VW_BI_Turma
+
+    **Query de extração:** SELECT * FROM VW_BI_Turma
+
+    '
+  name: turma
+version: 2
