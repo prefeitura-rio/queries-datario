@@ -13,7 +13,7 @@ from google.oauth2 import service_account
 import gspread
 import pandas as pd
 import requests
-import yaml
+import ruamel.yaml as ryaml
 
 METADATA_FILE_PATH = "metadata.yaml"
 
@@ -26,7 +26,8 @@ def download_spreadsheet(
     """
     if not gspread_client:
         gspread_client = get_gspread_client()
-    url = "https://www.googleapis.com/drive/v3/files/" + spreadsheet_id + "?alt=media"
+    url = f"https://www.googleapis.com/drive/v3/files/{spreadsheet_id}" + "?alt=media"
+
     res = requests.get(
         url, headers={"Authorization": "Bearer " + gspread_client.auth.token}
     )
@@ -40,16 +41,25 @@ def dump_metadata_into_schema_yaml(
     Dumps the metadata into the schema.yaml file.
     """
     schema_yaml_path = f"models/{dataset_id}/schema.yml"
-    if not Path(schema_yaml_path).exists():
+
+    schema = (
+        load_metadata_file(schema_yaml_path)
+        if Path(schema_yaml_path).exists()
+        else {"version": 2, "models": []}
+    )
+    if schema is None:
         schema = {"version": 2, "models": []}
-    else:
-        schema = load_yaml(schema_yaml_path)
+
     if len(schema["models"]) > 0:
         # If we find a model with the same name, we delete it.
         schema["models"] = [m for m in schema["models"] if m["name"] != table_id]
     schema["models"].append(metadata)
-    with open(schema_yaml_path, "w", encoding="utf-8") as f:
-        yaml.safe_dump(schema, f, encoding="utf-8", allow_unicode=True)
+
+    ruamel = load_ruamel()
+    ruamel.dump(
+        schema,
+        open(Path(schema_yaml_path), "w", encoding="utf-8"),
+    )
 
 
 def fetch_metadata_from_google_sheets(
@@ -57,9 +67,8 @@ def fetch_metadata_from_google_sheets(
 ) -> dict:
     """
     Fetches the metadata from Google Sheets.
-
     Model:
-    {   
+    {
         "name": "table_id",
         "description": "A starter dbt model",
         "columns": [
@@ -81,12 +90,12 @@ def fetch_metadata_from_google_sheets(
     df_columns_metadata = pd.read_excel(spreadsheet, sheet_name="colunas")
     table_description = format_table_description(df_table_metadata)
     columns_metadata = format_columns_metadata(df_columns_metadata)
-    metadata = {
+
+    return {
         "name": table_id,
         "description": table_description,
         "columns": columns_metadata,
     }
-    return metadata
 
 
 def format_columns_metadata(dataframe: pd.DataFrame) -> List[dict]:
@@ -109,10 +118,7 @@ def format_table_description(dataframe: pd.DataFrame) -> str:
     """
     Formats the table description.
     """
-    text = ""
-    for row in dataframe.iterrows():
-        text += f"**{row[1][0]}:** {row[1][1]}\n"
-    return text
+    return "".join(f"**{row[1][0]}:** {row[1][1]}\n" for row in dataframe.iterrows())
 
 
 def get_credentials_from_env(scopes: list = None) -> service_account.Credentials:
@@ -137,48 +143,51 @@ def get_gspread_client() -> gspread.Client:
     return client
 
 
-def load_yaml(filepath: str) -> dict:
+def load_ruamel():
     """
     Loads a YAML file.
     """
-    with open(filepath, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+    ruamel = ryaml.YAML()
+    ruamel.default_flow_style = False
+    ruamel.top_level_colon_align = True
+    ruamel.indent(mapping=2, sequence=4, offset=2)
+    return ruamel
 
 
-def load_metadata_file() -> dict:
+def load_metadata_file(filepath: str) -> dict:
     """
     Loads the file that contains path to the models' metadata.
     """
-    return load_yaml(METADATA_FILE_PATH)
+    ruamel = load_ruamel()
+    return ruamel.load((Path(filepath)).open(encoding="utf-8"))
 
 
 if __name__ == "__main__":
     # Load the metadata file
-    metadata: dict = load_metadata_file()
+    metadata: dict = load_metadata_file(METADATA_FILE_PATH)
 
     # List all models
     models: dict = metadata["models"]
 
     # Iterate over datasets
-    for dataset_id in models.keys():
+    for dataset_id, dataset in models.items():
 
-        # Get the dataset
-        dataset: dict = models[dataset_id]
         print(f"Ingesting metadata for dataset {dataset_id}")
 
         # Iterate over tables
-        for table_id in dataset.keys():
+        for table_id in dataset:
 
             # Get the table
             table: dict = dataset[table_id]
 
             # Check whether there is a spreadsheet ID set for this table
             if "spreadsheet_id" in table and table["spreadsheet_id"]:
-                print(f"- Fetching metadata for table {table_id}...", end="")
+                print(f"- Fetching metadata for table {table_id}...", end="\n")
 
                 # Fetch the metadata from Google Sheets
                 table_metadata = fetch_metadata_from_google_sheets(
-                    table["spreadsheet_id"], table_id,
+                    table["spreadsheet_id"],
+                    table_id,
                 )
 
                 # Dump the metadata into the schema.yaml file
