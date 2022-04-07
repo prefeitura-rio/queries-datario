@@ -5,6 +5,9 @@ on:
 
 env:
   GKE_SA_KEY: ${{ secrets.GKE_SA_KEY }}
+  ARCGIS_URL: ${{ secrets.ARCGIS_URL }}
+  ARCGIS_USERNAME: ${{ secrets.ARCGIS_USERNAME }}
+  ARCGIS_PASSWORD: ${{ secrets.ARCGIS_PASSWORD }}
 
 jobs:
   update-metadata:
@@ -36,3 +39,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'Update metadata'
+
+      - name: Create/update on data.rio
+        run: |-
+          python3 .github/workflows/scripts/integrate_to_data_rio.py
