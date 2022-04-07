@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                const searchBox = document.getElementById("search-box");
+                const searchResults = document.getElementById("results");
+                const inputHandler = function(e) {
+                    if (e.target.value === "") {
+                        searchResults.innerHTML = "";
+                        return;
+                    }
+                    // Query on the search API
+                    fetch(`http://0.0.0.0:8001/search/?q=${e.target.value}`, {
+                        method: "GET",
+                        mode: "cors",
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    })  .then(response => response.json())
+                        .then(data => {
+                            tables = data.results;
+                            searchResults.innerHTML = "";
+                            tables.forEach(table => {
+                                const tableElement = document.createElement("a");
+                                tableElement.innerHTML = `<a href="#">${table.dataset.name}.${table.name}</a>`
+                                searchResults.appendChild(tableElement);
+                            })
+                            // const repos = data.items;
+                            // const output = document.getElementById("output");
+                            // output.innerHTML = "";
+                            // repos.forEach(repo => {
+                            //     const repoElement = document.createElement("div");
+                            //     repoElement.innerHTML = `
+                            //         <div>
+                            //             <a href="${repo.html_url}">${repo.full_name}</a>
+                            //         </div>
+                            //         <div>
+                            //             <a href="${repo.owner.html_url}">${repo.owner.login}</a>
+                            //         </div>
+                            //     `;
+                            //     output.appendChild(repoElement);
+                            // });
+                        });
+                }
+                searchBox.addEventListener("input", inputHandler);
+                searchBox.addEventListener("propertychange", inputHandler);
+            });
+        </script>
+        <style>
+            * {
+            box-sizing: border-box;
+            }
+
+            nav {
+            min-width: 800px;
+            padding: 20px;
+            background-color: #f7f7f7;
+            width: 100%;
+            justify-content: center;
+            display: flex;
+            column-gap: 40px;
+            }
+
+            a {
+            text-decoration: none;
+            padding: 20px;
+            }
+
+            .search-container {
+            border: 2px solid darkgrey;
+            border-radius: 20px;
+            flex-basis: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            column-gap: 20px;
+            z-index: 1;
+            }
+
+            .search-container a, .search-container p {
+            border-bottom: 1px solid #b7b5b5;
+            background-color: white;
+            text-align: center;
+            }
+
+            .search-container input {
+            margin: 0;
+            padding: 30px 20px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            }
+
+            .search-container a:last-child {
+            border: none;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            }
+
+            .header-overlay {
+            width: 100%;
+            min-width: 800px;
+            height: 120px;
+            background-color: lightgrey;
+            position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-overlay"></div>
+            <nav>
+                <div class="search-container">
+                    <input type="text" id="search-box">
+                    <span id="results" class="search-container">
+                    </span>
+                </div>
+            </nav>
+        </header>
+    </body>
+</html>
+
