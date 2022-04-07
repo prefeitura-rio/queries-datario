@@ -1,7 +1,9 @@
 name: Metadata Automation
 
 on:
-  pull_request:
+  push:
+    branches:
+      - '*'
 
 env:
   GKE_SA_KEY: ${{ secrets.GKE_SA_KEY }}
@@ -41,5 +43,6 @@ jobs:
           commit_message: 'Update metadata'
 
       - name: Create/update on data.rio
+        if: github.ref == 'refs/heads/master'
         run: |-
           python3 .github/workflows/scripts/integrate_to_data_rio.py
