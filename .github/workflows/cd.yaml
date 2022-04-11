@@ -53,4 +53,9 @@ jobs:
           ./kustomize build . | kubectl apply -n prefect -f -
           ./kustomize build . | kubectl apply -n prefect-agent-datario -f -
           ./kustomize build . | kubectl apply -n prefect-agent-datario-dev -f -
-          kubectl get services -n prefect
+          kubectl rollout status -w -n prefect deployment/dbt-rpc-dev
+          kubectl rollout status -w -n prefect deployment/dbt-rpc-prod
+          kubectl rollout status -w -n prefect-agent-datario deployment/dbt-rpc-dev
+          kubectl rollout status -w -n prefect-agent-datario deployment/dbt-rpc-prod
+          kubectl rollout status -w -n prefect-agent-datario-dev deployment/dbt-rpc-dev
+          kubectl rollout status -w -n prefect-agent-datario-dev deployment/dbt-rpc-prod
