@@ -1,0 +1,67 @@
+<div>
+    <p style="font-size: 1.028rem;">
+        {{ long_description }}
+    </p>
+</div>
+<div>
+    <p style="font-size: 1.414rem;">
+        Cobertura temporal
+    </p>
+    <p style="font-size: 1.028rem;">
+        {{ temporal_coverage }}
+    </p>
+</div>
+<div>
+    <p style="font-size: 1.414rem;">
+        Frequência de atualização
+    </p>
+    <p style="font-size: 1.028rem;">
+        {{ update_frequency }}
+    </p>
+</div>
+<div>
+    <p style="font-size: 1.414rem;">
+        Órgão gestor
+    </p>
+    <p style="font-size: 1.028rem;">
+        {{ managing_organization }}
+    </p>
+</div>
+<div>
+    <p style="font-size: 1.414rem;">
+        Colunas
+    </p>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+        </tr>
+        <tbody>
+            {% for column in columns %}
+                <tr>
+                    <td>{{ column.name }}</td>
+                    <td>{{ column.description }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <p style="font-size: 1.414rem;">
+        Dados do publicador
+    </p>
+    <p style="font-size: 1.028rem;">
+        <b>Nome:</b> {{ publisher_name }}<br>
+        <b>E-mail:</b> {{ publisher_email }}
+    </p>
+</div>
+<div>
+    <p style="font-size: 1.414rem;">
+        Acesse também via BigQuery
+    </p>
+    <p style="font-size: 1.028rem;">
+        Clique <a href="https://console.cloud.google.com/bigquery?p=datario&d={{ dataset_id }}&t={{ table_id }}&page=table">aqui</a>
+        para ir diretamente a essa tabela no BigQuery. Caso não tenha experiência com BigQuery,
+        acesse <a href="https://dados.rio/">nosso tutorial</a> para entender como acessar os dados.
+    </p>
+</div>
