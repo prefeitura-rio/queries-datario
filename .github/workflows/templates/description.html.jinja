@@ -5,6 +5,38 @@
 </div>
 <div>
     <p style="font-size: 1.414rem;">
+        Acesse também via BigQuery
+    </p>
+    <div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+        <pre style="margin: 0; line-height: 125%">
+            <span style="color: #204a87; font-weight: bold">
+                SELECT
+            </span>
+            <span style="color: #ce5c00; font-weight: bold">
+                *
+            </span>
+            <span style="color: #204a87; font-weight: bold">
+                FROM
+            </span>
+            <span style="color: #ce5c00;">
+                `datario.{{ dataset_id }}.{{ table_id }}`
+            </span>
+            <span style="color: #204a87; font-weight: bold">
+                LIMIT
+            </span>
+            <span style="color: #0000cf; font-weight: bold">
+                1000
+            </span>
+        </pre>
+    </div>
+    <p style="font-size: 1.028rem;">
+        Clique <a href="https://console.cloud.google.com/bigquery?p=datario&d={{ dataset_id }}&t={{ table_id }}&page=table">aqui</a>
+        para ir diretamente a essa tabela no BigQuery. Caso não tenha experiência com BigQuery,
+        acesse <a href="https://dados.rio/">nosso tutorial</a> para entender como acessar os dados.
+    </p>
+</div>
+<div>
+    <p style="font-size: 1.414rem;">
         Cobertura temporal
     </p>
     <p style="font-size: 1.028rem;">
@@ -24,7 +56,7 @@
         Órgão gestor
     </p>
     <p style="font-size: 1.028rem;">
-        {{ managing_organization }}
+        {{ data_owner }}
     </p>
 </div>
 <div>
@@ -39,8 +71,8 @@
         <tbody>
             {% for column in columns %}
                 <tr>
-                    <td>{{ column.name }}</td>
-                    <td>{{ column.description }}</td>
+                    <td>{{ column["name"] }}</td>
+                    <td>{{ column["description"] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -53,15 +85,5 @@
     <p style="font-size: 1.028rem;">
         <b>Nome:</b> {{ publisher_name }}<br>
         <b>E-mail:</b> {{ publisher_email }}
-    </p>
-</div>
-<div>
-    <p style="font-size: 1.414rem;">
-        Acesse também via BigQuery
-    </p>
-    <p style="font-size: 1.028rem;">
-        Clique <a href="https://console.cloud.google.com/bigquery?p=datario&d={{ dataset_id }}&t={{ table_id }}&page=table">aqui</a>
-        para ir diretamente a essa tabela no BigQuery. Caso não tenha experiência com BigQuery,
-        acesse <a href="https://dados.rio/">nosso tutorial</a> para entender como acessar os dados.
     </p>
 </div>
