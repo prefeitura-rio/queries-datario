@@ -41,16 +41,23 @@ For future reference, this is what the content_manager.add command supports:
 # )
 """
 
+import json
 from os import getenv
-from pathlib import Path
 from typing import List
 
 from arcgis import GIS
 from arcgis.gis import ContentManager, Item
+import jinja2
 import markdown
 import ruamel.yaml as ryaml
 
-DEFAULT_TAG = "datario"
+DEFAULT_TAGS = ["datario"]
+HTML_TEMPLATE_PATH = ".github/workflows/templates/description.html.jinja"
+LICENSE = "https://creativecommons.org/licenses/by-nd/3.0/deed.pt_BR"
+METADATA_FILE_PATH = "metadata.json"
+THUMBNAIL_URL = (
+    "https://nayemdevs.com/wp-content/uploads/2020/03/default-product-image.png"
+)
 
 
 class GisItemNotFound(Exception):
@@ -59,23 +66,11 @@ class GisItemNotFound(Exception):
     """
 
 
-def load_ruamel():
+def get_default_tags(dataset_id: str, table_id: str) -> List[str]:
     """
-    Loads ryaml module.
+    Returns the default tags.
     """
-    ruamel = ryaml.YAML()
-    ruamel.default_flow_style = False
-    ruamel.top_level_colon_align = True
-    ruamel.indent(mapping=2, sequence=4, offset=2)
-    return ruamel
-
-
-def load_metadata_file(filepath: str) -> dict:
-    """
-    Loads the file that contains path to the models' metadata.
-    """
-    ruamel = load_ruamel()
-    return ruamel.load((Path(filepath)).open(encoding="utf-8"))
+    return DEFAULT_TAGS + [dataset_id, table_id]
 
 
 def get_gis_client(url: str = None, username: str = None, password: str = None) -> GIS:
@@ -116,11 +111,15 @@ def create_or_update_item(dataset_id: str, table_id: str, data: dict) -> Item:
     Creates or updates an item.
     """
     gis = get_gis_client()
+    tags = get_default_tags(dataset_id, table_id)
+    tags_query = ""
+    for tag in tags:
+        if tags_query == "":
+            tags_query = f"tags:{tag}"
+        else:
+            tags_query += f" AND tags:{tag}"
     try:  # If item already exists, update it.
-        item = get_item(
-            search_query=f'tags:"{DEFAULT_TAG}" AND tags:"{dataset_id}" AND tags:"{table_id}"',
-            gis=gis,
-        )
+        item = get_item(search_query=tags_query, gis=gis,)
         item.update(**data)
         return item
     except GisItemNotFound:  # Else, create it.
@@ -129,50 +128,43 @@ def create_or_update_item(dataset_id: str, table_id: str, data: dict) -> Item:
         return item
 
 
-def list_all_schema_yml_files(root_directory: str) -> List[Path]:
+def load_metadata_file() -> dict:
     """
-    List all `schema.yml` files in the given directory.
-    Args:
-        root_directory: The root directory to search for `schema.yml` files.
-    Returns:
-        A list of `Path` objects pointing to the `schema.yml` files.
+    Loads the file that contains path to the models' metadata.
     """
-    return [path for path in Path(root_directory).rglob("schema.yml") if path.is_file()]
+    with open(METADATA_FILE_PATH, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
-def markdown_to_html(markdown_text: str) -> str:
+def build_html_from_metadata(metadata: json, dataset_id: str, table_id: str) -> str:
     """
-    Converts markdown text to HTML. As we're in a custom
-    environment, we must replace `<hX>` tags with `<font size="X">`
-    tags.
-    """
-    base_html = markdown.markdown(markdown_text)
-    hx_replacements = {
-        "<h1>": '<font size="6">',
-        "<h2>": '<font size="5">',
-        "<h3>": '<font size="4">',
-        "<h4>": '<font size="3">',
-        "<h5>": '<font size="2">',
-        "<h6>": '<font size="1">',
-        "</h1>": "</font>",
-        "</h2>": "</font>",
-        "</h3>": "</font>",
-        "</h4>": "</font>",
-        "</h5>": "</font>",
-        "</h6>": "</font>",
-        "\n": "<br>",
+    Input format:
+    {
+        "title": "some-title-here",
+        "short_description": "some short description here",
+        "long_description": "some long description here",
+        "update_frequency": "some update frequency here",
+        "temporal_coverage": "some temporal coverage here",
+        "data_owner": "some data owner here",
+        "publisher_name": "some publisher name here",
+        "publisher_email": "some publisher email here",
+        "tags": [
+            "some tag here",
+            "some other tag here"
+        ],
+        "columns": [
+            {
+                "name": "some column name here",
+                "description": "some column description here",
+            },
+            ...
+        ]
     }
-    for key, value in hx_replacements.items():
-        base_html = base_html.replace(key, value)
-    print([base_html])
-    return base_html
 
-
-def generate_name(dataset_id: str, table_id: str) -> str:
     """
-    Generates a name for the item.
-    """
-    return f"datario.{dataset_id}.{table_id}"
+    with open(HTML_TEMPLATE_PATH, "r", encoding="utf-8") as f:
+        template: jinja2.Template = jinja2.Template(f.read())
+    return template.render(**metadata, dataset_id=dataset_id, table_id=table_id)
 
 
 def get_url(dataset_id: str, table_id: str) -> str:
@@ -182,37 +174,9 @@ def get_url(dataset_id: str, table_id: str) -> str:
     return f"https://dados.rio/"
 
 
-def get_tags(dataset_id: str, table_id: str) -> str:
-    """
-    Returns the tags for the item.
-    """
-    return f"{DEFAULT_TAG},{dataset_id},{table_id}"
-
-
-def build_items_data_from_schema_yml(schema_yml_files: List[Path]) -> List[dict]:
+def build_items_data_from_metadata_json() -> List[dict]:
     """
     Builds item data from a schema.yml file.
-
-    Args:
-        schema_yml_files: Path to the schema.yml files. After loaded, each schema
-            will look like this:
-            {
-                "version": "2",
-                "models": [
-                    {
-                        "name": "table_name",
-                        "description": "table description",
-                        "columns": [
-                            {
-                                "name": "column_name",
-                                "description": "column description",
-                            },
-                            ...
-                        ]
-                    },
-                    ...
-                ],
-            }
 
     Returns:
         A dictionary containing the item data. The format is:
@@ -224,40 +188,44 @@ def build_items_data_from_schema_yml(schema_yml_files: List[Path]) -> List[dict]
                 "title": "some title here",
                 "url": "https://some.url.here",
                 "tags": "tag1, tag2, tag3",
+                ...
             },
         }
     """
     items_data = []
     dataset_ids = []
     table_ids = []
-    for schema_yml_path in schema_yml_files:
-        schema: dict = load_metadata_file(schema_yml_path)
-        dataset_id = Path(schema_yml_path).absolute().parent.name
-        for model in schema["models"]:
+    metadata = load_metadata_file()
+    for dataset_id in metadata:
+        for table_id in metadata[dataset_id]:
             item_data = {
                 "item_properties": {
                     "type": "Document Link",
                     "typeKeywords": "Data, Document",
-                    "description": markdown_to_html(model["description"]),
-                    "title": generate_name(
-                        dataset_id=dataset_id, table_id=model["name"]
+                    "description": build_html_from_metadata(
+                        metadata[dataset_id][table_id], dataset_id, table_id
                     ),
-                    "url": get_url(dataset_id=dataset_id, table_id=model["name"]),
-                    "tags": get_tags(dataset_id=dataset_id, table_id=model["name"]),
+                    "snippet": metadata[dataset_id][table_id]["short_description"],
+                    "title": metadata[dataset_id][table_id]["title"],
+                    "url": get_url(dataset_id=dataset_id, table_id=table_id),
+                    "tags": ",".join(
+                        get_default_tags(dataset_id, table_id)
+                        + metadata[dataset_id][table_id]["tags"]
+                    ),
+                    "licenseInfo": LICENSE,
+                    "accessInformation": metadata[dataset_id][table_id]["data_owner"],
                 },
+                # "thumbnail": THUMBNAIL_URL,
             }
             items_data.append(item_data)
             dataset_ids.append(dataset_id)
-            table_ids.append(model["name"])
+            table_ids.append(table_id)
     return items_data, dataset_ids, table_ids
 
 
 if __name__ == "__main__":
 
-    schema_yml_files = list_all_schema_yml_files(root_directory="./")
-    items_data, dataset_ids, table_ids = build_items_data_from_schema_yml(
-        schema_yml_files=schema_yml_files
-    )
+    items_data, dataset_ids, table_ids = build_items_data_from_metadata_json()
     for item_data, dataset_id, table_id in zip(items_data, dataset_ids, table_ids):
         item: Item = create_or_update_item(
             dataset_id=dataset_id, table_id=table_id, data=item_data
