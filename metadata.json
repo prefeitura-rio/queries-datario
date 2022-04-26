@@ -1,0 +1,31 @@
+{
+    "educacao_basica": {
+        "turma": {
+            "title": "Educação básica: Turmas em unidades escolares pertencentes ou de interesse à Prefeitura do Rio de Janeiro",
+            "short_description": "Turma de alunos, atuais ou passadas, em unidades escolares pertencentes ou de interesse da prefeitura do Rio de Janeiro.",
+            "long_description": "Turma de alunos, atuais ou passadas, em unidades escolares pertencentes ou de interesse da prefeitura do Rio de Janeiro.",
+            "update_frequency": "Mensal",
+            "temporal_coverage": "até data corrente",
+            "data_owner": "Secretaria Municipal de Educação",
+            "publisher_name": "Nuno Caminada Silva",
+            "publisher_email": "nuno.silva@rioeduca.net",
+            "tags": [
+                "Educação"
+            ],
+            "columns": [
+                {
+                    "name": "ano",
+                    "description": "Ano em que a turma existe ou existiu. Uma turma é identificada pela unidade escolar onde ela esta, pelo seu número e por seu ano."
+                },
+                {
+                    "name": "id_escola",
+                    "description": "Identificador da escola na base de dados."
+                },
+                {
+                    "name": "id_dependencia",
+                    "description": "Identificador que é a concatenação do identificador da escola (id_escola) com o identificador da dependência (número que identifica unicamente cada dependência na escola) na base de dados."
+                }
+            ]
+        }
+    }
+}
