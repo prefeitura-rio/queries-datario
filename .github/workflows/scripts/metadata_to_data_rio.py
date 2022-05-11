@@ -169,7 +169,7 @@ def get_url(dataset_id: str, table_id: str) -> str:
     """
     Returns the URL for the item.
     """
-    return f"https://dados.rio/"
+    return f"https://storage.googleapis.com/datario/share/{dataset_id}/{table_id}/data.csv.gz"
 
 
 def build_items_data_from_metadata_json() -> List[dict]:
