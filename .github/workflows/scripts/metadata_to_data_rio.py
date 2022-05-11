@@ -48,8 +48,6 @@ from typing import List
 from arcgis import GIS
 from arcgis.gis import ContentManager, Item
 import jinja2
-import markdown
-import ruamel.yaml as ryaml
 
 DEFAULT_TAGS = ["datario"]
 HTML_TEMPLATE_PATH = ".github/workflows/templates/description.html.jinja"
@@ -223,6 +221,15 @@ def build_items_data_from_metadata_json() -> List[dict]:
     return items_data, dataset_ids, table_ids
 
 
+def categorize_item(item: Item, categories: List[str], gis: GIS = None) -> bool:
+    """
+    Categorizes an item.
+    """
+    gis = gis or get_gis_client()
+    cs = gis.admin.category_schema
+    return cs.categorize_item(item, categories)
+
+
 if __name__ == "__main__":
 
     items_data, dataset_ids, table_ids = build_items_data_from_metadata_json()
@@ -231,3 +238,6 @@ if __name__ == "__main__":
             dataset_id=dataset_id, table_id=table_id, data=item_data
         )
         print(f"Created/updated item: ID={item.id}, Title={item.title}")
+        # TODO: Categorize item
+        # TODO: Share item (commented because we need a safe way to test this)
+        # item.share(everyone=True)
