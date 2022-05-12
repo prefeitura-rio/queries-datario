@@ -1,21 +1,24 @@
 {
     "educacao_basica": {
         "turma": {
-            "title": "Educação básica: Turmas em unidades escolares pertencentes ou de interesse à Prefeitura do Rio de Janeiro",
-            "short_description": "Turma de alunos, atuais ou passadas, em unidades escolares pertencentes ou de interesse da prefeitura do Rio de Janeiro.",
+            "title": "Educação básica: Turma",
+            "short_description": "Turma de alunos em unidades escolares.",
             "long_description": "Turma de alunos, atuais ou passadas, em unidades escolares pertencentes ou de interesse da prefeitura do Rio de Janeiro.",
             "update_frequency": "Mensal",
-            "temporal_coverage": "até data corrente",
+            "temporal_coverage": "Até data corrente",
             "data_owner": "Secretaria Municipal de Educação",
             "publisher_name": "Nuno Caminada Silva",
             "publisher_email": "nuno.silva@rioeduca.net",
             "tags": [
-                "Educação"
+                "educacao"
+            ],
+            "categories": [
+                "/Categories/Educação/Educação Básica"
             ],
             "columns": [
                 {
                     "name": "ano",
-                    "description": "Ano em que a turma existe ou existiu. Uma turma é identificada pela unidade escolar onde ela esta, pelo seu número e por seu ano."
+                    "description": "Ano em que a turma existe ou existiu. \r\nUma turma é identificada pela unidade escolar onde ela esta, pelo seu número e por seu ano."
                 },
                 {
                     "name": "id_escola",
@@ -24,6 +27,54 @@
                 {
                     "name": "id_dependencia",
                     "description": "Identificador que é a concatenação do identificador da escola (id_escola) com o identificador da dependência (número que identifica unicamente cada dependência na escola) na base de dados."
+                },
+                {
+                    "name": "id_turma",
+                    "description": "Identificador da turma na base de dados."
+                },
+                {
+                    "name": "id_turma_escola",
+                    "description": "Identificador da turma. \r\nÉ dado pela escola. \r\nÉ único em determinada escola e determinado ano.\r\nHá uma padronização, ex. 1601 é para o sexto ano."
+                },
+                {
+                    "name": "curso",
+                    "description": "Tipo do curso que a turma está fazendo. Ex. Ensino fundamental 1, Ensino fundamental classe especial, Educação infantil pré-escola. Este tipo pode variar de ano a ano."
+                },
+                {
+                    "name": "nivel_ensino",
+                    "description": "Nível do ensino da turma. \r\nPode ser Fundamental ou Educação Infantil."
+                },
+                {
+                    "name": "modalidade",
+                    "description": "Modalidade do ensino da turma. \r\nPode ser Regular, Especial ou EJA."
+                },
+                {
+                    "name": "grupamento",
+                    "description": "Série da turma. \r\nEm unidades escolares da prefeitura em geral se vai do 1ª a 9ª ano. \r\nEm dados mais antigos pode ir da 1ª a 8ª série."
+                },
+                {
+                    "name": "turno",
+                    "description": "Turno da turma.\r\nPode ser Manhã, Tarde, Noite ou Integral.\r\nPode ser primeiro turno ou segundo turno em turmas mais antigas."
+                },
+                {
+                    "name": "sala",
+                    "description": "Nome da dependência que é ocupada pela turma como sala de aula."
+                },
+                {
+                    "name": "area_sala",
+                    "description": "Área, em metros quadrados, da dependência que é ocupada pela turma."
+                },
+                {
+                    "name": "capacidade_sala",
+                    "description": "Capacidade, em número de alunos, da dependência que é ocupada pela turma."
+                },
+                {
+                    "name": "tipo_sala",
+                    "description": "Tipo da dependência ocupada pela turma. \r\nEx.: Sala de Aula, Auditório, Laboratório de Informática, despensa, rampa de acesso etc."
+                },
+                {
+                    "name": "sala_util_como",
+                    "description": "Utilização atual da dependência ocupada pela turma. \r\nEx. os mesmos do tipo de dependência(tipo_sala). Pode diferir do tipo de dependência, pois o tipo de dependência é tipo oficial da dependência, que pode ser diferente da utilização real."
                 }
             ]
         }

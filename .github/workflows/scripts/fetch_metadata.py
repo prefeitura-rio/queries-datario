@@ -104,6 +104,7 @@ def fetch_metadata(initial_dict: dict) -> dict:
                     "publisher_email"
                 ]
                 initial_dict[dataset_id][table_id]["tags"] = data["tags"]
+                initial_dict[dataset_id][table_id]["categories"] = data["categories"]
                 initial_dict[dataset_id][table_id]["columns"] = []
                 for column in data["columns"]:
                     initial_dict[dataset_id][table_id]["columns"].append(

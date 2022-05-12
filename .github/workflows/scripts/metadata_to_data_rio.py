@@ -191,6 +191,7 @@ def build_items_data_from_metadata_json() -> List[dict]:
         }
     """
     items_data = []
+    categories = []
     dataset_ids = []
     table_ids = []
     metadata = load_metadata_file()
@@ -216,9 +217,10 @@ def build_items_data_from_metadata_json() -> List[dict]:
                 # "thumbnail": THUMBNAIL_URL,
             }
             items_data.append(item_data)
+            categories.append(metadata[dataset_id][table_id]["categories"])
             dataset_ids.append(dataset_id)
             table_ids.append(table_id)
-    return items_data, dataset_ids, table_ids
+    return items_data, categories, dataset_ids, table_ids
 
 
 def categorize_item(item: Item, categories: List[str], gis: GIS = None) -> bool:
@@ -232,12 +234,20 @@ def categorize_item(item: Item, categories: List[str], gis: GIS = None) -> bool:
 
 if __name__ == "__main__":
 
-    items_data, dataset_ids, table_ids = build_items_data_from_metadata_json()
-    for item_data, dataset_id, table_id in zip(items_data, dataset_ids, table_ids):
+    (
+        items_data,
+        categories,
+        dataset_ids,
+        table_ids,
+    ) = build_items_data_from_metadata_json()
+    for item_data, item_categories, dataset_id, table_id in zip(
+        items_data, categories, dataset_ids, table_ids
+    ):
         item: Item = create_or_update_item(
             dataset_id=dataset_id, table_id=table_id, data=item_data
         )
         print(f"Created/updated item: ID={item.id}, Title={item.title}")
-        # TODO: Categorize item
+        categorize_item(item, item_categories)
+        print(f"Categorized item: ID={item.id} with categories: {item_categories}")
         # TODO: Share item (commented because we need a safe way to test this)
         # item.share(everyone=True)
