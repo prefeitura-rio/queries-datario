@@ -34,6 +34,9 @@ models:
     relation: true
     columns: true
   emd:
+    dados_mestres:
+      +materialized: table
+      +schema: dados_mestres
     educacao_basica:
       +materialized: table
       +schema: educacao_basica
