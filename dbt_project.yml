@@ -34,13 +34,15 @@ models:
     relation: true
     columns: true
   emd:
+    administracao_servicos_publicos_1746:
+      +materialized: table
+      +schema: administracao_servicos_publicos_1746
     dados_mestres:
       +materialized: table
       +schema: dados_mestres
     educacao_basica:
       +materialized: table
       +schema: educacao_basica
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view # Materialization type (view, table or incremental)
-      +schema: example # Overrides the default schema (defaults to what is set on profiles.yml)
+    meio_ambiente_clima:
+      +materialized: table
+      +schema: meio_ambiente_clima
