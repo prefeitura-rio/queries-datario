@@ -33,16 +33,20 @@ jobs:
           git fetch --depth=1
           git checkout ${{ github.head_ref }}
 
-      - name: Update metadata
+      - name: Fetch updated metadata from API
         run: |-
-          python3 .github/workflows/scripts/metadata_automation.py
+          python3 .github/workflows/scripts/fetch_metadata.py
+
+      - name: Update DBT schemas
+        run: |-
+          python3 .github/workflows/scripts/metadata_to_dbt_schema.py
 
       - name: Commit changed files
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'Update metadata'
 
-      - name: Create/update on data.rio
+      - name: Create/update content on data.rio
         if: github.ref == 'refs/heads/master'
         run: |-
-          python3 .github/workflows/scripts/integrate_to_data_rio.py
+          python3 .github/workflows/scripts/metadata_to_data_rio.py

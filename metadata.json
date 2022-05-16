@@ -1,0 +1,282 @@
+{
+    "meio_ambiente_clima": {
+        "taxa_precipitacao_alertario": {
+            "title": "Meio Ambiente e Clima: Taxa de Precipitação Alerta Rio",
+            "short_description": "Taxa medida de precipitação das estações pluviométricas da cidade do Rio de Janeiro.",
+            "long_description": "Taxa medida de precipitação das estações pluviométricas da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos, cada registro contendo dados desta medida.",
+            "update_frequency": "Nunca",
+            "temporal_coverage": "Desde 1997 até data corrente",
+            "data_owner": "COR",
+            "publisher_name": "Patrícia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [],
+            "categories": [],
+            "columns": [
+                {
+                    "name": "data_medicao",
+                    "description": "Data e horário em que foi realizada a medição"
+                },
+                {
+                    "name": "id_estacao",
+                    "description": "ID da estação pluviométrica em que ocorreu a medição."
+                },
+                {
+                    "name": "acumulado_chuva_15_min",
+                    "description": "Acumulado de chuva em 15 minutos."
+                },
+                {
+                    "name": "acumulado_chuva_1_h",
+                    "description": "Acumulado de chuva em 1 hora."
+                },
+                {
+                    "name": "acumulado_chuva_4_h",
+                    "description": "Acumulado de chuva em 4 horas."
+                },
+                {
+                    "name": "acumulado_chuva_24_h",
+                    "description": "Acumulado de chuva em 24 horas."
+                },
+                {
+                    "name": "acumulado_chuva_96_h",
+                    "description": "Acumulado de chuva em 96 horas."
+                }
+            ]
+        },
+        "meteorologia_inmet": {
+            "title": "Meio Ambiente e Clima: Metereologia do Instituto Nacional de Meteorologia (INMET)",
+            "short_description": "Dados meteorológicos obtidas das estações pluviométricas do INMET na cidade do Rio de Janeiro",
+            "long_description": "Dados meteorológicos obtidos nas estações pluviométricas do INMET ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\r\nAs medidas são feitas de hora em hora, cada registro contendo dados destas medidas para cada estação. \r\nEntre os dados temos horário da medição, acumulado de chuva em 1 hora, direção e velocidade do vento, temperatura, pressão atmosférica, umidade e radiação global.",
+            "update_frequency": "Diário",
+            "temporal_coverage": "Desde 1997 até data corrente",
+            "data_owner": "INMET",
+            "publisher_name": "Patrícia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [],
+            "categories": [],
+            "columns": [
+                {
+                    "name": "id_estacao",
+                    "description": "ID da estação dada pelo INMET."
+                },
+                {
+                    "name": "data",
+                    "description": "Data em que foi realizada a medição."
+                },
+                {
+                    "name": "horario",
+                    "description": "Horário em que foi realizada a medição."
+                },
+                {
+                    "name": "acumulado_chuva_1_h",
+                    "description": "Acumulado de chuva em 1 hora na estação."
+                },
+                {
+                    "name": "direcao_vento",
+                    "description": "Direção horária do vento na estação."
+                },
+                {
+                    "name": "velocidade_vento",
+                    "description": "Velocidade do vento na estação."
+                },
+                {
+                    "name": "temperatura",
+                    "description": "Temperatura na medição instantânea na estação."
+                },
+                {
+                    "name": "pressao",
+                    "description": "Pressão atmosférica ao nível da estação."
+                },
+                {
+                    "name": "pressao_minima",
+                    "description": "Pressão atmosférica mínima na hora anterior."
+                },
+                {
+                    "name": "pressao_maxima",
+                    "description": "Pressão atmosférica máxima na hora anterior."
+                },
+                {
+                    "name": "umidade",
+                    "description": "Umidade relativa do ar instantânea na estação."
+                },
+                {
+                    "name": "umidade_minima",
+                    "description": "Umidade relativa mínima na hora anterior."
+                },
+                {
+                    "name": "umidade_maxima",
+                    "description": "Umidade relativa máxima na hora anterior."
+                },
+                {
+                    "name": "rajada_vento_max",
+                    "description": "Rajada de vento máxima na estação."
+                },
+                {
+                    "name": "temperatura_minima",
+                    "description": "Temperatura mínima na hora anterior na estação."
+                },
+                {
+                    "name": "temperatura_maxima",
+                    "description": "Temperatura máxima na hora anterior na estação."
+                },
+                {
+                    "name": "radiacao_global",
+                    "description": "Radiação solar global captada na estação."
+                },
+                {
+                    "name": "temperatura_orvalho",
+                    "description": "Temperatura de orvalho instantânea na estação."
+                },
+                {
+                    "name": "temperatura_orvalho_minimo",
+                    "description": "Temperatura mínima de orvalho na hora anterior."
+                },
+                {
+                    "name": "temperatura_orvalho_maximo",
+                    "description": "Temperatura máxima de orvalho na hora anterior."
+                }
+            ]
+        }
+    },
+    "dados_mestres": {
+        "bairro": {
+            "title": "Dados Mestres da Prefeitura da Cidade do Rio de Janeiro: Bairro",
+            "short_description": "Bairros da Cidade",
+            "long_description": "Bairros da Cidade do Rio de Janeiro",
+            "update_frequency": "Mensal",
+            "temporal_coverage": "Até a presente data",
+            "data_owner": "Instituto Pereira Passos (IPP) / Câmara dos Vereadores (CMRJ)",
+            "publisher_name": "IPP",
+            "publisher_email": "contato.siurb@gmail.com",
+            "tags": [
+                "bairro"
+            ],
+            "categories": [],
+            "columns": [
+                {
+                    "name": "shape_area",
+                    "description": "Área (m²) do bairro. Calculado automaticamente pelo ArqGis."
+                },
+                {
+                    "name": "id_bairro",
+                    "description": "Código do bairro dado pela prefeitura do Rio de Janeiro."
+                },
+                {
+                    "name": "nome",
+                    "description": "Nome do bairro"
+                },
+                {
+                    "name": "id_area_planejamento",
+                    "description": "Código da área de planejamento onde está localizado a região de planejamento do bairro.\r\nVer atributo nome_regiao_planejamento."
+                },
+                {
+                    "name": "nome_regiao_planejamento",
+                    "description": "Nome da região de planejamento. \r\nDeve respeitar o atributo id_regiao_planejamento."
+                },
+                {
+                    "name": "id_regiao_planejamento",
+                    "description": "Código da região de planejamento onde está localizado o região administrativa do bairro. Ver atributo REGIAO_ADM."
+                },
+                {
+                    "name": "id_regiao_administrativa",
+                    "description": "Código da região administrativa onde está locallizado o bairro."
+                },
+                {
+                    "name": "nome_regiao_administrativa",
+                    "description": "Nome da região administrativa onde está localizado o bairro. \r\nEste atributo deve respeitar o atributo id_regiao_administrativa."
+                },
+                {
+                    "name": "area",
+                    "description": "Área (m²) do bairro. \r\nTem o mesmo valor do atributo SHAPE.STArea()."
+                },
+                {
+                    "name": "perimetro",
+                    "description": "Perímetro (m) do bairro."
+                },
+                {
+                    "name": "geometry",
+                    "description": "Geometria do bairro no banco do ArcGIS."
+                }
+            ]
+        }
+    },
+    "educacao_basica": {
+        "turma": {
+            "title": "Educação básica: Turma",
+            "short_description": "Turma de alunos em unidades escolares.",
+            "long_description": "Turma de alunos, atuais ou passadas, em unidades escolares pertencentes ou de interesse da prefeitura do Rio de Janeiro.",
+            "update_frequency": "Mensal",
+            "temporal_coverage": "Até data corrente",
+            "data_owner": "Secretaria Municipal de Educação",
+            "publisher_name": "Nuno Caminada Silva",
+            "publisher_email": "nuno.silva@rioeduca.net",
+            "tags": [
+                "educacao"
+            ],
+            "categories": [
+                "91117c15dceb41eaa08df881fa9f9310"
+            ],
+            "columns": [
+                {
+                    "name": "ano",
+                    "description": "Ano em que a turma existe ou existiu. \r\nUma turma é identificada pela unidade escolar onde ela esta, pelo seu número e por seu ano."
+                },
+                {
+                    "name": "id_escola",
+                    "description": "Identificador da escola na base de dados."
+                },
+                {
+                    "name": "id_dependencia",
+                    "description": "Identificador que é a concatenação do identificador da escola (id_escola) com o identificador da dependência (número que identifica unicamente cada dependência na escola) na base de dados."
+                },
+                {
+                    "name": "id_turma",
+                    "description": "Identificador da turma na base de dados."
+                },
+                {
+                    "name": "id_turma_escola",
+                    "description": "Identificador da turma. \r\nÉ dado pela escola. \r\nÉ único em determinada escola e determinado ano.\r\nHá uma padronização, ex. 1601 é para o sexto ano."
+                },
+                {
+                    "name": "curso",
+                    "description": "Tipo do curso que a turma está fazendo. Ex. Ensino fundamental 1, Ensino fundamental classe especial, Educação infantil pré-escola. Este tipo pode variar de ano a ano."
+                },
+                {
+                    "name": "nivel_ensino",
+                    "description": "Nível do ensino da turma. \r\nPode ser Fundamental ou Educação Infantil."
+                },
+                {
+                    "name": "modalidade",
+                    "description": "Modalidade do ensino da turma. \r\nPode ser Regular, Especial ou EJA."
+                },
+                {
+                    "name": "grupamento",
+                    "description": "Série da turma. \r\nEm unidades escolares da prefeitura em geral se vai do 1ª a 9ª ano. \r\nEm dados mais antigos pode ir da 1ª a 8ª série."
+                },
+                {
+                    "name": "turno",
+                    "description": "Turno da turma.\r\nPode ser Manhã, Tarde, Noite ou Integral.\r\nPode ser primeiro turno ou segundo turno em turmas mais antigas."
+                },
+                {
+                    "name": "sala",
+                    "description": "Nome da dependência que é ocupada pela turma como sala de aula."
+                },
+                {
+                    "name": "area_sala",
+                    "description": "Área, em metros quadrados, da dependência que é ocupada pela turma."
+                },
+                {
+                    "name": "capacidade_sala",
+                    "description": "Capacidade, em número de alunos, da dependência que é ocupada pela turma."
+                },
+                {
+                    "name": "tipo_sala",
+                    "description": "Tipo da dependência ocupada pela turma. \r\nEx.: Sala de Aula, Auditório, Laboratório de Informática, despensa, rampa de acesso etc."
+                },
+                {
+                    "name": "sala_util_como",
+                    "description": "Utilização atual da dependência ocupada pela turma. \r\nEx. os mesmos do tipo de dependência(tipo_sala). Pode diferir do tipo de dependência, pois o tipo de dependência é tipo oficial da dependência, que pode ser diferente da utilização real."
+                }
+            ]
+        }
+    }
+}
