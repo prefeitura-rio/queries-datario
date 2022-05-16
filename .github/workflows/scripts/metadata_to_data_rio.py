@@ -51,7 +51,7 @@ import jinja2
 
 DEFAULT_TAGS = ["datario"]
 HTML_TEMPLATE_PATH = ".github/workflows/templates/description.html.jinja"
-LICENSE = "https://creativecommons.org/licenses/by-nd/3.0/deed.pt_BR"
+
 METADATA_FILE_PATH = "metadata.json"
 THUMBNAIL_URL = (
     "https://nayemdevs.com/wp-content/uploads/2020/03/default-product-image.png"
@@ -61,6 +61,26 @@ THUMBNAIL_URL = (
 class GisItemNotFound(Exception):
     """
     Raised when an item is not found.
+    """
+
+
+def get_license():
+    """
+    Returns the license (can be HTML formatted).
+    """
+    cc_license = "by-nd/3.0"
+    cc_license_name = "Attribution-NoDerivatives 3.0"
+    license_url = f"https://creativecommons.org/licenses/{cc_license}/deed.pt_BR"
+    return f"""
+    <a href={license_url}>
+        <img    alt="Creative Commons License"
+                src="https://i.creativecommons.org/l/{cc_license}/88x31.png"
+                style="border-width:0"
+        />
+    </a>
+    <br />
+    This work is licensed under a
+    <a rel="license" href={license_url}>Creative Commons {cc_license_name} Unported License</a>.
     """
 
 
@@ -211,7 +231,7 @@ def build_items_data_from_metadata_json() -> List[dict]:
                         get_default_tags(dataset_id, table_id)
                         + metadata[dataset_id][table_id]["tags"]
                     ),
-                    "licenseInfo": LICENSE,
+                    "licenseInfo": get_license(),
                     "accessInformation": metadata[dataset_id][table_id]["data_owner"],
                 },
                 # "thumbnail": THUMBNAIL_URL,
