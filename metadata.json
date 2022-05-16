@@ -51,8 +51,13 @@
             "data_owner": "INMET",
             "publisher_name": "Patrícia Catandi",
             "publisher_email": "patriciabcatandi@gmail.com",
-            "tags": [],
-            "categories": [],
+            "tags": [
+                "meio ambiente",
+                "pluviometria"
+            ],
+            "categories": [
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
             "columns": [
                 {
                     "name": "id_estacao",
