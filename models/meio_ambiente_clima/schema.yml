@@ -1,0 +1,74 @@
+version: 2
+models :
+  - name: taxa_precipitacao_alertario
+    description: "**Descrição**: Taxa medida de precipitação das estações pluviométricas\
+      \ da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos,\
+      \ cada registro contendo dados desta medida.\n**Frequência de atualização**:\
+      \ Nunca\n**Cobertura temporal**: Desde 1997 até data corrente\n**Órgão gestor\
+      \ dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**:\
+      \ patriciabcatandi@gmail.com\n"
+    columns:
+      - name: data_medicao
+        description: Data e horário em que foi realizada a medição
+      - name: id_estacao
+        description: ID da estação pluviométrica em que ocorreu a medição.
+      - name: acumulado_chuva_15_min
+        description: Acumulado de chuva em 15 minutos.
+      - name: acumulado_chuva_1_h
+        description: Acumulado de chuva em 1 hora.
+      - name: acumulado_chuva_4_h
+        description: Acumulado de chuva em 4 horas.
+      - name: acumulado_chuva_24_h
+        description: Acumulado de chuva em 24 horas.
+      - name: acumulado_chuva_96_h
+        description: Acumulado de chuva em 96 horas.
+  - name: meteorologia_inmet
+    description: "**Descrição**: Dados meteorológicos obtidos nas estações pluviométricas\
+      \ do INMET ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\r\
+      \nAs medidas são feitas de hora em hora, cada registro contendo dados destas\
+      \ medidas para cada estação. \r\nEntre os dados temos horário da medição, acumulado\
+      \ de chuva em 1 hora, direção e velocidade do vento, temperatura, pressão atmosférica,\
+      \ umidade e radiação global.\n**Frequência de atualização**: Diário\n**Cobertura\
+      \ temporal**: Desde 1997 até data corrente\n**Órgão gestor dos dados**: INMET\n\
+      **Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+    columns:
+      - name: id_estacao
+        description: ID da estação dada pelo INMET.
+      - name: data
+        description: Data em que foi realizada a medição.
+      - name: horario
+        description: Horário em que foi realizada a medição.
+      - name: acumulado_chuva_1_h
+        description: Acumulado de chuva em 1 hora na estação.
+      - name: direcao_vento
+        description: Direção horária do vento na estação.
+      - name: velocidade_vento
+        description: Velocidade do vento na estação.
+      - name: temperatura
+        description: Temperatura na medição instantânea na estação.
+      - name: pressao
+        description: Pressão atmosférica ao nível da estação.
+      - name: pressao_minima
+        description: Pressão atmosférica mínima na hora anterior.
+      - name: pressao_maxima
+        description: Pressão atmosférica máxima na hora anterior.
+      - name: umidade
+        description: Umidade relativa do ar instantânea na estação.
+      - name: umidade_minima
+        description: Umidade relativa mínima na hora anterior.
+      - name: umidade_maxima
+        description: Umidade relativa máxima na hora anterior.
+      - name: rajada_vento_max
+        description: Rajada de vento máxima na estação.
+      - name: temperatura_minima
+        description: Temperatura mínima na hora anterior na estação.
+      - name: temperatura_maxima
+        description: Temperatura máxima na hora anterior na estação.
+      - name: radiacao_global
+        description: Radiação solar global captada na estação.
+      - name: temperatura_orvalho
+        description: Temperatura de orvalho instantânea na estação.
+      - name: temperatura_orvalho_minimo
+        description: Temperatura mínima de orvalho na hora anterior.
+      - name: temperatura_orvalho_maximo
+        description: Temperatura máxima de orvalho na hora anterior.
