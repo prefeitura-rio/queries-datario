@@ -32,3 +32,61 @@ models :
         description: Perímetro (m) do bairro.
       - name: geometry
         description: Geometria do bairro no banco do ArcGIS.
+  - name: logradouro
+    description: "**Descrição**: Trechos ativos de logradouros do município do Rio\
+      \ de Janeiro. \r\nTrecho de logradouro é um pedaço do logradouro, no caso de\
+      \ uma rua vai de uma esquina à outra. Logradouro é qualquer espaço público comum\
+      \ que pode ser usufruído por toda a população (reconhecidos formalmente ou não,\
+      \ de conhecimento da prefeitura do Rio de Janeiro), como largos, praças, ruas,\
+      \ jardins, parques, entre outros.\n**Frequência de atualização**: Mensal\n**Cobertura\
+      \ temporal**: Até data corrente\n**Órgão gestor dos dados**: Instituto Pereira\
+      \ Passos (IPP) / Secretaria Municipal de Planejamento Urbano (SMPU)\n**Publicado\
+      \ por**: IPP\n**Publicado por (email)**: contato.siurb@gmail.com\n"
+    columns:
+      - name: id_logradouro
+        description: Código oficial do logradouro dado pela Prefeitura do Rio de Janeiro.
+      - name: nome
+        description: "Nome do bairro onde está localizado o trecho de logradouro.\r\
+          \nUm trecho pode passar por vários bairros. \r\nEste atributo indica um\
+          \ dos bairros contendo o trecho. \r\nDeve respeitar o atributo Cod_Bairro."
+      - name: nome_parcial
+        description: "Nome parcial do logradouro. \r\nNome do logradouro sem o tipo\
+          \ do logradouro (rua, estrada, beco, travessa etc ) e sem a nobreza do logradouro."
+      - name: nome_completo
+        description: "Nome completo do logradouro. \r\nNome do logradouro com tipo,\
+          \ nobreza e nome parcial."
+      - name: id_trecho
+        description: Identificador único do trecho no banco de dados.
+      - name: id_situacao_trecho
+        description: Código de situação do trecho de logradouro.
+      - name: situacao_trecho
+        description: "Situação do trecho de logradouro.\r\nPor exemplo ativo, cancelado,\
+          \ rascunho. Nesta disponibilização do IPP somente entraram os trechos ativos.\
+          \ \r\nDeve respeitar o atributo COD_SIT_TRECHO."
+      - name: id_tipo
+        description: "Código do tipo do logradouro dado pela prefeitura do Rio de\
+          \ Janeiro.\r\nPor exemplo 41 é associado a rua."
+      - name: tipo
+        description: "Tipo do logradouro por extenso.\r\nPor exemplo rua. \r\nDeve\
+          \ respeitar o id_tipo."
+      - name: id_bairro
+        description: "Código do bairro, dado pela prefeitura do Rio de Janeiro, do\
+          \ trecho de logradouro.\r\nVer o atributo nome."
+      - name: inicio_numero_porta_par
+        description: Numeração inicial do lado par do trecho de logradouro.
+      - name: final_numero_porta_par
+        description: Numeração final do lado par do trecho de logradouro.
+      - name: inicio_numero_porta_impar
+        description: Numeração inicial do lado ímpar do trecho de logradouro.
+      - name: final_numero_porta_impar
+        description: Numeração final do lado ímpar do trecho de logradouro.
+      - name: hierarquia
+        description: "Hierarquia viária do trecho de logradouro. \r\nPor exemplo estrutural,\
+          \ arterial primária, arterial secundária, coletora, local. \r\nClassificação\
+          \ relacionada a regras para o tráfego que passa por ela.\r\nPor exemplo\
+          \ fluxo de veículos, velocidade máxima etc."
+      - name: id_chavegeo
+        description: Código Chavegeo calculado a partir das coordenadas X e Y do centro
+          do trecho de logradouro.
+      - name: geometry
+        description: Geometria do trecho de logradouro no banco do ArcGIS.
