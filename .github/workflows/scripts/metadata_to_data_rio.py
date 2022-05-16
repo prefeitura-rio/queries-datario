@@ -249,3 +249,5 @@ if __name__ == "__main__":
         print(f"Created/updated item: ID={item.id}, Title={item.title}")
         item.share(org=True, groups=item_categories)
         print(f"Shared item: ID={item.id} with groups: {item_categories}")
+        item.move("public")
+        print(f"Moved item: ID={item.id} to public directory")
