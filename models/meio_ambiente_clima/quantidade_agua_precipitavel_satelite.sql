@@ -1,0 +1,1 @@
+SELECT * FROM `rj-escritorio-dev.meio_ambiente_clima.quantidade_agua_precipitavel_satelite`
