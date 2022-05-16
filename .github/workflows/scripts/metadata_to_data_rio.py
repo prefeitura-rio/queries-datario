@@ -247,9 +247,5 @@ if __name__ == "__main__":
             dataset_id=dataset_id, table_id=table_id, data=item_data
         )
         print(f"Created/updated item: ID={item.id}, Title={item.title}")
-        categorize_item(item, item_categories)
-        print(f"Categorized item: ID={item.id} with categories: {item_categories}")
-        # TODO: Share item (commented because we need a safe way to test this)
-        if item.id == "939bd2978f2b44f89a040387adc49ede":
-            item.share(everyone=True)
-            print(f"Shared item: ID={item.id}")
+        item.share(org=True, groups=item_categories)
+        print(f"Shared item: ID={item.id} with groups: {item_categories}")
