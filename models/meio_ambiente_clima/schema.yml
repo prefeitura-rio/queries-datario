@@ -4,9 +4,9 @@ models :
     description: "**Descrição**: Taxa medida de precipitação das estações pluviométricas\
       \ da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos,\
       \ cada registro contendo dados desta medida.\n**Frequência de atualização**:\
-      \ Nunca\n**Cobertura temporal**: Desde 1997 até data corrente\n**Órgão gestor\
-      \ dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**:\
-      \ patriciabcatandi@gmail.com\n"
+      \ 15 minutos\n**Cobertura temporal**: Desde 1997 até data corrente\n**Órgão\
+      \ gestor dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado\
+      \ por (email)**: patriciabcatandi@gmail.com\n"
     columns:
       - name: data_medicao
         description: Data e horário em que foi realizada a medição
@@ -28,8 +28,8 @@ models :
       \nAs medidas são feitas de hora em hora, cada registro contendo dados destas\
       \ medidas para cada estação. \r\nEntre os dados temos horário da medição, acumulado\
       \ de chuva em 1 hora, direção e velocidade do vento, temperatura, pressão atmosférica,\
-      \ umidade e radiação global.\n**Frequência de atualização**: Diário\n**Cobertura\
-      \ temporal**: Desde 1997 até data corrente\n**Órgão gestor dos dados**: INMET\n\
+      \ umidade e radiação global.\n**Frequência de atualização**: Horário\n**Cobertura\
+      \ temporal**: Desde 2010 até data corrente\n**Órgão gestor dos dados**: INMET\n\
       **Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
       - name: id_estacao

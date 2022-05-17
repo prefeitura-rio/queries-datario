@@ -4,7 +4,7 @@
             "title": "Meio Ambiente e Clima: Taxa de Precipitação Alerta Rio",
             "short_description": "Taxa medida de precipitação das estações pluviométricas da cidade do Rio de Janeiro.",
             "long_description": "Taxa medida de precipitação das estações pluviométricas da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos, cada registro contendo dados desta medida.",
-            "update_frequency": "Nunca",
+            "update_frequency": "15 minutos",
             "temporal_coverage": "Desde 1997 até data corrente",
             "data_owner": "COR",
             "publisher_name": "Patrícia Catandi",
@@ -46,8 +46,8 @@
             "title": "Meio Ambiente e Clima: Metereologia do Instituto Nacional de Meteorologia (INMET)",
             "short_description": "Dados meteorológicos obtidas das estações pluviométricas do INMET na cidade do Rio de Janeiro",
             "long_description": "Dados meteorológicos obtidos nas estações pluviométricas do INMET ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\r\nAs medidas são feitas de hora em hora, cada registro contendo dados destas medidas para cada estação. \r\nEntre os dados temos horário da medição, acumulado de chuva em 1 hora, direção e velocidade do vento, temperatura, pressão atmosférica, umidade e radiação global.",
-            "update_frequency": "Diário",
-            "temporal_coverage": "Desde 1997 até data corrente",
+            "update_frequency": "Horário",
+            "temporal_coverage": "Desde 2010 até data corrente",
             "data_owner": "INMET",
             "publisher_name": "Patrícia Catandi",
             "publisher_email": "patriciabcatandi@gmail.com",
@@ -1034,16 +1034,24 @@
     },
     "administracao_servicos_publicos_1746": {
         "chamado": {
-            "title": "TODO_TITLE_PREFIX: ",
+            "title": "Dados dos chamados realizados no 1746: Chamados feitos ao 1746",
             "short_description": "Chamados feitos ao 1746. São chamados desde março de  2011, quando começou o projeto 1746.",
-            "long_description": "",
-            "update_frequency": "",
-            "temporal_coverage": "",
-            "data_owner": "",
-            "publisher_name": "",
-            "publisher_email": "",
-            "tags": [],
-            "categories": [],
+            "long_description": "Chamados feitos ao 1746. São chamados desde março de  2011, quando começou o projeto 1746.",
+            "update_frequency": "Diário",
+            "temporal_coverage": "Março de  2011",
+            "data_owner": "SEGOVI",
+            "publisher_name": "Patricia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "bairro",
+                "logradouros"
+            ],
+            "categories": [
+                "9c068b52c31f4567b550c528ad416b89",
+                "1de0fc5e9dfc40f687702caa089fd16f",
+                "0128241e3e024872a7eb46848eb7a7be",
+                "cbe84df2333a463b9d4e20aca5177936"
+            ],
             "columns": [
                 {
                     "name": "id_chamado",
