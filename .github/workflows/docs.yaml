@@ -29,14 +29,15 @@ jobs:
       - name: Setup credentials
         run: |
           echo $DBT_SA | base64 --decode > dbt-sa.json
-          mkdir -p /credentials-dev
-          mkdir -p /credentials-prod
-          cp dbt-sa.json /credentials-dev/dev.json
-          cp dbt-sa.json /credentials-prod/dev.json
+          python3 .github/workflows/scripts/modify_profiles.py
 
       - name: Generate docs
         run: |
           dbt docs generate --profiles-dir .
+
+      - name: Delete credentials
+        run: |
+          rm dbt-sa.json
 
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@v4.2.3
