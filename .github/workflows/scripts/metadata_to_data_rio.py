@@ -154,7 +154,9 @@ def load_metadata_file() -> dict:
         return json.load(f)
 
 
-def build_html_from_metadata(metadata: json, dataset_id: str, table_id: str) -> str:
+def build_html_from_metadata(
+    metadata: json, dataset_id: str, table_id: str, url: str
+) -> str:
     """
     Input format:
     {
@@ -182,7 +184,9 @@ def build_html_from_metadata(metadata: json, dataset_id: str, table_id: str) -> 
     """
     with open(HTML_TEMPLATE_PATH, "r", encoding="utf-8") as f:
         template: jinja2.Template = jinja2.Template(f.read())
-    return template.render(**metadata, dataset_id=dataset_id, table_id=table_id)
+    return template.render(
+        **metadata, dataset_id=dataset_id, table_id=table_id, url=url
+    )
 
 
 def get_url(dataset_id: str, table_id: str) -> str:
@@ -222,7 +226,10 @@ def build_items_data_from_metadata_json() -> List[dict]:
                     "type": "Document Link",
                     "typeKeywords": "Data, Document",
                     "description": build_html_from_metadata(
-                        metadata[dataset_id][table_id], dataset_id, table_id
+                        metadata[dataset_id][table_id],
+                        dataset_id,
+                        table_id,
+                        get_url(dataset_id=dataset_id, table_id=table_id),
                     ),
                     "snippet": metadata[dataset_id][table_id]["short_description"],
                     "title": metadata[dataset_id][table_id]["title"],
