@@ -8,4 +8,4 @@
     )
 }}
 
-SELECT * FROM `rj-sme.educacao_basica.avaliacao`
+SELECT * FROM `rj-sme.educacao_basica.aluno_historico`
