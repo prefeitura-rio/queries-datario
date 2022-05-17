@@ -1,9 +1,10 @@
 version: 2
 models :
   - name: chamado
-    description: "**Descrição**: \n**Frequência de atualização**: \n**Cobertura temporal**:\
-      \ \n**Órgão gestor dos dados**: \n**Publicado por**: \n**Publicado por (email)**:\
-      \ \n"
+    description: "**Descrição**: Chamados feitos ao 1746. São chamados desde março\
+      \ de  2011, quando começou o projeto 1746.\n**Frequência de atualização**: Diário\n\
+      **Cobertura temporal**: Março de  2011\n**Órgão gestor dos dados**: SEGOVI\n\
+      **Publicado por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
       - name: id_chamado
         description: Identificador único do chamado no banco de dados.
