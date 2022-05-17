@@ -5,6 +5,9 @@ on:
     branches:
       - master
 
+env:
+  DBT_SA: ${{ secrets.DBT_SA }}
+
 jobs:
   docs:
     name: Deploy docs
