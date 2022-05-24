@@ -47,3 +47,7 @@ models:
     meio_ambiente_clima:
       +materialized: table
       +schema: meio_ambiente_clima
+  
+  # Grant acess
+  # bq data control: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language
+  # dbt grant statements use https://discourse.getdbt.com/t/the-exact-grant-statements-we-use-in-a-dbt-project/430
