@@ -1,27 +1,20 @@
 version: 2
 models :
-  - name: taxa_precipitacao_alertario
-    description: "**Descrição**: Taxa medida de precipitação das estações pluviométricas\
-      \ da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos,\
-      \ cada registro contendo dados desta medida.\n**Frequência de atualização**:\
-      \ 15 minutos\n**Cobertura temporal**: Desde 1997 até data corrente\n**Órgão\
-      \ gestor dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado\
-      \ por (email)**: patriciabcatandi@gmail.com\n"
+  - name: taxa_precipitacao_satelite
+    description: "**Descrição**: Taxa de precipitação estimada de áreas do sudeste\
+      \ brasileiro. \r\nAs estimativas são feitas de hora em hora, cada registro contendo\
+      \ dados desta estimativa. \r\nCada área é um quadrado formado por 4km de lado.\
+      \ \r\nDados coletados pelo satélite GOES-16.\n**Frequência de atualização**:\
+      \ Nunca\n**Cobertura temporal**: Desde 2020 até a data corrente\n**Órgão gestor\
+      \ dos dados**: Centro de Operações da Prefeitura do Rio (COR)\n**Publicado por**:\
+      \ Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
-      - name: data_medicao
-        description: Data e horário em que foi realizada a medição
-      - name: id_estacao
-        description: ID da estação pluviométrica em que ocorreu a medição.
-      - name: acumulado_chuva_15_min
-        description: Acumulado de chuva em 15 minutos.
-      - name: acumulado_chuva_1_h
-        description: Acumulado de chuva em 1 hora.
-      - name: acumulado_chuva_4_h
-        description: Acumulado de chuva em 4 horas.
-      - name: acumulado_chuva_24_h
-        description: Acumulado de chuva em 24 horas.
-      - name: acumulado_chuva_96_h
-        description: Acumulado de chuva em 96 horas.
+      - name: latitude
+        description: Latitude do centro da área.
+      - name: longitude
+        description: Longitude do centro da área.
+      - name: rrqpe
+        description: Taxa de precipitação estimada, medidas em milímetros por hora.
   - name: estacoes_inmet
     description: "**Descrição**: Dados sobre as estações meteorológicas do inmet (\
       \ Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\n**Frequência\
@@ -83,21 +76,28 @@ models :
         description: Última data em que os dados sobre a data de operação foram atualizados.
       - name: y
         description: Y UTM (SAD69 Zona 23)
-  - name: taxa_precipitacao_satelite
-    description: "**Descrição**: Taxa de precipitação estimada de áreas do sudeste\
-      \ brasileiro. \r\nAs estimativas são feitas de hora em hora, cada registro contendo\
-      \ dados desta estimativa. \r\nCada área é um quadrado formado por 4km de lado.\
-      \ \r\nDados coletados pelo satélite GOES-16.\n**Frequência de atualização**:\
-      \ Nunca\n**Cobertura temporal**: Desde 2020 até a data corrente\n**Órgão gestor\
-      \ dos dados**: Centro de Operações da Prefeitura do Rio (COR)\n**Publicado por**:\
-      \ Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+  - name: taxa_precipitacao_alertario
+    description: "**Descrição**: Taxa medida de precipitação das estações pluviométricas\
+      \ da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos,\
+      \ cada registro contendo dados desta medida.\n**Frequência de atualização**:\
+      \ 15 minutos\n**Cobertura temporal**: Desde 1997 até data corrente\n**Órgão\
+      \ gestor dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado\
+      \ por (email)**: patriciabcatandi@gmail.com\n"
     columns:
-      - name: latitude
-        description: Latitude do centro da área.
-      - name: longitude
-        description: Longitude do centro da área.
-      - name: rrqpe
-        description: Taxa de precipitação estimada, medidas em milímetros por hora.
+      - name: data_medicao
+        description: Data e horário em que foi realizada a medição
+      - name: id_estacao
+        description: ID da estação pluviométrica em que ocorreu a medição.
+      - name: acumulado_chuva_15_min
+        description: Acumulado de chuva em 15 minutos.
+      - name: acumulado_chuva_1_h
+        description: Acumulado de chuva em 1 hora.
+      - name: acumulado_chuva_4_h
+        description: Acumulado de chuva em 4 horas.
+      - name: acumulado_chuva_24_h
+        description: Acumulado de chuva em 24 horas.
+      - name: acumulado_chuva_96_h
+        description: Acumulado de chuva em 96 horas.
   - name: quantidade_agua_precipitavel_satelite
     description: "**Descrição**: Taxa de precipitação estimada de áreas do sudeste\
       \ brasileiro. \r\nAs estimativas são feitas de hora em hora, cada registro contendo\
