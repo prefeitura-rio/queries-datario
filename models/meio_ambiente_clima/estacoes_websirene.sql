@@ -1,1 +1,0 @@
-SELECT * FROM `rj-cor.meio_ambiente_clima.estacoes_websirene`
