@@ -8,3 +8,4 @@ arcgis==1.9.1
 markdown==3.3.6
 jinja2==2.11.3
 traitlets==5.2.0
+markupsafe==2.0.1
