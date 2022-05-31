@@ -48,10 +48,12 @@ from typing import List
 from arcgis import GIS
 from arcgis.gis import ContentManager, Item
 import jinja2
+import requests
 
 DEFAULT_TAGS = ["datario"]
 HTML_TEMPLATE_PATH = ".github/workflows/templates/description.html.jinja"
 
+DATA_404_PAGE = "https://share.dados.rio/download-unavail"
 METADATA_FILE_PATH = "metadata.json"
 THUMBNAIL_URL = (
     "https://nayemdevs.com/wp-content/uploads/2020/03/default-product-image.png"
@@ -193,7 +195,16 @@ def get_url(dataset_id: str, table_id: str) -> str:
     """
     Returns the URL for the item.
     """
-    return f"https://storage.googleapis.com/datario/share/{dataset_id}/{table_id}/data.csv.gz"
+    # Build a base download URL
+    base_url = f"https://storage.googleapis.com/datario/share/{dataset_id}/{table_id}/data.csv.gz"
+    # Check if the URL exists
+    try:
+        response = requests.head(base_url)
+        if response.status_code == 200:
+            return base_url
+        return DATA_404_PAGE
+    except requests.exceptions.RequestException:
+        return DATA_404_PAGE
 
 
 def build_items_data_from_metadata_json() -> List[dict]:
