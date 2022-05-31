@@ -42,6 +42,10 @@ jobs:
         run: |
           rm dbt-sa.json
 
+      - name: Copy pages/ directory to target/
+        run: |
+          cp -r pages/ target/
+
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@v4.2.3
         with:
