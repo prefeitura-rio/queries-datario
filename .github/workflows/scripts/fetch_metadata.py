@@ -56,7 +56,8 @@ def custom_fetch(url: str) -> dict:
     elif response_json["count"] > 1:
         raise Exception(f"There is more than one result to URL {url}.")
     else:
-        raise Exception(f"There is no result to URL {url}.")
+        print(f"There is no result to URL {url}.")
+        return None
 
 
 def fetch_metadata(initial_dict: dict) -> dict:
@@ -67,6 +68,8 @@ def fetch_metadata(initial_dict: dict) -> dict:
     for dataset_id in initial_dict:
         # Get the title prefix for the dataset
         data = custom_fetch(f"https://meta.dados.rio/api/datasets/?name={dataset_id}")
+        if data is None:
+            continue
         title_prefix = data["title_prefix"]
         # Iterate over datasets' tables
         for table_id in initial_dict[dataset_id]:
@@ -108,7 +111,10 @@ def fetch_metadata(initial_dict: dict) -> dict:
                 initial_dict[dataset_id][table_id]["columns"] = []
                 for column in data["columns"]:
                     initial_dict[dataset_id][table_id]["columns"].append(
-                        {"name": column["name"], "description": column["description"],}
+                        {
+                            "name": column["name"],
+                            "description": column["description"],
+                        }
                     )
             # If the table doesn't exist or there is more than one table, raise
             elif response_json["count"] > 1:
@@ -116,11 +122,25 @@ def fetch_metadata(initial_dict: dict) -> dict:
                     f"There is more than one table with the name {table_id} in the dataset {dataset_id}."
                 )
             else:
-                raise Exception(
+                print(
                     f"There is no table with the name {table_id} in the dataset {dataset_id}."
                 )
 
     return initial_dict
+
+
+def remove_empty_keys(dict: dict) -> dict:
+    """
+    Reconstruct a dictionary without empty values.
+    """
+    new_dict = {}
+    for dataset_id, tables in dict.items():
+        for table_id, columns in tables.items():
+            if columns:
+                if dataset_id not in new_dict.keys():
+                    new_dict[dataset_id] = {}
+                new_dict[dataset_id][table_id] = columns
+    return new_dict
 
 
 def save_metadata(metadata_dict: dict, path: Union[Path, str]) -> None:
@@ -135,4 +155,5 @@ if __name__ == "__main__":
     sql_files = get_all_sql_files("models")
     initial_dict = build_initial_dict(sql_files)
     metadata_dict = fetch_metadata(initial_dict)
+    metadata_dict = remove_empty_keys(metadata_dict)
     save_metadata(metadata_dict, "metadata.json")

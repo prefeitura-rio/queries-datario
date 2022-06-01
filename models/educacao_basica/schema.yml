@@ -1,4 +1,240 @@
 models :
+  - name: escola
+    description: "**Descrição**: Unidade escolar pertencente a, ou de interesse, da\
+      \ prefeitura do Rio de Janeiro onde podem ser alocadas turmas. As unidades escolares\
+      \ de interesse da PCRJ são creche parceiras onde estão matriculados alunos da\
+      \ prefeitura do Rio de Janeiro.\n**Frequência de atualização**: Mensal\n**Cobertura\
+      \ temporal**: Até data corrente\n**Órgão gestor dos dados**: Secretaria Municipal\
+      \ de Educação\n**Publicado por**: Nuno Caminada Silva\n**Publicado por (email)**:\
+      \ nuno.silva@rioeduca.net\n"
+    columns:
+      - name: id_inep
+        description: Identificador, dado pelo INEP - Instituto Nacional de Estudos
+          e Pesquisas Educacionais, para a unidade escolar, O identificador é único
+          para cada unidade escolar do país.
+      - name: id_escola
+        description: Identificador da unidade escolar na base de dados.
+      - name: nome
+        description: Nome da unidade escolar. Depende do atributo id_designacao.
+      - name: tipo
+        description: "\"Tipo da unidade escolar, Pode ser creche, escola, CIEP ou\
+          \ EDI. EDI é a sigla para Espaço de\r\n Desenvolvimento Infantil, unidade\
+          \ escolar especializada na educação para a primeira infância.\""
+      - name: id_designacao
+        description: Código de identificação da unidade escolar, constituido pelo
+          código da CRE, Código da micro-área, um sequencial e o tipo da unidade escolar
+          pertencente a PCRJ ou de interesse desta.
+      - name: endereco
+        description: Endereço da unidade escolar
+      - name: bairro
+        description: Bairro do endereço da unidade escolar
+      - name: cep
+        description: CEP do endereço da unidade escolar
+      - name: email
+        description: E-mail da unidade escolar
+      - name: telefone
+        description: Telefone da unidade escolar
+      - name: direcao
+        description: Nome do(a) diretor(a) da unidade escolar
+      - name: cre
+        description: "Número da CRE que administra a unidade escolar. CRE é a sigla\
+          \ para coordenadoria regional\r\nde educação. Uma CRE reúne unidades escolares\
+          \ da prefeitura em uma determinada região.\""
+      - name: polo
+        description: "Polo onde esta a unidade escolar.\r\nUm polo é um lugar que\
+          \ atende prioritariamente a alunos matriculados na Unidade Escolar de determinada\
+          \ área, oferecendo oficinas tendo o trabalho como princípio educativo. \r\
+          \nEle pode, eventualmente, atender a alunos de áreas de outros polos."
+      - name: micro_area
+        description: "Micro área onde está a unidade escolar.\r\nUma micro área é\
+          \ uma área geográfica do município do Rio de Janeiro, definida pelo Instituto\
+          \ Pereira Passos (IPP) para facilitar a administração escolar, independente\
+          \ de bairros e outras divisões territoriais feitas pela prefeitura."
+      - name: id_institucional_pcrj
+        description: "Identificador, dado pela prefeitura do Rio de Janeiro, para\
+          \ a unidade escolar. \r\nSICI é o sistema de codificação institucional."
+      - name: numero_salas_recurso
+        description: Total de salas de recurso na unidade. Sala de recurso é uma dependência
+          com professor especializado e recursos especiais para determinada atividade.
+      - name: numero_salas_aula
+        description: Número total de salas de aula da unidade escolar.
+      - name: numero_salas_utilizadas
+        description: Número de salas de aula, na unidade escolar, efetivamente usadas
+          por turmas.
+  - name: frequencia
+    description: "**Descrição**: Frequência dos alunos matriculados ou que já tenham\
+      \ sido matriculados em uma escola da prefeitura do Rio de Janeiro desde 2012.\
+      \ A frequência do aluno leva em consideração o periodo (em geral de um mês)\
+      \ e a disciplina feita.\n**Frequência de atualização**: Anual\n**Cobertura temporal**:\
+      \ Desde 2012 Até data corrente\n**Órgão gestor dos dados**: Secretaria Municipal\
+      \ de Educação\n**Publicado por**: Nuno Caminada Silva\n**Publicado por (email)**:\
+      \ nuno.silva@rioeduca.net\n"
+    columns:
+      - name: id_escola
+        description: Identificador da escola, onde o aluno estuda, na base de dados.
+      - name: id_turma
+        description: Identificador da turma do aluno na base de dados.
+      - name: turma
+        description: Turma do aluno. Deve respeitar o atributo id_turma.
+      - name: id_aluno
+        description: Identificador do aluno, para o qual está sendo calculado a frequência,
+          na base de dados.
+      - name: id_coc
+        description: "Coc do bimestre que contém o período onde está sendo calculada\
+          \ a frequência. \r\nNúmero do conselho de classe.\r\nÉ único por período\
+          \ letivo. Conselho de classe é uma reunião de professores que ocorre no\
+          \ final do bimestre."
+      - name: data_inicio
+        description: "Data do início do período em que vai ser calculada a frequência.\
+          \ \r\nUm período, em geral, de um mês, podendo começar e acabar no meio\
+          \ do mês."
+      - name: data_fim
+        description: Data do fim do período.
+      - name: dias_letivos
+        description: "Número de dias letivos no período. Um dia letivo é um dia que\
+          \ teve aula.\r\nO somatório de todos os períodos em um ano deve dar no mínimo\
+          \ 200 dias."
+      - name: tempos_letivos
+        description: "Número de tempos letivos da disciplina no período.\r\nTempo\
+          \ letivo é um tempo de aula, como uma aula de geografia, história etc. \r\
+          \nQuando é fundamental 1 fica igual a dias letivos."
+      - name: faltas_global
+        description: "Número de tempos letivos em que o aluno faltou em todas as disciplinas.\
+          \ \r\nÉ o somatório dos valores do atributo faltas_disciplina. \r\nQuando\
+          \ é fundamental 2 fica em branco."
+      - name: id_disciplina
+        description: "Identificador da disciplina,  em que está sendo calculada a\
+          \ frequência, na base de dados. \r\nQuando é fundamental 1 fica em branco."
+      - name: id_disciplina_ano
+        description: "Código da disciplina em que está sendo calculada a frequência.\r\
+          \nÉ único por ano. \r\nQuando é fundamental 1 fica em branco."
+      - name: disciplina
+        description: "Nome da disciplina em que está sendo calculada a frequência.\r\
+          \nEm geral mantém uma constância, podendo durar o nome indefinidamente.\
+          \ deve respeitar o atributo id_disciplina_ano.\r\nQuando é fundamental 1\
+          \ fica em branco."
+      - name: faltas_disciplina
+        description: "Número de faltas em tempos letivos do aluno na disciplina. \r\
+          \nQuando é fundamental 1 fica zerado."
+      - name: carga_horaria_semanal
+        description: "Carga horária semanal na disciplina.\r\nQuando é fundamental\
+          \ 1 fica zerado."
+  - name: dependencia
+    description: "**Descrição**: Dependências pertencentes à prefeitura do Rio de\
+      \ Janeiro. Dependência em uma unidade escolar pertencente a prefeitura do Rio\
+      \ de Janeiro. . Ex.: Sala de Aula, Auditório, Laboratório de Informática, despensa,\
+      \ rampa de acesso etc.\n**Frequência de atualização**: Mensal\n**Cobertura temporal**:\
+      \ Até data corrente\n**Órgão gestor dos dados**: Secretaria Municipal de Educação\n\
+      **Publicado por**: Nuno Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
+    columns:
+      - name: id_escola
+        description: Identificador da escola, onde está a dependência, na base de
+          dados.
+      - name: id_dependencia
+        description: Identificador que é a concatenação do identificador da escola
+          (id_escola) onde fica a dependência com o identificador da dependência (número
+          que identifica unicamente cada dependência na escola) na base de dados.
+      - name: nome
+        description: Nome da dependência.
+      - name: tipo
+        description: 'Tipo da dependência. Ex.: Sala de Aula, Auditório, Laboratório
+          de Informática, despensa, rampa de acesso etc.'
+      - name: aloca_turma
+        description: Indica se a dependência pode ser usada para alocar turma ou não.
+      - name: util_como
+        description: "Utilização atual da dependência. Ex. os mesmos do tipo de depêndencia.\
+          \ \r\nPode diferir do tipo de dependência, pois o tipo de dependência é\
+          \ tipo oficial da dependência, que pode ser diferente da utilização real."
+      - name: aloca_turma_e_util_como
+        description: "Booleano que indica se a dependência tem uma turma alocada a\
+          \ ela. \r\nSim, não ou emergencial."
+      - name: capacidade
+        description: "Número máximo de alunos que a dependência comporta. \r\nEm geral\
+          \ é calculado em um m2 por aluno."
+      - name: area
+        description: Área, em metros quadrados, da dependência
+  - name: aluno
+    description: "**Descrição**: Alunos matriculados em escolas da prefeitura do Rio\
+      \ de Janeiro no ano corrente. \r\nCampos anonimizados para atendimento a LGPD.\n\
+      **Frequência de atualização**: Anual\n**Cobertura temporal**: Até data corrente\n\
+      **Órgão gestor dos dados**: Secretaria Municipal de Educação\n**Publicado por**:\
+      \ Nuno Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
+    columns:
+      - name: ano
+        description: Ano em que o aluno está matriculado.
+      - name: id_turma
+        description: Identificador da turma do aluno na base de dados.
+      - name: turma
+        description: Número da turma do aluno.
+      - name: id_aluno
+        description: Identificador do aluno na base de dados.
+      - name: matricula
+        description: Matrícula do aluno (mascarada, os quatro primeiros dígitos originais
+          e o resto está preenchido com 9s)
+      - name: situacao
+        description: "Boleano indicando se o aluno está ativo na rede de ensino.\r\
+          \nPode ter os valores ativo ou inativo."
+      - name: id_utltima_movimentacao
+        description: "Código do tipo da última movimentação do aluno. \r\nA movimentação\
+          \ do aluno indica que o aluno saiu de uma turma, podendo ter ido para outra\
+          \ turma em outra ou na mesma escola."
+      - name: ultima_movimentacao
+        description: 'Indica o tipo da última movimentação do aluno. Ex: Abandono,
+          renovação de matrícula, mudança de turma.'
+      - name: genero
+        description: Sexo do aluno, pode ser masculino ou feminino
+      - name: raca_cor
+        description: Raça ou cor do aluno. Branca, preta, parda, amarela, indígena,
+          não declarada ou sem informação.
+      - name: data_nascimento
+        description: Data de nascimento do aluno.
+      - name: idade_atual
+        description: Idade atual do aluno.
+      - name: idade_final_ano
+        description: Idade do aluno no final do ano.
+      - name: id_deficiencia
+        description: Código da deficiência do aluno. 00 caso não tenha nenhuma deficiência.
+      - name: deficiencia
+        description: Tipo da deficiência do aluno, caso ele tenha.
+      - name: bairro
+        description: Bairro do endereço do aluno
+      - name: mora_com_filiacao
+        description: 0 se não mora com nenhum dos dois pais, 1 se mora com um dos
+          dois.
+      - name: tipo_transporte
+        description: Transporte que o aluno usa para ir para a escola. Ex. pedestre,
+          ônibus, metrô, carro, trem, outros ou sem informação.
+      - name: bolsa_familia
+        description: Booleana que indica se o aluno recebe bolsa familia. 0 se não
+          recebe e 1 se recebe.
+      - name: cartao_familia_carioca
+        description: Booleana que indica se o aluno recebe o cartão família carioca.
+          0 se não recebe e 1 se recebe.
+      - name: clube_escolar
+        description: Booleano indicando que o aluno está inscrito em um clube escolar,
+          0 se não inscrito e 1 se inscrito. Um clube escolar é um clube pertencente
+          a prefeitura e faz parte de uma escola da prefeitura do Rio de Janeiro.
+      - name: nucleo_artes
+        description: "Booleano indicando que o aluno está inscrito em um núcleo de\
+          \ artes, 0 se não inscrito e 1 se inscrito. \r\nUm núcleo de artes pertence\
+          \ a prefeitura e faz parte de uma escola da prefeitura do Rio de Janeiro."
+      - name: mais_educacao
+        description: "Boleano indicando que o aluno está inscrito no Mais Educação,\
+          \ 0 se não inscrito e 1 se inscrito. \r\nPrograma do MEC que dá atividades\
+          \ específicas e acompanhamento ao aluno. Específico para alunos com histórico\
+          \ de evasão ou reprovação."
+      - name: territorio_social
+        description: "Booleano indicando que o aluno mora em um território social,\
+          \ 0 se não mora e 1 se mora.\r\nUm território social é uma região geográfica\
+          \ do município do Rio de Janeiro, classificada pela prefeitura como de extrema\
+          \ vulnerabilidade social."
+      - name: tipo_avaliacao_jovens_adultos
+        description: 'Tipo de avaliação usada, para o aluno, no ensino de jovens e
+          adultos. Ex: UP 1 ou aval 2.'
+      - name: nome
+        description: Nome do aluno (mascarado, está preenchido com Xs)
+      - name: cpf
+        description: CPF do aluno (mascarado, está preenchido com 9s)
   - name: aluno_historico
     description: "**Descrição**: Histórico e dados pessoais de todos os alunos que\
       \ passaram pela rede municipal de educação.\n**Frequência de atualização**:\
@@ -83,400 +319,6 @@ models :
         description: Descrição da deficiência do aluno.
       - name: genero
         description: Gênero do aluno, pode ser masculino ou feminino.
-  - name: aluno_turma
-    description: "**Descrição**: Relacionamento entre alunos e turmas.\n**Frequência\
-      \ de atualização**: Anual\n**Cobertura temporal**: Até data corrente\n**Órgão\
-      \ gestor dos dados**: Secretaria Municipal de Educação\n**Publicado por**: Nuno\
-      \ Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
-    columns:
-      - name: ano
-        description: Ano da turma associado ao id da turma.
-      - name: id_turma
-        description: Identificador da turma, criado anualmente.
-      - name: id_aluno
-        description: Identificador do aluno.
-  - name: aluno
-    description: "**Descrição**: Alunos matriculados em escolas da prefeitura do Rio\
-      \ de Janeiro no ano corrente. \r\nCampos anonimizados para atendimento a LGPD.\n\
-      **Frequência de atualização**: Anual\n**Cobertura temporal**: Até data corrente\n\
-      **Órgão gestor dos dados**: Secretaria Municipal de Educação\n**Publicado por**:\
-      \ Nuno Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
-    columns:
-      - name: ano
-        description: Ano em que o aluno está matriculado.
-      - name: id_turma
-        description: Identificador da turma do aluno na base de dados.
-      - name: turma
-        description: Número da turma do aluno.
-      - name: id_aluno
-        description: Identificador do aluno na base de dados.
-      - name: matricula
-        description: Matrícula do aluno (mascarada, os quatro primeiros dígitos originais
-          e o resto está preenchido com 9s)
-      - name: situacao
-        description: "Boleano indicando se o aluno está ativo na rede de ensino.\r\
-          \nPode ter os valores ativo ou inativo."
-      - name: id_utltima_movimentacao
-        description: "Código do tipo da última movimentação do aluno. \r\nA movimentação\
-          \ do aluno indica que o aluno saiu de uma turma, podendo ter ido para outra\
-          \ turma em outra ou na mesma escola."
-      - name: ultima_movimentacao
-        description: 'Indica o tipo da última movimentação do aluno. Ex: Abandono,
-          renovação de matrícula, mudança de turma.'
-      - name: genero
-        description: Sexo do aluno, pode ser masculino ou feminino
-      - name: raca_cor
-        description: Raça ou cor do aluno. Branca, preta, parda, amarela, indígena,
-          não declarada ou sem informação.
-      - name: data_nascimento
-        description: Data de nascimento do aluno.
-      - name: idade_atual
-        description: Idade atual do aluno.
-      - name: idade_final_ano
-        description: Idade do aluno no final do ano.
-      - name: id_deficiencia
-        description: Código da deficiência do aluno. 00 caso não tenha nenhuma deficiência.
-      - name: deficiencia
-        description: Tipo da deficiência do aluno, caso ele tenha.
-      - name: bairro
-        description: Bairro do endereço do aluno
-      - name: mora_com_filiacao
-        description: 0 se não mora com nenhum dos dois pais, 1 se mora com um dos
-          dois.
-      - name: tipo_transporte
-        description: Transporte que o aluno usa para ir para a escola. Ex. pedestre,
-          ônibus, metrô, carro, trem, outros ou sem informação.
-      - name: bolsa_familia
-        description: Booleana que indica se o aluno recebe bolsa familia. 0 se não
-          recebe e 1 se recebe.
-      - name: cartao_familia_carioca
-        description: Booleana que indica se o aluno recebe o cartão família carioca.
-          0 se não recebe e 1 se recebe.
-      - name: clube_escolar
-        description: Booleano indicando que o aluno está inscrito em um clube escolar,
-          0 se não inscrito e 1 se inscrito. Um clube escolar é um clube pertencente
-          a prefeitura e faz parte de uma escola da prefeitura do Rio de Janeiro.
-      - name: nucleo_artes
-        description: "Booleano indicando que o aluno está inscrito em um núcleo de\
-          \ artes, 0 se não inscrito e 1 se inscrito. \r\nUm núcleo de artes pertence\
-          \ a prefeitura e faz parte de uma escola da prefeitura do Rio de Janeiro."
-      - name: mais_educacao
-        description: "Boleano indicando que o aluno está inscrito no Mais Educação,\
-          \ 0 se não inscrito e 1 se inscrito. \r\nPrograma do MEC que dá atividades\
-          \ específicas e acompanhamento ao aluno. Específico para alunos com histórico\
-          \ de evasão ou reprovação."
-      - name: territorio_social
-        description: "Booleano indicando que o aluno mora em um território social,\
-          \ 0 se não mora e 1 se mora.\r\nUm território social é uma região geográfica\
-          \ do município do Rio de Janeiro, classificada pela prefeitura como de extrema\
-          \ vulnerabilidade social."
-      - name: tipo_avaliacao_jovens_adultos
-        description: 'Tipo de avaliação usada, para o aluno, no ensino de jovens e
-          adultos. Ex: UP 1 ou aval 2.'
-      - name: nome
-        description: Nome do aluno (mascarado, está preenchido com Xs)
-      - name: cpf
-        description: CPF do aluno (mascarado, está preenchido com 9s)
-  - name: escola
-    description: "**Descrição**: Unidade escolar pertencente a, ou de interesse, da\
-      \ prefeitura do Rio de Janeiro onde podem ser alocadas turmas. As unidades escolares\
-      \ de interesse da PCRJ são creche parceiras onde estão matriculados alunos da\
-      \ prefeitura do Rio de Janeiro.\n**Frequência de atualização**: Mensal\n**Cobertura\
-      \ temporal**: Até data corrente\n**Órgão gestor dos dados**: Secretaria Municipal\
-      \ de Educação\n**Publicado por**: Nuno Caminada Silva\n**Publicado por (email)**:\
-      \ nuno.silva@rioeduca.net\n"
-    columns:
-      - name: id_inep
-        description: Identificador, dado pelo INEP - Instituto Nacional de Estudos
-          e Pesquisas Educacionais, para a unidade escolar, O identificador é único
-          para cada unidade escolar do país.
-      - name: id_escola
-        description: Identificador da unidade escolar na base de dados.
-      - name: nome
-        description: Nome da unidade escolar. Depende do atributo id_designacao.
-      - name: tipo
-        description: "\"Tipo da unidade escolar, Pode ser creche, escola, CIEP ou\
-          \ EDI. EDI é a sigla para Espaço de\r\n Desenvolvimento Infantil, unidade\
-          \ escolar especializada na educação para a primeira infância.\""
-      - name: id_designacao
-        description: Código de identificação da unidade escolar, constituido pelo
-          código da CRE, Código da micro-área, um sequencial e o tipo da unidade escolar
-          pertencente a PCRJ ou de interesse desta.
-      - name: endereco
-        description: Endereço da unidade escolar
-      - name: bairro
-        description: Bairro do endereço da unidade escolar
-      - name: cep
-        description: CEP do endereço da unidade escolar
-      - name: email
-        description: E-mail da unidade escolar
-      - name: telefone
-        description: Telefone da unidade escolar
-      - name: direcao
-        description: Nome do(a) diretor(a) da unidade escolar
-      - name: cre
-        description: "Número da CRE que administra a unidade escolar. CRE é a sigla\
-          \ para coordenadoria regional\r\nde educação. Uma CRE reúne unidades escolares\
-          \ da prefeitura em uma determinada região.\""
-      - name: polo
-        description: "Polo onde esta a unidade escolar.\r\nUm polo é um lugar que\
-          \ atende prioritariamente a alunos matriculados na Unidade Escolar de determinada\
-          \ área, oferecendo oficinas tendo o trabalho como princípio educativo. \r\
-          \nEle pode, eventualmente, atender a alunos de áreas de outros polos."
-      - name: micro_area
-        description: "Micro área onde está a unidade escolar.\r\nUma micro área é\
-          \ uma área geográfica do município do Rio de Janeiro, definida pelo Instituto\
-          \ Pereira Passos (IPP) para facilitar a administração escolar, independente\
-          \ de bairros e outras divisões territoriais feitas pela prefeitura."
-      - name: id_institucional_pcrj
-        description: "Identificador, dado pela prefeitura do Rio de Janeiro, para\
-          \ a unidade escolar. \r\nSICI é o sistema de codificação institucional."
-      - name: numero_salas_recurso
-        description: Total de salas de recurso na unidade. Sala de recurso é uma dependência
-          com professor especializado e recursos especiais para determinada atividade.
-      - name: numero_salas_aula
-        description: Número total de salas de aula da unidade escolar.
-      - name: numero_salas_utilizadas
-        description: Número de salas de aula, na unidade escolar, efetivamente usadas
-          por turmas.
-  - name: movimentacao
-    description: "**Descrição**: Movimentações feitas de alunos ( algumas informações\
-      \ desde 1973, são mais completas a partir de 2012 ).\r\nMovimentação é a saída\
-      \ do aluno de uma turma, potencialmente para entrada em outra turma da mesma\
-      \ unidade escolar ou para outra unidade escolar, do município ou não.\n**Frequência\
-      \ de atualização**: Anual\n**Cobertura temporal**: Desde 1973 até data corrente\n\
-      **Órgão gestor dos dados**: Secretaria Municipal de Educação\n**Publicado por**:\
-      \ Nuno Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
-    columns:
-      - name: ano
-        description: Ano da movimentação.
-      - name: id_cre
-        description: "Número da CRE que administra a unidade escolar onde a movimentação\
-          \ foi registrada. \r\nNo caso de saída de uma unidade escolar ela é registrada\
-          \ nesta unidade. \r\nCRE é a sigla para coordenadoria regional de educação.\
-          \ \r\nUma CRE reúne unidades escolares da prefeitura em uma determinada\
-          \ região."
-      - name: id_coc
-        description: "COC cujo período onde o aluno sofreu movimentação. Número do\
-          \ conselho de classe.\r\nÉ único por período letivo. \r\nConselho de classe\
-          \ é um conjunto de reuniões de professores que ocorre no final do bimestre."
-      - name: id_unidade
-        description: "Número da unidade escolar dado pela SME onde foi registrada\
-          \ a movimentação.\r\nContém 7 dígitos."
-      - name: id_turma_escola
-        description: "Identificador da turma da unidade escolar que registrou a movimentação.\r\
-          \nÉ dado pela unidade escolar.\r\nÉ único em determinada escola e determinado\
-          \ ano.\r\nHá uma padronização, ex. 1601 é para o sexto ano."
-      - name: grupamento
-        description: "Ano da turma da unidade escolar que registrou a movimentação.\r\
-          \nEx. primeiro ano, segundo ano etc."
-      - name: id_aluno
-        description: Identificador do aluno na base de dados.
-      - name: matricula
-        description: Matricula do aluno que fez a movimentação. Campo anonimizado.
-      - name: genero
-        description: Sexo do aluno, pode ser masculino ou feminino
-      - name: id_deficiencia
-        description: "Código da deficiência do aluno.\r\n00 caso não tenha nenhuma\
-          \ deficiência."
-      - name: deficiencia
-        description: Tipo da deficiência do aluno, caso ele tenha.
-      - name: data_nascimento
-        description: Data de nascimento do aluno.
-      - name: idade_atual
-        description: Idade atual do aluno.
-      - name: idade_final_ano
-        description: Idade do aluno no final do ano.
-      - name: data_movimentacao
-        description: Data em que ocorreu a movimentação.
-      - name: id_movimentacao
-        description: Identificador do tipo da movimentação na base de dados.
-      - name: movimentacao
-        description: "Nome do tipo da movimentação.\r\nEx. Transferência da rede particular,\
-          \ transferência para a rede particular, Abandono etc."
-      - name: ordem
-        description: Ordem da movimentação de determinado aluno durante a sua vida
-          escolar no município do Rio de Janeiro.
-      - name: tipo
-        description: Indica se a movimentação é de entrada ou saída, mesmo dentro
-          da mesma unidade escolar. Tem sempre o valor 'Entrada' quando a transferência
-          é entre turmas dentro da mesma unidade escolar.
-  - name: frequencia
-    description: "**Descrição**: Frequência dos alunos matriculados ou que já tenham\
-      \ sido matriculados em uma escola da prefeitura do Rio de Janeiro desde 2012.\
-      \ A frequência do aluno leva em consideração o periodo (em geral de um mês)\
-      \ e a disciplina feita.\n**Frequência de atualização**: Anual\n**Cobertura temporal**:\
-      \ Desde 2012 Até data corrente\n**Órgão gestor dos dados**: Secretaria Municipal\
-      \ de Educação\n**Publicado por**: Nuno Caminada Silva\n**Publicado por (email)**:\
-      \ nuno.silva@rioeduca.net\n"
-    columns:
-      - name: id_escola
-        description: Identificador da escola, onde o aluno estuda, na base de dados.
-      - name: id_turma
-        description: Identificador da turma do aluno na base de dados.
-      - name: turma
-        description: Turma do aluno. Deve respeitar o atributo id_turma.
-      - name: id_aluno
-        description: Identificador do aluno, para o qual está sendo calculado a frequência,
-          na base de dados.
-      - name: id_coc
-        description: "Coc do bimestre que contém o período onde está sendo calculada\
-          \ a frequência. \r\nNúmero do conselho de classe.\r\nÉ único por período\
-          \ letivo. Conselho de classe é uma reunião de professores que ocorre no\
-          \ final do bimestre."
-      - name: data_inicio
-        description: "Data do início do período em que vai ser calculada a frequência.\
-          \ \r\nUm período, em geral, de um mês, podendo começar e acabar no meio\
-          \ do mês."
-      - name: data_fim
-        description: Data do fim do período.
-      - name: dias_letivos
-        description: "Número de dias letivos no período. Um dia letivo é um dia que\
-          \ teve aula.\r\nO somatório de todos os períodos em um ano deve dar no mínimo\
-          \ 200 dias."
-      - name: tempos_letivos
-        description: "Número de tempos letivos da disciplina no período.\r\nTempo\
-          \ letivo é um tempo de aula, como uma aula de geografia, história etc. \r\
-          \nQuando é fundamental 1 fica igual a dias letivos."
-      - name: faltas_global
-        description: "Número de tempos letivos em que o aluno faltou em todas as disciplinas.\
-          \ \r\nÉ o somatório dos valores do atributo faltas_disciplina. \r\nQuando\
-          \ é fundamental 2 fica em branco."
-      - name: id_disciplina
-        description: "Identificador da disciplina,  em que está sendo calculada a\
-          \ frequência, na base de dados. \r\nQuando é fundamental 1 fica em branco."
-      - name: id_disciplina_ano
-        description: "Código da disciplina em que está sendo calculada a frequência.\r\
-          \nÉ único por ano. \r\nQuando é fundamental 1 fica em branco."
-      - name: disciplina
-        description: "Nome da disciplina em que está sendo calculada a frequência.\r\
-          \nEm geral mantém uma constância, podendo durar o nome indefinidamente.\
-          \ deve respeitar o atributo id_disciplina_ano.\r\nQuando é fundamental 1\
-          \ fica em branco."
-      - name: faltas_disciplina
-        description: "Número de faltas em tempos letivos do aluno na disciplina. \r\
-          \nQuando é fundamental 1 fica zerado."
-      - name: carga_horaria_semanal
-        description: "Carga horária semanal na disciplina.\r\nQuando é fundamental\
-          \ 1 fica zerado."
-  - name: turma
-    description: "**Descrição**: Turma de alunos, atuais ou passadas, em unidades\
-      \ escolares pertencentes ou de interesse da prefeitura do Rio de Janeiro.\n\
-      **Frequência de atualização**: Mensal\n**Cobertura temporal**: Até data corrente\n\
-      **Órgão gestor dos dados**: Secretaria Municipal de Educação\n**Publicado por**:\
-      \ Nuno Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
-    columns:
-      - name: ano
-        description: "Ano em que a turma existe ou existiu. \r\nUma turma é identificada\
-          \ pela unidade escolar onde ela esta, pelo seu número e por seu ano."
-      - name: id_escola
-        description: Identificador da escola na base de dados.
-      - name: id_dependencia
-        description: Identificador que é a concatenação do identificador da escola
-          (id_escola) com o identificador da dependência (número que identifica unicamente
-          cada dependência na escola) na base de dados.
-      - name: id_turma
-        description: Identificador da turma na base de dados.
-      - name: id_turma_escola
-        description: "Identificador da turma. \r\nÉ dado pela escola. \r\nÉ único\
-          \ em determinada escola e determinado ano.\r\nHá uma padronização, ex. 1601\
-          \ é para o sexto ano."
-      - name: curso
-        description: Tipo do curso que a turma está fazendo. Ex. Ensino fundamental
-          1, Ensino fundamental classe especial, Educação infantil pré-escola. Este
-          tipo pode variar de ano a ano.
-      - name: nivel_ensino
-        description: "Nível do ensino da turma. \r\nPode ser Fundamental ou Educação\
-          \ Infantil."
-      - name: modalidade
-        description: "Modalidade do ensino da turma. \r\nPode ser Regular, Especial\
-          \ ou EJA."
-      - name: grupamento
-        description: "Série da turma. \r\nEm unidades escolares da prefeitura em geral\
-          \ se vai do 1ª a 9ª ano. \r\nEm dados mais antigos pode ir da 1ª a 8ª série."
-      - name: turno
-        description: "Turno da turma.\r\nPode ser Manhã, Tarde, Noite ou Integral.\r\
-          \nPode ser primeiro turno ou segundo turno em turmas mais antigas."
-      - name: sala
-        description: Nome da dependência que é ocupada pela turma como sala de aula.
-      - name: area_sala
-        description: Área, em metros quadrados, da dependência que é ocupada pela
-          turma.
-      - name: capacidade_sala
-        description: Capacidade, em número de alunos, da dependência que é ocupada
-          pela turma.
-      - name: tipo_sala
-        description: "Tipo da dependência ocupada pela turma. \r\nEx.: Sala de Aula,\
-          \ Auditório, Laboratório de Informática, despensa, rampa de acesso etc."
-      - name: sala_util_como
-        description: "Utilização atual da dependência ocupada pela turma. \r\nEx.\
-          \ os mesmos do tipo de dependência(tipo_sala). Pode diferir do tipo de dependência,\
-          \ pois o tipo de dependência é tipo oficial da dependência, que pode ser\
-          \ diferente da utilização real."
-  - name: coc
-    description: "**Descrição**: COCs fechados (não leva em conta o atual ) das turmas\
-      \ de escolas da prefeitura do Rio de Janeiro, com informações desde 2014. \r\
-      \nEstas informações são levantadas para, entre outras coisas, comparar a variação\
-      \ entre um COC e outro.\n**Frequência de atualização**: Mensal\n**Cobertura\
-      \ temporal**: Até data corrente\n**Órgão gestor dos dados**: Secretaria Municipal\
-      \ de Educação\n**Publicado por**: Nuno Caminada Silva\n**Publicado por (email)**:\
-      \ nuno.silva@rioeduca.net\n"
-    columns:
-      - name: id_cre
-        description: "Número da CRE que administra a unidade escolar onde o COC ocorreu.\
-          \ \r\nCRE é a sigla para coordenadoria regional."
-      - name: id_turma
-        description: Identificador da turma na base de dados.
-      - name: id_turma_escola
-        description: "Identificador da turma. É dado pela escola. É único em determinada\
-          \ escola e determinado ano. \r\nHá uma padronização, ex. 1601 é para o sexto\
-          \ ano."
-      - name: ano
-        description: Ano do COC. Uma turma é identificada pela unidade escolar onde
-          ela esta, pelo seu número e por seu ano.
-      - name: id_unidade
-        description: Número da unidade escolar, dado pela SME, relativa ao COC. Contém
-          7 digitos.
-      - name: grupamento
-        description: Ano da turma. Ex. primeiro ano, segundo ano etc.
-      - name: turno
-        description: "Turno da turma. Pode ser Manhã, Tarde, Noite ou Integral. \r\
-          \nPode ser primeiro turno ou segundo turno em turmas mais antigas."
-      - name: id_coc
-        description: "Número do conselho de classe.\r\nÉ único por período letivo.\r\
-          \nConselho de classe é um conjunto de reuniões de professores que ocorre\
-          \ no final do bimestre. \r\nNo COC é dado um conceito final para o aluno,\
-          \ diferente das notas por matérias."
-      - name: alunos
-        description: Número total de alunos do COC, na turma, no ano.
-      - name: masculino
-        description: Número total de alunos do sexo masculino, do COC, na turma, no
-          ano.
-      - name: feminino
-        description: Número total de alunos do sexo feminino, do COC, na turma, no
-          ano.
-      - name: deficiente
-        description: Número total de alunos deficientes, do COC, na turma, no ano.
-      - name: masculino_deficiente
-        description: Número total de alunos do sexo masculino deficientes, do COC,
-          na turma, no ano.
-      - name: feminino_deficiente
-        description: Número total de alunos do sexo feminino deficientes, do COC,
-          na turma, no ano.
-      - name: masculino_nao_deficiente
-        description: Número total de alunos do sexo masculino não deficientes, do
-          COC, na turma, no ano.
-      - name: feminino_nao_deficiente
-        description: Número total de alunos do sexo feminino não deficientes, do COC,
-          na turma, no ano.
-      - name: vagas
-        description: Capacidade menos o total de alunos em determinado COC.
-      - name: capacidade
-        description: "Capacidade da turma no ano, de acordo com o tamanho da sala.\
-          \ \r\nA capacidade da turma pode ser no máximo a constante em resolução\
-          \ da SME, independente do tamanho da sala. \r\nA capacidade pode, eventualmente,\
-          \ ser menor do que a resolução da SME \r\n\r\n(vai ser verificada esta definição\
-          \ )."
   - name: avaliacao
     description: "**Descrição**: Avaliações de alunos dadas no COC.\r\nAs notas de\
       \ disciplinas (ou a global) estão preenchidas (de 0,0 a 10) ou com a anotação\
@@ -582,38 +424,196 @@ models :
         description: Conceito dado em música ao aluno em um COC. Fica com 'sem informação'
           caso a criança não tenha sido avaliada neste conceito. Em geral é preenchido
           para o fundamental 2.
-  - name: dependencia
-    description: "**Descrição**: Dependências pertencentes à prefeitura do Rio de\
-      \ Janeiro. Dependência em uma unidade escolar pertencente a prefeitura do Rio\
-      \ de Janeiro. . Ex.: Sala de Aula, Auditório, Laboratório de Informática, despensa,\
-      \ rampa de acesso etc.\n**Frequência de atualização**: Mensal\n**Cobertura temporal**:\
-      \ Até data corrente\n**Órgão gestor dos dados**: Secretaria Municipal de Educação\n\
-      **Publicado por**: Nuno Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
+  - name: aluno_turma
+    description: "**Descrição**: Relacionamento entre alunos e turmas.\n**Frequência\
+      \ de atualização**: Anual\n**Cobertura temporal**: Até data corrente\n**Órgão\
+      \ gestor dos dados**: Secretaria Municipal de Educação\n**Publicado por**: Nuno\
+      \ Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
     columns:
+      - name: ano
+        description: Ano da turma associado ao id da turma.
+      - name: id_turma
+        description: Identificador da turma, criado anualmente.
+      - name: id_aluno
+        description: Identificador do aluno.
+  - name: movimentacao
+    description: "**Descrição**: Movimentações feitas de alunos ( algumas informações\
+      \ desde 1973, são mais completas a partir de 2012 ).\r\nMovimentação é a saída\
+      \ do aluno de uma turma, potencialmente para entrada em outra turma da mesma\
+      \ unidade escolar ou para outra unidade escolar, do município ou não.\n**Frequência\
+      \ de atualização**: Anual\n**Cobertura temporal**: Desde 1973 até data corrente\n\
+      **Órgão gestor dos dados**: Secretaria Municipal de Educação\n**Publicado por**:\
+      \ Nuno Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
+    columns:
+      - name: ano
+        description: Ano da movimentação.
+      - name: id_cre
+        description: "Número da CRE que administra a unidade escolar onde a movimentação\
+          \ foi registrada. \r\nNo caso de saída de uma unidade escolar ela é registrada\
+          \ nesta unidade. \r\nCRE é a sigla para coordenadoria regional de educação.\
+          \ \r\nUma CRE reúne unidades escolares da prefeitura em uma determinada\
+          \ região."
+      - name: id_coc
+        description: "COC cujo período onde o aluno sofreu movimentação. Número do\
+          \ conselho de classe.\r\nÉ único por período letivo. \r\nConselho de classe\
+          \ é um conjunto de reuniões de professores que ocorre no final do bimestre."
+      - name: id_unidade
+        description: "Número da unidade escolar dado pela SME onde foi registrada\
+          \ a movimentação.\r\nContém 7 dígitos."
+      - name: id_turma_escola
+        description: "Identificador da turma da unidade escolar que registrou a movimentação.\r\
+          \nÉ dado pela unidade escolar.\r\nÉ único em determinada escola e determinado\
+          \ ano.\r\nHá uma padronização, ex. 1601 é para o sexto ano."
+      - name: grupamento
+        description: "Ano da turma da unidade escolar que registrou a movimentação.\r\
+          \nEx. primeiro ano, segundo ano etc."
+      - name: id_aluno
+        description: Identificador do aluno na base de dados.
+      - name: matricula
+        description: Matricula do aluno que fez a movimentação. Campo anonimizado.
+      - name: genero
+        description: Sexo do aluno, pode ser masculino ou feminino
+      - name: id_deficiencia
+        description: "Código da deficiência do aluno.\r\n00 caso não tenha nenhuma\
+          \ deficiência."
+      - name: deficiencia
+        description: Tipo da deficiência do aluno, caso ele tenha.
+      - name: data_nascimento
+        description: Data de nascimento do aluno.
+      - name: idade_atual
+        description: Idade atual do aluno.
+      - name: idade_final_ano
+        description: Idade do aluno no final do ano.
+      - name: data_movimentacao
+        description: Data em que ocorreu a movimentação.
+      - name: id_movimentacao
+        description: Identificador do tipo da movimentação na base de dados.
+      - name: movimentacao
+        description: "Nome do tipo da movimentação.\r\nEx. Transferência da rede particular,\
+          \ transferência para a rede particular, Abandono etc."
+      - name: ordem
+        description: Ordem da movimentação de determinado aluno durante a sua vida
+          escolar no município do Rio de Janeiro.
+      - name: tipo
+        description: Indica se a movimentação é de entrada ou saída, mesmo dentro
+          da mesma unidade escolar. Tem sempre o valor 'Entrada' quando a transferência
+          é entre turmas dentro da mesma unidade escolar.
+  - name: coc
+    description: "**Descrição**: COCs fechados (não leva em conta o atual ) das turmas\
+      \ de escolas da prefeitura do Rio de Janeiro, com informações desde 2014. \r\
+      \nEstas informações são levantadas para, entre outras coisas, comparar a variação\
+      \ entre um COC e outro.\n**Frequência de atualização**: Mensal\n**Cobertura\
+      \ temporal**: Até data corrente\n**Órgão gestor dos dados**: Secretaria Municipal\
+      \ de Educação\n**Publicado por**: Nuno Caminada Silva\n**Publicado por (email)**:\
+      \ nuno.silva@rioeduca.net\n"
+    columns:
+      - name: id_cre
+        description: "Número da CRE que administra a unidade escolar onde o COC ocorreu.\
+          \ \r\nCRE é a sigla para coordenadoria regional."
+      - name: id_turma
+        description: Identificador da turma na base de dados.
+      - name: id_turma_escola
+        description: "Identificador da turma. É dado pela escola. É único em determinada\
+          \ escola e determinado ano. \r\nHá uma padronização, ex. 1601 é para o sexto\
+          \ ano."
+      - name: ano
+        description: Ano do COC. Uma turma é identificada pela unidade escolar onde
+          ela esta, pelo seu número e por seu ano.
+      - name: id_unidade
+        description: Número da unidade escolar, dado pela SME, relativa ao COC. Contém
+          7 digitos.
+      - name: grupamento
+        description: Ano da turma. Ex. primeiro ano, segundo ano etc.
+      - name: turno
+        description: "Turno da turma. Pode ser Manhã, Tarde, Noite ou Integral. \r\
+          \nPode ser primeiro turno ou segundo turno em turmas mais antigas."
+      - name: id_coc
+        description: "Número do conselho de classe.\r\nÉ único por período letivo.\r\
+          \nConselho de classe é um conjunto de reuniões de professores que ocorre\
+          \ no final do bimestre. \r\nNo COC é dado um conceito final para o aluno,\
+          \ diferente das notas por matérias."
+      - name: alunos
+        description: Número total de alunos do COC, na turma, no ano.
+      - name: masculino
+        description: Número total de alunos do sexo masculino, do COC, na turma, no
+          ano.
+      - name: feminino
+        description: Número total de alunos do sexo feminino, do COC, na turma, no
+          ano.
+      - name: deficiente
+        description: Número total de alunos deficientes, do COC, na turma, no ano.
+      - name: masculino_deficiente
+        description: Número total de alunos do sexo masculino deficientes, do COC,
+          na turma, no ano.
+      - name: feminino_deficiente
+        description: Número total de alunos do sexo feminino deficientes, do COC,
+          na turma, no ano.
+      - name: masculino_nao_deficiente
+        description: Número total de alunos do sexo masculino não deficientes, do
+          COC, na turma, no ano.
+      - name: feminino_nao_deficiente
+        description: Número total de alunos do sexo feminino não deficientes, do COC,
+          na turma, no ano.
+      - name: vagas
+        description: Capacidade menos o total de alunos em determinado COC.
+      - name: capacidade
+        description: "Capacidade da turma no ano, de acordo com o tamanho da sala.\
+          \ \r\nA capacidade da turma pode ser no máximo a constante em resolução\
+          \ da SME, independente do tamanho da sala. \r\nA capacidade pode, eventualmente,\
+          \ ser menor do que a resolução da SME \r\n\r\n(vai ser verificada esta definição\
+          \ )."
+  - name: turma
+    description: "**Descrição**: Turma de alunos, atuais ou passadas, em unidades\
+      \ escolares pertencentes ou de interesse da prefeitura do Rio de Janeiro.\n\
+      **Frequência de atualização**: Mensal\n**Cobertura temporal**: Até data corrente\n\
+      **Órgão gestor dos dados**: Secretaria Municipal de Educação\n**Publicado por**:\
+      \ Nuno Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
+    columns:
+      - name: ano
+        description: "Ano em que a turma existe ou existiu. \r\nUma turma é identificada\
+          \ pela unidade escolar onde ela esta, pelo seu número e por seu ano."
       - name: id_escola
-        description: Identificador da escola, onde está a dependência, na base de
-          dados.
+        description: Identificador da escola na base de dados.
       - name: id_dependencia
         description: Identificador que é a concatenação do identificador da escola
-          (id_escola) onde fica a dependência com o identificador da dependência (número
-          que identifica unicamente cada dependência na escola) na base de dados.
-      - name: nome
-        description: Nome da dependência.
-      - name: tipo
-        description: 'Tipo da dependência. Ex.: Sala de Aula, Auditório, Laboratório
-          de Informática, despensa, rampa de acesso etc.'
-      - name: aloca_turma
-        description: Indica se a dependência pode ser usada para alocar turma ou não.
-      - name: util_como
-        description: "Utilização atual da dependência. Ex. os mesmos do tipo de depêndencia.\
-          \ \r\nPode diferir do tipo de dependência, pois o tipo de dependência é\
-          \ tipo oficial da dependência, que pode ser diferente da utilização real."
-      - name: aloca_turma_e_util_como
-        description: "Booleano que indica se a dependência tem uma turma alocada a\
-          \ ela. \r\nSim, não ou emergencial."
-      - name: capacidade
-        description: "Número máximo de alunos que a dependência comporta. \r\nEm geral\
-          \ é calculado em um m2 por aluno."
-      - name: area
-        description: Área, em metros quadrados, da dependência
+          (id_escola) com o identificador da dependência (número que identifica unicamente
+          cada dependência na escola) na base de dados.
+      - name: id_turma
+        description: Identificador da turma na base de dados.
+      - name: id_turma_escola
+        description: "Identificador da turma. \r\nÉ dado pela escola. \r\nÉ único\
+          \ em determinada escola e determinado ano.\r\nHá uma padronização, ex. 1601\
+          \ é para o sexto ano."
+      - name: curso
+        description: Tipo do curso que a turma está fazendo. Ex. Ensino fundamental
+          1, Ensino fundamental classe especial, Educação infantil pré-escola. Este
+          tipo pode variar de ano a ano.
+      - name: nivel_ensino
+        description: "Nível do ensino da turma. \r\nPode ser Fundamental ou Educação\
+          \ Infantil."
+      - name: modalidade
+        description: "Modalidade do ensino da turma. \r\nPode ser Regular, Especial\
+          \ ou EJA."
+      - name: grupamento
+        description: "Série da turma. \r\nEm unidades escolares da prefeitura em geral\
+          \ se vai do 1ª a 9ª ano. \r\nEm dados mais antigos pode ir da 1ª a 8ª série."
+      - name: turno
+        description: "Turno da turma.\r\nPode ser Manhã, Tarde, Noite ou Integral.\r\
+          \nPode ser primeiro turno ou segundo turno em turmas mais antigas."
+      - name: sala
+        description: Nome da dependência que é ocupada pela turma como sala de aula.
+      - name: area_sala
+        description: Área, em metros quadrados, da dependência que é ocupada pela
+          turma.
+      - name: capacidade_sala
+        description: Capacidade, em número de alunos, da dependência que é ocupada
+          pela turma.
+      - name: tipo_sala
+        description: "Tipo da dependência ocupada pela turma. \r\nEx.: Sala de Aula,\
+          \ Auditório, Laboratório de Informática, despensa, rampa de acesso etc."
+      - name: sala_util_como
+        description: "Utilização atual da dependência ocupada pela turma. \r\nEx.\
+          \ os mesmos do tipo de dependência(tipo_sala). Pode diferir do tipo de dependência,\
+          \ pois o tipo de dependência é tipo oficial da dependência, que pode ser\
+          \ diferente da utilização real."
 version: 2
