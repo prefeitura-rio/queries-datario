@@ -50,7 +50,7 @@ from arcgis.gis import ContentManager, Item
 import jinja2
 import requests
 
-DEFAULT_TAGS = ["datario"]
+DEFAULT_TAGS = ["datario", "escritorio_de_dados"]
 HTML_TEMPLATE_PATH = ".github/workflows/templates/description.html.jinja"
 
 DATA_404_PAGE = "https://share.dados.rio/download-unavail"
