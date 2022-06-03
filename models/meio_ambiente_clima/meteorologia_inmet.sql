@@ -6,8 +6,8 @@
             "field": "data_particao",
             "data_type": "date",
             "granularity": "month",
-        }
-        post_hook='CREATE OR REPLACE TABLE `rj-cor.meio_ambiente_clima_staging.meteorologia_inmet_partition_last_partition_datario` AS (SELECT CURRENT_DATETIME("America/Sao_Paulo") AS data_particao)'
+        },
+        post_hook='CREATE OR REPLACE TABLE `rj-cor.meio_ambiente_clima_staging.meteorologia_inmet_last_partition_datario` AS (SELECT CURRENT_DATETIME("America/Sao_Paulo") AS data_particao)'
     )
 }}
 
@@ -23,7 +23,7 @@ WHERE data_particao < CURRENT_DATE('America/Sao_Paulo')
         SELECT IF(
             max(data_particao) > CURRENT_DATE('America/Sao_Paulo'), CURRENT_DATE('America/Sao_Paulo'), max(data_particao)
             ) as gr 
-        FROM `rj-cor.meio_ambiente_clima_staging.meteorologia_inmet_partition_last_partition_datario`
+        FROM `rj-cor.meio_ambiente_clima_staging.meteorologia_inmet_last_partition_datario`
         )
     ").columns[0].values()[0] %}
 
