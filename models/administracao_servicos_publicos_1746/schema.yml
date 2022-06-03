@@ -66,7 +66,7 @@ models :
       - name: data_real_diagnostico
         description: Data em que foi feito o diagnóstico do serviço.  Caso prazo_tipo
           seja F esta data fica em branco.
-      - name: nu_prazo
+      - name: tempo_prazo
         description: Prazo para o serviço ser feito. Em dias ou horas após a abertura
           do chamado. Caso haja diagnóstico o prazo conta após se fazer o diagnóstico.
       - name: prazo_unidade
@@ -77,19 +77,23 @@ models :
           feitos, neste caso é feito o diagnóstico. Por exemplo, pode de árvore. Há
           a necessidade de um engenheiro ambiental verificar a necessidade da poda
           ou não.
-      - name: uo_mae
+      - name: id_unidade_organizacional_mae
         description: 'ID da unidade organizacional mãe do orgão que executa a demanda.
           Por exemplo: "CVA - Coordenação de Vigilância de Alimentos" é quem executa
           a demanda e obede a unidade organizacional mãe "IVISA-RIO - Instituto Municipal
           de Vigilância Sanitária, de Zoonoses e de Inspeção Agropecuária". A coluna
           se refere ao ID  deste último.'
+      - name: reclamacoes
+        description: Quantidade de reclamações.
       - name: situacao
         description: Identifica se o chamado foi encerrado
       - name: tipo_situacao
         description: Indica o status atual do chamado entre as categorias Atendido,
           Atendido parcialmente, Não atendido, Não constatado e Andamento
-      - name: prazo
+      - name: dentro_prazo
         description: Indica se a data alvo de finalização do chamado ainda está dentro
           do prazo estipulado.
-      - name: no_justificativa
-        description: confirmar
+      - name: justificativa_status
+        description: 'Justificativa que os órgãos usam ao definir o status. Exemplo:
+          SEM POSSIBILIDADE DE ATENDIMENTO - justificativa: Fora de área de atuação
+          do municipio'
