@@ -938,7 +938,7 @@
             "title": "Meio Ambiente e Clima: Taxa de Precipitação Alerta Rio",
             "short_description": "Taxa medida de precipitação das estações pluviométricas da cidade do Rio de Janeiro.",
             "long_description": "Taxa medida de precipitação das estações pluviométricas da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos, cada registro contendo dados desta medida.",
-            "update_frequency": "15 minutos",
+            "update_frequency": "Nunca",
             "temporal_coverage": "Desde 1997 até data corrente",
             "data_owner": "COR",
             "publisher_name": "Patrícia Catandi",
@@ -947,8 +947,8 @@
             "categories": [],
             "columns": [
                 {
-                    "name": "data_medicao",
-                    "description": "Data e horário em que foi realizada a medição"
+                    "name": "data_particao",
+                    "description": "Data em que foi realizada a medição"
                 },
                 {
                     "name": "id_estacao",
@@ -973,6 +973,14 @@
                 {
                     "name": "acumulado_chuva_96_h",
                     "description": "Acumulado de chuva em 96 horas."
+                },
+                {
+                    "name": "primary_key",
+                    "description": "Chave primária criada a partir da coluna id_estacao e da data_medicao. Serve para evitar dados duplicados."
+                },
+                {
+                    "name": "horario",
+                    "description": "Horário no qual foi realizada a medição"
                 }
             ]
         },
@@ -1141,6 +1149,18 @@
                 {
                     "name": "rrqpe",
                     "description": "Taxa de precipitação estimada, medidas em milímetros por hora."
+                },
+                {
+                    "name": "primary_key",
+                    "description": "Chave primária criada a partir da concatenação da coluna data, horário, latitude e longitude. Serve para evitar dados duplicados."
+                },
+                {
+                    "name": "horario",
+                    "description": "Horário no qual foi realizada a medição"
+                },
+                {
+                    "name": "data_particao",
+                    "description": "Data na qual foi realizada a medição"
                 }
             ]
         },
@@ -1165,8 +1185,20 @@
                     "description": "Longitude do centro da área."
                 },
                 {
+                    "name": "primary_key",
+                    "description": "Chave primária criada a partir da concatenação da coluna data, horário, latitude e longitude. Serve para evitar dados duplicados."
+                },
+                {
                     "name": "tpw",
                     "description": "Quantidade total de água precipitável, medidas em milímetros."
+                },
+                {
+                    "name": "horario",
+                    "description": "Horário no qual foi realizada a medição"
+                },
+                {
+                    "name": "data_particao",
+                    "description": "Data na qual foi realizada a medição"
                 }
             ]
         },
@@ -1174,7 +1206,7 @@
             "title": "Meio Ambiente e Clima: Metereologia do Instituto Nacional de Meteorologia (INMET)",
             "short_description": "Dados meteorológicos obtidas das estações pluviométricas do INMET na cidade do Rio de Janeiro",
             "long_description": "Dados meteorológicos obtidos nas estações pluviométricas do INMET ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\r\nAs medidas são feitas de hora em hora, cada registro contendo dados destas medidas para cada estação. \r\nEntre os dados temos horário da medição, acumulado de chuva em 1 hora, direção e velocidade do vento, temperatura, pressão atmosférica, umidade e radiação global.",
-            "update_frequency": "Horário",
+            "update_frequency": "Nunca",
             "temporal_coverage": "Desde 2010 até data corrente",
             "data_owner": "INMET",
             "publisher_name": "Patrícia Catandi",
@@ -1192,7 +1224,7 @@
                     "description": "ID da estação dada pelo INMET."
                 },
                 {
-                    "name": "data",
+                    "name": "data_particao",
                     "description": "Data em que foi realizada a medição."
                 },
                 {
@@ -1266,6 +1298,10 @@
                 {
                     "name": "temperatura_orvalho_maximo",
                     "description": "Temperatura máxima de orvalho na hora anterior."
+                },
+                {
+                    "name": "primary_key",
+                    "description": "Chave primária criada a partir da concatenação da coluna id_estacao, data e horário Serve para evitar dados duplicados."
                 }
             ]
         }
