@@ -54,6 +54,7 @@ DEFAULT_TAGS = ["datario", "escritorio_de_dados"]
 HTML_TEMPLATE_PATH = ".github/workflows/templates/description.html.jinja"
 
 DATA_404_PAGE = "https://share.dados.rio/download-unavail"
+DUPLICATES_FILE_PATH = "duplicates.txt"
 METADATA_FILE_PATH = "metadata.json"
 THUMBNAIL_URL = (
     "https://nayemdevs.com/wp-content/uploads/2020/03/default-product-image.png"
@@ -85,6 +86,14 @@ def get_license():
     <a rel="license" href={license_url}>Creative Commons {cc_license_name} Unported License</a>.
     """
 
+def get_duplicates() -> List[str]:
+    """
+    Returns the list of duplicates.
+    """
+    with open(DUPLICATES_FILE_PATH, "r", encoding="utf-8") as f:
+        lines = f.read().splitlines()
+    # Remove lines that start with # and empty lines after stripping
+    return [line.strip() for line in lines if line.strip() and not line.startswith("#")]
 
 def get_default_tags(dataset_id: str, table_id: str) -> List[str]:
     """
@@ -92,6 +101,16 @@ def get_default_tags(dataset_id: str, table_id: str) -> List[str]:
     """
     return DEFAULT_TAGS + [dataset_id, table_id]
 
+
+def get_directory(dataset_id: str, table_id: str, duplicates_list: List[str] = None) -> str:
+    """
+    Returns the directory where the item will be stored.
+    """
+    duplicates_list = duplicates_list or get_duplicates()
+    full_name = f"{dataset_id}.{table_id}"
+    if full_name in duplicates_list:
+        return "duplicates"
+    return "public"
 
 def get_gis_client(url: str = None, username: str = None, password: str = None) -> GIS:
     """
@@ -271,7 +290,7 @@ def categorize_item(item: Item, categories: List[str], gis: GIS = None) -> bool:
 
 
 if __name__ == "__main__":
-
+    duplicates_list = get_duplicates()
     (
         items_data,
         categories,
@@ -287,5 +306,6 @@ if __name__ == "__main__":
         print(f"Created/updated item: ID={item.id}, Title={item.title}")
         item.share(org=True, groups=item_categories)
         print(f"Shared item: ID={item.id} with groups: {item_categories}")
-        item.move("public")
-        print(f"Moved item: ID={item.id} to public directory")
+        move_dir = get_directory(dataset_id, table_id, duplicates_list)
+        item.move(move_dir)
+        print(f"Moved item: ID={item.id} to {move_dir}/ directory")

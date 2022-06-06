@@ -1,0 +1,6 @@
+# Use esse arquivo para especificar tabelas que terão seus objetos no data.rio colocados em um
+# diretório diferente de `public/`, no caso o diretório `duplicates/`.
+# Linhas com "#"" no início são considerados comentários.
+
+dados_mestres.bairro
+dados_mestres.logradouro
