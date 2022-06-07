@@ -1,1 +1,1 @@
-{"metadata": {"dbt_schema_version": "https://schemas.getdbt.com/dbt/catalog/v1.json", "dbt_version": "0.21.1", "generated_at": "2022-06-07T12:18:22.193148Z", "invocation_id": "3f9ea32a-e80e-42ed-93ac-188bc188ba82", "env": {}}, "nodes": {}, "sources": {}, "errors": null}
+{"metadata": {"dbt_schema_version": "https://schemas.getdbt.com/dbt/catalog/v1.json", "dbt_version": "0.21.1", "generated_at": "2022-06-07T12:24:00.358906Z", "invocation_id": "81688f8e-56e5-4683-8531-c035e17c2291", "env": {}}, "nodes": {}, "sources": {}, "errors": null}
