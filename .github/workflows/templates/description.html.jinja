@@ -128,16 +128,16 @@
     <p style="font-size: 1.414rem;">
         Colunas
     </p>
-    <table>
+    <table style="border:1px solid #C0C0C0; border-collapse:collapse; padding:5px;">
         <tr>
-            <th>Nome</th>
-            <th>Descrição</th>
+            <th style="border:1px solid #C0C0C0; padding:5px; background:#F0F0F0;">Nome</th>
+            <th style="border:1px solid #C0C0C0; padding:5px; background:#F0F0F0;">Descrição</th>
         </tr>
         <tbody>
             {% for column in columns %}
                 <tr>
-                    <td>{{ column["name"] }}</td>
-                    <td>{{ column["description"] }}</td>
+                    <td style="border:1px solid #C0C0C0; text-align:center; padding:5px;">{{ column["name"] }}</td>
+                    <td style="border:1px solid #C0C0C0; text-align:center; padding:5px;">{{ column["description"] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
