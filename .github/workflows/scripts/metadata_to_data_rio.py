@@ -304,7 +304,7 @@ if __name__ == "__main__":
             dataset_id=dataset_id, table_id=table_id, data=item_data
         )
         print(f"Created/updated item: ID={item.id}, Title={item.title}")
-        item.share(org=True, groups=item_categories)
+        item.share(everyone=True, org=True, groups=item_categories)
         print(f"Shared item: ID={item.id} with groups: {item_categories}")
         move_dir = get_directory(dataset_id, table_id, duplicates_list)
         item.move(move_dir)
