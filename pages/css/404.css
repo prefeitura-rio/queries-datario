@@ -71,12 +71,12 @@
 .denied__link {
     background: none;
     color: #fff;
-    padding: 12px 0px 10px 0px;
+    padding: 20px 0px 20px 0px;
     border: 1px solid #fff;
     outline: none;
     border-radius: 7px;
-    width: 150px;
-    font-size: 15px;
+    width: 180px;
+    font-size: 18px;
     text-align: center;
     margin: 0 auto;
     vertical-align: middle;
