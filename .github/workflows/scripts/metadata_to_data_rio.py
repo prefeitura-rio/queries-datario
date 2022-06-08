@@ -43,6 +43,7 @@ For future reference, this is what the content_manager.add command supports:
 
 import json
 from os import getenv
+import re
 from typing import List
 
 from arcgis import GIS
@@ -53,7 +54,7 @@ import requests
 DEFAULT_TAGS = ["datario", "escritorio_de_dados"]
 HTML_TEMPLATE_PATH = ".github/workflows/templates/description.html.jinja"
 
-DATA_404_PAGE = "https://prefeitura-rio.github.io/queries-datario/pages/404"
+DATA_404_PAGE = "https://prefeitura-rio.github.io/queries-datario/pages/404?prefix={prefix}"
 DUPLICATES_FILE_PATH = "duplicates.txt"
 METADATA_FILE_PATH = "metadata.json"
 THUMBNAIL_URL = (
@@ -210,10 +211,18 @@ def build_html_from_metadata(
     )
 
 
-def get_url(dataset_id: str, table_id: str) -> str:
+def get_url(dataset_id: str, table_id: str, full_title: str) -> str:
     """
     Returns the URL for the item.
     """
+    def parse_title(title: str) -> str:
+        # Remove symbols
+        title = re.sub(r"[^\w\s]", "", title)
+        # To lower
+        title = title.lower()
+        # Replace spaces with dashes
+        title = re.sub(r"\s", "-", title)
+        return title
     # Build a base download URL
     base_url = f"https://storage.googleapis.com/datario/share/{dataset_id}/{table_id}/data.csv.gz"
     # Check if the URL exists
@@ -221,9 +230,10 @@ def get_url(dataset_id: str, table_id: str) -> str:
         response = requests.head(base_url)
         if response.status_code == 200:
             return base_url
-        return DATA_404_PAGE
+        title = parse_title(full_title)
+        return DATA_404_PAGE.format(prefix=title)
     except requests.exceptions.RequestException:
-        return DATA_404_PAGE
+        return DATA_404_PAGE.format(prefix=title)
 
 
 def build_items_data_from_metadata_json() -> List[dict]:
@@ -251,6 +261,7 @@ def build_items_data_from_metadata_json() -> List[dict]:
     metadata = load_metadata_file()
     for dataset_id in metadata:
         for table_id in metadata[dataset_id]:
+            url = get_url(dataset_id=dataset_id, table_id=table_id, full_title=metadata[dataset_id][table_id]["title"])
             item_data = {
                 "item_properties": {
                     "type": "Document Link",
@@ -259,11 +270,11 @@ def build_items_data_from_metadata_json() -> List[dict]:
                         metadata[dataset_id][table_id],
                         dataset_id,
                         table_id,
-                        get_url(dataset_id=dataset_id, table_id=table_id),
+                        url,
                     ),
                     "snippet": metadata[dataset_id][table_id]["short_description"],
                     "title": metadata[dataset_id][table_id]["title"],
-                    "url": get_url(dataset_id=dataset_id, table_id=table_id),
+                    "url": url,
                     "tags": ",".join(
                         get_default_tags(dataset_id, table_id)
                         + metadata[dataset_id][table_id]["tags"]
