@@ -51,4 +51,6 @@ models:
     meio_ambiente_clima:
       +materialized: table
       +schema: meio_ambiente_clima
-      
+    transporte_rodoviario_municipal:
+      +materialized: table
+      +schema: transporte_rodoviario_municipal
