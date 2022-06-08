@@ -4,4 +4,3 @@
 
 dados_mestres.bairro
 dados_mestres.logradouro
-meio_ambiente_clima.estacoes_alertario
