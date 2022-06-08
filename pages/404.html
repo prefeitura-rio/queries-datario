@@ -7,9 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Download indisponível</title>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/tsparticles@1.18.11/dist/tsparticles.min.js"></script>
+    <script type="text/javascript" src="js/404.js"></script>
 </head>
 
-<body class="permission_denied">
+<body class="permission_denied" onload="getQueryParameters();">
     <div id="tsparticles"></div>
     <div class="denied__wrapper">
         <h1>Oops!</h1>
@@ -17,12 +20,13 @@
             Esse dado não está disponível para download! No entanto, você ainda pode acessá-lo
             através de outras formas. Clique no botão abaixo para ver!
         </h3>
-        <a href="../about">
+        <a href="#" id="btnAcessarDado">
             <button class="denied__link" style="font-weight: bold;">
                 ACESSAR O DADO
             </button>
         </a>
         <h3>
+            Se o botão não funcionar, basta clicar, ao lado esquerdo, em mais detalhes! <br />
             Precisa do download? <a style="color: #79d9ff; font-weight: bold;" href="mailto:escritoriodedados@gmail.com">
                 Entre em contato conosco!
             </a> Será um prazer te ajudar!
@@ -30,9 +34,4 @@
         <img id="astronaut" src="images/astronaut.svg" />
         <img id="planet" src="images/planet.svg" />
     </div>
-
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/tsparticles@1.18.11/dist/tsparticles.min.js"></script>
-    <script type="text/javascript" src="js/404.js"></script>
-
 </html>
