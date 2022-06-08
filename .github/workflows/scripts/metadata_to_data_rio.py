@@ -216,8 +216,8 @@ def get_url(dataset_id: str, table_id: str, full_title: str) -> str:
     Returns the URL for the item.
     """
     def parse_title(title: str) -> str:
-        # Remove symbols
-        title = re.sub(r"[^\w\s]", "", title)
+        # Remove symbols (allow only letters with or without accents, spaces, numbers and hiphens)
+        title = re.sub(r"[^a-zA-ZáàâãéèêíìîóòôõúùûçÁÀÂÃÉÈÊÍÌÎÓÒÔÕÚÙÛÇ0-9\s-]", "", title)
         # To lower
         title = title.lower()
         # Replace spaces with dashes

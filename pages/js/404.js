@@ -68,7 +68,9 @@ function getQueryParameters() {
   if (queryParameters["prefix"]) {
     document.getElementById(
       "btnAcessarDado"
-    ).href = `/documents/${queryParameters["prefix"]}/about`;
+    ).href = `https://www.data.rio/documents/${queryParameters[
+      "prefix"
+    ]}/about`;
   } else {
     document.getElementById("btnAcessarDado").href = "#";
   }
