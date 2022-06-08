@@ -53,7 +53,7 @@ import requests
 DEFAULT_TAGS = ["datario", "escritorio_de_dados"]
 HTML_TEMPLATE_PATH = ".github/workflows/templates/description.html.jinja"
 
-DATA_404_PAGE = "https://share.dados.rio/download-unavail"
+DATA_404_PAGE = "https://prefeitura-rio.github.io/queries-datario/pages/404"
 DUPLICATES_FILE_PATH = "duplicates.txt"
 METADATA_FILE_PATH = "metadata.json"
 THUMBNAIL_URL = (
