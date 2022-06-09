@@ -7,14 +7,13 @@
             "data_type": "date",
             "granularity": "month",
         },
-        post_hook='CREATE OR REPLACE TABLE `rj-cor.meio_ambiente_clima_staging.quantidade_agua_precipitavel_satelite_last_partition_datario` AS (SELECT CURRENT_DATETIME("America/Sao_Paulo") AS data_particao)'
+        post_hook='CREATE OR REPLACE TABLE `rj-cor.meio_ambiente_clima_staging.quantidade_agua_precipitavel_satelite_last_partition_datario` AS (SELECT CURRENT_DATE("America/Sao_Paulo") AS data_particao)'
     )
 }}
 
 SELECT
  * 
 FROM `rj-cor.meio_ambiente_clima.quantidade_agua_precipitavel_satelite`
-WHERE data_particao < CURRENT_DATE('America/Sao_Paulo')
 
 {% if is_incremental() %}
 
@@ -27,7 +26,7 @@ WHERE data_particao < CURRENT_DATE('America/Sao_Paulo')
         )
     ").columns[0].values()[0] %}
 
-AND
-    data_particao > ("{{ max_partition }}")
+WHERE
+    data_particao >= ("{{ max_partition }}")
 
 {% endif %}
