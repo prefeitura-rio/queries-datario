@@ -51,7 +51,7 @@ from arcgis.gis import ContentManager, Item
 import jinja2
 import requests
 
-DEFAULT_TAGS = ["datario", "escritorio_de_dados"]
+DEFAULT_TAGS = ["datario", "escritorio_de_dados", "datalake"]
 HTML_TEMPLATE_PATH = ".github/workflows/templates/description.html.jinja"
 
 DATA_404_PAGE = "https://prefeitura-rio.github.io/queries-datario/pages/404?prefix={prefix}"
