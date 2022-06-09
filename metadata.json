@@ -1,7 +1,7 @@
 {
     "educacao_basica": {
         "aluno_historico": {
-            "title": "Educação básica: Histórico de Aluno",
+            "title": "Educação Básica: Histórico de Aluno",
             "short_description": "Histórico de alunos que passaram pela rede municipal de educação.",
             "long_description": "Histórico e dados pessoais de todos os alunos que passaram pela rede municipal de educação.",
             "update_frequency": "Anual",
@@ -167,7 +167,7 @@
             ]
         },
         "aluno_turma": {
-            "title": "Educação básica: Aluno e Turma",
+            "title": "Educação Básica: Aluno e Turma",
             "short_description": "Relacionamento entre alunos e turmas.",
             "long_description": "Relacionamento entre alunos e turmas.",
             "update_frequency": "Anual",
@@ -197,7 +197,7 @@
             ]
         },
         "aluno": {
-            "title": "Educação básica: Aluno",
+            "title": "Educação Básica: Aluno",
             "short_description": "Alunos matriculados em escolas da prefeitura do Rio de Janeiro no ano corrente.",
             "long_description": "Alunos matriculados em escolas da prefeitura do Rio de Janeiro no ano corrente. \r\nCampos anonimizados para atendimento a LGPD.",
             "update_frequency": "Anual",
@@ -323,7 +323,7 @@
             ]
         },
         "escola": {
-            "title": "Educação básica: Escola",
+            "title": "Educação Básica: Escola",
             "short_description": "Unidade escolar pertencente a, ou de interesse, da prefeitura do Rio de Janeiro onde podem ser alocadas turmas.",
             "long_description": "Unidade escolar pertencente a, ou de interesse, da prefeitura do Rio de Janeiro onde podem ser alocadas turmas. As unidades escolares de interesse da PCRJ são creche parceiras onde estão matriculados alunos da prefeitura do Rio de Janeiro.",
             "update_frequency": "Mensal",
@@ -413,7 +413,7 @@
             ]
         },
         "movimentacao": {
-            "title": "Educação básica: Movimentação",
+            "title": "Educação Básica: Movimentação",
             "short_description": "Movimentações feitas de alunos",
             "long_description": "Movimentações feitas de alunos ( algumas informações desde 1973, são mais completas a partir de 2012 ).\r\nMovimentação é a saída do aluno de uma turma, potencialmente para entrada em outra turma da mesma unidade escolar ou para outra unidade escolar, do município ou não.",
             "update_frequency": "Anual",
@@ -507,7 +507,7 @@
             ]
         },
         "frequencia": {
-            "title": "Educação básica: Frequência",
+            "title": "Educação Básica: Frequência",
             "short_description": "Frequência dos alunos matriculados em uma escola da prefeitura do Rio de Janeiro",
             "long_description": "Frequência dos alunos matriculados ou que já tenham sido matriculados em uma escola da prefeitura do Rio de Janeiro desde 2012. A frequência do aluno leva em consideração o periodo (em geral de um mês) e a disciplina feita.",
             "update_frequency": "Anual",
@@ -585,7 +585,7 @@
             ]
         },
         "turma": {
-            "title": "Educação básica: Turma",
+            "title": "Educação Básica: Turma",
             "short_description": "Turma de alunos em unidades escolares.",
             "long_description": "Turma de alunos, atuais ou passadas, em unidades escolares pertencentes ou de interesse da prefeitura do Rio de Janeiro.",
             "update_frequency": "Mensal",
@@ -663,7 +663,7 @@
             ]
         },
         "coc": {
-            "title": "Educação básica: Conselho de classe",
+            "title": "Educação Básica: Conselho de classe",
             "short_description": "COCs fechados das turmas de escolas da prefeitura do Rio de Janeiro",
             "long_description": "COCs fechados (não leva em conta o atual ) das turmas de escolas da prefeitura do Rio de Janeiro, com informações desde 2014. \r\nEstas informações são levantadas para, entre outras coisas, comparar a variação entre um COC e outro.",
             "update_frequency": "Mensal",
@@ -753,7 +753,7 @@
             ]
         },
         "avaliacao": {
-            "title": "Educação básica: Avaliação",
+            "title": "Educação Básica: Avaliação",
             "short_description": "Avaliações de alunos dadas no Conselho de Classe (COC)",
             "long_description": "Avaliações de alunos dadas no COC.\r\nAs notas de disciplinas (ou a global) estão preenchidas (de 0,0 a 10) ou com a anotação 'sem informação' caso não haja nota para ela. \r\nDependendo do tipo de turma (Infantil, Fundamental 1, Fundamental 2, EJA, Classes especiais exclusivas, Turmas de correção de fluxo, etc) algumas notas são preenchidas sempre com a anotação 'sem informação'.",
             "update_frequency": "Anual",
@@ -879,7 +879,7 @@
             ]
         },
         "dependencia": {
-            "title": "Educação básica: Dependência",
+            "title": "Educação Básica: Dependência",
             "short_description": "Dependência em uma unidade escolar pertencente a prefeitura do Rio de Janeiro.",
             "long_description": "Dependências pertencentes à prefeitura do Rio de Janeiro. Dependência em uma unidade escolar pertencente a prefeitura do Rio de Janeiro. . Ex.: Sala de Aula, Auditório, Laboratório de Informática, despensa, rampa de acesso etc.",
             "update_frequency": "Mensal",
@@ -935,20 +935,27 @@
     },
     "meio_ambiente_clima": {
         "taxa_precipitacao_alertario": {
-            "title": "Meio Ambiente e Clima: Taxa de Precipitação Alerta Rio",
+            "title": "Meio Ambiente: Taxa de Precipitação (Alerta Rio)",
             "short_description": "Taxa medida de precipitação das estações pluviométricas da cidade do Rio de Janeiro.",
             "long_description": "Taxa medida de precipitação das estações pluviométricas da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos, cada registro contendo dados desta medida.",
-            "update_frequency": "15 minutos",
+            "update_frequency": "Diário",
             "temporal_coverage": "Desde 1997 até data corrente",
             "data_owner": "COR",
             "publisher_name": "Patrícia Catandi",
             "publisher_email": "patriciabcatandi@gmail.com",
-            "tags": [],
-            "categories": [],
+            "tags": [
+                "pluviometria",
+                "meio ambiente",
+                "clima",
+                "precipitacao"
+            ],
+            "categories": [
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
             "columns": [
                 {
-                    "name": "data_medicao",
-                    "description": "Data e horário em que foi realizada a medição"
+                    "name": "data_particao",
+                    "description": "Data em que foi realizada a medição"
                 },
                 {
                     "name": "id_estacao",
@@ -973,11 +980,19 @@
                 {
                     "name": "acumulado_chuva_96_h",
                     "description": "Acumulado de chuva em 96 horas."
+                },
+                {
+                    "name": "primary_key",
+                    "description": "Chave primária criada a partir da coluna id_estacao e da data_medicao. Serve para evitar dados duplicados."
+                },
+                {
+                    "name": "horario",
+                    "description": "Horário no qual foi realizada a medição"
                 }
             ]
         },
         "estacoes_inmet": {
-            "title": "Meio Ambiente e Clima: Estações meteorológicas do INMET/BDMET",
+            "title": "Meio Ambiente: Estações meteorológicas (INMET/BDMET)",
             "short_description": "Dados sobre as estações meteorológicas do inmet ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.",
             "long_description": "Dados sobre as estações meteorológicas do inmet ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.",
             "update_frequency": "Nunca",
@@ -1046,7 +1061,7 @@
             ]
         },
         "estacoes_alertario": {
-            "title": "Meio Ambiente e Clima: Estações pluviômetricas do AlertaRio",
+            "title": "Meio Ambiente: Estações pluviométricas (AlertaRio)",
             "short_description": "Dados sobre as estações pluviométricas do alertario ( Sistema Alerta Rio da Prefeitura do Rio de Janeiro ) na cidade do Rio de Janeiro.",
             "long_description": "Dados sobre as estações pluviométricas do alertario ( Sistema Alerta Rio da Prefeitura do Rio de Janeiro ) na cidade do Rio de Janeiro.",
             "update_frequency": "Anual",
@@ -1115,10 +1130,10 @@
             ]
         },
         "taxa_precipitacao_satelite": {
-            "title": "Meio Ambiente e Clima: Taxa de Precipitação",
+            "title": "Meio Ambiente: Taxa de Precipitação (GOES-16)",
             "short_description": "Taxa de precipitação estimada de áreas do sudeste brasileiro",
             "long_description": "Taxa de precipitação estimada de áreas do sudeste brasileiro. \r\nAs estimativas são feitas de hora em hora, cada registro contendo dados desta estimativa. \r\nCada área é um quadrado formado por 4km de lado. \r\nDados coletados pelo satélite GOES-16.",
-            "update_frequency": "Nunca",
+            "update_frequency": "Diário",
             "temporal_coverage": "Desde 2020 até a data corrente",
             "data_owner": "Centro de Operações da Prefeitura do Rio (COR)",
             "publisher_name": "Patrícia Catandi",
@@ -1126,9 +1141,12 @@
             "tags": [
                 "meio ambiente",
                 "clima",
-                "precipitacao"
+                "precipitacao",
+                "pluviometria"
             ],
-            "categories": [],
+            "categories": [
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
             "columns": [
                 {
                     "name": "latitude",
@@ -1141,11 +1159,23 @@
                 {
                     "name": "rrqpe",
                     "description": "Taxa de precipitação estimada, medidas em milímetros por hora."
+                },
+                {
+                    "name": "primary_key",
+                    "description": "Chave primária criada a partir da concatenação da coluna data, horário, latitude e longitude. Serve para evitar dados duplicados."
+                },
+                {
+                    "name": "horario",
+                    "description": "Horário no qual foi realizada a medição"
+                },
+                {
+                    "name": "data_particao",
+                    "description": "Data na qual foi realizada a medição"
                 }
             ]
         },
         "quantidade_agua_precipitavel_satelite": {
-            "title": "Meio Ambiente e Clima: Agua Precipitável",
+            "title": "Meio Ambiente: Água Precipitável (GOES-16)",
             "short_description": "Quantidade estimada de água precipitável na atmosfera de áreas do sudeste brasileiro.",
             "long_description": "Taxa de precipitação estimada de áreas do sudeste brasileiro. \r\nAs estimativas são feitas de hora em hora, cada registro contendo dados desta estimativa. \r\nCada área é um quadrado formado por 4km de lado. \r\nDados coletados pelo satélite GOES-16.",
             "update_frequency": "Diário",
@@ -1153,8 +1183,15 @@
             "data_owner": "COR",
             "publisher_name": "Patrícia Catandi",
             "publisher_email": "patriciabcatandi@gmail.com",
-            "tags": [],
-            "categories": [],
+            "tags": [
+                "pluviometria",
+                "meio ambiente",
+                "clima",
+                "precipitacao"
+            ],
+            "categories": [
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
             "columns": [
                 {
                     "name": "latitude",
@@ -1165,16 +1202,28 @@
                     "description": "Longitude do centro da área."
                 },
                 {
+                    "name": "primary_key",
+                    "description": "Chave primária criada a partir da concatenação da coluna data, horário, latitude e longitude. Serve para evitar dados duplicados."
+                },
+                {
                     "name": "tpw",
                     "description": "Quantidade total de água precipitável, medidas em milímetros."
+                },
+                {
+                    "name": "horario",
+                    "description": "Horário no qual foi realizada a medição"
+                },
+                {
+                    "name": "data_particao",
+                    "description": "Data na qual foi realizada a medição"
                 }
             ]
         },
         "meteorologia_inmet": {
-            "title": "Meio Ambiente e Clima: Metereologia do Instituto Nacional de Meteorologia (INMET)",
+            "title": "Meio Ambiente: Meteorologia do Instituto Nacional de Meteorologia (INMET)",
             "short_description": "Dados meteorológicos obtidas das estações pluviométricas do INMET na cidade do Rio de Janeiro",
             "long_description": "Dados meteorológicos obtidos nas estações pluviométricas do INMET ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\r\nAs medidas são feitas de hora em hora, cada registro contendo dados destas medidas para cada estação. \r\nEntre os dados temos horário da medição, acumulado de chuva em 1 hora, direção e velocidade do vento, temperatura, pressão atmosférica, umidade e radiação global.",
-            "update_frequency": "Horário",
+            "update_frequency": "Diário",
             "temporal_coverage": "Desde 2010 até data corrente",
             "data_owner": "INMET",
             "publisher_name": "Patrícia Catandi",
@@ -1192,7 +1241,7 @@
                     "description": "ID da estação dada pelo INMET."
                 },
                 {
-                    "name": "data",
+                    "name": "data_particao",
                     "description": "Data em que foi realizada a medição."
                 },
                 {
@@ -1266,13 +1315,17 @@
                 {
                     "name": "temperatura_orvalho_maximo",
                     "description": "Temperatura máxima de orvalho na hora anterior."
+                },
+                {
+                    "name": "primary_key",
+                    "description": "Chave primária criada a partir da concatenação da coluna id_estacao, data e horário Serve para evitar dados duplicados."
                 }
             ]
         }
     },
     "administracao_servicos_publicos_1746": {
         "chamado": {
-            "title": "Dados dos chamados realizados no 1746: Chamados feitos ao 1746",
+            "title": "Administração de Serviços Públicos: Chamados feitos ao 1746",
             "short_description": "Chamados feitos ao 1746. São chamados desde março de  2011, quando começou o projeto 1746.",
             "long_description": "Chamados feitos ao 1746. São chamados desde março de  2011, quando começou o projeto 1746.",
             "update_frequency": "Diário",
@@ -1282,9 +1335,11 @@
             "publisher_email": "patriciabcatandi@gmail.com",
             "tags": [
                 "bairro",
+                "administracao_publica",
                 "logradouros"
             ],
             "categories": [
+                "48df9fb6643d477bb1bb7bf595915a23",
                 "9c068b52c31f4567b550c528ad416b89",
                 "1de0fc5e9dfc40f687702caa089fd16f",
                 "0128241e3e024872a7eb46848eb7a7be",
@@ -1416,7 +1471,7 @@
     },
     "dados_mestres": {
         "logradouro": {
-            "title": "Dados Mestres da Prefeitura da Cidade do Rio de Janeiro: Logradouro",
+            "title": "Dados Mestres: Logradouros",
             "short_description": "Logradouros do município do Rio de Janeiro.",
             "long_description": "Trechos ativos de logradouros do município do Rio de Janeiro. \r\nTrecho de logradouro é um pedaço do logradouro, no caso de uma rua vai de uma esquina à outra. Logradouro é qualquer espaço público comum que pode ser usufruído por toda a população (reconhecidos formalmente ou não, de conhecimento da prefeitura do Rio de Janeiro), como largos, praças, ruas, jardins, parques, entre outros.",
             "update_frequency": "Mensal",
@@ -1429,7 +1484,8 @@
                 "logradouros"
             ],
             "categories": [
-                "48df9fb6643d477bb1bb7bf595915a23"
+                "48df9fb6643d477bb1bb7bf595915a23",
+                "0128241e3e024872a7eb46848eb7a7be"
             ],
             "columns": [
                 {
@@ -1503,7 +1559,7 @@
             ]
         },
         "bairro": {
-            "title": "Dados Mestres da Prefeitura da Cidade do Rio de Janeiro: Bairro",
+            "title": "Dados Mestres: Bairros",
             "short_description": "Bairros da Cidade",
             "long_description": "Bairros da Cidade do Rio de Janeiro",
             "update_frequency": "Mensal",
@@ -1516,7 +1572,8 @@
                 "administracao_publica"
             ],
             "categories": [
-                "48df9fb6643d477bb1bb7bf595915a23"
+                "48df9fb6643d477bb1bb7bf595915a23",
+                "0128241e3e024872a7eb46848eb7a7be"
             ],
             "columns": [
                 {
