@@ -1,53 +1,5 @@
 version: 2
 models :
-  - name: gps_brt
-    description: "**Descrição**: Posição geográfica de veículos do modal BRT capturados\
-      \ minuto a minuto\n**Frequência de atualização**: Nunca\n**Cobertura temporal**:\
-      \ 24/11/2021 até o momento\n**Órgão gestor dos dados**: Secretaria Municipal\
-      \ de Transportes\n**Publicado por**: Fernanda Scovino\n**Publicado por (email)**:\
-      \ fernanda.scovino@rio.rj.gov.br\n"
-    columns:
-      - name: modo
-        description: Tipo de transporte (SPPO = ônibus, STPL = van, BRT)
-      - name: timestamp_gps
-        description: Carimbo de data/hora no qual o veículo reportou sua posição
-      - name: data
-        description: Data de captura do GPS (formato YYYY-MM-DD)
-      - name: hora
-        description: Horário de captura do GPS (formato HH:MM:SS)
-      - name: id_veiculo
-        description: Identificador único do veículo
-      - name: servico
-        description: 'Nome curto da rota operada pelo veículo (ex: 10, 11N, ...)'
-      - name: latitude
-        description: Latitude da posição do veículo
-      - name: longitude
-        description: Longitude da posição do veículo
-      - name: flag_em_operacao
-        description: (Em desenvolvimento) Flag que indica se o veículo está operando
-          conforme esperado
-      - name: flag_em_movimento
-        description: Flag que indica se o veículo está parado ou em movimento. Um
-          veículo é considerado parado se a velocidade média dele nos últimos 10 minutos
-          for menor que 3km/h
-      - name: tipo_parada
-        description: Identifica o estado do veículo como "terminal", "garagem" (para
-          veículos parados) ou "nao_identificado" (para veículos que distam acima
-          do limiar definido de um ponto de parada)
-      - name: velocidade_instantanea
-        description: Velocidade estimada do veículo com base nas posições de GPS ao
-          longo do tempo
-      - name: versao
-        description: Versão de código da pipeline que gerou o dado
-      - name: status
-        description: '(Em desenvolvimento) Estado categórico do veículo, pode assumir
-          os seguintes valores: "Em operação", "Parado garagem", "Parado terminal",
-          "Parado". A lógica completa está em:'
-      - name: velocidade_estimada_10_min
-        description: Velocidade média estimada para o veículo nos últimos 10 minutos
-      - name: distancia
-        description: Distância, em metros, da posição atual do veículo e sua posição
-          1 minuto antes
   - name: gps_onibus
     description: "**Descrição**: Posição geográfica de veículos do modal SPPO capturados\
       \ minuto a minuto\n**Frequência de atualização**: Nunca\n**Cobertura temporal**:\
@@ -97,3 +49,51 @@ models :
           posição informada
       - name: versao
         description: Versão de código da pipeline que gerou o dado
+  - name: gps_brt
+    description: "**Descrição**: Posição geográfica de veículos do modal BRT capturados\
+      \ minuto a minuto\n**Frequência de atualização**: Nunca\n**Cobertura temporal**:\
+      \ 24/11/2021 até o momento\n**Órgão gestor dos dados**: Secretaria Municipal\
+      \ de Transportes\n**Publicado por**: Fernanda Scovino\n**Publicado por (email)**:\
+      \ fernanda.scovino@rio.rj.gov.br\n"
+    columns:
+      - name: modo
+        description: Tipo de transporte (SPPO = ônibus, STPL = van, BRT)
+      - name: timestamp_gps
+        description: Carimbo de data/hora no qual o veículo reportou sua posição
+      - name: data
+        description: Data de captura do GPS (formato YYYY-MM-DD)
+      - name: hora
+        description: Horário de captura do GPS (formato HH:MM:SS)
+      - name: id_veiculo
+        description: Identificador único do veículo
+      - name: servico
+        description: 'Nome curto da rota operada pelo veículo (ex: 10, 11N, ...)'
+      - name: latitude
+        description: Latitude da posição do veículo
+      - name: longitude
+        description: Longitude da posição do veículo
+      - name: flag_em_operacao
+        description: (Em desenvolvimento) Flag que indica se o veículo está operando
+          conforme esperado
+      - name: flag_em_movimento
+        description: Flag que indica se o veículo está parado ou em movimento. Um
+          veículo é considerado parado se a velocidade média dele nos últimos 10 minutos
+          for menor que 3km/h
+      - name: tipo_parada
+        description: Identifica o estado do veículo como "terminal", "garagem" (para
+          veículos parados) ou "nao_identificado" (para veículos que distam acima
+          do limiar definido de um ponto de parada)
+      - name: velocidade_instantanea
+        description: Velocidade estimada do veículo com base nas posições de GPS ao
+          longo do tempo
+      - name: versao
+        description: Versão de código da pipeline que gerou o dado
+      - name: status
+        description: '(Em desenvolvimento) Estado categórico do veículo, pode assumir
+          os seguintes valores: "Em operação", "Parado garagem", "Parado terminal",
+          "Parado". A lógica completa está em:'
+      - name: velocidade_estimada_10_min
+        description: Velocidade média estimada para o veículo nos últimos 10 minutos
+      - name: distancia
+        description: Distância, em metros, da posição atual do veículo e sua posição
+          1 minuto antes
