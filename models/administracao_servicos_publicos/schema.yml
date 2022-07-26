@@ -1,12 +1,10 @@
 version: 2
 models :
-  - name: chamado
+  - name: chamado_1746
     description: "**Descrição**: Chamados feitos ao 1746. São chamados desde março\
-      \ de  2011, quando começou o projeto 1746.\r\n\r\nAVISO: essa tabela será descontinuada\
-      \ em prol da administracao_servicos_publicos.chamado_1746!\n**Frequência de\
-      \ atualização**: Diário\n**Cobertura temporal**: Março de  2011\n**Órgão gestor\
-      \ dos dados**: SEGOVI\n**Publicado por**: Patricia Catandi\n**Publicado por\
-      \ (email)**: patriciabcatandi@gmail.com\n"
+      \ de  2011, quando começou o projeto 1746.\n**Frequência de atualização**: Diário\n\
+      **Cobertura temporal**: Março de  2011\n**Órgão gestor dos dados**: SEGOVI\n\
+      **Publicado por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
       - name: id_chamado
         description: Identificador único do chamado no banco de dados.
@@ -85,8 +83,6 @@ models :
           a demanda e obede a unidade organizacional mãe "IVISA-RIO - Instituto Municipal
           de Vigilância Sanitária, de Zoonoses e de Inspeção Agropecuária". A coluna
           se refere ao ID  deste último.'
-      - name: reclamacoes
-        description: Quantidade de reclamações.
       - name: situacao
         description: Identifica se o chamado foi encerrado
       - name: tipo_situacao
@@ -99,3 +95,5 @@ models :
         description: 'Justificativa que os órgãos usam ao definir o status. Exemplo:
           SEM POSSIBILIDADE DE ATENDIMENTO - justificativa: Fora de área de atuação
           do municipio'
+      - name: reclamacoes
+        description: Quantidade de reclamações.
