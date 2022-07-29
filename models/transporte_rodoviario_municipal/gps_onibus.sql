@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='incremental',
+        -- materialized='incremental',
         partition_by={
             "field": "data",
             "data_type": "date",
@@ -14,11 +14,11 @@ SELECT
 FROM `rj-smtr.br_rj_riodejaneiro_veiculos.gps_sppo`
 WHERE data < "2022-07-16"
 
-{% if is_incremental() %}
+-- {% if is_incremental() %}
 
-{% set max_partition = run_query("SELECT gr FROM (SELECT IF(max(data) > CURRENT_DATE('America/Sao_Paulo'), CURRENT_DATE('America/Sao_Paulo'), max(data)) as gr FROM " ~ this ~ ")").columns[0].values()[0] %}
+-- {% set max_partition = run_query("SELECT gr FROM (SELECT IF(max(data) > CURRENT_DATE('America/Sao_Paulo'), CURRENT_DATE('America/Sao_Paulo'), max(data)) as gr FROM " ~ this ~ ")").columns[0].values()[0] %}
 
-AND
-    data > ("{{ max_partition }}")
+-- AND
+--     data > ("{{ max_partition }}")
 
-{% endif %}
+-- {% endif %}
