@@ -50,7 +50,7 @@ models :
         description: "Descrição do evento."
 
 
-    - name: atividades_orgaos_responsaveis_pop
+  - name: atividades_orgaos_responsaveis_pop
     description: "**Descrição**: Atividades que compõem os POPs.\n**Frequência de\
       \ atualização**: Nunca\n**Cobertura temporal**: Não informado.\n**Órgão gestor\
       \ dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**:\
