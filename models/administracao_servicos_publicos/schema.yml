@@ -48,6 +48,8 @@ models :
         description: "Atributo não utilizado."
       - name: descricao
         description: "Descrição do evento."
+      - name: tipo
+        description: "Tipo do evento (PRIMARIO, SECUNDARIO)."
 
 
   - name: atividades_orgaos_responsaveis_pop
@@ -84,6 +86,8 @@ models :
         description: "Sigla do orgão que está realizando ou realizou a atividade."
       - name: status
         description: "Status do evento (ABERTO, FECHADO)."
+      - name: descricao
+        description: "Descrição da atividade."
 
 
   - name: chamado_1746
