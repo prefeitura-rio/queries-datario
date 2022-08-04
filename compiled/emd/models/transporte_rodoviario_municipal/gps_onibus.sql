@@ -5,3 +5,4 @@ SELECT
 FROM `rj-smtr.br_rj_riodejaneiro_veiculos.gps_sppo`
 WHERE data < "2022-07-16"
 
+-- 
