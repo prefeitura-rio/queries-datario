@@ -6,13 +6,7 @@ models :
       \ de várias atividades.\n**Frequência de atualização**: Nunca\n**Cobertura temporal**:\
       \ Não informado.\n**Órgão gestor dos dados**: COR\n**Publicado por**: Patrícia\
       \ Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
-    columns:
-      - name: pop_titulo
-        description: "Nome da POP ao qual a atividade está ligada."
-      - name: pop_id
-        description: "Identificador do POP procedimento operacional padrão)."
-
-
+    columns: []
   - name: eventos
     description: "**Descrição**: Eventos desde 2015. Um evento é uma ocorrência na\
       \ cidade do Rio de Janeiro que exija um acompanhamento e na maioria das vezes\
@@ -20,76 +14,7 @@ models :
       \ Um evento aberto que não foi solucionado.\n**Frequência de atualização**:\
       \ Nunca\n**Cobertura temporal**: Não informado.\n**Órgão gestor dos dados**:\
       \ COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
-    columns:
-      - name: evento_id
-        description: "Identificador do evento."
-        tests:
-          - unique
-          - not_null
-      - name: inicio
-        description: "Data e hora do registro do evento na PCRJ."
-      - name: fim
-        description: "Data e hora do encerramento do evento na PCRJ. O evento é encerrado quando é solucionado. Este atributo está vazio quanto o evento está aberto."
-      - name: bairro
-        description: "Bairro onde ocorreu o evento."
-      - name: pop_id
-        description: "Identificador do POP ( procedimento operacional padrão )."
-      - name: status
-        description: "Status do evento (ABERTO, FECHADO)."
-      - name: gravidade
-        description: "Gravidade do evento (BAIXO, MEDIO, ALTO, CRITICO)."
-      - name: prazo
-        description: "Prazo esperado de solução do evento (CURTO, MEDIO(acima de 3 dias), LONGO( acima de 5 dias))."
-      - name: latitude
-        description: "Latitude em formato WGS-84 em que ocorreu o evento."
-      - name: longitude
-        description: "Longitude em formato WGS-84 em que ocorreu o evento"
-      - name: informe_id
-        description: "Atributo não utilizado."
-      - name: descricao
-        description: "Descrição do evento."
-      - name: tipo
-        description: "Tipo do evento (PRIMARIO, SECUNDARIO)."
-
-
-  - name: atividades_orgaos_responsaveis_pop
-    description: "**Descrição**: Atividades que compõem os POPs.\n**Frequência de\
-      \ atualização**: Nunca\n**Cobertura temporal**: Não informado.\n**Órgão gestor\
-      \ dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**:\
-      \ patriciabcatandi@gmail.com\n"
-    columns:
-      - name: pop_titulo
-        description: "Nome da POP ao qual a atividade está ligada."
-      - name: sigla
-        description: "Sigla do órgão responsável pela atividade."
-      - name: orgao
-        description: "Orgão responsável pela atividade."
-      - name: acao
-        description: "Descrição da atividade."
-
-
-  - name: atividades_eventos
-    description: "**Descrição**: Atividades estão sendo executadas ou que foram executadas.\n\
-      **Frequência de atualização**: Nunca\n**Cobertura temporal**: Não informado.\n\
-      **Órgão gestor dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado\
-      \ por (email)**: patriciabcatandi@gmail.com\n"
-    columns:
-      - name: evento_id
-        description: "Identificador do evento."
-      - name: inicio
-        description: "Data e hora do registro do evento na PCRJ."
-      - name: fim
-        description: "Data e hora do encerramento do evento na PCRJ. O evento é encerrado quando é solucionado. Este atributo está vazio quanto o evento está aberto."
-      - name: chegada
-        description: "Data e hora da chegada da atividade."
-      - name: sigla
-        description: "Sigla do orgão que está realizando ou realizou a atividade."
-      - name: status
-        description: "Status do evento (ABERTO, FECHADO)."
-      - name: descricao
-        description: "Descrição da atividade."
-
-
+    columns: []
   - name: chamado_1746
     description: "**Descrição**: Chamados feitos ao 1746. São chamados desde março\
       \ de  2011, quando começou o projeto 1746.\n**Frequência de atualização**: Diário\n\
@@ -187,3 +112,15 @@ models :
           do municipio'
       - name: reclamacoes
         description: Quantidade de reclamações.
+  - name: atividades_orgaos_responsaveis_pop
+    description: "**Descrição**: Atividades que compõem os POPs.\n**Frequência de\
+      \ atualização**: Nunca\n**Cobertura temporal**: Não informado.\n**Órgão gestor\
+      \ dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**:\
+      \ patriciabcatandi@gmail.com\n"
+    columns: []
+  - name: atividades_eventos
+    description: "**Descrição**: Atividades estão sendo executadas ou que foram executadas.\n\
+      **Frequência de atualização**: Diário\n**Cobertura temporal**: Não informado.\n\
+      **Órgão gestor dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado\
+      \ por (email)**: patriciabcatandi@gmail.com\n"
+    columns: []
