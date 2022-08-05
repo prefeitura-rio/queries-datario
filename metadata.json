@@ -1092,7 +1092,7 @@
             "title": "Administração de Serviços Públicos: Não informado.",
             "short_description": "Não informado.",
             "long_description": "Procedimentos operacionais padrões (POP) existentes na PCRJ.  Procedimento que será usado para solucionar o evento.Um POP é composto de várias atividades.",
-            "update_frequency": "Nunca",
+            "update_frequency": "Mensal",
             "temporal_coverage": "Não informado.",
             "data_owner": "COR",
             "publisher_name": "Patrícia Catandi",
@@ -1266,11 +1266,11 @@
                 }
             ]
         },
-        "atividades_orgaos_responsaveis_pop": {
+        "eventos_atividades": {
             "title": "Administração de Serviços Públicos: Não informado.",
             "short_description": "Não informado.",
-            "long_description": "Atividades que compõem os POPs.",
-            "update_frequency": "Nunca",
+            "long_description": "Atividades estão sendo executadas ou que foram executadas.",
+            "update_frequency": "Diário",
             "temporal_coverage": "Não informado.",
             "data_owner": "COR",
             "publisher_name": "Patrícia Catandi",
@@ -1283,11 +1283,11 @@
             ],
             "columns": []
         },
-        "atividades_eventos": {
+        "atividades_orgaos_responsaveis_pop": {
             "title": "Administração de Serviços Públicos: Não informado.",
             "short_description": "Não informado.",
-            "long_description": "Atividades estão sendo executadas ou que foram executadas.",
-            "update_frequency": "Diário",
+            "long_description": "Atividades que compõem os POPs.",
+            "update_frequency": "Mensal",
             "temporal_coverage": "Não informado.",
             "data_owner": "COR",
             "publisher_name": "Patrícia Catandi",
