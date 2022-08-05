@@ -2,5 +2,19 @@
 # diretório diferente de `public/`, no caso o diretório `duplicates/`.
 # Linhas com "#"" no início são considerados comentários.
 
+administracao_servicos_publicos.atividades_eventos
+administracao_servicos_publicos.atividades_orgaos_responsaveis_pop
+administracao_servicos_publicos.eventos
+administracao_servicos_publicos.procedimento_operacional_padrao
 dados_mestres.bairro
 dados_mestres.logradouro
+educacao_basica.aluno_historico
+educacao_basica.aluno_turma
+educacao_basica.aluno
+educacao_basica.avaliacao
+educacao_basica.coc
+educacao_basica.dependencia
+educacao_basica.escola
+educacao_basica.frequencia
+educacao_basica.movimentacao
+educacao_basica.turma
