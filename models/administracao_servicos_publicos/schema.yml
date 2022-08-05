@@ -9,7 +9,7 @@ models :
     columns:
       - name: pop_titulo
         description: "Nome da POP ao qual a atividade está ligada."
-      - name: pop_id
+      - name: id_pop
         description: "Identificador do POP procedimento operacional padrão)."
 
 
@@ -21,18 +21,18 @@ models :
       \ Nunca\n**Cobertura temporal**: Não informado.\n**Órgão gestor dos dados**:\
       \ COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
-      - name: evento_id
+      - name: id_evento
         description: "Identificador do evento."
         tests:
           - unique
           - not_null
-      - name: inicio
+      - name: data_inicio
         description: "Data e hora do registro do evento na PCRJ."
-      - name: fim
+      - name: data_fim
         description: "Data e hora do encerramento do evento na PCRJ. O evento é encerrado quando é solucionado. Este atributo está vazio quanto o evento está aberto."
       - name: bairro
         description: "Bairro onde ocorreu o evento."
-      - name: pop_id
+      - name: id_pop
         description: "Identificador do POP ( procedimento operacional padrão )."
       - name: status
         description: "Status do evento (ABERTO, FECHADO)."
@@ -44,8 +44,6 @@ models :
         description: "Latitude em formato WGS-84 em que ocorreu o evento."
       - name: longitude
         description: "Longitude em formato WGS-84 em que ocorreu o evento"
-      - name: informe_id
-        description: "Atributo não utilizado."
       - name: descricao
         description: "Descrição do evento."
       - name: tipo
@@ -58,8 +56,8 @@ models :
       \ dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**:\
       \ patriciabcatandi@gmail.com\n"
     columns:
-      - name: pop_titulo
-        description: "Nome da POP ao qual a atividade está ligada."
+      - name: id_pop
+        description: "ID do POP ao qual a atividade está ligada."
       - name: sigla
         description: "Sigla do órgão responsável pela atividade."
       - name: orgao
@@ -68,19 +66,19 @@ models :
         description: "Descrição da atividade."
 
 
-  - name: atividades_eventos
+  - name: eventos_atividades
     description: "**Descrição**: Atividades estão sendo executadas ou que foram executadas.\n\
       **Frequência de atualização**: Nunca\n**Cobertura temporal**: Não informado.\n\
       **Órgão gestor dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado\
       \ por (email)**: patriciabcatandi@gmail.com\n"
     columns:
-      - name: evento_id
+      - name: id_evento
         description: "Identificador do evento."
-      - name: inicio
+      - name: data_inicio
         description: "Data e hora do registro do evento na PCRJ."
-      - name: fim
+      - name: data_fim
         description: "Data e hora do encerramento do evento na PCRJ. O evento é encerrado quando é solucionado. Este atributo está vazio quanto o evento está aberto."
-      - name: chegada
+      - name: data_chegada
         description: "Data e hora da chegada da atividade."
       - name: sigla
         description: "Sigla do orgão que está realizando ou realizou a atividade."

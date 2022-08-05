@@ -11,7 +11,7 @@
 
 SELECT
     *
-FROM `rj-cor.administracao_servicos_publicos.atividades_eventos`
+FROM `rj-cor.administracao_servicos_publicos.eventos_atividades`
 WHERE data_particao < CURRENT_DATE('America/Sao_Paulo')
 
 {% if is_incremental() %}
