@@ -42,9 +42,6 @@ models:
     administracao_servicos_publicos:
       +materialized: table
       +schema: administracao_servicos_publicos
-    administracao_servicos_publicos_1746:
-      +materialized: table
-      +schema: administracao_servicos_publicos_1746
     dados_mestres:
       +materialized: table
       +schema: dados_mestres
