@@ -18,6 +18,5 @@ SELECT
     perc_conformidade_registros,
     versao_modelo
 FROM rj-smtr.projeto_subsidio_sppo.viagem_completa 
-WHERE data >= "2022-06-01"
+WHERE data < CURRENT_DATE('America/Sao_Paulo')
 
--- 
