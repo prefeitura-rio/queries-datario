@@ -2,10 +2,12 @@ version: 2
 models :
   - name: procedimento_operacional_padrao
     description: "**Descrição**: Procedimentos operacionais padrões (POP) existentes\
-      \ na PCRJ.  Procedimento que será usado para solucionar o evento.Um POP é composto\
-      \ de várias atividades.\n**Frequência de atualização**: Mensal\n**Cobertura\
-      \ temporal**: Não informado.\n**Órgão gestor dos dados**: COR\n**Publicado por**:\
-      \ Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+      \ na PCRJ.  Um POP é um procedimento que será usado para solucionar um evento.\
+      \ Um POP é composto de várias atividades. Um evento é uma ocorrência na cidade\
+      \ do Rio de Janeiro que exija um acompanhamento e na maioria das vezes uma ação\
+      \ da PCRJ, como por exemplo um buraco na rua.\n**Frequência de atualização**:\
+      \ Mensal\n**Cobertura temporal**: Não informado.\n**Órgão gestor dos dados**:\
+      \ COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
       - name: id_pop
         description: Identificador do POP procedimento operacional padrão).
@@ -143,10 +145,13 @@ models :
       - name: reclamacoes
         description: Quantidade de reclamações.
   - name: eventos_atividades
-    description: "**Descrição**: Atividades estão sendo executadas ou que foram executadas.\n\
-      **Frequência de atualização**: Diário\n**Cobertura temporal**: Não informado.\n\
-      **Órgão gestor dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado\
-      \ por (email)**: patriciabcatandi@gmail.com\n"
+    description: "**Descrição**: Atividades estão sendo executadas ou que foram executadas\
+      \ para a solução de um evento. Um evento é uma ocorrência na cidade do Rio de\
+      \ Janeiro que exija um acompanhamento e na maioria das vezes uma ação da PCRJ.\
+      \ Por exemplo, Buraco na pista, bolsão d'água, enguiço mecânico. Um evento aberto\
+      \ que não foi solucionado.\n**Frequência de atualização**: Diário\n**Cobertura\
+      \ temporal**: Não informado.\n**Órgão gestor dos dados**: COR\n**Publicado por**:\
+      \ Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
       - name: data_inicio
         description: Data e hora do início da atividade.
@@ -163,10 +168,13 @@ models :
       - name: data_chegada
         description: Data e hora da chegada da atividade.
   - name: atividades_orgaos_responsaveis_pop
-    description: "**Descrição**: Atividades que compõem os POPs.\n**Frequência de\
-      \ atualização**: Mensal\n**Cobertura temporal**: Não informado.\n**Órgão gestor\
-      \ dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**:\
-      \ patriciabcatandi@gmail.com\n"
+    description: "**Descrição**: Atividades que compõem os POPs ( Procedimentos operacionais\
+      \ padrões). Um POP é um procedimento que será usado para solucionar um evento.\
+      \ Um evento é uma ocorrência na cidade do Rio de Janeiro que exija um acompanhamento\
+      \ e na maioria das vezes uma ação da PCRJ, como por exemplo um buraco na rua.\n\
+      **Frequência de atualização**: Mensal\n**Cobertura temporal**: Não informado.\n\
+      **Órgão gestor dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado\
+      \ por (email)**: patriciabcatandi@gmail.com\n"
     columns:
       - name: id_pop
         description: ID do POP ao qual a atividade está ligada.

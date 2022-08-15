@@ -59,7 +59,7 @@ models :
       - name: geometry
         description: Geometria do trecho de logradouro no banco do ArcGIS.
   - name: bairro
-    description: "**Descrição**: Bairros da Cidade do Rio de Janeiro\n**Frequência\
+    description: "**Descrição**: Bairros da Cidade do Rio de Janeiro.\n**Frequência\
       \ de atualização**: Mensal\n**Cobertura temporal**: Até a presente data\n**Órgão\
       \ gestor dos dados**: Instituto Pereira Passos (IPP) / Câmara dos Vereadores\
       \ (CMRJ)\n**Publicado por**: IPP\n**Publicado por (email)**: contato.siurb@gmail.com\n"

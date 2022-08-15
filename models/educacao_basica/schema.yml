@@ -239,10 +239,10 @@ models :
           \ diferente da utilização real."
   - name: aluno_historico
     description: "**Descrição**: Histórico e dados pessoais de todos os alunos que\
-      \ passaram pela rede municipal de educação.\n**Frequência de atualização**:\
-      \ Anual\n**Cobertura temporal**: Até data corrente\n**Órgão gestor dos dados**:\
-      \ Secretaria Municipal de Educação\n**Publicado por**: Nuno Caminada Silva\n\
-      **Publicado por (email)**: nuno.silva@rioeduca.net\n"
+      \ passaram pela rede municipal de educação da prefeitura do Rio de Janeiro.\n\
+      **Frequência de atualização**: Anual\n**Cobertura temporal**: Até data corrente\n\
+      **Órgão gestor dos dados**: Secretaria Municipal de Educação\n**Publicado por**:\
+      \ Nuno Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
     columns:
       - name: ano
         description: Ano de cobertura do histórico.
@@ -509,13 +509,14 @@ models :
       - name: cpf
         description: CPF do aluno (mascarado, está preenchido com 9s)
   - name: movimentacao
-    description: "**Descrição**: Movimentações feitas de alunos ( algumas informações\
-      \ desde 1973, são mais completas a partir de 2012 ).\r\nMovimentação é a saída\
-      \ do aluno de uma turma, potencialmente para entrada em outra turma da mesma\
-      \ unidade escolar ou para outra unidade escolar, do município ou não.\n**Frequência\
-      \ de atualização**: Anual\n**Cobertura temporal**: Desde 1973 até data corrente\n\
-      **Órgão gestor dos dados**: Secretaria Municipal de Educação\n**Publicado por**:\
-      \ Nuno Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
+    description: "**Descrição**: Movimentações feitas de alunos de interesse da prefeitura\
+      \ do Rio de Janeiro ( algumas informações desde 1973, são mais completas a partir\
+      \ de 2012 ).\r\nMovimentação é a saída do aluno de uma turma, potencialmente\
+      \ para entrada em outra turma da mesma unidade escolar ou para outra unidade\
+      \ escolar, do município ou não.\n**Frequência de atualização**: Anual\n**Cobertura\
+      \ temporal**: Desde 1973 até data corrente\n**Órgão gestor dos dados**: Secretaria\
+      \ Municipal de Educação\n**Publicado por**: Nuno Caminada Silva\n**Publicado\
+      \ por (email)**: nuno.silva@rioeduca.net\n"
     columns:
       - name: ano
         description: Ano da movimentação.

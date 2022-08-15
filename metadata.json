@@ -2,7 +2,7 @@
     "dados_mestres": {
         "logradouro": {
             "title": "Dados Mestres: Logradouros",
-            "short_description": "Logradouros do município do Rio de Janeiro.",
+            "short_description": "Trechos ativos de logradouros do município do Rio de Janeiro.",
             "long_description": "Trechos ativos de logradouros do município do Rio de Janeiro. \r\nTrecho de logradouro é um pedaço do logradouro, no caso de uma rua vai de uma esquina à outra. Logradouro é qualquer espaço público comum que pode ser usufruído por toda a população (reconhecidos formalmente ou não, de conhecimento da prefeitura do Rio de Janeiro), como largos, praças, ruas, jardins, parques, entre outros.",
             "update_frequency": "Mensal",
             "temporal_coverage": "Até data corrente",
@@ -90,8 +90,8 @@
         },
         "bairro": {
             "title": "Dados Mestres: Bairros",
-            "short_description": "Bairros da Cidade",
-            "long_description": "Bairros da Cidade do Rio de Janeiro",
+            "short_description": "Bairros da Cidade do Rio de Janeiro.",
+            "long_description": "Bairros da Cidade do Rio de Janeiro.",
             "update_frequency": "Mensal",
             "temporal_coverage": "Até a presente data",
             "data_owner": "Instituto Pereira Passos (IPP) / Câmara dos Vereadores (CMRJ)",
@@ -156,7 +156,7 @@
     "educacao_basica": {
         "coc": {
             "title": "Educação Básica: Conselho de classe",
-            "short_description": "COCs fechados das turmas de escolas da prefeitura do Rio de Janeiro",
+            "short_description": "COCs fechados das turmas de escolas da prefeitura do Rio de Janeiro.",
             "long_description": "COCs fechados (não leva em conta o atual ) das turmas de escolas da prefeitura do Rio de Janeiro, com informações desde 2014. \r\nEstas informações são levantadas para, entre outras coisas, comparar a variação entre um COC e outro.",
             "update_frequency": "Mensal",
             "temporal_coverage": "Até data corrente",
@@ -336,7 +336,7 @@
         },
         "frequencia": {
             "title": "Educação Básica: Frequência",
-            "short_description": "Frequência dos alunos matriculados em uma escola da prefeitura do Rio de Janeiro",
+            "short_description": "Frequência dos alunos matriculados em uma escola da prefeitura do Rio de Janeiro.",
             "long_description": "Frequência dos alunos matriculados ou que já tenham sido matriculados em uma escola da prefeitura do Rio de Janeiro desde 2012. A frequência do aluno leva em consideração o periodo (em geral de um mês) e a disciplina feita.",
             "update_frequency": "Anual",
             "temporal_coverage": "Desde 2012 Até data corrente",
@@ -414,7 +414,7 @@
         },
         "turma": {
             "title": "Educação Básica: Turma",
-            "short_description": "Turma de alunos em unidades escolares.",
+            "short_description": "Turma de alunos em unidades escolares da prefeitura do Rio de Janeiro.",
             "long_description": "Turma de alunos, atuais ou passadas, em unidades escolares pertencentes ou de interesse da prefeitura do Rio de Janeiro.",
             "update_frequency": "Mensal",
             "temporal_coverage": "Até data corrente",
@@ -492,8 +492,8 @@
         },
         "aluno_historico": {
             "title": "Educação Básica: Histórico de Aluno",
-            "short_description": "Histórico de alunos que passaram pela rede municipal de educação.",
-            "long_description": "Histórico e dados pessoais de todos os alunos que passaram pela rede municipal de educação.",
+            "short_description": "Histórico de alunos que passaram pela rede municipal de educação da prefeitura do Rio de Janeiro.",
+            "long_description": "Histórico e dados pessoais de todos os alunos que passaram pela rede municipal de educação da prefeitura do Rio de Janeiro.",
             "update_frequency": "Anual",
             "temporal_coverage": "Até data corrente",
             "data_owner": "Secretaria Municipal de Educação",
@@ -658,7 +658,7 @@
         },
         "avaliacao": {
             "title": "Educação Básica: Avaliação",
-            "short_description": "Avaliações de alunos dadas no Conselho de Classe (COC)",
+            "short_description": "Avaliações de alunos dadas nos Conselhos de Classe (COC).",
             "long_description": "Avaliações de alunos dadas no COC.\r\nAs notas de disciplinas (ou a global) estão preenchidas (de 0,0 a 10) ou com a anotação 'sem informação' caso não haja nota para ela. \r\nDependendo do tipo de turma (Infantil, Fundamental 1, Fundamental 2, EJA, Classes especiais exclusivas, Turmas de correção de fluxo, etc) algumas notas são preenchidas sempre com a anotação 'sem informação'.",
             "update_frequency": "Anual",
             "temporal_coverage": "Até data corrente",
@@ -910,8 +910,8 @@
         },
         "movimentacao": {
             "title": "Educação Básica: Movimentação",
-            "short_description": "Movimentações feitas de alunos",
-            "long_description": "Movimentações feitas de alunos ( algumas informações desde 1973, são mais completas a partir de 2012 ).\r\nMovimentação é a saída do aluno de uma turma, potencialmente para entrada em outra turma da mesma unidade escolar ou para outra unidade escolar, do município ou não.",
+            "short_description": "Movimentações feitas de alunos de interesse da prefeitura do Rio de Janeiro.",
+            "long_description": "Movimentações feitas de alunos de interesse da prefeitura do Rio de Janeiro ( algumas informações desde 1973, são mais completas a partir de 2012 ).\r\nMovimentação é a saída do aluno de uma turma, potencialmente para entrada em outra turma da mesma unidade escolar ou para outra unidade escolar, do município ou não.",
             "update_frequency": "Anual",
             "temporal_coverage": "Desde 1973 até data corrente",
             "data_owner": "Secretaria Municipal de Educação",
@@ -1034,7 +1034,7 @@
         },
         "dependencia": {
             "title": "Educação Básica: Dependência",
-            "short_description": "Dependência em uma unidade escolar pertencente a prefeitura do Rio de Janeiro.",
+            "short_description": "Dependências pertencentes à prefeitura do Rio de Janeiro.",
             "long_description": "Dependências pertencentes à prefeitura do Rio de Janeiro. Dependência em uma unidade escolar pertencente a prefeitura do Rio de Janeiro. . Ex.: Sala de Aula, Auditório, Laboratório de Informática, despensa, rampa de acesso etc.",
             "update_frequency": "Mensal",
             "temporal_coverage": "Até data corrente",
@@ -1091,14 +1091,17 @@
         "procedimento_operacional_padrao": {
             "title": "Administração de Serviços Públicos: procedimento_operacional_padrao",
             "short_description": "Procedimentos operacionais padrões (POP).",
-            "long_description": "Procedimentos operacionais padrões (POP) existentes na PCRJ.  Procedimento que será usado para solucionar o evento.Um POP é composto de várias atividades.",
+            "long_description": "Procedimentos operacionais padrões (POP) existentes na PCRJ.  Um POP é um procedimento que será usado para solucionar um evento. Um POP é composto de várias atividades. Um evento é uma ocorrência na cidade do Rio de Janeiro que exija um acompanhamento e na maioria das vezes uma ação da PCRJ, como por exemplo um buraco na rua.",
             "update_frequency": "Mensal",
             "temporal_coverage": "Não informado.",
             "data_owner": "COR",
             "publisher_name": "Patrícia Catandi",
             "publisher_email": "patriciabcatandi@gmail.com",
             "tags": [
-                "administracao_publica"
+                "cor",
+                "comando",
+                "procedimento operacional padrão",
+                "administração pública"
             ],
             "categories": [
                 "48df9fb6643d477bb1bb7bf595915a23"
@@ -1124,7 +1127,11 @@
             "publisher_name": "Patrícia Catandi",
             "publisher_email": "patriciabcatandi@gmail.com",
             "tags": [
-                "administracao_publica"
+                "cor",
+                "comando",
+                "eventos",
+                "administração pública",
+                "ocorrência"
             ],
             "categories": [
                 "48df9fb6643d477bb1bb7bf595915a23"
@@ -1182,7 +1189,7 @@
         },
         "chamado_1746": {
             "title": "Administração de Serviços Públicos: Chamados feitos ao 1746",
-            "short_description": "Chamados feitos ao 1746. São chamados desde março de  2011, quando começou o projeto 1746.",
+            "short_description": "Chamados feitos ao 1746.",
             "long_description": "Chamados feitos ao 1746. São chamados desde março de  2011, quando começou o projeto 1746.",
             "update_frequency": "Diário",
             "temporal_coverage": "Março de  2011",
@@ -1190,9 +1197,10 @@
             "publisher_name": "Patricia Catandi",
             "publisher_email": "patriciabcatandi@gmail.com",
             "tags": [
-                "administracao_publica",
                 "bairro",
-                "logradouros"
+                "administracao_publica",
+                "logradouros",
+                "chamados"
             ],
             "categories": [
                 "48df9fb6643d477bb1bb7bf595915a23",
@@ -1326,15 +1334,18 @@
         },
         "eventos_atividades": {
             "title": "Administração de Serviços Públicos: eventos_atividades",
-            "short_description": "Atividades executadas.",
-            "long_description": "Atividades estão sendo executadas ou que foram executadas.",
+            "short_description": "Atividades estão sendo executadas ou que foram executadas.",
+            "long_description": "Atividades estão sendo executadas ou que foram executadas para a solução de um evento. Um evento é uma ocorrência na cidade do Rio de Janeiro que exija um acompanhamento e na maioria das vezes uma ação da PCRJ. Por exemplo, Buraco na pista, bolsão d'água, enguiço mecânico. Um evento aberto que não foi solucionado.",
             "update_frequency": "Diário",
             "temporal_coverage": "Não informado.",
             "data_owner": "COR",
             "publisher_name": "Patrícia Catandi",
             "publisher_email": "patriciabcatandi@gmail.com",
             "tags": [
-                "administracao_publica"
+                "cor",
+                "comando",
+                "eventos",
+                "administração pública"
             ],
             "categories": [
                 "48df9fb6643d477bb1bb7bf595915a23"
@@ -1373,14 +1384,18 @@
         "atividades_orgaos_responsaveis_pop": {
             "title": "Administração de Serviços Públicos: atividades_orgaos_responsaveis_pop",
             "short_description": "Atividades que compõem os POPs.",
-            "long_description": "Atividades que compõem os POPs.",
+            "long_description": "Atividades que compõem os POPs ( Procedimentos operacionais padrões). Um POP é um procedimento que será usado para solucionar um evento. Um evento é uma ocorrência na cidade do Rio de Janeiro que exija um acompanhamento e na maioria das vezes uma ação da PCRJ, como por exemplo um buraco na rua.",
             "update_frequency": "Mensal",
             "temporal_coverage": "Não informado.",
             "data_owner": "COR",
             "publisher_name": "Patrícia Catandi",
             "publisher_email": "patriciabcatandi@gmail.com",
             "tags": [
-                "administracao_publica"
+                "cor",
+                "comando",
+                "eventos",
+                "procedimento operacional padrão",
+                "administração pública"
             ],
             "categories": [
                 "48df9fb6643d477bb1bb7bf595915a23"
@@ -1408,7 +1423,7 @@
     "meio_ambiente_clima": {
         "estacoes_inmet": {
             "title": "Meio Ambiente: Estações meteorológicas (INMET/BDMET)",
-            "short_description": "Dados sobre as estações meteorológicas do inmet ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.",
+            "short_description": "Dados sobre as estações meteorológicas do inmet na cidade do Rio de Janeiro.",
             "long_description": "Dados sobre as estações meteorológicas do inmet ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.",
             "update_frequency": "Nunca",
             "temporal_coverage": "N/A",
@@ -1419,7 +1434,10 @@
                 "meio ambiente",
                 "clima",
                 "precipitacao",
-                "pluviometria"
+                "pluviometria",
+                "cor",
+                "estacoes_metereologicas",
+                "inmet"
             ],
             "categories": [
                 "0128241e3e024872a7eb46848eb7a7be"
@@ -1477,7 +1495,7 @@
         },
         "meteorologia_inmet": {
             "title": "Meio Ambiente: Meteorologia do Instituto Nacional de Meteorologia (INMET)",
-            "short_description": "Dados meteorológicos obtidas das estações pluviométricas do INMET na cidade do Rio de Janeiro",
+            "short_description": "Dados meteorológicos obtidas das estações pluviométricas do INMET na cidade do Rio de Janeiro.",
             "long_description": "Dados meteorológicos obtidos nas estações pluviométricas do INMET ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\r\nAs medidas são feitas de hora em hora, cada registro contendo dados destas medidas para cada estação. \r\nEntre os dados temos horário da medição, acumulado de chuva em 1 hora, direção e velocidade do vento, temperatura, pressão atmosférica, umidade e radiação global.",
             "update_frequency": "Diário",
             "temporal_coverage": "Desde 2010 até data corrente",
@@ -1486,7 +1504,12 @@
             "publisher_email": "patriciabcatandi@gmail.com",
             "tags": [
                 "meio ambiente",
-                "pluviometria"
+                "clima",
+                "precipitacao",
+                "pluviometria",
+                "cor",
+                "estacoes_metereologicas",
+                "inmet"
             ],
             "categories": [
                 "0128241e3e024872a7eb46848eb7a7be"
@@ -1580,7 +1603,7 @@
         },
         "estacoes_alertario": {
             "title": "Meio Ambiente: Estações pluviométricas (AlertaRio)",
-            "short_description": "Dados sobre as estações pluviométricas do alertario ( Sistema Alerta Rio da Prefeitura do Rio de Janeiro ) na cidade do Rio de Janeiro.",
+            "short_description": "Dados sobre as estações pluviométricas do alertario na cidade do Rio de Janeiro.",
             "long_description": "Dados sobre as estações pluviométricas do alertario ( Sistema Alerta Rio da Prefeitura do Rio de Janeiro ) na cidade do Rio de Janeiro.",
             "update_frequency": "Anual",
             "temporal_coverage": "N/A",
@@ -1591,7 +1614,10 @@
                 "meio ambiente",
                 "clima",
                 "precipitacao",
-                "pluviometria"
+                "pluviometria",
+                "cor",
+                "estacoes_pluviometricas",
+                "alertario"
             ],
             "categories": [
                 "0128241e3e024872a7eb46848eb7a7be"
@@ -1649,7 +1675,7 @@
         },
         "taxa_precipitacao_satelite": {
             "title": "Meio Ambiente: Taxa de Precipitação (GOES-16)",
-            "short_description": "Taxa de precipitação estimada de áreas do sudeste brasileiro",
+            "short_description": "Taxa de precipitação estimada de áreas do sudeste brasileiro.",
             "long_description": "Taxa de precipitação estimada de áreas do sudeste brasileiro. \r\nAs estimativas são feitas de hora em hora, cada registro contendo dados desta estimativa. \r\nCada área é um quadrado formado por 4km de lado. \r\nDados coletados pelo satélite GOES-16.",
             "update_frequency": "Diário",
             "temporal_coverage": "Desde 2020 até a data corrente",
@@ -1660,7 +1686,10 @@
                 "meio ambiente",
                 "clima",
                 "precipitacao",
-                "pluviometria"
+                "pluviometria",
+                "cor",
+                "goes",
+                "satelite"
             ],
             "categories": [
                 "0128241e3e024872a7eb46848eb7a7be"
@@ -1702,10 +1731,13 @@
             "publisher_name": "Patrícia Catandi",
             "publisher_email": "patriciabcatandi@gmail.com",
             "tags": [
-                "pluviometria",
                 "meio ambiente",
                 "clima",
-                "precipitacao"
+                "precipitacao",
+                "pluviometria",
+                "cor",
+                "estacoes_pluviometricas",
+                "alertario"
             ],
             "categories": [
                 "0128241e3e024872a7eb46848eb7a7be"
@@ -1759,10 +1791,13 @@
             "publisher_name": "Patrícia Catandi",
             "publisher_email": "patriciabcatandi@gmail.com",
             "tags": [
-                "pluviometria",
                 "meio ambiente",
                 "clima",
-                "precipitacao"
+                "precipitacao",
+                "pluviometria",
+                "cor",
+                "goes",
+                "satelite"
             ],
             "categories": [
                 "0128241e3e024872a7eb46848eb7a7be"
@@ -1806,9 +1841,9 @@
             "publisher_name": "Fernanda Scovino",
             "publisher_email": "fernanda.scovino@rio.rj.gov.br",
             "tags": [
-                "gps",
                 "transporte",
-                "brt"
+                "brt",
+                "gps"
             ],
             "categories": [
                 "cbe84df2333a463b9d4e20aca5177936"
@@ -1890,10 +1925,10 @@
             "publisher_name": "Fernanda Scovino",
             "publisher_email": "fernanda.scovino@rio.rj.gov.br",
             "tags": [
+                "transporte",
                 "gps",
                 "onibus",
-                "sppo",
-                "transporte"
+                "sppo"
             ],
             "categories": [
                 "cbe84df2333a463b9d4e20aca5177936"
@@ -1975,10 +2010,10 @@
             "publisher_name": "Fernanda Scovino",
             "publisher_email": "fernanda.scovino@rio.rj.gov.br",
             "tags": [
+                "transporte",
                 "gps",
                 "onibus",
-                "sppo",
-                "transporte"
+                "sppo"
             ],
             "categories": [
                 "cbe84df2333a463b9d4e20aca5177936"
