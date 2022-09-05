@@ -1,5 +1,37 @@
 version: 2
 models :
+  - name: bairro
+    description: "**Descrição**: Bairros da Cidade do Rio de Janeiro.\n**Frequência\
+      \ de atualização**: Mensal\n**Cobertura temporal**: Até a presente data\n**Órgão\
+      \ gestor dos dados**: Instituto Pereira Passos (IPP) / Câmara dos Vereadores\
+      \ (CMRJ)\n**Publicado por**: IPP\n**Publicado por (email)**: contato.siurb@gmail.com\n"
+    columns:
+      - name: shape_area
+        description: Área (m²) do bairro. Calculado automaticamente pelo ArqGis.
+      - name: id_bairro
+        description: Código do bairro dado pela prefeitura do Rio de Janeiro.
+      - name: nome
+        description: Nome do bairro
+      - name: id_area_planejamento
+        description: "Código da área de planejamento onde está localizado a região\
+          \ de planejamento do bairro.\r\nVer atributo nome_regiao_planejamento."
+      - name: nome_regiao_planejamento
+        description: "Nome da região de planejamento. \r\nDeve respeitar o atributo\
+          \ id_regiao_planejamento."
+      - name: id_regiao_planejamento
+        description: Código da região de planejamento onde está localizado o região
+          administrativa do bairro. Ver atributo REGIAO_ADM.
+      - name: id_regiao_administrativa
+        description: Código da região administrativa onde está locallizado o bairro.
+      - name: nome_regiao_administrativa
+        description: "Nome da região administrativa onde está localizado o bairro.\
+          \ \r\nEste atributo deve respeitar o atributo id_regiao_administrativa."
+      - name: area
+        description: "Área (m²) do bairro. \r\nTem o mesmo valor do atributo SHAPE.STArea()."
+      - name: perimetro
+        description: Perímetro (m) do bairro.
+      - name: geometry
+        description: Geometria do bairro no banco do ArcGIS.
   - name: logradouro
     description: "**Descrição**: Trechos ativos de logradouros do município do Rio\
       \ de Janeiro. \r\nTrecho de logradouro é um pedaço do logradouro, no caso de\
@@ -58,35 +90,3 @@ models :
           do trecho de logradouro.
       - name: geometry
         description: Geometria do trecho de logradouro no banco do ArcGIS.
-  - name: bairro
-    description: "**Descrição**: Bairros da Cidade do Rio de Janeiro.\n**Frequência\
-      \ de atualização**: Mensal\n**Cobertura temporal**: Até a presente data\n**Órgão\
-      \ gestor dos dados**: Instituto Pereira Passos (IPP) / Câmara dos Vereadores\
-      \ (CMRJ)\n**Publicado por**: IPP\n**Publicado por (email)**: contato.siurb@gmail.com\n"
-    columns:
-      - name: shape_area
-        description: Área (m²) do bairro. Calculado automaticamente pelo ArqGis.
-      - name: id_bairro
-        description: Código do bairro dado pela prefeitura do Rio de Janeiro.
-      - name: nome
-        description: Nome do bairro
-      - name: id_area_planejamento
-        description: "Código da área de planejamento onde está localizado a região\
-          \ de planejamento do bairro.\r\nVer atributo nome_regiao_planejamento."
-      - name: nome_regiao_planejamento
-        description: "Nome da região de planejamento. \r\nDeve respeitar o atributo\
-          \ id_regiao_planejamento."
-      - name: id_regiao_planejamento
-        description: Código da região de planejamento onde está localizado o região
-          administrativa do bairro. Ver atributo REGIAO_ADM.
-      - name: id_regiao_administrativa
-        description: Código da região administrativa onde está locallizado o bairro.
-      - name: nome_regiao_administrativa
-        description: "Nome da região administrativa onde está localizado o bairro.\
-          \ \r\nEste atributo deve respeitar o atributo id_regiao_administrativa."
-      - name: area
-        description: "Área (m²) do bairro. \r\nTem o mesmo valor do atributo SHAPE.STArea()."
-      - name: perimetro
-        description: Perímetro (m) do bairro.
-      - name: geometry
-        description: Geometria do bairro no banco do ArcGIS.
