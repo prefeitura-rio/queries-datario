@@ -7,7 +7,7 @@
             "data_type": "date",
             "granularity": "month",
         },
-        post_hook='CREATE OR REPLACE TABLE `rj-cor.meio_ambiente_clima_staging.quantidade_agua_precipitavel_satelite_last_partition_datario` AS (SELECT CURRENT_DATE("America/Sao_Paulo") AS data_particao)'
+        post_hook='CREATE OR REPLACE TABLE `rj-cor.meio_ambiente_clima_staging.quantidade_agua_precipitavel_satelite_last_partition_datario` AS (SELECT CURRENT_DATETIME("America/Sao_Paulo") AS data_particao)'
     )
 }}
 
