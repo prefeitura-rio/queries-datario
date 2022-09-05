@@ -18,15 +18,15 @@ FROM `rj-cor.meio_ambiente_clima.quantidade_agua_precipitavel_satelite`
 {% if is_incremental() %}
 
 {% set max_partition = run_query(
-    "SELECT DATE(gr) FROM (
-        SELECT IF(
-            max(data_particao) > CURRENT_DATE('America/Sao_Paulo'), CURRENT_DATE('America/Sao_Paulo'), max(data_particao)
-            ) as gr 
-        FROM `rj-cor.meio_ambiente_clima_staging.quantidade_agua_precipitavel_satelite_last_partition_datario`
-        )
+    "
+    SELECT IF(
+        max(data_particao) > CURRENT_DATETIME('America/Sao_Paulo'), CURRENT_DATETIME('America/Sao_Paulo'), max(data_particao)
+        ) as gr 
+    FROM `rj-cor.meio_ambiente_clima_staging.quantidade_agua_precipitavel_satelite_last_partition_datario`
     ").columns[0].values()[0] %}
 
 WHERE
-    data_particao >= ("{{ max_partition }}")
+    data_particao >= EXTRACT(DATE FROM SAFE_CAST("{{ max_partition }}" AS DATETIME)) AND
+    horario >= SAFE_CAST(CONCAT(EXTRACT(HOUR FROM SAFE_CAST("{{ max_partition }}" AS DATETIME)), ":00:00") AS TIME)
 
 {% endif %}
