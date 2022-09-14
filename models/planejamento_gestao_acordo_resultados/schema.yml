@@ -1,0 +1,9 @@
+version: 2
+models :
+  - name: meta
+    description: "**Descrição**: Identificadores, criados pela PCRJ, para metas. Uma\
+      \ meta do acordo de resultados pode ter vários identificadores, um para cada\
+      \ indicador e órgão associado a ela.\n**Frequência de atualização**: Anual\n\
+      **Cobertura temporal**: Não Informado\n**Órgão gestor dos dados**: EGP Rio\n\
+      **Publicado por**: Não Informado\n**Publicado por (email)**: Nao.informado@gmail.com\n"
+    columns: []
