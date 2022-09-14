@@ -155,6 +155,27 @@
             ]
         }
     },
+    "planejamento_gestao_acordo_resultados": {
+        "meta": {
+            "title": "Acordo de Resultados: Não Informado",
+            "short_description": "Identificadores, criados pela PCRJ, para metas.",
+            "long_description": "Identificadores, criados pela PCRJ, para metas. Uma meta do acordo de resultados pode ter vários identificadores, um para cada indicador e órgão associado a ela.",
+            "update_frequency": "Anual",
+            "temporal_coverage": "Não Informado",
+            "data_owner": "EGP Rio",
+            "publisher_name": "Não Informado",
+            "publisher_email": "Nao.informado@gmail.com",
+            "tags": [
+                "administração pública",
+                "acordo de resultados",
+                "EGP Rio",
+                "órgão",
+                "empresa"
+            ],
+            "categories": [],
+            "columns": []
+        }
+    },
     "transporte_rodoviario_municipal": {
         "gps_brt": {
             "title": "Transporte Rodoviário: GPS do BRT",
