@@ -54,6 +54,9 @@ models:
     meio_ambiente_clima:
       +materialized: table
       +schema: meio_ambiente_clima
+    planejamento_gestao_acordo_resultados:
+      +materialized: table
+      +schema: planejamento_gestao_acordo_resultados
     transporte_rodoviario_municipal:
       +materialized: table
       +schema: transporte_rodoviario_municipal

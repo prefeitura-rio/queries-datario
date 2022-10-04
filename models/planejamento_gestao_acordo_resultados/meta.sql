@@ -1,0 +1,1 @@
+SELECT * FROM `rj-smfp.planejamento_gestao_acordo_resultados.meta`
