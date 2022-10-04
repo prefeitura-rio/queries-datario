@@ -42,6 +42,9 @@ models:
     administracao_servicos_publicos:
       +materialized: table
       +schema: administracao_servicos_publicos
+    adm_cor_comando:
+      +materialized: table
+      +schema: adm_cor_comando
     dados_mestres:
       +materialized: table
       +schema: dados_mestres
