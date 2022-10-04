@@ -2,6 +2,6 @@
 
 SELECT
     *
-FROM `rj-cor.administracao_servicos_publicos.eventos_atividades`
+FROM `rj-cor.adm_cor_comando.ocorrencias`
 WHERE data_particao < CURRENT_DATE('America/Sao_Paulo')
 
