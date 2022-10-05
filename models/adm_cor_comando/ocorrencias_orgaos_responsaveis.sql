@@ -9,6 +9,7 @@
     )
 }}
 
+
 SELECT
     *
 FROM `rj-cor.adm_cor_comando.ocorrencias_orgaos_responsaveis`
