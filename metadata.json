@@ -1,471 +1,447 @@
 {
-    "dados_mestres": {
-        "bairro": {
-            "title": "Dados Mestres: Bairros",
-            "short_description": "Bairros da Cidade do Rio de Janeiro.",
-            "long_description": "Bairros da Cidade do Rio de Janeiro.",
-            "update_frequency": "Mensal",
-            "temporal_coverage": "Até a presente data",
-            "data_owner": "Instituto Pereira Passos (IPP) / Câmara dos Vereadores (CMRJ)",
-            "publisher_name": "IPP",
-            "publisher_email": "contato.siurb@gmail.com",
-            "tags": [
-                "bairro",
-                "administração pública",
-                "IPP"
-            ],
-            "categories": [
-                "48df9fb6643d477bb1bb7bf595915a23",
-                "0128241e3e024872a7eb46848eb7a7be"
-            ],
-            "columns": [
-                {
-                    "name": "shape_area",
-                    "description": "Área (m²) do bairro. Calculado automaticamente pelo ArqGis."
-                },
-                {
-                    "name": "id_bairro",
-                    "description": "Código do bairro dado pela prefeitura do Rio de Janeiro."
-                },
-                {
-                    "name": "nome",
-                    "description": "Nome do bairro"
-                },
-                {
-                    "name": "id_area_planejamento",
-                    "description": "Código da área de planejamento onde está localizado a região de planejamento do bairro.\r\nVer atributo nome_regiao_planejamento."
-                },
-                {
-                    "name": "nome_regiao_planejamento",
-                    "description": "Nome da região de planejamento. \r\nDeve respeitar o atributo id_regiao_planejamento."
-                },
-                {
-                    "name": "id_regiao_planejamento",
-                    "description": "Código da região de planejamento onde está localizado o região administrativa do bairro. Ver atributo REGIAO_ADM."
-                },
-                {
-                    "name": "id_regiao_administrativa",
-                    "description": "Código da região administrativa onde está locallizado o bairro."
-                },
-                {
-                    "name": "nome_regiao_administrativa",
-                    "description": "Nome da região administrativa onde está localizado o bairro. \r\nEste atributo deve respeitar o atributo id_regiao_administrativa."
-                },
-                {
-                    "name": "area",
-                    "description": "Área (m²) do bairro. \r\nTem o mesmo valor do atributo SHAPE.STArea()."
-                },
-                {
-                    "name": "perimetro",
-                    "description": "Perímetro (m) do bairro."
-                },
-                {
-                    "name": "geometry",
-                    "description": "Geometria do bairro no banco do ArcGIS."
-                }
-            ]
-        },
-        "logradouro": {
-            "title": "Dados Mestres: Logradouros",
-            "short_description": "Trechos ativos de logradouros do município do Rio de Janeiro.",
-            "long_description": "Trechos ativos de logradouros do município do Rio de Janeiro. \r\nTrecho de logradouro é um pedaço do logradouro, no caso de uma rua vai de uma esquina à outra. Logradouro é qualquer espaço público comum que pode ser usufruído por toda a população (reconhecidos formalmente ou não, de conhecimento da prefeitura do Rio de Janeiro), como largos, praças, ruas, jardins, parques, entre outros.",
-            "update_frequency": "Mensal",
-            "temporal_coverage": "Até data corrente",
-            "data_owner": "Instituto Pereira Passos (IPP) / Secretaria Municipal de Planejamento Urbano (SMPU)",
-            "publisher_name": "IPP",
-            "publisher_email": "contato.siurb@gmail.com",
-            "tags": [
-                "administração pública",
-                "IPP",
-                "logradouro"
-            ],
-            "categories": [
-                "48df9fb6643d477bb1bb7bf595915a23",
-                "0128241e3e024872a7eb46848eb7a7be"
-            ],
-            "columns": [
-                {
-                    "name": "id_logradouro",
-                    "description": "Código oficial do logradouro dado pela Prefeitura do Rio de Janeiro."
-                },
-                {
-                    "name": "nome",
-                    "description": "Nome do bairro onde está localizado o trecho de logradouro.\r\nUm trecho pode passar por vários bairros. \r\nEste atributo indica um dos bairros contendo o trecho. \r\nDeve respeitar o atributo Cod_Bairro."
-                },
-                {
-                    "name": "nome_parcial",
-                    "description": "Nome parcial do logradouro. \r\nNome do logradouro sem o tipo do logradouro (rua, estrada, beco, travessa etc ) e sem a nobreza do logradouro."
-                },
-                {
-                    "name": "nome_completo",
-                    "description": "Nome completo do logradouro. \r\nNome do logradouro com tipo, nobreza e nome parcial."
-                },
-                {
-                    "name": "id_trecho",
-                    "description": "Identificador único do trecho no banco de dados."
-                },
-                {
-                    "name": "id_situacao_trecho",
-                    "description": "Código de situação do trecho de logradouro."
-                },
-                {
-                    "name": "situacao_trecho",
-                    "description": "Situação do trecho de logradouro.\r\nPor exemplo ativo, cancelado, rascunho. Nesta disponibilização do IPP somente entraram os trechos ativos. \r\nDeve respeitar o atributo COD_SIT_TRECHO."
-                },
-                {
-                    "name": "id_tipo",
-                    "description": "Código do tipo do logradouro dado pela prefeitura do Rio de Janeiro.\r\nPor exemplo 41 é associado a rua."
-                },
-                {
-                    "name": "tipo",
-                    "description": "Tipo do logradouro por extenso.\r\nPor exemplo rua. \r\nDeve respeitar o id_tipo."
-                },
-                {
-                    "name": "id_bairro",
-                    "description": "Código do bairro, dado pela prefeitura do Rio de Janeiro, do trecho de logradouro.\r\nVer o atributo nome."
-                },
-                {
-                    "name": "inicio_numero_porta_par",
-                    "description": "Numeração inicial do lado par do trecho de logradouro."
-                },
-                {
-                    "name": "final_numero_porta_par",
-                    "description": "Numeração final do lado par do trecho de logradouro."
-                },
-                {
-                    "name": "inicio_numero_porta_impar",
-                    "description": "Numeração inicial do lado ímpar do trecho de logradouro."
-                },
-                {
-                    "name": "final_numero_porta_impar",
-                    "description": "Numeração final do lado ímpar do trecho de logradouro."
-                },
-                {
-                    "name": "hierarquia",
-                    "description": "Hierarquia viária do trecho de logradouro. \r\nPor exemplo estrutural, arterial primária, arterial secundária, coletora, local. \r\nClassificação relacionada a regras para o tráfego que passa por ela.\r\nPor exemplo fluxo de veículos, velocidade máxima etc."
-                },
-                {
-                    "name": "id_chavegeo",
-                    "description": "Código Chavegeo calculado a partir das coordenadas X e Y do centro do trecho de logradouro."
-                },
-                {
-                    "name": "geometry",
-                    "description": "Geometria do trecho de logradouro no banco do ArcGIS."
-                }
-            ]
-        }
-    },
-    "administracao_servicos_publicos": {
-        "chamado_1746": {
-            "title": "Administração de Serviços Públicos: Chamados feitos ao 1746",
-            "short_description": "Chamados feitos ao 1746.",
-            "long_description": "Chamados feitos ao 1746. São chamados desde março de  2011, quando começou o projeto 1746.",
-            "update_frequency": "Diário",
-            "temporal_coverage": "Março de  2011",
-            "data_owner": "SEGOVI",
+    "meio_ambiente_clima": {
+        "estacoes_alertario": {
+            "title": "Meio Ambiente: Estações pluviométricas (AlertaRio)",
+            "short_description": "Dados sobre as estações pluviométricas do alertario na cidade do Rio de Janeiro.",
+            "long_description": "Dados sobre as estações pluviométricas do alertario ( Sistema Alerta Rio da Prefeitura do Rio de Janeiro ) na cidade do Rio de Janeiro.",
+            "update_frequency": "Anual",
+            "temporal_coverage": "N/A",
+            "data_owner": "COR",
             "publisher_name": "Patricia Catandi",
             "publisher_email": "patriciabcatandi@gmail.com",
             "tags": [
-                "bairro",
-                "administração pública",
-                "ocorrência",
-                "1746",
-                "SEGOVI"
+                "meio ambiente",
+                "clima",
+                "pluviometria",
+                "comando",
+                "precipitação",
+                "COR",
+                "alerta Rio",
+                "estações pluviométricas",
+                "estação pluviométrica",
+                "chuva",
+                "enchente"
             ],
             "categories": [
-                "48df9fb6643d477bb1bb7bf595915a23",
-                "9c068b52c31f4567b550c528ad416b89",
-                "1de0fc5e9dfc40f687702caa089fd16f",
-                "0128241e3e024872a7eb46848eb7a7be",
-                "cbe84df2333a463b9d4e20aca5177936"
+                "0128241e3e024872a7eb46848eb7a7be"
             ],
             "columns": [
                 {
-                    "name": "id_chamado",
-                    "description": "Identificador único do chamado no banco de dados."
-                },
-                {
-                    "name": "data_inicio",
-                    "description": "Data de abertura do chamado. Ocorre quando o operador registra o chamado."
-                },
-                {
-                    "name": "data_fim",
-                    "description": "Data de fechamento do chamado. O chamado é fechado quando o pedido é atendido ou quando se percebe que o pedido não pode ser atendido."
-                },
-                {
-                    "name": "id_bairro",
-                    "description": "Identificador único, no banco de dados, do bairro onde ocorreu o fato que gerou o chamado."
-                },
-                {
-                    "name": "id_territorialidade",
-                    "description": "Identificador único, no banco de dados, da territorialidade onde ocorreu o fato que gerou o chamado. Territorialidade é uma região da cidade do Rio de Janeiro que tem com responsável um órgão especifico. Exemplo: CDURP, que é responsável pela região do porto do Rio de Janeiro."
-                },
-                {
-                    "name": "id_logradouro",
-                    "description": "Identificador único, no banco de dados, do logradouro onde ocorreu o fato que gerou o chamado."
-                },
-                {
-                    "name": "numero_logradouro",
-                    "description": "Número da porta onde ocorreu o fato que gerou o chamado."
-                },
-                {
-                    "name": "id_unidade_organizacional",
-                    "description": "Identificador único, no banco de dados, do órgão que executa o chamado. Por exemplo: identificador da COMLURB quando o chamado é relativo a limpeza urbana."
-                },
-                {
-                    "name": "nome_unidade_organizacional",
-                    "description": "Nome do órgão que executa a demanda. Por exemplo: COMLURB quando a demanda é relativa a limpeza urbana."
-                },
-                {
-                    "name": "unidade_organizadional_ouvidoria",
-                    "description": "Booleano indicando se o chamado do cidadão foi feita Ouvidoria ou não. 1 caso sim, 0 caso não,"
-                },
-                {
-                    "name": "categoria",
-                    "description": "Categoria do chamado. Exemplo: Serviço, informação, sugestão, elogio, reclamação, crítica."
-                },
-                {
-                    "name": "id_tipo",
-                    "description": "Identificador único, no banco de dados, do tipo do chamado. Ex: Iluminação pública."
-                },
-                {
-                    "name": "tipo",
-                    "description": "Nome do tipo do chamado. Ex: Iluminação pública."
-                },
-                {
-                    "name": "id_subtipo",
-                    "description": "Identificador único, no banco de dados, do subtipo do chamado. Ex: Reparo de lâmpada apagada."
-                },
-                {
-                    "name": "subtipo",
-                    "description": "Nome do subtipo do chamado.  Ex: Reparo de lâmpada apagada."
-                },
-                {
-                    "name": "status",
-                    "description": "Status do chamado. Ex. Fechado com solução, aberto em andamento, pendente etc."
+                    "name": "x",
+                    "description": "X UTM (SAD69 Zona 23)"
                 },
                 {
                     "name": "longitude",
-                    "description": "Longitude do lugar do evento que motivou o chamado."
+                    "description": "Longitude onde a estação se encontra."
+                },
+                {
+                    "name": "id_estacao",
+                    "description": "ID da estação definido pelo AlertaRIO."
+                },
+                {
+                    "name": "estacao",
+                    "description": "Nome da estação."
                 },
                 {
                     "name": "latitude",
-                    "description": "Latitude do lugar do evento que motivou o chamado."
+                    "description": "Latitude onde a estação se encontra."
                 },
                 {
-                    "name": "data_alvo_finalizacao",
-                    "description": "Data prevista para o atendimento do chamado. Caso prazo_tipo seja D fica em branco até o diagnóstico ser feito."
+                    "name": "cota",
+                    "description": "Altura em metros onde a estação se encontra."
                 },
                 {
-                    "name": "data_alvo_diagnostico",
-                    "description": "Data prevista para fazer o diagnóstico do serviço.  Caso prazo_tipo seja F esta data fica em branco."
-                },
-                {
-                    "name": "data_real_diagnostico",
-                    "description": "Data em que foi feito o diagnóstico do serviço.  Caso prazo_tipo seja F esta data fica em branco."
-                },
-                {
-                    "name": "tempo_prazo",
-                    "description": "Prazo para o serviço ser feito. Em dias ou horas após a abertura do chamado. Caso haja diagnóstico o prazo conta após se fazer o diagnóstico."
-                },
-                {
-                    "name": "prazo_unidade",
-                    "description": "Unidade de tempo utilizada no prazo. Dias ou horas. D ou H."
-                },
-                {
-                    "name": "prazo_tipo",
-                    "description": "Diagnóstico ou finalização. D ou F. Indica se a chamada precisa de diagnóstico ou não. Alguns serviços precisam de avaliação para serem feitos, neste caso é feito o diagnóstico. Por exemplo, pode de árvore. Há a necessidade de um engenheiro ambiental verificar a necessidade da poda ou não."
-                },
-                {
-                    "name": "id_unidade_organizacional_mae",
-                    "description": "ID da unidade organizacional mãe do orgão que executa a demanda. Por exemplo: \"CVA - Coordenação de Vigilância de Alimentos\" é quem executa a demanda e obede a unidade organizacional mãe \"IVISA-RIO - Instituto Municipal de Vigilância Sanitária, de Zoonoses e de Inspeção Agropecuária\". A coluna se refere ao ID  deste último."
+                    "name": "endereco",
+                    "description": "Endereço completo da estação."
                 },
                 {
                     "name": "situacao",
-                    "description": "Identifica se o chamado foi encerrado"
+                    "description": "Indica se a estação está operante ou com falha."
                 },
                 {
-                    "name": "tipo_situacao",
-                    "description": "Indica o status atual do chamado entre as categorias Atendido, Atendido parcialmente, Não atendido, Não constatado e Andamento"
+                    "name": "data_inicio_operacao",
+                    "description": "Data em que a estação começou a operar."
                 },
                 {
-                    "name": "dentro_prazo",
-                    "description": "Indica se a data alvo de finalização do chamado ainda está dentro do prazo estipulado."
+                    "name": "data_fim_operacao",
+                    "description": "Data em que a estação parou de operar."
                 },
                 {
-                    "name": "justificativa_status",
-                    "description": "Justificativa que os órgãos usam ao definir o status. Exemplo: SEM POSSIBILIDADE DE ATENDIMENTO - justificativa: Fora de área de atuação do municipio"
+                    "name": "data_atualizacao",
+                    "description": "Última data em que os dados sobre a data de operação foram atualizados."
                 },
                 {
-                    "name": "reclamacoes",
-                    "description": "Quantidade de reclamações."
+                    "name": "y",
+                    "description": "Y UTM (SAD69 Zona 23)"
+                }
+            ]
+        },
+        "taxa_precipitacao_satelite": {
+            "title": "Meio Ambiente: Taxa de Precipitação (GOES-16)",
+            "short_description": "Taxa de precipitação estimada de áreas do sudeste brasileiro.",
+            "long_description": "Taxa de precipitação estimada de áreas do sudeste brasileiro. \r\nAs estimativas são feitas de hora em hora, cada registro contendo dados desta estimativa. \r\nCada área é um quadrado formado por 4km de lado. \r\nDados coletados pelo satélite GOES-16.",
+            "update_frequency": "Diário",
+            "temporal_coverage": "Desde 2020 até a data corrente",
+            "data_owner": "Centro de Operações da Prefeitura do Rio (COR)",
+            "publisher_name": "Patrícia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "meio ambiente",
+                "clima",
+                "pluviometria",
+                "precipitação",
+                "COR",
+                "GOES",
+                "satélite",
+                "chuva",
+                "enchente"
+            ],
+            "categories": [
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
+            "columns": [
+                {
+                    "name": "latitude",
+                    "description": "Latitude do centro da área."
+                },
+                {
+                    "name": "longitude",
+                    "description": "Longitude do centro da área."
+                },
+                {
+                    "name": "rrqpe",
+                    "description": "Taxa de precipitação estimada, medidas em milímetros por hora."
+                },
+                {
+                    "name": "primary_key",
+                    "description": "Chave primária criada a partir da concatenação da coluna data, horário, latitude e longitude. Serve para evitar dados duplicados."
+                },
+                {
+                    "name": "horario",
+                    "description": "Horário no qual foi realizada a medição"
+                },
+                {
+                    "name": "data_particao",
+                    "description": "Data na qual foi realizada a medição"
+                }
+            ]
+        },
+        "estacoes_inmet": {
+            "title": "Meio Ambiente: Estações meteorológicas (INMET/BDMET)",
+            "short_description": "Dados sobre as estações meteorológicas do inmet na cidade do Rio de Janeiro.",
+            "long_description": "Dados sobre as estações meteorológicas do inmet ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.",
+            "update_frequency": "Nunca",
+            "temporal_coverage": "N/A",
+            "data_owner": "INMET",
+            "publisher_name": "Patricia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "meio ambiente",
+                "clima",
+                "pluviometria",
+                "precipitação",
+                "COR",
+                "estações pluviométricas",
+                "estações meteorológicas",
+                "estação pluviométrica",
+                "INMET",
+                "estação meteorológica",
+                "chuva",
+                "enchente"
+            ],
+            "categories": [
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
+            "columns": [
+                {
+                    "name": "id_municipio",
+                    "description": "Código do município do IBGE de 7 dígitos."
+                },
+                {
+                    "name": "latitude",
+                    "description": "Latitude onde a estação se encontra."
+                },
+                {
+                    "name": "data_inicio_operacao",
+                    "description": "Data em que a estação começou a operar."
+                },
+                {
+                    "name": "data_fim_operacao",
+                    "description": "Data em que a estação parou de operar."
+                },
+                {
+                    "name": "situacao",
+                    "description": "Indica se a estação está operante ou com falha."
+                },
+                {
+                    "name": "tipo_estacao",
+                    "description": "Indica se a estação é automática ou manual. Pode conter nulos."
+                },
+                {
+                    "name": "entidade_responsavel",
+                    "description": "Entidade responsável pela estação."
+                },
+                {
+                    "name": "data_atualizacao",
+                    "description": "Última data em que os dados sobre a data de operação foram atualizados."
+                },
+                {
+                    "name": "longitude",
+                    "description": "Longitude onde a estação se encontra."
+                },
+                {
+                    "name": "sigla_uf",
+                    "description": "Sigla do estado."
+                },
+                {
+                    "name": "id_estacao",
+                    "description": "ID da estação definido pelo INMET."
+                },
+                {
+                    "name": "estacao",
+                    "description": "Nome da estação."
+                }
+            ]
+        },
+        "taxa_precipitacao_alertario": {
+            "title": "Meio Ambiente: Taxa de Precipitação (Alerta Rio)",
+            "short_description": "Taxa medida de precipitação das estações pluviométricas da cidade do Rio de Janeiro.",
+            "long_description": "Taxa medida de precipitação das estações pluviométricas da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos, cada registro contendo dados desta medida.",
+            "update_frequency": "Diário",
+            "temporal_coverage": "Desde 1997 até data corrente",
+            "data_owner": "COR",
+            "publisher_name": "Patrícia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "precipitação",
+                "COR",
+                "alerta Rio",
+                "estações pluviométricas",
+                "estação pluviométrica",
+                "chuva",
+                "enchente"
+            ],
+            "categories": [
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
+            "columns": [
+                {
+                    "name": "data_particao",
+                    "description": "Data em que foi realizada a medição"
+                },
+                {
+                    "name": "id_estacao",
+                    "description": "ID da estação pluviométrica em que ocorreu a medição."
+                },
+                {
+                    "name": "acumulado_chuva_15_min",
+                    "description": "Acumulado de chuva em 15 minutos."
+                },
+                {
+                    "name": "acumulado_chuva_1_h",
+                    "description": "Acumulado de chuva em 1 hora."
+                },
+                {
+                    "name": "acumulado_chuva_4_h",
+                    "description": "Acumulado de chuva em 4 horas."
+                },
+                {
+                    "name": "acumulado_chuva_24_h",
+                    "description": "Acumulado de chuva em 24 horas."
+                },
+                {
+                    "name": "acumulado_chuva_96_h",
+                    "description": "Acumulado de chuva em 96 horas."
+                },
+                {
+                    "name": "primary_key",
+                    "description": "Chave primária criada a partir da coluna id_estacao e da data_medicao. Serve para evitar dados duplicados."
+                },
+                {
+                    "name": "horario",
+                    "description": "Horário no qual foi realizada a medição"
+                }
+            ]
+        },
+        "meteorologia_inmet": {
+            "title": "Meio Ambiente: Meteorologia do Instituto Nacional de Meteorologia (INMET)",
+            "short_description": "Dados meteorológicos obtidas das estações pluviométricas do INMET na cidade do Rio de Janeiro.",
+            "long_description": "Dados meteorológicos obtidos nas estações pluviométricas do INMET ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\r\nAs medidas são feitas de hora em hora, cada registro contendo dados destas medidas para cada estação. \r\nEntre os dados temos horário da medição, acumulado de chuva em 1 hora, direção e velocidade do vento, temperatura, pressão atmosférica, umidade e radiação global.",
+            "update_frequency": "Diário",
+            "temporal_coverage": "Desde 2010 até data corrente",
+            "data_owner": "INMET",
+            "publisher_name": "Patrícia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "meio ambiente",
+                "clima",
+                "pluviometria",
+                "precipitação",
+                "COR",
+                "estações meteorológicas",
+                "INMET",
+                "estação meteorológica",
+                "chuva",
+                "enchente"
+            ],
+            "categories": [
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
+            "columns": [
+                {
+                    "name": "id_estacao",
+                    "description": "ID da estação dada pelo INMET."
+                },
+                {
+                    "name": "data_particao",
+                    "description": "Data em que foi realizada a medição."
+                },
+                {
+                    "name": "horario",
+                    "description": "Horário em que foi realizada a medição."
+                },
+                {
+                    "name": "acumulado_chuva_1_h",
+                    "description": "Acumulado de chuva em 1 hora na estação."
+                },
+                {
+                    "name": "direcao_vento",
+                    "description": "Direção horária do vento na estação."
+                },
+                {
+                    "name": "velocidade_vento",
+                    "description": "Velocidade do vento na estação."
+                },
+                {
+                    "name": "temperatura",
+                    "description": "Temperatura na medição instantânea na estação."
+                },
+                {
+                    "name": "pressao",
+                    "description": "Pressão atmosférica ao nível da estação."
+                },
+                {
+                    "name": "pressao_minima",
+                    "description": "Pressão atmosférica mínima na hora anterior."
+                },
+                {
+                    "name": "pressao_maxima",
+                    "description": "Pressão atmosférica máxima na hora anterior."
+                },
+                {
+                    "name": "umidade",
+                    "description": "Umidade relativa do ar instantânea na estação."
+                },
+                {
+                    "name": "umidade_minima",
+                    "description": "Umidade relativa mínima na hora anterior."
+                },
+                {
+                    "name": "umidade_maxima",
+                    "description": "Umidade relativa máxima na hora anterior."
+                },
+                {
+                    "name": "rajada_vento_max",
+                    "description": "Rajada de vento máxima na estação."
+                },
+                {
+                    "name": "temperatura_minima",
+                    "description": "Temperatura mínima na hora anterior na estação."
+                },
+                {
+                    "name": "temperatura_maxima",
+                    "description": "Temperatura máxima na hora anterior na estação."
+                },
+                {
+                    "name": "radiacao_global",
+                    "description": "Radiação solar global captada na estação."
+                },
+                {
+                    "name": "temperatura_orvalho",
+                    "description": "Temperatura de orvalho instantânea na estação."
+                },
+                {
+                    "name": "temperatura_orvalho_minimo",
+                    "description": "Temperatura mínima de orvalho na hora anterior."
+                },
+                {
+                    "name": "temperatura_orvalho_maximo",
+                    "description": "Temperatura máxima de orvalho na hora anterior."
+                },
+                {
+                    "name": "primary_key",
+                    "description": "Chave primária criada a partir da concatenação da coluna id_estacao, data e horário Serve para evitar dados duplicados."
+                }
+            ]
+        },
+        "quantidade_agua_precipitavel_satelite": {
+            "title": "Meio Ambiente: Água Precipitável (GOES-16)",
+            "short_description": "Quantidade estimada de água precipitável na atmosfera de áreas do sudeste brasileiro.",
+            "long_description": "Taxa de precipitação estimada de áreas do sudeste brasileiro. \r\nAs estimativas são feitas de hora em hora, cada registro contendo dados desta estimativa. \r\nCada área é um quadrado formado por 4km de lado. \r\nDados coletados pelo satélite GOES-16.",
+            "update_frequency": "Diário",
+            "temporal_coverage": "Desde 2020 Até data corrente",
+            "data_owner": "COR",
+            "publisher_name": "Patrícia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "meio ambiente",
+                "clima",
+                "pluviometria",
+                "comando",
+                "precipitação",
+                "COR",
+                "GOES",
+                "satélite",
+                "chuva",
+                "enchente"
+            ],
+            "categories": [
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
+            "columns": [
+                {
+                    "name": "latitude",
+                    "description": "Latitude do centro da área."
+                },
+                {
+                    "name": "longitude",
+                    "description": "Longitude do centro da área."
+                },
+                {
+                    "name": "primary_key",
+                    "description": "Chave primária criada a partir da concatenação da coluna data, horário, latitude e longitude. Serve para evitar dados duplicados."
+                },
+                {
+                    "name": "tpw",
+                    "description": "Quantidade total de água precipitável, medidas em milímetros."
+                },
+                {
+                    "name": "horario",
+                    "description": "Horário no qual foi realizada a medição"
+                },
+                {
+                    "name": "data_particao",
+                    "description": "Data na qual foi realizada a medição"
                 }
             ]
         }
     },
+    "logs_bq": {
+        "queries_all_projects_materialized": {
+            "title": "BigQuery Logs: Queries de todos os projetos",
+            "short_description": "Queries de todos os projetos",
+            "long_description": "Queries de todos os projetos",
+            "update_frequency": "Diária",
+            "temporal_coverage": "Abr/2022 - atual",
+            "data_owner": "Escritório de Dados Rio",
+            "publisher_name": "Gabriel Gazola Milan",
+            "publisher_email": "gabriel.gazola1@gmail.com",
+            "tags": [],
+            "categories": [],
+            "columns": []
+        }
+    },
     "educacao_basica": {
-        "aluno_turma": {
-            "title": "Educação Básica: Aluno e Turma",
-            "short_description": "Relacionamento entre alunos e turmas.",
-            "long_description": "Relacionamento entre alunos e turmas.",
-            "update_frequency": "Anual",
-            "temporal_coverage": "Até data corrente",
-            "data_owner": "Secretaria Municipal de Educação",
-            "publisher_name": "Nuno Caminada Silva",
-            "publisher_email": "nuno.silva@rioeduca.net",
-            "tags": [
-                "SME",
-                "aluno",
-                "educação",
-                "turma"
-            ],
-            "categories": [
-                "91117c15dceb41eaa08df881fa9f9310"
-            ],
-            "columns": [
-                {
-                    "name": "ano",
-                    "description": "Ano da turma associado ao id da turma."
-                },
-                {
-                    "name": "id_turma",
-                    "description": "Identificador da turma, criado anualmente."
-                },
-                {
-                    "name": "id_aluno",
-                    "description": "Identificador do aluno."
-                }
-            ]
-        },
-        "avaliacao": {
-            "title": "Educação Básica: Avaliação",
-            "short_description": "Avaliações de alunos dadas nos Conselhos de Classe (COC).",
-            "long_description": "Avaliações de alunos dadas no COC.\r\nAs notas de disciplinas (ou a global) estão preenchidas (de 0,0 a 10) ou com a anotação 'sem informação' caso não haja nota para ela. \r\nDependendo do tipo de turma (Infantil, Fundamental 1, Fundamental 2, EJA, Classes especiais exclusivas, Turmas de correção de fluxo, etc) algumas notas são preenchidas sempre com a anotação 'sem informação'.",
-            "update_frequency": "Anual",
-            "temporal_coverage": "Até data corrente",
-            "data_owner": "Secretaria Municipal de Educação",
-            "publisher_name": "Nuno Caminada Silva",
-            "publisher_email": "nuno.silva@rioeduca.net",
-            "tags": [
-                "SME",
-                "aluno",
-                "educação",
-                "avaliação"
-            ],
-            "categories": [
-                "91117c15dceb41eaa08df881fa9f9310"
-            ],
-            "columns": [
-                {
-                    "name": "ano",
-                    "description": "Ano do COC"
-                },
-                {
-                    "name": "id_turma",
-                    "description": "Identificador da turma na base de dados"
-                },
-                {
-                    "name": "id_aluno",
-                    "description": "Identificador do aluno na base de dados"
-                },
-                {
-                    "name": "id_matricula_turma",
-                    "description": "Identificador que associa matricula do aluno a turma."
-                },
-                {
-                    "name": "id_curriculo",
-                    "description": "Identificador de etapa na base de dados. \r\nEx. Educação infantil - creche turno único, 2019 - ensino fundamental I - bilíngue ing-tu"
-                },
-                {
-                    "name": "id_curriculo_periodo",
-                    "description": "Identificador da associação entre currículo (conjunto de disciplinas) e período (de um ano)."
-                },
-                {
-                    "name": "id_coc",
-                    "description": "Identificador único do COC na base de dados. \r\nConselho de classe é um conjunto de reuniões de professores que ocorre no final do bimestre. \r\nNo COC é dado um conceito final para o aluno, diferente das notas por matérias."
-                },
-                {
-                    "name": "coc",
-                    "description": "Nome do COC. Ex. 1º COC, 2º COC etc."
-                },
-                {
-                    "name": "id_turma_escola",
-                    "description": "Identificador da turma. \r\nÉ dado pela escola.\r\nÉ único em determinada escola e determinado ano.\r\nHá uma padronização, ex. 1601 é para o sexto ano."
-                },
-                {
-                    "name": "frequencia",
-                    "description": "Percentagem de dias que o aluno frequentou em relação ao número total de dias letivos."
-                },
-                {
-                    "name": "conceito",
-                    "description": "Conceito dado ao aluno em um COC."
-                },
-                {
-                    "name": "nota_fundamental_1",
-                    "description": "Nota dada pelo professor do fundamental 1.\r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito.\r\nEm geral é preenchido para o fundamental 1."
-                },
-                {
-                    "name": "matematica",
-                    "description": "Conceito dado em matemática ao aluno em um COC. \r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
-                },
-                {
-                    "name": "portugues",
-                    "description": "Conceito dado em português ao aluno neste COC. Fica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. Em geral é prenchido para o fundamental 2."
-                },
-                {
-                    "name": "ciencias",
-                    "description": "Conceito dado em ciências ao aluno em um COC.\r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
-                },
-                {
-                    "name": "geografia",
-                    "description": "Conceito dado em geografia ao aluno em um COC. \r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
-                },
-                {
-                    "name": "historia",
-                    "description": "Conceito dado em história ao aluno em um COC. \r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
-                },
-                {
-                    "name": "educacao_fisica",
-                    "description": "Conceito dado em educação física ao aluno neste COC. Fica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. Em geral é prenchido para o fundamental 2."
-                },
-                {
-                    "name": "ingles",
-                    "description": "Conceito dado em inglês ao aluno em um COC.\r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
-                },
-                {
-                    "name": "espanhol",
-                    "description": "Conceito dado em espanhol ao aluno em um COC. \r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
-                },
-                {
-                    "name": "frances",
-                    "description": "Conceito dado em francês ao aluno em um COC. \r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
-                },
-                {
-                    "name": "alemao",
-                    "description": "Conceito dado em alemão ao aluno em um COC.\r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
-                },
-                {
-                    "name": "artes_visuais",
-                    "description": "Conceito dado em artes visuais ao aluno em um COC. \r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
-                },
-                {
-                    "name": "artes_plasticas",
-                    "description": "Conceito dado em artes plásticas ao aluno em um COC. \r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
-                },
-                {
-                    "name": "artes_cenicas",
-                    "description": "Conceito dado em artes cênicas ao aluno em um COC.\r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
-                },
-                {
-                    "name": "teatro",
-                    "description": "Conceito dado em teatro ao aluno em um COC. Fica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. Em geral é preenchido para o fundamental 2."
-                },
-                {
-                    "name": "musica",
-                    "description": "Conceito dado em música ao aluno em um COC. Fica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. Em geral é preenchido para o fundamental 2."
-                }
-            ]
-        },
         "frequencia": {
             "title": "Educação Básica: Frequência",
             "short_description": "Frequência dos alunos matriculados em uma escola da prefeitura do Rio de Janeiro.",
@@ -548,10 +524,171 @@
                 }
             ]
         },
-        "escola": {
-            "title": "Educação Básica: Escola",
-            "short_description": "Unidade escolar pertencente a, ou de interesse, da prefeitura do Rio de Janeiro onde podem ser alocadas turmas.",
-            "long_description": "Unidade escolar pertencente a, ou de interesse, da prefeitura do Rio de Janeiro onde podem ser alocadas turmas. As unidades escolares de interesse da PCRJ são creche parceiras onde estão matriculados alunos da prefeitura do Rio de Janeiro.",
+        "aluno_turma": {
+            "title": "Educação Básica: Aluno e Turma",
+            "short_description": "Relacionamento entre alunos e turmas.",
+            "long_description": "Relacionamento entre alunos e turmas.",
+            "update_frequency": "Anual",
+            "temporal_coverage": "Até data corrente",
+            "data_owner": "Secretaria Municipal de Educação",
+            "publisher_name": "Nuno Caminada Silva",
+            "publisher_email": "nuno.silva@rioeduca.net",
+            "tags": [
+                "SME",
+                "aluno",
+                "educação",
+                "turma"
+            ],
+            "categories": [
+                "91117c15dceb41eaa08df881fa9f9310"
+            ],
+            "columns": [
+                {
+                    "name": "ano",
+                    "description": "Ano da turma associado ao id da turma."
+                },
+                {
+                    "name": "id_turma",
+                    "description": "Identificador da turma, criado anualmente."
+                },
+                {
+                    "name": "id_aluno",
+                    "description": "Identificador do aluno."
+                }
+            ]
+        },
+        "aluno": {
+            "title": "Educação Básica: Aluno",
+            "short_description": "Alunos matriculados em escolas da prefeitura do Rio de Janeiro no ano corrente.",
+            "long_description": "Alunos matriculados em escolas da prefeitura do Rio de Janeiro no ano corrente. \r\nCampos anonimizados para atendimento a LGPD.",
+            "update_frequency": "Anual",
+            "temporal_coverage": "Até data corrente",
+            "data_owner": "Secretaria Municipal de Educação",
+            "publisher_name": "Nuno Caminada Silva",
+            "publisher_email": "nuno.silva@rioeduca.net",
+            "tags": [
+                "SME",
+                "aluno",
+                "educação"
+            ],
+            "categories": [
+                "91117c15dceb41eaa08df881fa9f9310"
+            ],
+            "columns": [
+                {
+                    "name": "ano",
+                    "description": "Ano em que o aluno está matriculado."
+                },
+                {
+                    "name": "id_turma",
+                    "description": "Identificador da turma do aluno na base de dados."
+                },
+                {
+                    "name": "turma",
+                    "description": "Número da turma do aluno."
+                },
+                {
+                    "name": "id_aluno",
+                    "description": "Identificador do aluno na base de dados."
+                },
+                {
+                    "name": "matricula",
+                    "description": "Matrícula do aluno (mascarada, os quatro primeiros dígitos originais e o resto está preenchido com 9s)"
+                },
+                {
+                    "name": "situacao",
+                    "description": "Boleano indicando se o aluno está ativo na rede de ensino.\r\nPode ter os valores ativo ou inativo."
+                },
+                {
+                    "name": "id_utltima_movimentacao",
+                    "description": "Código do tipo da última movimentação do aluno. \r\nA movimentação do aluno indica que o aluno saiu de uma turma, podendo ter ido para outra turma em outra ou na mesma escola."
+                },
+                {
+                    "name": "ultima_movimentacao",
+                    "description": "Indica o tipo da última movimentação do aluno. Ex: Abandono, renovação de matrícula, mudança de turma."
+                },
+                {
+                    "name": "genero",
+                    "description": "Sexo do aluno, pode ser masculino ou feminino"
+                },
+                {
+                    "name": "raca_cor",
+                    "description": "Raça ou cor do aluno. Branca, preta, parda, amarela, indígena, não declarada ou sem informação."
+                },
+                {
+                    "name": "data_nascimento",
+                    "description": "Data de nascimento do aluno."
+                },
+                {
+                    "name": "idade_atual",
+                    "description": "Idade atual do aluno."
+                },
+                {
+                    "name": "idade_final_ano",
+                    "description": "Idade do aluno no final do ano."
+                },
+                {
+                    "name": "id_deficiencia",
+                    "description": "Código da deficiência do aluno. 00 caso não tenha nenhuma deficiência."
+                },
+                {
+                    "name": "deficiencia",
+                    "description": "Tipo da deficiência do aluno, caso ele tenha."
+                },
+                {
+                    "name": "bairro",
+                    "description": "Bairro do endereço do aluno"
+                },
+                {
+                    "name": "mora_com_filiacao",
+                    "description": "0 se não mora com nenhum dos dois pais, 1 se mora com um dos dois."
+                },
+                {
+                    "name": "tipo_transporte",
+                    "description": "Transporte que o aluno usa para ir para a escola. Ex. pedestre, ônibus, metrô, carro, trem, outros ou sem informação."
+                },
+                {
+                    "name": "bolsa_familia",
+                    "description": "Booleana que indica se o aluno recebe bolsa familia. 0 se não recebe e 1 se recebe."
+                },
+                {
+                    "name": "cartao_familia_carioca",
+                    "description": "Booleana que indica se o aluno recebe o cartão família carioca. 0 se não recebe e 1 se recebe."
+                },
+                {
+                    "name": "clube_escolar",
+                    "description": "Booleano indicando que o aluno está inscrito em um clube escolar, 0 se não inscrito e 1 se inscrito. Um clube escolar é um clube pertencente a prefeitura e faz parte de uma escola da prefeitura do Rio de Janeiro."
+                },
+                {
+                    "name": "nucleo_artes",
+                    "description": "Booleano indicando que o aluno está inscrito em um núcleo de artes, 0 se não inscrito e 1 se inscrito. \r\nUm núcleo de artes pertence a prefeitura e faz parte de uma escola da prefeitura do Rio de Janeiro."
+                },
+                {
+                    "name": "mais_educacao",
+                    "description": "Boleano indicando que o aluno está inscrito no Mais Educação, 0 se não inscrito e 1 se inscrito. \r\nPrograma do MEC que dá atividades específicas e acompanhamento ao aluno. Específico para alunos com histórico de evasão ou reprovação."
+                },
+                {
+                    "name": "territorio_social",
+                    "description": "Booleano indicando que o aluno mora em um território social, 0 se não mora e 1 se mora.\r\nUm território social é uma região geográfica do município do Rio de Janeiro, classificada pela prefeitura como de extrema vulnerabilidade social."
+                },
+                {
+                    "name": "tipo_avaliacao_jovens_adultos",
+                    "description": "Tipo de avaliação usada, para o aluno, no ensino de jovens e adultos. Ex: UP 1 ou aval 2."
+                },
+                {
+                    "name": "nome",
+                    "description": "Nome do aluno (mascarado, está preenchido com Xs)"
+                },
+                {
+                    "name": "cpf",
+                    "description": "CPF do aluno (mascarado, está preenchido com 9s)"
+                }
+            ]
+        },
+        "turma": {
+            "title": "Educação Básica: Turma",
+            "short_description": "Turma de alunos em unidades escolares da prefeitura do Rio de Janeiro.",
+            "long_description": "Turma de alunos, atuais ou passadas, em unidades escolares pertencentes ou de interesse da prefeitura do Rio de Janeiro.",
             "update_frequency": "Mensal",
             "temporal_coverage": "Até data corrente",
             "data_owner": "Secretaria Municipal de Educação",
@@ -561,84 +698,222 @@
                 "SME",
                 "aluno",
                 "educação",
-                "turma",
-                "escola"
+                "turma"
             ],
             "categories": [
                 "91117c15dceb41eaa08df881fa9f9310"
             ],
             "columns": [
                 {
-                    "name": "id_inep",
-                    "description": "Identificador, dado pelo INEP - Instituto Nacional de Estudos e Pesquisas Educacionais, para a unidade escolar, O identificador é único para cada unidade escolar do país."
+                    "name": "ano",
+                    "description": "Ano em que a turma existe ou existiu. \r\nUma turma é identificada pela unidade escolar onde ela esta, pelo seu número e por seu ano."
                 },
                 {
                     "name": "id_escola",
-                    "description": "Identificador da unidade escolar na base de dados."
+                    "description": "Identificador da escola na base de dados."
+                },
+                {
+                    "name": "id_dependencia",
+                    "description": "Identificador que é a concatenação do identificador da escola (id_escola) com o identificador da dependência (número que identifica unicamente cada dependência na escola) na base de dados."
+                },
+                {
+                    "name": "id_turma",
+                    "description": "Identificador da turma na base de dados."
+                },
+                {
+                    "name": "id_turma_escola",
+                    "description": "Identificador da turma. \r\nÉ dado pela escola. \r\nÉ único em determinada escola e determinado ano.\r\nHá uma padronização, ex. 1601 é para o sexto ano."
+                },
+                {
+                    "name": "curso",
+                    "description": "Tipo do curso que a turma está fazendo. Ex. Ensino fundamental 1, Ensino fundamental classe especial, Educação infantil pré-escola. Este tipo pode variar de ano a ano."
+                },
+                {
+                    "name": "nivel_ensino",
+                    "description": "Nível do ensino da turma. \r\nPode ser Fundamental ou Educação Infantil."
+                },
+                {
+                    "name": "modalidade",
+                    "description": "Modalidade do ensino da turma. \r\nPode ser Regular, Especial ou EJA."
+                },
+                {
+                    "name": "grupamento",
+                    "description": "Série da turma. \r\nEm unidades escolares da prefeitura em geral se vai do 1ª a 9ª ano. \r\nEm dados mais antigos pode ir da 1ª a 8ª série."
+                },
+                {
+                    "name": "turno",
+                    "description": "Turno da turma.\r\nPode ser Manhã, Tarde, Noite ou Integral.\r\nPode ser primeiro turno ou segundo turno em turmas mais antigas."
+                },
+                {
+                    "name": "sala",
+                    "description": "Nome da dependência que é ocupada pela turma como sala de aula."
+                },
+                {
+                    "name": "area_sala",
+                    "description": "Área, em metros quadrados, da dependência que é ocupada pela turma."
+                },
+                {
+                    "name": "capacidade_sala",
+                    "description": "Capacidade, em número de alunos, da dependência que é ocupada pela turma."
+                },
+                {
+                    "name": "tipo_sala",
+                    "description": "Tipo da dependência ocupada pela turma. \r\nEx.: Sala de Aula, Auditório, Laboratório de Informática, despensa, rampa de acesso etc."
+                },
+                {
+                    "name": "sala_util_como",
+                    "description": "Utilização atual da dependência ocupada pela turma. \r\nEx. os mesmos do tipo de dependência(tipo_sala). Pode diferir do tipo de dependência, pois o tipo de dependência é tipo oficial da dependência, que pode ser diferente da utilização real."
+                }
+            ]
+        },
+        "coc": {
+            "title": "Educação Básica: Conselho de classe",
+            "short_description": "COCs fechados das turmas de escolas da prefeitura do Rio de Janeiro.",
+            "long_description": "COCs fechados (não leva em conta o atual ) das turmas de escolas da prefeitura do Rio de Janeiro, com informações desde 2014. \r\nEstas informações são levantadas para, entre outras coisas, comparar a variação entre um COC e outro.",
+            "update_frequency": "Mensal",
+            "temporal_coverage": "Até data corrente",
+            "data_owner": "Secretaria Municipal de Educação",
+            "publisher_name": "Nuno Caminada Silva",
+            "publisher_email": "nuno.silva@rioeduca.net",
+            "tags": [
+                "administração pública",
+                "SME",
+                "aluno",
+                "educação",
+                "avaliação"
+            ],
+            "categories": [
+                "91117c15dceb41eaa08df881fa9f9310"
+            ],
+            "columns": [
+                {
+                    "name": "id_cre",
+                    "description": "Número da CRE que administra a unidade escolar onde o COC ocorreu. \r\nCRE é a sigla para coordenadoria regional."
+                },
+                {
+                    "name": "id_turma",
+                    "description": "Identificador da turma na base de dados."
+                },
+                {
+                    "name": "id_turma_escola",
+                    "description": "Identificador da turma. É dado pela escola. É único em determinada escola e determinado ano. \r\nHá uma padronização, ex. 1601 é para o sexto ano."
+                },
+                {
+                    "name": "ano",
+                    "description": "Ano do COC. Uma turma é identificada pela unidade escolar onde ela esta, pelo seu número e por seu ano."
+                },
+                {
+                    "name": "id_unidade",
+                    "description": "Número da unidade escolar, dado pela SME, relativa ao COC. Contém 7 digitos."
+                },
+                {
+                    "name": "grupamento",
+                    "description": "Ano da turma. Ex. primeiro ano, segundo ano etc."
+                },
+                {
+                    "name": "turno",
+                    "description": "Turno da turma. Pode ser Manhã, Tarde, Noite ou Integral. \r\nPode ser primeiro turno ou segundo turno em turmas mais antigas."
+                },
+                {
+                    "name": "id_coc",
+                    "description": "Número do conselho de classe.\r\nÉ único por período letivo.\r\nConselho de classe é um conjunto de reuniões de professores que ocorre no final do bimestre. \r\nNo COC é dado um conceito final para o aluno, diferente das notas por matérias."
+                },
+                {
+                    "name": "alunos",
+                    "description": "Número total de alunos do COC, na turma, no ano."
+                },
+                {
+                    "name": "masculino",
+                    "description": "Número total de alunos do sexo masculino, do COC, na turma, no ano."
+                },
+                {
+                    "name": "feminino",
+                    "description": "Número total de alunos do sexo feminino, do COC, na turma, no ano."
+                },
+                {
+                    "name": "deficiente",
+                    "description": "Número total de alunos deficientes, do COC, na turma, no ano."
+                },
+                {
+                    "name": "masculino_deficiente",
+                    "description": "Número total de alunos do sexo masculino deficientes, do COC, na turma, no ano."
+                },
+                {
+                    "name": "feminino_deficiente",
+                    "description": "Número total de alunos do sexo feminino deficientes, do COC, na turma, no ano."
+                },
+                {
+                    "name": "masculino_nao_deficiente",
+                    "description": "Número total de alunos do sexo masculino não deficientes, do COC, na turma, no ano."
+                },
+                {
+                    "name": "feminino_nao_deficiente",
+                    "description": "Número total de alunos do sexo feminino não deficientes, do COC, na turma, no ano."
+                },
+                {
+                    "name": "vagas",
+                    "description": "Capacidade menos o total de alunos em determinado COC."
+                },
+                {
+                    "name": "capacidade",
+                    "description": "Capacidade da turma no ano, de acordo com o tamanho da sala. \r\nA capacidade da turma pode ser no máximo a constante em resolução da SME, independente do tamanho da sala. \r\nA capacidade pode, eventualmente, ser menor do que a resolução da SME \r\n\r\n(vai ser verificada esta definição )."
+                }
+            ]
+        },
+        "dependencia": {
+            "title": "Educação Básica: Dependência",
+            "short_description": "Dependências pertencentes à prefeitura do Rio de Janeiro.",
+            "long_description": "Dependências pertencentes à prefeitura do Rio de Janeiro. Dependência em uma unidade escolar pertencente a prefeitura do Rio de Janeiro. . Ex.: Sala de Aula, Auditório, Laboratório de Informática, despensa, rampa de acesso etc.",
+            "update_frequency": "Mensal",
+            "temporal_coverage": "Até data corrente",
+            "data_owner": "Secretaria Municipal de Educação",
+            "publisher_name": "Nuno Caminada Silva",
+            "publisher_email": "nuno.silva@rioeduca.net",
+            "tags": [
+                "SME",
+                "aluno",
+                "educação",
+                "turma"
+            ],
+            "categories": [
+                "91117c15dceb41eaa08df881fa9f9310"
+            ],
+            "columns": [
+                {
+                    "name": "id_escola",
+                    "description": "Identificador da escola, onde está a dependência, na base de dados."
+                },
+                {
+                    "name": "id_dependencia",
+                    "description": "Identificador que é a concatenação do identificador da escola (id_escola) onde fica a dependência com o identificador da dependência (número que identifica unicamente cada dependência na escola) na base de dados."
                 },
                 {
                     "name": "nome",
-                    "description": "Nome da unidade escolar. Depende do atributo id_designacao."
+                    "description": "Nome da dependência."
                 },
                 {
                     "name": "tipo",
-                    "description": "\"Tipo da unidade escolar, Pode ser creche, escola, CIEP ou EDI. EDI é a sigla para Espaço de\r\n Desenvolvimento Infantil, unidade escolar especializada na educação para a primeira infância.\""
+                    "description": "Tipo da dependência. Ex.: Sala de Aula, Auditório, Laboratório de Informática, despensa, rampa de acesso etc."
                 },
                 {
-                    "name": "id_designacao",
-                    "description": "Código de identificação da unidade escolar, constituido pelo código da CRE, Código da micro-área, um sequencial e o tipo da unidade escolar pertencente a PCRJ ou de interesse desta."
+                    "name": "aloca_turma",
+                    "description": "Indica se a dependência pode ser usada para alocar turma ou não."
                 },
                 {
-                    "name": "endereco",
-                    "description": "Endereço da unidade escolar"
+                    "name": "util_como",
+                    "description": "Utilização atual da dependência. Ex. os mesmos do tipo de depêndencia. \r\nPode diferir do tipo de dependência, pois o tipo de dependência é tipo oficial da dependência, que pode ser diferente da utilização real."
                 },
                 {
-                    "name": "bairro",
-                    "description": "Bairro do endereço da unidade escolar"
+                    "name": "aloca_turma_e_util_como",
+                    "description": "Booleano que indica se a dependência tem uma turma alocada a ela. \r\nSim, não ou emergencial."
                 },
                 {
-                    "name": "cep",
-                    "description": "CEP do endereço da unidade escolar"
+                    "name": "capacidade",
+                    "description": "Número máximo de alunos que a dependência comporta. \r\nEm geral é calculado em um m2 por aluno."
                 },
                 {
-                    "name": "email",
-                    "description": "E-mail da unidade escolar"
-                },
-                {
-                    "name": "telefone",
-                    "description": "Telefone da unidade escolar"
-                },
-                {
-                    "name": "direcao",
-                    "description": "Nome do(a) diretor(a) da unidade escolar"
-                },
-                {
-                    "name": "cre",
-                    "description": "Número da CRE que administra a unidade escolar. CRE é a sigla para coordenadoria regional\r\nde educação. Uma CRE reúne unidades escolares da prefeitura em uma determinada região.\""
-                },
-                {
-                    "name": "polo",
-                    "description": "Polo onde esta a unidade escolar.\r\nUm polo é um lugar que atende prioritariamente a alunos matriculados na Unidade Escolar de determinada área, oferecendo oficinas tendo o trabalho como princípio educativo. \r\nEle pode, eventualmente, atender a alunos de áreas de outros polos."
-                },
-                {
-                    "name": "micro_area",
-                    "description": "Micro área onde está a unidade escolar.\r\nUma micro área é uma área geográfica do município do Rio de Janeiro, definida pelo Instituto Pereira Passos (IPP) para facilitar a administração escolar, independente de bairros e outras divisões territoriais feitas pela prefeitura."
-                },
-                {
-                    "name": "id_institucional_pcrj",
-                    "description": "Identificador, dado pela prefeitura do Rio de Janeiro, para a unidade escolar. \r\nSICI é o sistema de codificação institucional."
-                },
-                {
-                    "name": "numero_salas_recurso",
-                    "description": "Total de salas de recurso na unidade. Sala de recurso é uma dependência com professor especializado e recursos especiais para determinada atividade."
-                },
-                {
-                    "name": "numero_salas_aula",
-                    "description": "Número total de salas de aula da unidade escolar."
-                },
-                {
-                    "name": "numero_salas_utilizadas",
-                    "description": "Número de salas de aula, na unidade escolar, efetivamente usadas por turmas."
+                    "name": "area",
+                    "description": "Área, em metros quadrados, da dependência"
                 }
             ]
         },
@@ -810,10 +1085,10 @@
                 }
             ]
         },
-        "turma": {
-            "title": "Educação Básica: Turma",
-            "short_description": "Turma de alunos em unidades escolares da prefeitura do Rio de Janeiro.",
-            "long_description": "Turma de alunos, atuais ou passadas, em unidades escolares pertencentes ou de interesse da prefeitura do Rio de Janeiro.",
+        "escola": {
+            "title": "Educação Básica: Escola",
+            "short_description": "Unidade escolar pertencente a, ou de interesse, da prefeitura do Rio de Janeiro onde podem ser alocadas turmas.",
+            "long_description": "Unidade escolar pertencente a, ou de interesse, da prefeitura do Rio de Janeiro onde podem ser alocadas turmas. As unidades escolares de interesse da PCRJ são creche parceiras onde estão matriculados alunos da prefeitura do Rio de Janeiro.",
             "update_frequency": "Mensal",
             "temporal_coverage": "Até data corrente",
             "data_owner": "Secretaria Municipal de Educação",
@@ -823,78 +1098,91 @@
                 "SME",
                 "aluno",
                 "educação",
-                "turma"
+                "turma",
+                "escola"
             ],
             "categories": [
                 "91117c15dceb41eaa08df881fa9f9310"
             ],
             "columns": [
                 {
-                    "name": "ano",
-                    "description": "Ano em que a turma existe ou existiu. \r\nUma turma é identificada pela unidade escolar onde ela esta, pelo seu número e por seu ano."
+                    "name": "id_inep",
+                    "description": "Identificador, dado pelo INEP - Instituto Nacional de Estudos e Pesquisas Educacionais, para a unidade escolar, O identificador é único para cada unidade escolar do país."
                 },
                 {
                     "name": "id_escola",
-                    "description": "Identificador da escola na base de dados."
+                    "description": "Identificador da unidade escolar na base de dados."
                 },
                 {
-                    "name": "id_dependencia",
-                    "description": "Identificador que é a concatenação do identificador da escola (id_escola) com o identificador da dependência (número que identifica unicamente cada dependência na escola) na base de dados."
+                    "name": "nome",
+                    "description": "Nome da unidade escolar. Depende do atributo id_designacao."
                 },
                 {
-                    "name": "id_turma",
-                    "description": "Identificador da turma na base de dados."
+                    "name": "tipo",
+                    "description": "\"Tipo da unidade escolar, Pode ser creche, escola, CIEP ou EDI. EDI é a sigla para Espaço de\r\n Desenvolvimento Infantil, unidade escolar especializada na educação para a primeira infância.\""
                 },
                 {
-                    "name": "id_turma_escola",
-                    "description": "Identificador da turma. \r\nÉ dado pela escola. \r\nÉ único em determinada escola e determinado ano.\r\nHá uma padronização, ex. 1601 é para o sexto ano."
+                    "name": "id_designacao",
+                    "description": "Código de identificação da unidade escolar, constituido pelo código da CRE, Código da micro-área, um sequencial e o tipo da unidade escolar pertencente a PCRJ ou de interesse desta."
                 },
                 {
-                    "name": "curso",
-                    "description": "Tipo do curso que a turma está fazendo. Ex. Ensino fundamental 1, Ensino fundamental classe especial, Educação infantil pré-escola. Este tipo pode variar de ano a ano."
+                    "name": "endereco",
+                    "description": "Endereço da unidade escolar"
                 },
                 {
-                    "name": "nivel_ensino",
-                    "description": "Nível do ensino da turma. \r\nPode ser Fundamental ou Educação Infantil."
+                    "name": "bairro",
+                    "description": "Bairro do endereço da unidade escolar"
                 },
                 {
-                    "name": "modalidade",
-                    "description": "Modalidade do ensino da turma. \r\nPode ser Regular, Especial ou EJA."
+                    "name": "cep",
+                    "description": "CEP do endereço da unidade escolar"
                 },
                 {
-                    "name": "grupamento",
-                    "description": "Série da turma. \r\nEm unidades escolares da prefeitura em geral se vai do 1ª a 9ª ano. \r\nEm dados mais antigos pode ir da 1ª a 8ª série."
+                    "name": "email",
+                    "description": "E-mail da unidade escolar"
                 },
                 {
-                    "name": "turno",
-                    "description": "Turno da turma.\r\nPode ser Manhã, Tarde, Noite ou Integral.\r\nPode ser primeiro turno ou segundo turno em turmas mais antigas."
+                    "name": "telefone",
+                    "description": "Telefone da unidade escolar"
                 },
                 {
-                    "name": "sala",
-                    "description": "Nome da dependência que é ocupada pela turma como sala de aula."
+                    "name": "direcao",
+                    "description": "Nome do(a) diretor(a) da unidade escolar"
                 },
                 {
-                    "name": "area_sala",
-                    "description": "Área, em metros quadrados, da dependência que é ocupada pela turma."
+                    "name": "cre",
+                    "description": "Número da CRE que administra a unidade escolar. CRE é a sigla para coordenadoria regional\r\nde educação. Uma CRE reúne unidades escolares da prefeitura em uma determinada região.\""
                 },
                 {
-                    "name": "capacidade_sala",
-                    "description": "Capacidade, em número de alunos, da dependência que é ocupada pela turma."
+                    "name": "polo",
+                    "description": "Polo onde esta a unidade escolar.\r\nUm polo é um lugar que atende prioritariamente a alunos matriculados na Unidade Escolar de determinada área, oferecendo oficinas tendo o trabalho como princípio educativo. \r\nEle pode, eventualmente, atender a alunos de áreas de outros polos."
                 },
                 {
-                    "name": "tipo_sala",
-                    "description": "Tipo da dependência ocupada pela turma. \r\nEx.: Sala de Aula, Auditório, Laboratório de Informática, despensa, rampa de acesso etc."
+                    "name": "micro_area",
+                    "description": "Micro área onde está a unidade escolar.\r\nUma micro área é uma área geográfica do município do Rio de Janeiro, definida pelo Instituto Pereira Passos (IPP) para facilitar a administração escolar, independente de bairros e outras divisões territoriais feitas pela prefeitura."
                 },
                 {
-                    "name": "sala_util_como",
-                    "description": "Utilização atual da dependência ocupada pela turma. \r\nEx. os mesmos do tipo de dependência(tipo_sala). Pode diferir do tipo de dependência, pois o tipo de dependência é tipo oficial da dependência, que pode ser diferente da utilização real."
+                    "name": "id_institucional_pcrj",
+                    "description": "Identificador, dado pela prefeitura do Rio de Janeiro, para a unidade escolar. \r\nSICI é o sistema de codificação institucional."
+                },
+                {
+                    "name": "numero_salas_recurso",
+                    "description": "Total de salas de recurso na unidade. Sala de recurso é uma dependência com professor especializado e recursos especiais para determinada atividade."
+                },
+                {
+                    "name": "numero_salas_aula",
+                    "description": "Número total de salas de aula da unidade escolar."
+                },
+                {
+                    "name": "numero_salas_utilizadas",
+                    "description": "Número de salas de aula, na unidade escolar, efetivamente usadas por turmas."
                 }
             ]
         },
-        "aluno": {
-            "title": "Educação Básica: Aluno",
-            "short_description": "Alunos matriculados em escolas da prefeitura do Rio de Janeiro no ano corrente.",
-            "long_description": "Alunos matriculados em escolas da prefeitura do Rio de Janeiro no ano corrente. \r\nCampos anonimizados para atendimento a LGPD.",
+        "avaliacao": {
+            "title": "Educação Básica: Avaliação",
+            "short_description": "Avaliações de alunos dadas nos Conselhos de Classe (COC).",
+            "long_description": "Avaliações de alunos dadas no COC.\r\nAs notas de disciplinas (ou a global) estão preenchidas (de 0,0 a 10) ou com a anotação 'sem informação' caso não haja nota para ela. \r\nDependendo do tipo de turma (Infantil, Fundamental 1, Fundamental 2, EJA, Classes especiais exclusivas, Turmas de correção de fluxo, etc) algumas notas são preenchidas sempre com a anotação 'sem informação'.",
             "update_frequency": "Anual",
             "temporal_coverage": "Até data corrente",
             "data_owner": "Secretaria Municipal de Educação",
@@ -903,7 +1191,8 @@
             "tags": [
                 "SME",
                 "aluno",
-                "educação"
+                "educação",
+                "avaliação"
             ],
             "categories": [
                 "91117c15dceb41eaa08df881fa9f9310"
@@ -911,111 +1200,111 @@
             "columns": [
                 {
                     "name": "ano",
-                    "description": "Ano em que o aluno está matriculado."
+                    "description": "Ano do COC"
                 },
                 {
                     "name": "id_turma",
-                    "description": "Identificador da turma do aluno na base de dados."
-                },
-                {
-                    "name": "turma",
-                    "description": "Número da turma do aluno."
+                    "description": "Identificador da turma na base de dados"
                 },
                 {
                     "name": "id_aluno",
-                    "description": "Identificador do aluno na base de dados."
+                    "description": "Identificador do aluno na base de dados"
                 },
                 {
-                    "name": "matricula",
-                    "description": "Matrícula do aluno (mascarada, os quatro primeiros dígitos originais e o resto está preenchido com 9s)"
+                    "name": "id_matricula_turma",
+                    "description": "Identificador que associa matricula do aluno a turma."
                 },
                 {
-                    "name": "situacao",
-                    "description": "Boleano indicando se o aluno está ativo na rede de ensino.\r\nPode ter os valores ativo ou inativo."
+                    "name": "id_curriculo",
+                    "description": "Identificador de etapa na base de dados. \r\nEx. Educação infantil - creche turno único, 2019 - ensino fundamental I - bilíngue ing-tu"
                 },
                 {
-                    "name": "id_utltima_movimentacao",
-                    "description": "Código do tipo da última movimentação do aluno. \r\nA movimentação do aluno indica que o aluno saiu de uma turma, podendo ter ido para outra turma em outra ou na mesma escola."
+                    "name": "id_curriculo_periodo",
+                    "description": "Identificador da associação entre currículo (conjunto de disciplinas) e período (de um ano)."
                 },
                 {
-                    "name": "ultima_movimentacao",
-                    "description": "Indica o tipo da última movimentação do aluno. Ex: Abandono, renovação de matrícula, mudança de turma."
+                    "name": "id_coc",
+                    "description": "Identificador único do COC na base de dados. \r\nConselho de classe é um conjunto de reuniões de professores que ocorre no final do bimestre. \r\nNo COC é dado um conceito final para o aluno, diferente das notas por matérias."
                 },
                 {
-                    "name": "genero",
-                    "description": "Sexo do aluno, pode ser masculino ou feminino"
+                    "name": "coc",
+                    "description": "Nome do COC. Ex. 1º COC, 2º COC etc."
                 },
                 {
-                    "name": "raca_cor",
-                    "description": "Raça ou cor do aluno. Branca, preta, parda, amarela, indígena, não declarada ou sem informação."
+                    "name": "id_turma_escola",
+                    "description": "Identificador da turma. \r\nÉ dado pela escola.\r\nÉ único em determinada escola e determinado ano.\r\nHá uma padronização, ex. 1601 é para o sexto ano."
                 },
                 {
-                    "name": "data_nascimento",
-                    "description": "Data de nascimento do aluno."
+                    "name": "frequencia",
+                    "description": "Percentagem de dias que o aluno frequentou em relação ao número total de dias letivos."
                 },
                 {
-                    "name": "idade_atual",
-                    "description": "Idade atual do aluno."
+                    "name": "conceito",
+                    "description": "Conceito dado ao aluno em um COC."
                 },
                 {
-                    "name": "idade_final_ano",
-                    "description": "Idade do aluno no final do ano."
+                    "name": "nota_fundamental_1",
+                    "description": "Nota dada pelo professor do fundamental 1.\r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito.\r\nEm geral é preenchido para o fundamental 1."
                 },
                 {
-                    "name": "id_deficiencia",
-                    "description": "Código da deficiência do aluno. 00 caso não tenha nenhuma deficiência."
+                    "name": "matematica",
+                    "description": "Conceito dado em matemática ao aluno em um COC. \r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
                 },
                 {
-                    "name": "deficiencia",
-                    "description": "Tipo da deficiência do aluno, caso ele tenha."
+                    "name": "portugues",
+                    "description": "Conceito dado em português ao aluno neste COC. Fica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. Em geral é prenchido para o fundamental 2."
                 },
                 {
-                    "name": "bairro",
-                    "description": "Bairro do endereço do aluno"
+                    "name": "ciencias",
+                    "description": "Conceito dado em ciências ao aluno em um COC.\r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
                 },
                 {
-                    "name": "mora_com_filiacao",
-                    "description": "0 se não mora com nenhum dos dois pais, 1 se mora com um dos dois."
+                    "name": "geografia",
+                    "description": "Conceito dado em geografia ao aluno em um COC. \r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
                 },
                 {
-                    "name": "tipo_transporte",
-                    "description": "Transporte que o aluno usa para ir para a escola. Ex. pedestre, ônibus, metrô, carro, trem, outros ou sem informação."
+                    "name": "historia",
+                    "description": "Conceito dado em história ao aluno em um COC. \r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
                 },
                 {
-                    "name": "bolsa_familia",
-                    "description": "Booleana que indica se o aluno recebe bolsa familia. 0 se não recebe e 1 se recebe."
+                    "name": "educacao_fisica",
+                    "description": "Conceito dado em educação física ao aluno neste COC. Fica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. Em geral é prenchido para o fundamental 2."
                 },
                 {
-                    "name": "cartao_familia_carioca",
-                    "description": "Booleana que indica se o aluno recebe o cartão família carioca. 0 se não recebe e 1 se recebe."
+                    "name": "ingles",
+                    "description": "Conceito dado em inglês ao aluno em um COC.\r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
                 },
                 {
-                    "name": "clube_escolar",
-                    "description": "Booleano indicando que o aluno está inscrito em um clube escolar, 0 se não inscrito e 1 se inscrito. Um clube escolar é um clube pertencente a prefeitura e faz parte de uma escola da prefeitura do Rio de Janeiro."
+                    "name": "espanhol",
+                    "description": "Conceito dado em espanhol ao aluno em um COC. \r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
                 },
                 {
-                    "name": "nucleo_artes",
-                    "description": "Booleano indicando que o aluno está inscrito em um núcleo de artes, 0 se não inscrito e 1 se inscrito. \r\nUm núcleo de artes pertence a prefeitura e faz parte de uma escola da prefeitura do Rio de Janeiro."
+                    "name": "frances",
+                    "description": "Conceito dado em francês ao aluno em um COC. \r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
                 },
                 {
-                    "name": "mais_educacao",
-                    "description": "Boleano indicando que o aluno está inscrito no Mais Educação, 0 se não inscrito e 1 se inscrito. \r\nPrograma do MEC que dá atividades específicas e acompanhamento ao aluno. Específico para alunos com histórico de evasão ou reprovação."
+                    "name": "alemao",
+                    "description": "Conceito dado em alemão ao aluno em um COC.\r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
                 },
                 {
-                    "name": "territorio_social",
-                    "description": "Booleano indicando que o aluno mora em um território social, 0 se não mora e 1 se mora.\r\nUm território social é uma região geográfica do município do Rio de Janeiro, classificada pela prefeitura como de extrema vulnerabilidade social."
+                    "name": "artes_visuais",
+                    "description": "Conceito dado em artes visuais ao aluno em um COC. \r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
                 },
                 {
-                    "name": "tipo_avaliacao_jovens_adultos",
-                    "description": "Tipo de avaliação usada, para o aluno, no ensino de jovens e adultos. Ex: UP 1 ou aval 2."
+                    "name": "artes_plasticas",
+                    "description": "Conceito dado em artes plásticas ao aluno em um COC. \r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
                 },
                 {
-                    "name": "nome",
-                    "description": "Nome do aluno (mascarado, está preenchido com Xs)"
+                    "name": "artes_cenicas",
+                    "description": "Conceito dado em artes cênicas ao aluno em um COC.\r\nFica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. \r\nEm geral é preenchido para o fundamental 2."
                 },
                 {
-                    "name": "cpf",
-                    "description": "CPF do aluno (mascarado, está preenchido com 9s)"
+                    "name": "teatro",
+                    "description": "Conceito dado em teatro ao aluno em um COC. Fica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. Em geral é preenchido para o fundamental 2."
+                },
+                {
+                    "name": "musica",
+                    "description": "Conceito dado em música ao aluno em um COC. Fica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. Em geral é preenchido para o fundamental 2."
                 }
             ]
         },
@@ -1114,346 +1403,6 @@
                     "description": "Indica se a movimentação é de entrada ou saída, mesmo dentro da mesma unidade escolar. Tem sempre o valor 'Entrada' quando a transferência é entre turmas dentro da mesma unidade escolar."
                 }
             ]
-        },
-        "dependencia": {
-            "title": "Educação Básica: Dependência",
-            "short_description": "Dependências pertencentes à prefeitura do Rio de Janeiro.",
-            "long_description": "Dependências pertencentes à prefeitura do Rio de Janeiro. Dependência em uma unidade escolar pertencente a prefeitura do Rio de Janeiro. . Ex.: Sala de Aula, Auditório, Laboratório de Informática, despensa, rampa de acesso etc.",
-            "update_frequency": "Mensal",
-            "temporal_coverage": "Até data corrente",
-            "data_owner": "Secretaria Municipal de Educação",
-            "publisher_name": "Nuno Caminada Silva",
-            "publisher_email": "nuno.silva@rioeduca.net",
-            "tags": [
-                "SME",
-                "aluno",
-                "educação",
-                "turma"
-            ],
-            "categories": [
-                "91117c15dceb41eaa08df881fa9f9310"
-            ],
-            "columns": [
-                {
-                    "name": "id_escola",
-                    "description": "Identificador da escola, onde está a dependência, na base de dados."
-                },
-                {
-                    "name": "id_dependencia",
-                    "description": "Identificador que é a concatenação do identificador da escola (id_escola) onde fica a dependência com o identificador da dependência (número que identifica unicamente cada dependência na escola) na base de dados."
-                },
-                {
-                    "name": "nome",
-                    "description": "Nome da dependência."
-                },
-                {
-                    "name": "tipo",
-                    "description": "Tipo da dependência. Ex.: Sala de Aula, Auditório, Laboratório de Informática, despensa, rampa de acesso etc."
-                },
-                {
-                    "name": "aloca_turma",
-                    "description": "Indica se a dependência pode ser usada para alocar turma ou não."
-                },
-                {
-                    "name": "util_como",
-                    "description": "Utilização atual da dependência. Ex. os mesmos do tipo de depêndencia. \r\nPode diferir do tipo de dependência, pois o tipo de dependência é tipo oficial da dependência, que pode ser diferente da utilização real."
-                },
-                {
-                    "name": "aloca_turma_e_util_como",
-                    "description": "Booleano que indica se a dependência tem uma turma alocada a ela. \r\nSim, não ou emergencial."
-                },
-                {
-                    "name": "capacidade",
-                    "description": "Número máximo de alunos que a dependência comporta. \r\nEm geral é calculado em um m2 por aluno."
-                },
-                {
-                    "name": "area",
-                    "description": "Área, em metros quadrados, da dependência"
-                }
-            ]
-        },
-        "coc": {
-            "title": "Educação Básica: Conselho de classe",
-            "short_description": "COCs fechados das turmas de escolas da prefeitura do Rio de Janeiro.",
-            "long_description": "COCs fechados (não leva em conta o atual ) das turmas de escolas da prefeitura do Rio de Janeiro, com informações desde 2014. \r\nEstas informações são levantadas para, entre outras coisas, comparar a variação entre um COC e outro.",
-            "update_frequency": "Mensal",
-            "temporal_coverage": "Até data corrente",
-            "data_owner": "Secretaria Municipal de Educação",
-            "publisher_name": "Nuno Caminada Silva",
-            "publisher_email": "nuno.silva@rioeduca.net",
-            "tags": [
-                "administração pública",
-                "SME",
-                "aluno",
-                "educação",
-                "avaliação"
-            ],
-            "categories": [
-                "91117c15dceb41eaa08df881fa9f9310"
-            ],
-            "columns": [
-                {
-                    "name": "id_cre",
-                    "description": "Número da CRE que administra a unidade escolar onde o COC ocorreu. \r\nCRE é a sigla para coordenadoria regional."
-                },
-                {
-                    "name": "id_turma",
-                    "description": "Identificador da turma na base de dados."
-                },
-                {
-                    "name": "id_turma_escola",
-                    "description": "Identificador da turma. É dado pela escola. É único em determinada escola e determinado ano. \r\nHá uma padronização, ex. 1601 é para o sexto ano."
-                },
-                {
-                    "name": "ano",
-                    "description": "Ano do COC. Uma turma é identificada pela unidade escolar onde ela esta, pelo seu número e por seu ano."
-                },
-                {
-                    "name": "id_unidade",
-                    "description": "Número da unidade escolar, dado pela SME, relativa ao COC. Contém 7 digitos."
-                },
-                {
-                    "name": "grupamento",
-                    "description": "Ano da turma. Ex. primeiro ano, segundo ano etc."
-                },
-                {
-                    "name": "turno",
-                    "description": "Turno da turma. Pode ser Manhã, Tarde, Noite ou Integral. \r\nPode ser primeiro turno ou segundo turno em turmas mais antigas."
-                },
-                {
-                    "name": "id_coc",
-                    "description": "Número do conselho de classe.\r\nÉ único por período letivo.\r\nConselho de classe é um conjunto de reuniões de professores que ocorre no final do bimestre. \r\nNo COC é dado um conceito final para o aluno, diferente das notas por matérias."
-                },
-                {
-                    "name": "alunos",
-                    "description": "Número total de alunos do COC, na turma, no ano."
-                },
-                {
-                    "name": "masculino",
-                    "description": "Número total de alunos do sexo masculino, do COC, na turma, no ano."
-                },
-                {
-                    "name": "feminino",
-                    "description": "Número total de alunos do sexo feminino, do COC, na turma, no ano."
-                },
-                {
-                    "name": "deficiente",
-                    "description": "Número total de alunos deficientes, do COC, na turma, no ano."
-                },
-                {
-                    "name": "masculino_deficiente",
-                    "description": "Número total de alunos do sexo masculino deficientes, do COC, na turma, no ano."
-                },
-                {
-                    "name": "feminino_deficiente",
-                    "description": "Número total de alunos do sexo feminino deficientes, do COC, na turma, no ano."
-                },
-                {
-                    "name": "masculino_nao_deficiente",
-                    "description": "Número total de alunos do sexo masculino não deficientes, do COC, na turma, no ano."
-                },
-                {
-                    "name": "feminino_nao_deficiente",
-                    "description": "Número total de alunos do sexo feminino não deficientes, do COC, na turma, no ano."
-                },
-                {
-                    "name": "vagas",
-                    "description": "Capacidade menos o total de alunos em determinado COC."
-                },
-                {
-                    "name": "capacidade",
-                    "description": "Capacidade da turma no ano, de acordo com o tamanho da sala. \r\nA capacidade da turma pode ser no máximo a constante em resolução da SME, independente do tamanho da sala. \r\nA capacidade pode, eventualmente, ser menor do que a resolução da SME \r\n\r\n(vai ser verificada esta definição )."
-                }
-            ]
-        }
-    },
-    "adm_cor_comando": {
-        "ocorrencias": {
-            "title": "Dados do sistema Comando (COR): ocorrencias",
-            "short_description": "Demanda de ocorrências desde 2015.",
-            "long_description": "Ocorrências disparadas pelo COR desde 2015. Uma ocorrência na cidade do Rio de Janeiro é um  acontecimento que exije um acompanhamento e, na maioria das vezes, uma ação da PCRJ. Por exemplo, Buraco na pista, bolsão d'água, enguiço mecânico. Uma ocorrência aberta é uma ocorrência que ainda não foi solucionada. Acesse também através da API do Escritório de Dados: https://api.dados.rio/v1/",
-            "update_frequency": "Diário",
-            "temporal_coverage": "Não informado.",
-            "data_owner": "COR",
-            "publisher_name": "Patrícia Catandi",
-            "publisher_email": "patriciabcatandi@gmail.com",
-            "tags": [
-                "comando",
-                "administração pública",
-                "ocorrência",
-                "COR",
-                "evento"
-            ],
-            "categories": [
-                "48df9fb6643d477bb1bb7bf595915a23"
-            ],
-            "columns": [
-                {
-                    "name": "data_inicio",
-                    "description": "Data e hora do registro do evento na PCRJ."
-                },
-                {
-                    "name": "data_fim",
-                    "description": "Data e hora do encerramento do evento na PCRJ. O evento é encerrado quando é solucionado. Este atributo está vazio quanto o evento está aberto."
-                },
-                {
-                    "name": "bairro",
-                    "description": "Bairro onde ocorreu o evento."
-                },
-                {
-                    "name": "id_pop",
-                    "description": "Identificador do POP."
-                },
-                {
-                    "name": "status",
-                    "description": "Status do evento (ABERTO, FECHADO)."
-                },
-                {
-                    "name": "gravidade",
-                    "description": "Gravidade do evento (BAIXO, MEDIO, ALTO, CRITICO)."
-                },
-                {
-                    "name": "prazo",
-                    "description": "Prazo esperado de solução do evento (CURTO, MEDIO(acima de 3 dias), LONGO( acima de 5 dias))."
-                },
-                {
-                    "name": "latitude",
-                    "description": "Latitude em formato WGS-84 em que ocorreu o evento"
-                },
-                {
-                    "name": "longitude",
-                    "description": "Longitude em formato WGS-84 em que ocorreu o evento"
-                },
-                {
-                    "name": "id_evento",
-                    "description": "Identificador do evento."
-                },
-                {
-                    "name": "descricao",
-                    "description": "Descrição do evento."
-                },
-                {
-                    "name": "tipo",
-                    "description": "Tipo do evento (PRIMARIO, SECUNDARIO)"
-                }
-            ]
-        },
-        "procedimento_operacional_padrao": {
-            "title": "Dados do sistema Comando (COR): procedimento_operacional_padrao",
-            "short_description": "Procedimentos operacionais padrões (POP).",
-            "long_description": "Procedimentos operacionais padrões (POP) existentes na PCRJ.  Um POP é um procedimento que será usado para solucionar um evento. Um POP é composto de várias atividades. Um evento é uma ocorrência na cidade do Rio de Janeiro que exija um acompanhamento e na maioria das vezes uma ação da PCRJ, como por exemplo um buraco na rua. Acesse também através da API do Escritório de Dados: https://api.dados.rio/v1/",
-            "update_frequency": "Mensal",
-            "temporal_coverage": "Não informado.",
-            "data_owner": "COR",
-            "publisher_name": "Patrícia Catandi",
-            "publisher_email": "patriciabcatandi@gmail.com",
-            "tags": [
-                "comando",
-                "procedimento operacional padrão",
-                "administração pública",
-                "POP"
-            ],
-            "categories": [
-                "48df9fb6643d477bb1bb7bf595915a23"
-            ],
-            "columns": [
-                {
-                    "name": "id_pop",
-                    "description": "Identificador do POP procedimento operacional padrão)."
-                },
-                {
-                    "name": "pop_titulo",
-                    "description": "Nome do procedimento operacional padrão."
-                }
-            ]
-        },
-        "procedimento_operacional_padrao_orgaos_responsaveis": {
-            "title": "Dados do sistema Comando (COR): procedimento_operacional_padrao_orgaos_responsaveis",
-            "short_description": "Atividades que compõem os POPs.",
-            "long_description": "Um Procedimento operacional padrão (POP) é um procedimento que será usado para solucionar uma ocorrência. Cada ocorrência necessita o acionamento de diferentes órgãos para atender atividades distintas. Uma ocorrência na cidade do Rio de Janeiro é um  acontecimento que exije um acompanhamento e, na maioria das vezes, uma ação da PCRJ. Por exemplo, Buraco na pista, bolsão d'água, enguiço mecânico. Uma ocorrência aberta é uma ocorrência que ainda não foi solucionada. Acesse também através da API do Escritório de Dados: https://api.dados.rio/v1/",
-            "update_frequency": "Mensal",
-            "temporal_coverage": "Não informado.",
-            "data_owner": "COR",
-            "publisher_name": "Patrícia Catandi",
-            "publisher_email": "patriciabcatandi@gmail.com",
-            "tags": [
-                "comando",
-                "procedimento operacional padrão",
-                "administração pública",
-                "evento",
-                "POP"
-            ],
-            "categories": [
-                "48df9fb6643d477bb1bb7bf595915a23"
-            ],
-            "columns": [
-                {
-                    "name": "id_pop",
-                    "description": "ID do POP ao qual a atividade está ligada."
-                },
-                {
-                    "name": "sigla",
-                    "description": "Sigla do órgão responsável pela atividade."
-                },
-                {
-                    "name": "orgao",
-                    "description": "Orgão responsável pela atividade."
-                },
-                {
-                    "name": "acao",
-                    "description": "Descrição da atividade."
-                }
-            ]
-        },
-        "ocorrencias_orgaos_responsaveis": {
-            "title": "Dados do sistema Comando (COR): ocorrencias_orgaos_responsaveis",
-            "short_description": "Orgãos responsáveis por atender cada uma das ocorrências.",
-            "long_description": "Orgãos responsáveis por atender cada uma das ocorrências. Cada ocorrência necessita o acionamento de diferentes órgãos para atender atividades distintas. Aqui são descritas as atividades que estão sendo executadas ou que foram executadas para a solução de uma ocorrência. Uma ocorrência na cidade do Rio de Janeiro é um  acontecimento que exije um acompanhamento e, na maioria das vezes, uma ação da PCRJ. Por exemplo, Buraco na pista, bolsão d'água, enguiço mecânico. Uma ocorrência aberta é uma ocorrência que ainda não foi solucionada. Acesse também através da API do Escritório de Dados: https://api.dados.rio/v1/",
-            "update_frequency": "Diário",
-            "temporal_coverage": "Não informado.",
-            "data_owner": "COR",
-            "publisher_name": "Patrícia Catandi",
-            "publisher_email": "patriciabcatandi@gmail.com",
-            "tags": [
-                "comando",
-                "administração pública",
-                "ocorrência",
-                "COR",
-                "evento"
-            ],
-            "categories": [
-                "48df9fb6643d477bb1bb7bf595915a23"
-            ],
-            "columns": [
-                {
-                    "name": "data_inicio",
-                    "description": "Data e hora do início da atividade."
-                },
-                {
-                    "name": "data_fim",
-                    "description": "Data e hora do fim da atividade."
-                },
-                {
-                    "name": "sigla",
-                    "description": "Sigla do órgão que está realizando ou realizou a atividade."
-                },
-                {
-                    "name": "descricao",
-                    "description": "Descrição da atividade."
-                },
-                {
-                    "name": "id_evento",
-                    "description": "Identificador do evento ao qual está ligada a atividade."
-                },
-                {
-                    "name": "status",
-                    "description": "Status da atividade (ABERTO, FECHADO)."
-                },
-                {
-                    "name": "data_chegada",
-                    "description": "Data e hora da chegada da atividade."
-                }
-            ]
         }
     },
     "planejamento_gestao_acordo_resultados": {
@@ -1475,433 +1424,6 @@
             ],
             "categories": [],
             "columns": []
-        }
-    },
-    "meio_ambiente_clima": {
-        "meteorologia_inmet": {
-            "title": "Meio Ambiente: Meteorologia do Instituto Nacional de Meteorologia (INMET)",
-            "short_description": "Dados meteorológicos obtidas das estações pluviométricas do INMET na cidade do Rio de Janeiro.",
-            "long_description": "Dados meteorológicos obtidos nas estações pluviométricas do INMET ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\r\nAs medidas são feitas de hora em hora, cada registro contendo dados destas medidas para cada estação. \r\nEntre os dados temos horário da medição, acumulado de chuva em 1 hora, direção e velocidade do vento, temperatura, pressão atmosférica, umidade e radiação global.",
-            "update_frequency": "Diário",
-            "temporal_coverage": "Desde 2010 até data corrente",
-            "data_owner": "INMET",
-            "publisher_name": "Patrícia Catandi",
-            "publisher_email": "patriciabcatandi@gmail.com",
-            "tags": [
-                "meio ambiente",
-                "clima",
-                "pluviometria",
-                "precipitação",
-                "COR",
-                "estações meteorológicas",
-                "INMET",
-                "estação meteorológica",
-                "chuva",
-                "enchente"
-            ],
-            "categories": [
-                "0128241e3e024872a7eb46848eb7a7be"
-            ],
-            "columns": [
-                {
-                    "name": "id_estacao",
-                    "description": "ID da estação dada pelo INMET."
-                },
-                {
-                    "name": "data_particao",
-                    "description": "Data em que foi realizada a medição."
-                },
-                {
-                    "name": "horario",
-                    "description": "Horário em que foi realizada a medição."
-                },
-                {
-                    "name": "acumulado_chuva_1_h",
-                    "description": "Acumulado de chuva em 1 hora na estação."
-                },
-                {
-                    "name": "direcao_vento",
-                    "description": "Direção horária do vento na estação."
-                },
-                {
-                    "name": "velocidade_vento",
-                    "description": "Velocidade do vento na estação."
-                },
-                {
-                    "name": "temperatura",
-                    "description": "Temperatura na medição instantânea na estação."
-                },
-                {
-                    "name": "pressao",
-                    "description": "Pressão atmosférica ao nível da estação."
-                },
-                {
-                    "name": "pressao_minima",
-                    "description": "Pressão atmosférica mínima na hora anterior."
-                },
-                {
-                    "name": "pressao_maxima",
-                    "description": "Pressão atmosférica máxima na hora anterior."
-                },
-                {
-                    "name": "umidade",
-                    "description": "Umidade relativa do ar instantânea na estação."
-                },
-                {
-                    "name": "umidade_minima",
-                    "description": "Umidade relativa mínima na hora anterior."
-                },
-                {
-                    "name": "umidade_maxima",
-                    "description": "Umidade relativa máxima na hora anterior."
-                },
-                {
-                    "name": "rajada_vento_max",
-                    "description": "Rajada de vento máxima na estação."
-                },
-                {
-                    "name": "temperatura_minima",
-                    "description": "Temperatura mínima na hora anterior na estação."
-                },
-                {
-                    "name": "temperatura_maxima",
-                    "description": "Temperatura máxima na hora anterior na estação."
-                },
-                {
-                    "name": "radiacao_global",
-                    "description": "Radiação solar global captada na estação."
-                },
-                {
-                    "name": "temperatura_orvalho",
-                    "description": "Temperatura de orvalho instantânea na estação."
-                },
-                {
-                    "name": "temperatura_orvalho_minimo",
-                    "description": "Temperatura mínima de orvalho na hora anterior."
-                },
-                {
-                    "name": "temperatura_orvalho_maximo",
-                    "description": "Temperatura máxima de orvalho na hora anterior."
-                },
-                {
-                    "name": "primary_key",
-                    "description": "Chave primária criada a partir da concatenação da coluna id_estacao, data e horário Serve para evitar dados duplicados."
-                }
-            ]
-        },
-        "taxa_precipitacao_satelite": {
-            "title": "Meio Ambiente: Taxa de Precipitação (GOES-16)",
-            "short_description": "Taxa de precipitação estimada de áreas do sudeste brasileiro.",
-            "long_description": "Taxa de precipitação estimada de áreas do sudeste brasileiro. \r\nAs estimativas são feitas de hora em hora, cada registro contendo dados desta estimativa. \r\nCada área é um quadrado formado por 4km de lado. \r\nDados coletados pelo satélite GOES-16.",
-            "update_frequency": "Diário",
-            "temporal_coverage": "Desde 2020 até a data corrente",
-            "data_owner": "Centro de Operações da Prefeitura do Rio (COR)",
-            "publisher_name": "Patrícia Catandi",
-            "publisher_email": "patriciabcatandi@gmail.com",
-            "tags": [
-                "meio ambiente",
-                "clima",
-                "pluviometria",
-                "precipitação",
-                "COR",
-                "GOES",
-                "satélite",
-                "chuva",
-                "enchente"
-            ],
-            "categories": [
-                "0128241e3e024872a7eb46848eb7a7be"
-            ],
-            "columns": [
-                {
-                    "name": "latitude",
-                    "description": "Latitude do centro da área."
-                },
-                {
-                    "name": "longitude",
-                    "description": "Longitude do centro da área."
-                },
-                {
-                    "name": "rrqpe",
-                    "description": "Taxa de precipitação estimada, medidas em milímetros por hora."
-                },
-                {
-                    "name": "primary_key",
-                    "description": "Chave primária criada a partir da concatenação da coluna data, horário, latitude e longitude. Serve para evitar dados duplicados."
-                },
-                {
-                    "name": "horario",
-                    "description": "Horário no qual foi realizada a medição"
-                },
-                {
-                    "name": "data_particao",
-                    "description": "Data na qual foi realizada a medição"
-                }
-            ]
-        },
-        "taxa_precipitacao_alertario": {
-            "title": "Meio Ambiente: Taxa de Precipitação (Alerta Rio)",
-            "short_description": "Taxa medida de precipitação das estações pluviométricas da cidade do Rio de Janeiro.",
-            "long_description": "Taxa medida de precipitação das estações pluviométricas da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos, cada registro contendo dados desta medida.",
-            "update_frequency": "Diário",
-            "temporal_coverage": "Desde 1997 até data corrente",
-            "data_owner": "COR",
-            "publisher_name": "Patrícia Catandi",
-            "publisher_email": "patriciabcatandi@gmail.com",
-            "tags": [
-                "precipitação",
-                "COR",
-                "alerta Rio",
-                "estações pluviométricas",
-                "estação pluviométrica",
-                "chuva",
-                "enchente"
-            ],
-            "categories": [
-                "0128241e3e024872a7eb46848eb7a7be"
-            ],
-            "columns": [
-                {
-                    "name": "data_particao",
-                    "description": "Data em que foi realizada a medição"
-                },
-                {
-                    "name": "id_estacao",
-                    "description": "ID da estação pluviométrica em que ocorreu a medição."
-                },
-                {
-                    "name": "acumulado_chuva_15_min",
-                    "description": "Acumulado de chuva em 15 minutos."
-                },
-                {
-                    "name": "acumulado_chuva_1_h",
-                    "description": "Acumulado de chuva em 1 hora."
-                },
-                {
-                    "name": "acumulado_chuva_4_h",
-                    "description": "Acumulado de chuva em 4 horas."
-                },
-                {
-                    "name": "acumulado_chuva_24_h",
-                    "description": "Acumulado de chuva em 24 horas."
-                },
-                {
-                    "name": "acumulado_chuva_96_h",
-                    "description": "Acumulado de chuva em 96 horas."
-                },
-                {
-                    "name": "primary_key",
-                    "description": "Chave primária criada a partir da coluna id_estacao e da data_medicao. Serve para evitar dados duplicados."
-                },
-                {
-                    "name": "horario",
-                    "description": "Horário no qual foi realizada a medição"
-                }
-            ]
-        },
-        "estacoes_alertario": {
-            "title": "Meio Ambiente: Estações pluviométricas (AlertaRio)",
-            "short_description": "Dados sobre as estações pluviométricas do alertario na cidade do Rio de Janeiro.",
-            "long_description": "Dados sobre as estações pluviométricas do alertario ( Sistema Alerta Rio da Prefeitura do Rio de Janeiro ) na cidade do Rio de Janeiro.",
-            "update_frequency": "Anual",
-            "temporal_coverage": "N/A",
-            "data_owner": "COR",
-            "publisher_name": "Patricia Catandi",
-            "publisher_email": "patriciabcatandi@gmail.com",
-            "tags": [
-                "meio ambiente",
-                "clima",
-                "pluviometria",
-                "comando",
-                "precipitação",
-                "COR",
-                "alerta Rio",
-                "estações pluviométricas",
-                "estação pluviométrica",
-                "chuva",
-                "enchente"
-            ],
-            "categories": [
-                "0128241e3e024872a7eb46848eb7a7be"
-            ],
-            "columns": [
-                {
-                    "name": "x",
-                    "description": "X UTM (SAD69 Zona 23)"
-                },
-                {
-                    "name": "longitude",
-                    "description": "Longitude onde a estação se encontra."
-                },
-                {
-                    "name": "id_estacao",
-                    "description": "ID da estação definido pelo AlertaRIO."
-                },
-                {
-                    "name": "estacao",
-                    "description": "Nome da estação."
-                },
-                {
-                    "name": "latitude",
-                    "description": "Latitude onde a estação se encontra."
-                },
-                {
-                    "name": "cota",
-                    "description": "Altura em metros onde a estação se encontra."
-                },
-                {
-                    "name": "endereco",
-                    "description": "Endereço completo da estação."
-                },
-                {
-                    "name": "situacao",
-                    "description": "Indica se a estação está operante ou com falha."
-                },
-                {
-                    "name": "data_inicio_operacao",
-                    "description": "Data em que a estação começou a operar."
-                },
-                {
-                    "name": "data_fim_operacao",
-                    "description": "Data em que a estação parou de operar."
-                },
-                {
-                    "name": "data_atualizacao",
-                    "description": "Última data em que os dados sobre a data de operação foram atualizados."
-                },
-                {
-                    "name": "y",
-                    "description": "Y UTM (SAD69 Zona 23)"
-                }
-            ]
-        },
-        "estacoes_inmet": {
-            "title": "Meio Ambiente: Estações meteorológicas (INMET/BDMET)",
-            "short_description": "Dados sobre as estações meteorológicas do inmet na cidade do Rio de Janeiro.",
-            "long_description": "Dados sobre as estações meteorológicas do inmet ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.",
-            "update_frequency": "Nunca",
-            "temporal_coverage": "N/A",
-            "data_owner": "INMET",
-            "publisher_name": "Patricia Catandi",
-            "publisher_email": "patriciabcatandi@gmail.com",
-            "tags": [
-                "meio ambiente",
-                "clima",
-                "pluviometria",
-                "precipitação",
-                "COR",
-                "estações pluviométricas",
-                "estações meteorológicas",
-                "estação pluviométrica",
-                "INMET",
-                "estação meteorológica",
-                "chuva",
-                "enchente"
-            ],
-            "categories": [
-                "0128241e3e024872a7eb46848eb7a7be"
-            ],
-            "columns": [
-                {
-                    "name": "id_municipio",
-                    "description": "Código do município do IBGE de 7 dígitos."
-                },
-                {
-                    "name": "latitude",
-                    "description": "Latitude onde a estação se encontra."
-                },
-                {
-                    "name": "data_inicio_operacao",
-                    "description": "Data em que a estação começou a operar."
-                },
-                {
-                    "name": "data_fim_operacao",
-                    "description": "Data em que a estação parou de operar."
-                },
-                {
-                    "name": "situacao",
-                    "description": "Indica se a estação está operante ou com falha."
-                },
-                {
-                    "name": "tipo_estacao",
-                    "description": "Indica se a estação é automática ou manual. Pode conter nulos."
-                },
-                {
-                    "name": "entidade_responsavel",
-                    "description": "Entidade responsável pela estação."
-                },
-                {
-                    "name": "data_atualizacao",
-                    "description": "Última data em que os dados sobre a data de operação foram atualizados."
-                },
-                {
-                    "name": "longitude",
-                    "description": "Longitude onde a estação se encontra."
-                },
-                {
-                    "name": "sigla_uf",
-                    "description": "Sigla do estado."
-                },
-                {
-                    "name": "id_estacao",
-                    "description": "ID da estação definido pelo INMET."
-                },
-                {
-                    "name": "estacao",
-                    "description": "Nome da estação."
-                }
-            ]
-        },
-        "quantidade_agua_precipitavel_satelite": {
-            "title": "Meio Ambiente: Água Precipitável (GOES-16)",
-            "short_description": "Quantidade estimada de água precipitável na atmosfera de áreas do sudeste brasileiro.",
-            "long_description": "Taxa de precipitação estimada de áreas do sudeste brasileiro. \r\nAs estimativas são feitas de hora em hora, cada registro contendo dados desta estimativa. \r\nCada área é um quadrado formado por 4km de lado. \r\nDados coletados pelo satélite GOES-16.",
-            "update_frequency": "Diário",
-            "temporal_coverage": "Desde 2020 Até data corrente",
-            "data_owner": "COR",
-            "publisher_name": "Patrícia Catandi",
-            "publisher_email": "patriciabcatandi@gmail.com",
-            "tags": [
-                "meio ambiente",
-                "clima",
-                "pluviometria",
-                "comando",
-                "precipitação",
-                "COR",
-                "GOES",
-                "satélite",
-                "chuva",
-                "enchente"
-            ],
-            "categories": [
-                "0128241e3e024872a7eb46848eb7a7be"
-            ],
-            "columns": [
-                {
-                    "name": "latitude",
-                    "description": "Latitude do centro da área."
-                },
-                {
-                    "name": "longitude",
-                    "description": "Longitude do centro da área."
-                },
-                {
-                    "name": "primary_key",
-                    "description": "Chave primária criada a partir da concatenação da coluna data, horário, latitude e longitude. Serve para evitar dados duplicados."
-                },
-                {
-                    "name": "tpw",
-                    "description": "Quantidade total de água precipitável, medidas em milímetros."
-                },
-                {
-                    "name": "horario",
-                    "description": "Horário no qual foi realizada a medição"
-                },
-                {
-                    "name": "data_particao",
-                    "description": "Data na qual foi realizada a medição"
-                }
-            ]
         }
     },
     "transporte_rodoviario_municipal": {
@@ -2158,6 +1680,499 @@
                 {
                     "name": "versao",
                     "description": "Versão de código da pipeline que gerou o dado"
+                }
+            ]
+        }
+    },
+    "adm_cor_comando": {
+        "ocorrencias": {
+            "title": "Dados do sistema Comando (COR): ocorrencias",
+            "short_description": "Demanda de ocorrências desde 2015.",
+            "long_description": "Ocorrências disparadas pelo COR desde 2015. Uma ocorrência na cidade do Rio de Janeiro é um  acontecimento que exije um acompanhamento e, na maioria das vezes, uma ação da PCRJ. Por exemplo, Buraco na pista, bolsão d'água, enguiço mecânico. Uma ocorrência aberta é uma ocorrência que ainda não foi solucionada. Acesse também através da API do Escritório de Dados: https://api.dados.rio/v1/",
+            "update_frequency": "Diário",
+            "temporal_coverage": "Não informado.",
+            "data_owner": "COR",
+            "publisher_name": "Patrícia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "comando",
+                "administração pública",
+                "ocorrência",
+                "COR",
+                "evento"
+            ],
+            "categories": [
+                "48df9fb6643d477bb1bb7bf595915a23"
+            ],
+            "columns": [
+                {
+                    "name": "data_inicio",
+                    "description": "Data e hora do registro do evento na PCRJ."
+                },
+                {
+                    "name": "data_fim",
+                    "description": "Data e hora do encerramento do evento na PCRJ. O evento é encerrado quando é solucionado. Este atributo está vazio quanto o evento está aberto."
+                },
+                {
+                    "name": "bairro",
+                    "description": "Bairro onde ocorreu o evento."
+                },
+                {
+                    "name": "id_pop",
+                    "description": "Identificador do POP."
+                },
+                {
+                    "name": "status",
+                    "description": "Status do evento (ABERTO, FECHADO)."
+                },
+                {
+                    "name": "gravidade",
+                    "description": "Gravidade do evento (BAIXO, MEDIO, ALTO, CRITICO)."
+                },
+                {
+                    "name": "prazo",
+                    "description": "Prazo esperado de solução do evento (CURTO, MEDIO(acima de 3 dias), LONGO( acima de 5 dias))."
+                },
+                {
+                    "name": "latitude",
+                    "description": "Latitude em formato WGS-84 em que ocorreu o evento"
+                },
+                {
+                    "name": "longitude",
+                    "description": "Longitude em formato WGS-84 em que ocorreu o evento"
+                },
+                {
+                    "name": "id_evento",
+                    "description": "Identificador do evento."
+                },
+                {
+                    "name": "descricao",
+                    "description": "Descrição do evento."
+                },
+                {
+                    "name": "tipo",
+                    "description": "Tipo do evento (PRIMARIO, SECUNDARIO)"
+                }
+            ]
+        },
+        "procedimento_operacional_padrao_orgaos_responsaveis": {
+            "title": "Dados do sistema Comando (COR): procedimento_operacional_padrao_orgaos_responsaveis",
+            "short_description": "Atividades que compõem os POPs.",
+            "long_description": "Um Procedimento operacional padrão (POP) é um procedimento que será usado para solucionar uma ocorrência. Cada ocorrência necessita o acionamento de diferentes órgãos para atender atividades distintas. Uma ocorrência na cidade do Rio de Janeiro é um  acontecimento que exije um acompanhamento e, na maioria das vezes, uma ação da PCRJ. Por exemplo, Buraco na pista, bolsão d'água, enguiço mecânico. Uma ocorrência aberta é uma ocorrência que ainda não foi solucionada. Acesse também através da API do Escritório de Dados: https://api.dados.rio/v1/",
+            "update_frequency": "Mensal",
+            "temporal_coverage": "Não informado.",
+            "data_owner": "COR",
+            "publisher_name": "Patrícia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "comando",
+                "procedimento operacional padrão",
+                "administração pública",
+                "evento",
+                "POP"
+            ],
+            "categories": [
+                "48df9fb6643d477bb1bb7bf595915a23"
+            ],
+            "columns": [
+                {
+                    "name": "id_pop",
+                    "description": "ID do POP ao qual a atividade está ligada."
+                },
+                {
+                    "name": "sigla",
+                    "description": "Sigla do órgão responsável pela atividade."
+                },
+                {
+                    "name": "orgao",
+                    "description": "Orgão responsável pela atividade."
+                },
+                {
+                    "name": "acao",
+                    "description": "Descrição da atividade."
+                }
+            ]
+        },
+        "ocorrencias_orgaos_responsaveis": {
+            "title": "Dados do sistema Comando (COR): ocorrencias_orgaos_responsaveis",
+            "short_description": "Orgãos responsáveis por atender cada uma das ocorrências.",
+            "long_description": "Orgãos responsáveis por atender cada uma das ocorrências. Cada ocorrência necessita o acionamento de diferentes órgãos para atender atividades distintas. Aqui são descritas as atividades que estão sendo executadas ou que foram executadas para a solução de uma ocorrência. Uma ocorrência na cidade do Rio de Janeiro é um  acontecimento que exije um acompanhamento e, na maioria das vezes, uma ação da PCRJ. Por exemplo, Buraco na pista, bolsão d'água, enguiço mecânico. Uma ocorrência aberta é uma ocorrência que ainda não foi solucionada. Acesse também através da API do Escritório de Dados: https://api.dados.rio/v1/",
+            "update_frequency": "Diário",
+            "temporal_coverage": "Não informado.",
+            "data_owner": "COR",
+            "publisher_name": "Patrícia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "comando",
+                "administração pública",
+                "ocorrência",
+                "COR",
+                "evento"
+            ],
+            "categories": [
+                "48df9fb6643d477bb1bb7bf595915a23"
+            ],
+            "columns": [
+                {
+                    "name": "data_inicio",
+                    "description": "Data e hora do início da atividade."
+                },
+                {
+                    "name": "data_fim",
+                    "description": "Data e hora do fim da atividade."
+                },
+                {
+                    "name": "sigla",
+                    "description": "Sigla do órgão que está realizando ou realizou a atividade."
+                },
+                {
+                    "name": "descricao",
+                    "description": "Descrição da atividade."
+                },
+                {
+                    "name": "id_evento",
+                    "description": "Identificador do evento ao qual está ligada a atividade."
+                },
+                {
+                    "name": "status",
+                    "description": "Status da atividade (ABERTO, FECHADO)."
+                },
+                {
+                    "name": "data_chegada",
+                    "description": "Data e hora da chegada da atividade."
+                }
+            ]
+        },
+        "procedimento_operacional_padrao": {
+            "title": "Dados do sistema Comando (COR): procedimento_operacional_padrao",
+            "short_description": "Procedimentos operacionais padrões (POP).",
+            "long_description": "Procedimentos operacionais padrões (POP) existentes na PCRJ.  Um POP é um procedimento que será usado para solucionar um evento. Um POP é composto de várias atividades. Um evento é uma ocorrência na cidade do Rio de Janeiro que exija um acompanhamento e na maioria das vezes uma ação da PCRJ, como por exemplo um buraco na rua. Acesse também através da API do Escritório de Dados: https://api.dados.rio/v1/",
+            "update_frequency": "Mensal",
+            "temporal_coverage": "Não informado.",
+            "data_owner": "COR",
+            "publisher_name": "Patrícia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "comando",
+                "procedimento operacional padrão",
+                "administração pública",
+                "POP"
+            ],
+            "categories": [
+                "48df9fb6643d477bb1bb7bf595915a23"
+            ],
+            "columns": [
+                {
+                    "name": "id_pop",
+                    "description": "Identificador do POP procedimento operacional padrão)."
+                },
+                {
+                    "name": "pop_titulo",
+                    "description": "Nome do procedimento operacional padrão."
+                }
+            ]
+        }
+    },
+    "administracao_servicos_publicos": {
+        "chamado_1746": {
+            "title": "Administração de Serviços Públicos: Chamados feitos ao 1746",
+            "short_description": "Chamados feitos ao 1746.",
+            "long_description": "Chamados feitos ao 1746. São chamados desde março de  2011, quando começou o projeto 1746.",
+            "update_frequency": "Diário",
+            "temporal_coverage": "Março de  2011",
+            "data_owner": "SEGOVI",
+            "publisher_name": "Patricia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "bairro",
+                "administração pública",
+                "ocorrência",
+                "1746",
+                "SEGOVI"
+            ],
+            "categories": [
+                "48df9fb6643d477bb1bb7bf595915a23",
+                "9c068b52c31f4567b550c528ad416b89",
+                "1de0fc5e9dfc40f687702caa089fd16f",
+                "0128241e3e024872a7eb46848eb7a7be",
+                "cbe84df2333a463b9d4e20aca5177936"
+            ],
+            "columns": [
+                {
+                    "name": "id_chamado",
+                    "description": "Identificador único do chamado no banco de dados."
+                },
+                {
+                    "name": "data_inicio",
+                    "description": "Data de abertura do chamado. Ocorre quando o operador registra o chamado."
+                },
+                {
+                    "name": "data_fim",
+                    "description": "Data de fechamento do chamado. O chamado é fechado quando o pedido é atendido ou quando se percebe que o pedido não pode ser atendido."
+                },
+                {
+                    "name": "id_bairro",
+                    "description": "Identificador único, no banco de dados, do bairro onde ocorreu o fato que gerou o chamado."
+                },
+                {
+                    "name": "id_territorialidade",
+                    "description": "Identificador único, no banco de dados, da territorialidade onde ocorreu o fato que gerou o chamado. Territorialidade é uma região da cidade do Rio de Janeiro que tem com responsável um órgão especifico. Exemplo: CDURP, que é responsável pela região do porto do Rio de Janeiro."
+                },
+                {
+                    "name": "id_logradouro",
+                    "description": "Identificador único, no banco de dados, do logradouro onde ocorreu o fato que gerou o chamado."
+                },
+                {
+                    "name": "numero_logradouro",
+                    "description": "Número da porta onde ocorreu o fato que gerou o chamado."
+                },
+                {
+                    "name": "id_unidade_organizacional",
+                    "description": "Identificador único, no banco de dados, do órgão que executa o chamado. Por exemplo: identificador da COMLURB quando o chamado é relativo a limpeza urbana."
+                },
+                {
+                    "name": "nome_unidade_organizacional",
+                    "description": "Nome do órgão que executa a demanda. Por exemplo: COMLURB quando a demanda é relativa a limpeza urbana."
+                },
+                {
+                    "name": "unidade_organizadional_ouvidoria",
+                    "description": "Booleano indicando se o chamado do cidadão foi feita Ouvidoria ou não. 1 caso sim, 0 caso não,"
+                },
+                {
+                    "name": "categoria",
+                    "description": "Categoria do chamado. Exemplo: Serviço, informação, sugestão, elogio, reclamação, crítica."
+                },
+                {
+                    "name": "id_tipo",
+                    "description": "Identificador único, no banco de dados, do tipo do chamado. Ex: Iluminação pública."
+                },
+                {
+                    "name": "tipo",
+                    "description": "Nome do tipo do chamado. Ex: Iluminação pública."
+                },
+                {
+                    "name": "id_subtipo",
+                    "description": "Identificador único, no banco de dados, do subtipo do chamado. Ex: Reparo de lâmpada apagada."
+                },
+                {
+                    "name": "subtipo",
+                    "description": "Nome do subtipo do chamado.  Ex: Reparo de lâmpada apagada."
+                },
+                {
+                    "name": "status",
+                    "description": "Status do chamado. Ex. Fechado com solução, aberto em andamento, pendente etc."
+                },
+                {
+                    "name": "longitude",
+                    "description": "Longitude do lugar do evento que motivou o chamado."
+                },
+                {
+                    "name": "latitude",
+                    "description": "Latitude do lugar do evento que motivou o chamado."
+                },
+                {
+                    "name": "data_alvo_finalizacao",
+                    "description": "Data prevista para o atendimento do chamado. Caso prazo_tipo seja D fica em branco até o diagnóstico ser feito."
+                },
+                {
+                    "name": "data_alvo_diagnostico",
+                    "description": "Data prevista para fazer o diagnóstico do serviço.  Caso prazo_tipo seja F esta data fica em branco."
+                },
+                {
+                    "name": "data_real_diagnostico",
+                    "description": "Data em que foi feito o diagnóstico do serviço.  Caso prazo_tipo seja F esta data fica em branco."
+                },
+                {
+                    "name": "tempo_prazo",
+                    "description": "Prazo para o serviço ser feito. Em dias ou horas após a abertura do chamado. Caso haja diagnóstico o prazo conta após se fazer o diagnóstico."
+                },
+                {
+                    "name": "prazo_unidade",
+                    "description": "Unidade de tempo utilizada no prazo. Dias ou horas. D ou H."
+                },
+                {
+                    "name": "prazo_tipo",
+                    "description": "Diagnóstico ou finalização. D ou F. Indica se a chamada precisa de diagnóstico ou não. Alguns serviços precisam de avaliação para serem feitos, neste caso é feito o diagnóstico. Por exemplo, pode de árvore. Há a necessidade de um engenheiro ambiental verificar a necessidade da poda ou não."
+                },
+                {
+                    "name": "id_unidade_organizacional_mae",
+                    "description": "ID da unidade organizacional mãe do orgão que executa a demanda. Por exemplo: \"CVA - Coordenação de Vigilância de Alimentos\" é quem executa a demanda e obede a unidade organizacional mãe \"IVISA-RIO - Instituto Municipal de Vigilância Sanitária, de Zoonoses e de Inspeção Agropecuária\". A coluna se refere ao ID  deste último."
+                },
+                {
+                    "name": "situacao",
+                    "description": "Identifica se o chamado foi encerrado"
+                },
+                {
+                    "name": "tipo_situacao",
+                    "description": "Indica o status atual do chamado entre as categorias Atendido, Atendido parcialmente, Não atendido, Não constatado e Andamento"
+                },
+                {
+                    "name": "dentro_prazo",
+                    "description": "Indica se a data alvo de finalização do chamado ainda está dentro do prazo estipulado."
+                },
+                {
+                    "name": "justificativa_status",
+                    "description": "Justificativa que os órgãos usam ao definir o status. Exemplo: SEM POSSIBILIDADE DE ATENDIMENTO - justificativa: Fora de área de atuação do municipio"
+                },
+                {
+                    "name": "reclamacoes",
+                    "description": "Quantidade de reclamações."
+                }
+            ]
+        }
+    },
+    "dados_mestres": {
+        "bairro": {
+            "title": "Dados Mestres: Bairros",
+            "short_description": "Bairros da Cidade do Rio de Janeiro.",
+            "long_description": "Bairros da Cidade do Rio de Janeiro.",
+            "update_frequency": "Mensal",
+            "temporal_coverage": "Até a presente data",
+            "data_owner": "Instituto Pereira Passos (IPP) / Câmara dos Vereadores (CMRJ)",
+            "publisher_name": "IPP",
+            "publisher_email": "contato.siurb@gmail.com",
+            "tags": [
+                "bairro",
+                "administração pública",
+                "IPP"
+            ],
+            "categories": [
+                "48df9fb6643d477bb1bb7bf595915a23",
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
+            "columns": [
+                {
+                    "name": "shape_area",
+                    "description": "Área (m²) do bairro. Calculado automaticamente pelo ArqGis."
+                },
+                {
+                    "name": "id_bairro",
+                    "description": "Código do bairro dado pela prefeitura do Rio de Janeiro."
+                },
+                {
+                    "name": "nome",
+                    "description": "Nome do bairro"
+                },
+                {
+                    "name": "id_area_planejamento",
+                    "description": "Código da área de planejamento onde está localizado a região de planejamento do bairro.\r\nVer atributo nome_regiao_planejamento."
+                },
+                {
+                    "name": "nome_regiao_planejamento",
+                    "description": "Nome da região de planejamento. \r\nDeve respeitar o atributo id_regiao_planejamento."
+                },
+                {
+                    "name": "id_regiao_planejamento",
+                    "description": "Código da região de planejamento onde está localizado o região administrativa do bairro. Ver atributo REGIAO_ADM."
+                },
+                {
+                    "name": "id_regiao_administrativa",
+                    "description": "Código da região administrativa onde está locallizado o bairro."
+                },
+                {
+                    "name": "nome_regiao_administrativa",
+                    "description": "Nome da região administrativa onde está localizado o bairro. \r\nEste atributo deve respeitar o atributo id_regiao_administrativa."
+                },
+                {
+                    "name": "area",
+                    "description": "Área (m²) do bairro. \r\nTem o mesmo valor do atributo SHAPE.STArea()."
+                },
+                {
+                    "name": "perimetro",
+                    "description": "Perímetro (m) do bairro."
+                },
+                {
+                    "name": "geometry",
+                    "description": "Geometria do bairro no banco do ArcGIS."
+                }
+            ]
+        },
+        "logradouro": {
+            "title": "Dados Mestres: Logradouros",
+            "short_description": "Trechos ativos de logradouros do município do Rio de Janeiro.",
+            "long_description": "Trechos ativos de logradouros do município do Rio de Janeiro. \r\nTrecho de logradouro é um pedaço do logradouro, no caso de uma rua vai de uma esquina à outra. Logradouro é qualquer espaço público comum que pode ser usufruído por toda a população (reconhecidos formalmente ou não, de conhecimento da prefeitura do Rio de Janeiro), como largos, praças, ruas, jardins, parques, entre outros.",
+            "update_frequency": "Mensal",
+            "temporal_coverage": "Até data corrente",
+            "data_owner": "Instituto Pereira Passos (IPP) / Secretaria Municipal de Planejamento Urbano (SMPU)",
+            "publisher_name": "IPP",
+            "publisher_email": "contato.siurb@gmail.com",
+            "tags": [
+                "administração pública",
+                "IPP",
+                "logradouro"
+            ],
+            "categories": [
+                "48df9fb6643d477bb1bb7bf595915a23",
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
+            "columns": [
+                {
+                    "name": "id_logradouro",
+                    "description": "Código oficial do logradouro dado pela Prefeitura do Rio de Janeiro."
+                },
+                {
+                    "name": "nome",
+                    "description": "Nome do bairro onde está localizado o trecho de logradouro.\r\nUm trecho pode passar por vários bairros. \r\nEste atributo indica um dos bairros contendo o trecho. \r\nDeve respeitar o atributo Cod_Bairro."
+                },
+                {
+                    "name": "nome_parcial",
+                    "description": "Nome parcial do logradouro. \r\nNome do logradouro sem o tipo do logradouro (rua, estrada, beco, travessa etc ) e sem a nobreza do logradouro."
+                },
+                {
+                    "name": "nome_completo",
+                    "description": "Nome completo do logradouro. \r\nNome do logradouro com tipo, nobreza e nome parcial."
+                },
+                {
+                    "name": "id_trecho",
+                    "description": "Identificador único do trecho no banco de dados."
+                },
+                {
+                    "name": "id_situacao_trecho",
+                    "description": "Código de situação do trecho de logradouro."
+                },
+                {
+                    "name": "situacao_trecho",
+                    "description": "Situação do trecho de logradouro.\r\nPor exemplo ativo, cancelado, rascunho. Nesta disponibilização do IPP somente entraram os trechos ativos. \r\nDeve respeitar o atributo COD_SIT_TRECHO."
+                },
+                {
+                    "name": "id_tipo",
+                    "description": "Código do tipo do logradouro dado pela prefeitura do Rio de Janeiro.\r\nPor exemplo 41 é associado a rua."
+                },
+                {
+                    "name": "tipo",
+                    "description": "Tipo do logradouro por extenso.\r\nPor exemplo rua. \r\nDeve respeitar o id_tipo."
+                },
+                {
+                    "name": "id_bairro",
+                    "description": "Código do bairro, dado pela prefeitura do Rio de Janeiro, do trecho de logradouro.\r\nVer o atributo nome."
+                },
+                {
+                    "name": "inicio_numero_porta_par",
+                    "description": "Numeração inicial do lado par do trecho de logradouro."
+                },
+                {
+                    "name": "final_numero_porta_par",
+                    "description": "Numeração final do lado par do trecho de logradouro."
+                },
+                {
+                    "name": "inicio_numero_porta_impar",
+                    "description": "Numeração inicial do lado ímpar do trecho de logradouro."
+                },
+                {
+                    "name": "final_numero_porta_impar",
+                    "description": "Numeração final do lado ímpar do trecho de logradouro."
+                },
+                {
+                    "name": "hierarquia",
+                    "description": "Hierarquia viária do trecho de logradouro. \r\nPor exemplo estrutural, arterial primária, arterial secundária, coletora, local. \r\nClassificação relacionada a regras para o tráfego que passa por ela.\r\nPor exemplo fluxo de veículos, velocidade máxima etc."
+                },
+                {
+                    "name": "id_chavegeo",
+                    "description": "Código Chavegeo calculado a partir das coordenadas X e Y do centro do trecho de logradouro."
+                },
+                {
+                    "name": "geometry",
+                    "description": "Geometria do trecho de logradouro no banco do ArcGIS."
                 }
             ]
         }
