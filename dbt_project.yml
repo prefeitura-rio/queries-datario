@@ -51,6 +51,9 @@ models:
     educacao_basica:
       +materialized: table
       +schema: educacao_basica
+    logs_bq:
+      +materialized: table
+      +schema: logs_bq
     meio_ambiente_clima:
       +materialized: table
       +schema: meio_ambiente_clima
