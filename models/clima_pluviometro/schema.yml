@@ -7,34 +7,7 @@ models :
       \ Janeiro.\n**Frequência de atualização**: Anual\n**Cobertura temporal**: N/A\n\
       **Órgão gestor dos dados**: COR\n**Publicado por**: Patricia Catandi\n**Publicado\
       \ por (email)**: patriciabcatandi@gmail.com\n"
-    columns:
-      - name: id_estacao
-        description: "ID da estação definido pelo AlertaRIO."
-        tests:
-          - unique
-          - not_null
-      - name: estacao
-        description: "Nome da estação."
-      - name: latitude
-        description: "Latitude onde a estação se encontra."
-      - name: longitude
-        description: "Longitude onde a estação se encontra."
-      - name: cota
-        description: "Altura em metros onde a estação se encontra."
-      - name: x
-        description: "X UTM (SAD69 Zona 23)"
-      - name: y
-        description: "Y UTM (SAD69 Zona 23)"
-      - name: endereco
-        description: "Endereço completo da estação."
-      - name: situacao
-        description: "Indica se a estação está operante ou com falha."
-      - name: data_inicio_operacao
-        description: "Data em que a estação começou a operar."
-      - name: data_fim_operacao
-        description: "Data em que a estação parou de operar."
-      - name: data_atualizacao
-        description: "Última data em que os dados sobre a data de operação foram atualizados."
+    columns: []
   - name: taxa_precipitacao_alertario
     description: "**Descrição**: Taxa medida de precipitação das estações pluviométricas\
       \ da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos,\
@@ -42,21 +15,4 @@ models :
       \ 15 minutos\n**Cobertura temporal**: Desde 1997 até data corrente\n**Órgão\
       \ gestor dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado\
       \ por (email)**: patriciabcatandi@gmail.com\n"
-    columns:
-      - name: data_medicao
-        description: "Data e horário em que foi realizada a medição"
-      - name: id_estacao
-        description: "ID da estação pluviométrica em que ocorreu a medição."
-        tests:
-          - unique
-          - not_null
-      - name: acumulado_chuva_15_min
-        description: "Acumulado de chuva em 15 minutos."
-      - name: acumulado_chuva_1_h
-        description: "Acumulado de chuva em 1 hora."
-      - name: acumulado_chuva_4_h
-        description: "Acumulado de chuva em 4 horas."
-      - name: acumulado_chuva_24_h
-        description: "Acumulado de chuva em 24 horas."
-      - name: acumulado_chuva_96_h
-        description: "Acumulado de chuva em 96 horas."
+    columns: []
