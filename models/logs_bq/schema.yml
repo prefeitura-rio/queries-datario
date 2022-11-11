@@ -1,8 +1,0 @@
-version: 2
-models :
-  - name: queries_all_projects_materialized
-    description: "**Descrição**: Queries de todos os projetos\n**Frequência de atualização**:\
-      \ Diária\n**Cobertura temporal**: Abr/2022 - atual\n**Órgão gestor dos dados**:\
-      \ Escritório de Dados Rio\n**Publicado por**: Gabriel Gazola Milan\n**Publicado\
-      \ por (email)**: gabriel.gazola1@gmail.com\n"
-    columns: []

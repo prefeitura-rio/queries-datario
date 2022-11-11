@@ -290,21 +290,6 @@
             ]
         }
     },
-    "logs_bq": {
-        "queries_all_projects_materialized": {
-            "title": "BigQuery Logs: Queries de todos os projetos",
-            "short_description": "Queries de todos os projetos",
-            "long_description": "Queries de todos os projetos",
-            "update_frequency": "Diária",
-            "temporal_coverage": "Abr/2022 - atual",
-            "data_owner": "Escritório de Dados Rio",
-            "publisher_name": "Gabriel Gazola Milan",
-            "publisher_email": "gabriel.gazola1@gmail.com",
-            "tags": [],
-            "categories": [],
-            "columns": []
-        }
-    },
     "educacao_basica": {
         "frequencia": {
             "title": "Educação Básica: Frequência",
