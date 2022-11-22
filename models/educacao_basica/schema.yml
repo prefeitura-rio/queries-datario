@@ -554,6 +554,8 @@ models :
         description: Conceito dado em música ao aluno em um COC. Fica com 'sem informação'
           caso a criança não tenha sido avaliada neste conceito. Em geral é preenchido
           para o fundamental 2.
+      - name: reuniao_pais
+        description: Indica se teve reunião dos pais
   - name: movimentacao
     description: "**Descrição**: Movimentações feitas de alunos de interesse da prefeitura\
       \ do Rio de Janeiro ( algumas informações desde 1973, são mais completas a partir\

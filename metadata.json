@@ -1154,6 +1154,10 @@
                 {
                     "name": "musica",
                     "description": "Conceito dado em música ao aluno em um COC. Fica com 'sem informação' caso a criança não tenha sido avaliada neste conceito. Em geral é preenchido para o fundamental 2."
+                },
+                {
+                    "name": "reuniao_pais",
+                    "description": "Indica se teve reunião dos pais"
                 }
             ]
         },
@@ -1250,6 +1254,133 @@
                 {
                     "name": "tipo",
                     "description": "Indica se a movimentação é de entrada ou saída, mesmo dentro da mesma unidade escolar. Tem sempre o valor 'Entrada' quando a transferência é entre turmas dentro da mesma unidade escolar."
+                }
+            ]
+        }
+    },
+    "clima_satelite": {
+        "taxa_precipitacao_goes_16": {
+            "title": "Meio Ambiente: Taxa de Precipitação (GOES-16)",
+            "short_description": "Taxa de precipitação estimada de áreas do sudeste brasileiro.",
+            "long_description": "Taxa de precipitação estimada  da região da cidade do Rio de Janeiro. \r\nAs estimativas são feitas a cada 10 minutos.\r\nDados coletados pelo satélite GOES-16.",
+            "update_frequency": "Diário",
+            "temporal_coverage": "Desde 2020 até a data corrente",
+            "data_owner": "Centro de Operações da Prefeitura do Rio (COR)",
+            "publisher_name": "Patrícia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "meio ambiente",
+                "clima",
+                "pluviometria",
+                "precipitação",
+                "COR",
+                "GOES",
+                "satélite",
+                "chuva",
+                "enchente"
+            ],
+            "categories": [
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
+            "columns": [
+                {
+                    "name": "latitude",
+                    "description": "Latitude do centro da área."
+                },
+                {
+                    "name": "longitude",
+                    "description": "Longitude do centro da área."
+                },
+                {
+                    "name": "rrqpe",
+                    "description": "Taxa de precipitação estimada, medidas em milímetros por hora."
+                },
+                {
+                    "name": "horario",
+                    "description": "Horário de medição."
+                }
+            ]
+        },
+        "quantidade_agua_precipitavel_goes_16": {
+            "title": "Meio Ambiente: Água Precipitável (GOES-16)",
+            "short_description": "Quantidade estimada de água precipitável na atmosfera de áreas do sudeste brasileiro.",
+            "long_description": "Taxa de precipitação estimada da região da cidade do Rio de Janeiro. \r\nAs estimativas são feitas a cada 10 minutos.\r\nDados coletados pelo satélite GOES-16.",
+            "update_frequency": "Nunca",
+            "temporal_coverage": "Desde 2020 Até data corrente",
+            "data_owner": "COR",
+            "publisher_name": "Patrícia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "meio ambiente",
+                "clima",
+                "pluviometria",
+                "comando",
+                "precipitação",
+                "COR",
+                "GOES",
+                "satélite",
+                "chuva",
+                "enchente"
+            ],
+            "categories": [
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
+            "columns": [
+                {
+                    "name": "latitude",
+                    "description": "Latitude do centro da área."
+                },
+                {
+                    "name": "longitude",
+                    "description": "Longitude do centro da área."
+                },
+                {
+                    "name": "tpw",
+                    "description": "Quantidade total de água precipitável, medidas em milímetros."
+                },
+                {
+                    "name": "horario",
+                    "description": "Horário de medição."
+                }
+            ]
+        },
+        "infravermelho_longo_banda_13_goes_16": {
+            "title": "Meio Ambiente: Banda 13 do Infravermelho longo (GOES 16)",
+            "short_description": "Temperatura de brilho de nuvens e nuvens umidade",
+            "long_description": "Medições da temperatura de brilho das nuvens e umidade utilizando o comprimento de onda de 10,3 µm do infravermelho (banda 13)  na região da cidade do Rio de Janeiro. A unidade está em K.\r\nAs estimativas são feitas a cada 10 minutos.\r\nNome original: \"Clean\" Longwave IR Window Band.",
+            "update_frequency": "Diário",
+            "temporal_coverage": "Desde 2020 Até data corrente",
+            "data_owner": "COR",
+            "publisher_name": "Patrícia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "meio ambiente",
+                "clima",
+                "precipitação",
+                "COR",
+                "GOES",
+                "satélite",
+                "infravermelho"
+            ],
+            "categories": [
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
+            "columns": [
+                {
+                    "name": "horario",
+                    "description": "Horário de medição."
+                },
+                {
+                    "name": "latitude",
+                    "description": "Latitude do centro da área."
+                },
+                {
+                    "name": "longitude",
+                    "description": "Longitude do centro da área."
+                },
+                {
+                    "name": "cmi",
+                    "description": "Temperatura de brilho da CMI (Cloud Moisture Imagery), medidas em K."
                 }
             ]
         }

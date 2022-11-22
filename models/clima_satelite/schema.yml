@@ -1,13 +1,12 @@
 version: 2
 models :
   - name: taxa_precipitacao_goes_16
-    description: "**Descrição**: Taxa de precipitação estimada de áreas do sudeste\
-      \ brasileiro. \r\nAs estimativas são feitas de hora em hora, cada registro contendo\
-      \ dados desta estimativa. \r\nCada área é um quadrado formado por 4km de lado.\
-      \ \r\nDados coletados pelo satélite GOES-16.\n**Frequência de atualização**:\
-      \ Diário\n**Cobertura temporal**: Desde 2020 até a data corrente\n**Órgão gestor\
-      \ dos dados**: Centro de Operações da Prefeitura do Rio (COR)\n**Publicado por**:\
-      \ Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+    description: "**Descrição**: Taxa de precipitação estimada  da região da cidade\
+      \ do Rio de Janeiro. \r\nAs estimativas são feitas a cada 10 minutos.\r\nDados\
+      \ coletados pelo satélite GOES-16.\n**Frequência de atualização**: Diário\n\
+      **Cobertura temporal**: Desde 2020 até a data corrente\n**Órgão gestor dos dados**:\
+      \ Centro de Operações da Prefeitura do Rio (COR)\n**Publicado por**: Patrícia\
+      \ Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
       - name: latitude
         description: Latitude do centro da área.
@@ -15,55 +14,38 @@ models :
         description: Longitude do centro da área.
       - name: rrqpe
         description: Taxa de precipitação estimada, medidas em milímetros por hora.
-      - name: primary_key
-        description: Chave primária criada a partir da concatenação da coluna data,
-          horário, latitude e longitude. Serve para evitar dados duplicados.
       - name: horario
-        description: Horário no qual foi realizada a medição
-      - name: data_particao
-        description: Data na qual foi realizada a medição
+        description: Horário de medição.
   - name: quantidade_agua_precipitavel_goes_16
-    description: "**Descrição**: Taxa de precipitação estimada de áreas do sudeste\
-      \ brasileiro. \r\nAs estimativas são feitas de hora em hora, cada registro contendo\
-      \ dados desta estimativa. \r\nCada área é um quadrado formado por 4km de lado.\
-      \ \r\nDados coletados pelo satélite GOES-16.\n**Frequência de atualização**:\
-      \ Diário\n**Cobertura temporal**: Desde 2020 Até data corrente\n**Órgão gestor\
-      \ dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**:\
-      \ patriciabcatandi@gmail.com\n"
+    description: "**Descrição**: Taxa de precipitação estimada da região da cidade\
+      \ do Rio de Janeiro. \r\nAs estimativas são feitas a cada 10 minutos.\r\nDados\
+      \ coletados pelo satélite GOES-16.\n**Frequência de atualização**: Nunca\n**Cobertura\
+      \ temporal**: Desde 2020 Até data corrente\n**Órgão gestor dos dados**: COR\n\
+      **Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
       - name: latitude
         description: Latitude do centro da área.
       - name: longitude
         description: Longitude do centro da área.
-      - name: primary_key
-        description: Chave primária criada a partir da concatenação da coluna data,
-          horário, latitude e longitude. Serve para evitar dados duplicados.
       - name: tpw
         description: Quantidade total de água precipitável, medidas em milímetros.
       - name: horario
-        description: Horário no qual foi realizada a medição
-      - name: data_particao
-        description: Data na qual foi realizada a medição
+        description: Horário de medição.
   - name: infravermelho_longo_banda_13_goes_16
-    description: "**Descrição**: Medições da temperatura de brilho das nuvens e\
-      \ umidade utilizando o comprimento de onda de 10,3 µm do\
-      \ infravermelho (banda 13) na região da cidade do Rio de Janeiro\
-      \ A unidade está em K. As estimativas são feitas a cada 10 minutos.\
-      \ Nome original: Clean Longwave IR Window Band.\n**Frequência de atualização**:\
-      \ Diário\n**Cobertura temporal**: Desde 2020 Até data corrente\n**Órgão gestor\
-      \ dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**:\
-      \ patriciabcatandi@gmail.com\n"
+    description: "**Descrição**: Medições da temperatura de brilho das nuvens e umidade\
+      \ utilizando o comprimento de onda de 10,3 µm do infravermelho (banda 13)  na\
+      \ região da cidade do Rio de Janeiro. A unidade está em K.\r\nAs estimativas\
+      \ são feitas a cada 10 minutos.\r\nNome original: \"Clean\" Longwave IR Window\
+      \ Band.\n**Frequência de atualização**: Diário\n**Cobertura temporal**: Desde\
+      \ 2020 Até data corrente\n**Órgão gestor dos dados**: COR\n**Publicado por**:\
+      \ Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
+      - name: horario
+        description: Horário de medição.
       - name: latitude
         description: Latitude do centro da área.
       - name: longitude
         description: Longitude do centro da área.
-      - name: primary_key
-        description: Chave primária criada a partir da concatenação da coluna data,
-          horário, latitude e longitude. Serve para evitar dados duplicados.
       - name: cmi
-        description: Temperatura de brilho da CMI (Cloud Moisture Imagery), medidas em K.
-      - name: horario
-        description: Horário no qual foi realizada a medição
-      - name: data_particao
-        description: Data na qual foi realizada a medição
+        description: Temperatura de brilho da CMI (Cloud Moisture Imagery), medidas
+          em K.
