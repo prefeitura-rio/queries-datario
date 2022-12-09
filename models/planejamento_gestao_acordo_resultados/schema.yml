@@ -1,9 +1,106 @@
 version: 2
 models :
   - name: meta
-    description: "**Descrição**: Identificadores, criados pela PCRJ, para metas. Uma\
-      \ meta do acordo de resultados pode ter vários identificadores, um para cada\
-      \ indicador e órgão associado a ela.\n**Frequência de atualização**: Anual\n\
-      **Cobertura temporal**: Não Informado\n**Órgão gestor dos dados**: EGP Rio\n\
-      **Publicado por**: Não Informado\n**Publicado por (email)**: Nao.informado@gmail.com\n"
-    columns: []
+    description: "**Descrição**: Metas, por indicador e por órgão, dos Acordos de\
+      \ Resultados. Se uma meta tiver dois indicadores ela aparecerá duas vezes. Uma\
+      \ mesma meta que inclua mais de um órgão também aparecerá mais de uma vez.\n\
+      **Frequência de atualização**: Mensal\n**Cobertura temporal**: Desde 2013 até\
+      \ a data corrente.\n**Órgão gestor dos dados**: Secretaria Municipal de Fazenda\
+      \ e Planejamento (SMFP)\n**Publicado por**: Bruno Almeida\n**Publicado por (email)**:\
+      \ brunodepauloalmeida@gmail.com\n"
+    columns:
+      - name: id_meta
+        description: Código identificador da meta por indicador e por órgão.
+      - name: descricao
+        description: Descrição da meta.
+      - name: observacao
+        description: Observação sobre a meta. Registra detalhes como divergência entre
+          os indicadores do PE e AR, metas que são desdobradas por ter mais de 1 indicador,
+          detalhes que ajudam na medição do indicador e que estarão no Anexo 2, etc..
+      - name: ordem
+        description: Ordem da meta no Acordo de Resultados no órgão. Metas Estratégicas
+          são as primeiras, depois vêm as Complementares e depois a Meta de Performance
+      - name: referencia
+        description: Valor usado como referência para comparação com o valor desejado
+          para o indicador usado para medir a meta.
+      - name: data_referencia
+        description: Data que diz respeito ao valor de referência.
+      - name: ano
+        description: Ano do acordo de resultados relacionado à meta.
+      - name: fonte
+        description: Órgão interno ou órgão externo que nos dá o valor indicador.
+      - name: formula
+        description: Fórmula de cálculo do indicador.
+      - name: tipo_acompanhamento
+        description: Indica se a meta é acumulada ou se é uma média dos valores.
+      - name: tipo_gestao
+        description: Indica se a meta é estratégica ou complementar.
+      - name: id_orgao
+        description: Código identificador do órgão associado a meta.
+      - name: orgao
+        description: Nome do órgão associado a meta.
+      - name: sigla_orgao
+        description: Sigla do órgão associado a meta.
+      - name: unidade_medida
+        description: Unidade de medida do indicador.
+      - name: numero_meta_mae
+        description: Identificador da meta mãe. Meta de ano anterior usada como referência,
+          para aproveitamento de informações, para a meta atual.
+      - name: area_resultado
+        description: Área de resultado do plano estratégico referente a meta.
+      - name: tipo
+        description: Indica se a meta é estratégica, complementar ou de performance.
+          Metas Estratégicas são as mais relevantes e é preciso atingir um número
+          mínimo de metas estratégicas para que sejam consideradas as metas complementares
+          e a meta performance. Metas complementares são metas de menor peso na nota
+          final do órgão e a meta performance registra o desempenho do órgão avaliado
+          por diferentes órgãos.
+      - name: indicador_recurso
+        description: Identifica se o órgão apresentou recurso para a meta. Um órgão
+          pode fazer o recurso para retirar a meta do seu acordo de resultado ou ter
+          seu resultado aceito.
+      - name: indicador_auditoria
+        description: Identifica se a meta foi selecionada para auditoria pela CGM.
+      - name: janeiro
+        description: Desdobramento da meta no mês de janeiro. Objetiva registrar o
+          valor planejado, do indicador, no mês para fins de acompanhamento mensal
+          da mesma.
+      - name: fevereiro
+        description: Desdobramento da meta no mês de fevereiro. Objetiva registrar
+          o valor planejado, do indicador, no mês para fins de acompanhamento mensal
+          da mesma.
+      - name: marco
+        description: Desdobramento da meta no mês de março. Objetiva registrar o valor
+          planejado, do indicador, no mês para fins de acompanhamento mensal da mesma.
+      - name: abril
+        description: Desdobramento da meta no mês de abril. Objetiva registrar o valor
+          planejado, do indicador, no mês para fins de acompanhamento mensal da mesma.
+      - name: maio
+        description: Desdobramento da meta no mês de maio. Objetiva registrar o valor
+          planejado, do indicador, no mês para fins de acompanhamento mensal da mesma.
+      - name: junho
+        description: Desdobramento da meta no mês de junho. Objetiva registrar o valor
+          planejado, do indicador, no mês para fins de acompanhamento mensal da mesma.
+      - name: julho
+        description: Desdobramento da meta no mês de julho. Objetiva registrar o valor
+          planejado, do indicador, no mês para fins de acompanhamento mensal da mesma.
+      - name: agosto
+        description: Desdobramento da meta no mês de agosto. Objetiva registrar o
+          valor planejado, do indicador, no mês para fins de acompanhamento mensal
+          da mesma.
+      - name: setembro
+        description: Desdobramento da meta no mês de setembro. Objetiva registrar
+          o valor planejado, do indicador, no mês para fins de acompanhamento mensal
+          da mesma.
+      - name: outubro
+        description: Desdobramento da meta no mês de outubro. Objetiva registrar o
+          valor planejado, do indicador, no mês para fins de acompanhamento mensal
+          da mesma.
+      - name: novembro
+        description: Desdobramento da meta no mês de novembro. Objetiva registrar
+          o valor planejado, do indicador, no mês para fins de acompanhamento mensal
+          da mesma.
+      - name: dezembro
+        description: Desdobramento da meta no mês de dezembro. Objetiva registrar
+          o valor planejado, do indicador, no mês para fins de acompanhamento mensal
+          da mesma.
