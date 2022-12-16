@@ -29,13 +29,21 @@ SELECT
     perc_conformidade_registros,
     versao_modelo
 FROM rj-smtr.projeto_subsidio_sppo.viagem_completa 
-WHERE data < DATE_SUB(DATE("{{ var("run_date") }}"), INTERVAL 1 DAY)
+WHERE data <= DATE_SUB(DATE("{{ var("date_range_end") }}"), INTERVAL 1 DAY)
 
 {% if is_incremental() %}
 
-{% set max_partition = run_query("SELECT gr FROM (SELECT IF(MAX(data) > DATE_SUB(DATE('" ~ var("run_date") ~ "'), INTERVAL 1 DAY), DATE_SUB(DATE('" ~ var("run_date") ~ "'), INTERVAL 1 DAY), MAX(data)) AS gr FROM " ~ this ~ ")").columns[0].values()[0] %}
+{% if var("date_range_start") == "1900-01-01" %}
+
+{% set date_range_start = run_query("SELECT gr FROM (SELECT IF(MAX(data) > DATE_SUB(DATE('" ~ var("date_range_end") ~ "'), INTERVAL 1 DAY), DATE_SUB(DATE('" ~ var("date_range_end") ~ "'), INTERVAL 1 DAY), MAX(data)) AS gr FROM " ~ this ~ ")").columns[0].values()[0] %}
+
+{% else %}
+
+{% set date_range_start = var("date_range_start") %}
+
+{% endif %}
 
 AND
-    data > DATE("{{ max_partition }}")
+    data > DATE("{{ date_range_start }}")
 
 {% endif %}
