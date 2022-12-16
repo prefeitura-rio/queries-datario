@@ -29,5 +29,5 @@ WHERE data <= DATE_SUB(DATE("2022-12-16"), INTERVAL 1 DAY)
 
 
 AND
-    data > DATE("2022-11-30")
+    data > DATE("1900-01-01")
 
