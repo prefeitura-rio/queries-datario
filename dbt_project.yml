@@ -25,7 +25,8 @@ clean-targets: # directories to be removed by `dbt clean`
 
 vars:
   ### Date default variables ###
-  run_date: "2022-01-01"
+  date_range_start: "1900-01-01"
+  date_range_end: "2022-12-16"
 
 # Grant acess
   # bq data control: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language
