@@ -1,5 +1,32 @@
 version: 2
 models :
+  - name: ocorrencias_orgaos_responsaveis
+    description: "**Descrição**: Orgãos responsáveis por atender cada uma das ocorrências.\
+      \ Cada ocorrência necessita o acionamento de diferentes órgãos para atender\
+      \ atividades distintas. Aqui são descritas as atividades que estão sendo executadas\
+      \ ou que foram executadas para a solução de uma ocorrência. Uma ocorrência na\
+      \ cidade do Rio de Janeiro é um  acontecimento que exije um acompanhamento e,\
+      \ na maioria das vezes, uma ação da PCRJ. Por exemplo, Buraco na pista, bolsão\
+      \ d'água, enguiço mecânico. Uma ocorrência aberta é uma ocorrência que ainda\
+      \ não foi solucionada. Acesse também através da API do Escritório de Dados:\
+      \ https://api.dados.rio/v1/\n**Frequência de atualização**: Diário\n**Cobertura\
+      \ temporal**: Não informado.\n**Órgão gestor dos dados**: COR\n**Publicado por**:\
+      \ Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+    columns:
+      - name: data_inicio
+        description: Data e hora do início da atividade.
+      - name: data_fim
+        description: Data e hora do fim da atividade.
+      - name: sigla
+        description: Sigla do órgão que está realizando ou realizou a atividade.
+      - name: descricao
+        description: Descrição da atividade.
+      - name: id_evento
+        description: Identificador do evento ao qual está ligada a atividade.
+      - name: status
+        description: Status da atividade (ABERTO, FECHADO).
+      - name: data_chegada
+        description: Data e hora da chegada da atividade.
   - name: procedimento_operacional_padrao_orgaos_responsaveis
     description: "**Descrição**: Um Procedimento operacional padrão (POP) é um procedimento\
       \ que será usado para solucionar uma ocorrência. Cada ocorrência necessita o\
@@ -20,20 +47,6 @@ models :
         description: Orgão responsável pela atividade.
       - name: acao
         description: Descrição da atividade.
-  - name: procedimento_operacional_padrao
-    description: "**Descrição**: Procedimentos operacionais padrões (POP) existentes\
-      \ na PCRJ.  Um POP é um procedimento que será usado para solucionar um evento.\
-      \ Um POP é composto de várias atividades. Um evento é uma ocorrência na cidade\
-      \ do Rio de Janeiro que exija um acompanhamento e na maioria das vezes uma ação\
-      \ da PCRJ, como por exemplo um buraco na rua. Acesse também através da API do\
-      \ Escritório de Dados: https://api.dados.rio/v1/\n**Frequência de atualização**:\
-      \ Mensal\n**Cobertura temporal**: Não informado.\n**Órgão gestor dos dados**:\
-      \ COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
-    columns:
-      - name: id_pop
-        description: Identificador do POP procedimento operacional padrão).
-      - name: pop_titulo
-        description: Nome do procedimento operacional padrão.
   - name: ocorrencias
     description: "**Descrição**: Ocorrências disparadas pelo COR desde 2015. Uma ocorrência\
       \ na cidade do Rio de Janeiro é um  acontecimento que exije um acompanhamento\
@@ -70,30 +83,17 @@ models :
         description: Descrição do evento.
       - name: tipo
         description: Tipo do evento (PRIMARIO, SECUNDARIO)
-  - name: ocorrencias_orgaos_responsaveis
-    description: "**Descrição**: Orgãos responsáveis por atender cada uma das ocorrências.\
-      \ Cada ocorrência necessita o acionamento de diferentes órgãos para atender\
-      \ atividades distintas. Aqui são descritas as atividades que estão sendo executadas\
-      \ ou que foram executadas para a solução de uma ocorrência. Uma ocorrência na\
-      \ cidade do Rio de Janeiro é um  acontecimento que exije um acompanhamento e,\
-      \ na maioria das vezes, uma ação da PCRJ. Por exemplo, Buraco na pista, bolsão\
-      \ d'água, enguiço mecânico. Uma ocorrência aberta é uma ocorrência que ainda\
-      \ não foi solucionada. Acesse também através da API do Escritório de Dados:\
-      \ https://api.dados.rio/v1/\n**Frequência de atualização**: Diário\n**Cobertura\
-      \ temporal**: Não informado.\n**Órgão gestor dos dados**: COR\n**Publicado por**:\
-      \ Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+  - name: procedimento_operacional_padrao
+    description: "**Descrição**: Procedimentos operacionais padrões (POP) existentes\
+      \ na PCRJ.  Um POP é um procedimento que será usado para solucionar um evento.\
+      \ Um POP é composto de várias atividades. Um evento é uma ocorrência na cidade\
+      \ do Rio de Janeiro que exija um acompanhamento e na maioria das vezes uma ação\
+      \ da PCRJ, como por exemplo um buraco na rua. Acesse também através da API do\
+      \ Escritório de Dados: https://api.dados.rio/v1/\n**Frequência de atualização**:\
+      \ Mensal\n**Cobertura temporal**: Não informado.\n**Órgão gestor dos dados**:\
+      \ COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
-      - name: data_inicio
-        description: Data e hora do início da atividade.
-      - name: data_fim
-        description: Data e hora do fim da atividade.
-      - name: sigla
-        description: Sigla do órgão que está realizando ou realizou a atividade.
-      - name: descricao
-        description: Descrição da atividade.
-      - name: id_evento
-        description: Identificador do evento ao qual está ligada a atividade.
-      - name: status
-        description: Status da atividade (ABERTO, FECHADO).
-      - name: data_chegada
-        description: Data e hora da chegada da atividade.
+      - name: id_pop
+        description: Identificador do POP procedimento operacional padrão).
+      - name: pop_titulo
+        description: Nome do procedimento operacional padrão.
