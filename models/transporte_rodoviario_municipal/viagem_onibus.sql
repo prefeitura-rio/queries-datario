@@ -33,7 +33,7 @@ WHERE data <= DATE_SUB(DATE("{{ var("date_range_end") }}"), INTERVAL 1 DAY)
 
 {% if is_incremental() %}
 
-{% if var("date_range_start") == "1900-01-01" %}
+{% if var("date_range_start") == "None" %}
 
 {% set date_range_start = run_query("SELECT gr FROM (SELECT IF(MAX(data) > DATE_SUB(DATE('" ~ var("date_range_end") ~ "'), INTERVAL 1 DAY), DATE_SUB(DATE('" ~ var("date_range_end") ~ "'), INTERVAL 1 DAY), MAX(data)) AS gr FROM " ~ this ~ ")").columns[0].values()[0] %}
 
