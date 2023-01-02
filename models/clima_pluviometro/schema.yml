@@ -32,7 +32,6 @@ models:
       - name: data_atualizacao
         description: "Última data em que os dados sobre a data de operação foram atualizados."
 
-
   - name: taxa_precipitacao_alertario
     description: "Taxa medida de precipitação das estações pluviométricas da cidade do Rio de Janeiro. As estimativas são feitas de 15 em 15 minutos, cada registro contendo dados desta medida."
     columns:
@@ -61,7 +60,6 @@ models:
         description: "Horário no qual foi realizada a medição."
       - name: data_particao
         description: "Data em que foi realizada a medição"
-
 
   - name: estacoes_websirene
     description: "Dados sobre as estações pluviométricas do Sistema Alerta Sonoro da Prefeitura do Rio de Janeiro  (Websirene)."
