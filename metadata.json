@@ -2287,6 +2287,72 @@
         }
     },
     "clima_pluviometro": {
+        "taxa_precipitacao_websirene": {
+            "title": "Meio Ambiente: Taxa de Precipitação (Websirene/Defesa Civil)",
+            "short_description": "Taxa medida de precipitação das estações pluviométricas da Defesa Civil da cidade do Rio de Janeiro.",
+            "long_description": "Taxa medida de precipitação das estações pluviométricas da Defesa Civil da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos, cada registro contendo dados desta medida.\r\nAs medições dsses pluviômetros são utilizadas para ligar as sirenes da cidade.",
+            "update_frequency": "Diário",
+            "temporal_coverage": "Desde março de 2012 até data corrente",
+            "data_owner": "COR",
+            "publisher_name": "Patrícia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "meio ambiente",
+                "clima",
+                "pluviometria",
+                "precipitação",
+                "COR",
+                "WEB sirene",
+                "chuva",
+                "pluviometro",
+                "defesa civil"
+            ],
+            "categories": [
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
+            "columns": [
+                {
+                    "name": "data_particao",
+                    "description": "Data em que foi realizada a medição"
+                },
+                {
+                    "name": "primary_key",
+                    "description": "Chave primária criada a partir da coluna id_estacao e da data_medicao. Serve para evitar dados duplicados."
+                },
+                {
+                    "name": "horario",
+                    "description": "Horário no qual foi realizada a medição"
+                },
+                {
+                    "name": "acumulado_chuva_15_min",
+                    "description": "Acumulado de chuva em 15 minutos"
+                },
+                {
+                    "name": "acumulado_chuva_1_h",
+                    "description": "Acumulado de chuva em 1 hora."
+                },
+                {
+                    "name": "acumulado_chuva_4_h",
+                    "description": "Acumulado de chuva em 4 horas."
+                },
+                {
+                    "name": "acumulado_chuva_24_h",
+                    "description": "Acumulado de chuva em 24 horas."
+                },
+                {
+                    "name": "acumulado_chuva_96_h",
+                    "description": "Acumulado de chuva em 96 horas."
+                },
+                {
+                    "name": "id_estacao",
+                    "description": "ID da estação meteorológica em que ocorreu a medição"
+                },
+                {
+                    "name": "acumulado_chuva_mes",
+                    "description": "Acumulado de chuva no mês."
+                }
+            ]
+        },
         "taxa_precipitacao_alertario": {
             "title": "Meio Ambiente: Taxa de Precipitação (Alerta Rio)",
             "short_description": "Taxa medida de precipitação das estações pluviométricas da cidade do Rio de Janeiro.",
@@ -2416,6 +2482,49 @@
                 {
                     "name": "latitude",
                     "description": "Latitude onde a estação se encontra."
+                }
+            ]
+        },
+        "estacoes_websirene": {
+            "title": "Meio Ambiente: Estações pluviométricas (WEB Sirene)",
+            "short_description": "Dados sobre as estações pluviométricas da Defesa Civil (WEB Sirene) na cidade do Rio de Janeiro.",
+            "long_description": "Dados sobre as estações pluviométricas da Defesa Civil (WEB Sirene) na cidade do Rio de Janeiro.",
+            "update_frequency": "Anual",
+            "temporal_coverage": "N/A",
+            "data_owner": "COR",
+            "publisher_name": "Patricia Catandi",
+            "publisher_email": "patriciabcatandi@gmail.com",
+            "tags": [
+                "meio ambiente",
+                "clima",
+                "pluviometria",
+                "precipitação",
+                "COR",
+                "estações pluviométricas",
+                "WEB sirene",
+                "estação pluviométrica",
+                "chuva",
+                "pluviometro"
+            ],
+            "categories": [
+                "0128241e3e024872a7eb46848eb7a7be"
+            ],
+            "columns": [
+                {
+                    "name": "longitude",
+                    "description": "Longitude onde a estação se encontra."
+                },
+                {
+                    "name": "latitude",
+                    "description": "Latitude onde a estação se encontra."
+                },
+                {
+                    "name": "estacao",
+                    "description": "Nome da estação."
+                },
+                {
+                    "name": "id_estacao",
+                    "description": "ID da estação meteorológica em que ocorreu a medição"
                 }
             ]
         }
