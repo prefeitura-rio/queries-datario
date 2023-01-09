@@ -25,7 +25,7 @@ clean-targets: # directories to be removed by `dbt clean`
 
 vars:
   ### Date default variables ###
-  date_range_start: "1900-01-01"
+  date_range_start: "None"
   date_range_end: "2022-12-16"
 
 # Grant acess
