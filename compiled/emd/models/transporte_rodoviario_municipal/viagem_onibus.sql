@@ -18,7 +18,7 @@ SELECT
     perc_conformidade_registros,
     versao_modelo
 FROM rj-smtr.projeto_subsidio_sppo.viagem_completa 
-WHERE data <= DATE_SUB(DATE("2022-12-16"), INTERVAL 1 DAY)
+WHERE data <= DATE("2022-12-16")
 
 
 
@@ -29,5 +29,5 @@ WHERE data <= DATE_SUB(DATE("2022-12-16"), INTERVAL 1 DAY)
 
 
 AND
-    data > DATE("1900-01-01")
+    data > DATE("2022-11-30")
 
