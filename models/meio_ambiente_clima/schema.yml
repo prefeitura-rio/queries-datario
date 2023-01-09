@@ -125,5 +125,5 @@ models :
         description: Sigla do estado.
       - name: id_estacao
         description: ID da estação definido pelo INMET.
-      - name: estacao
+      - name: nome_estacao
         description: Nome da estação.

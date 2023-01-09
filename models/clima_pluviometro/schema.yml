@@ -77,7 +77,7 @@ models :
         description: Data em que a estação começou a operar.
       - name: data_atualizacao
         description: Última data em que os dados sobre a data de operação foram atualizados.
-      - name: estacao
+      - name: nome_estacao
         description: Nome da estação.
       - name: id_estacao
         description: ID da estação meteorológica em que ocorreu a medição
@@ -95,7 +95,7 @@ models :
         description: Longitude onde a estação se encontra.
       - name: latitude
         description: Latitude onde a estação se encontra.
-      - name: estacao
+      - name: nome_estacao
         description: Nome da estação.
       - name: id_estacao
         description: ID da estação meteorológica em que ocorreu a medição

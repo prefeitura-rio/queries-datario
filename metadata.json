@@ -1745,7 +1745,7 @@
                     "description": "ID da estação definido pelo INMET."
                 },
                 {
-                    "name": "estacao",
+                    "name": "nome_estacao",
                     "description": "Nome da estação."
                 }
             ]
@@ -2468,7 +2468,7 @@
                     "description": "Última data em que os dados sobre a data de operação foram atualizados."
                 },
                 {
-                    "name": "estacao",
+                    "name": "nome_estacao",
                     "description": "Nome da estação."
                 },
                 {
@@ -2519,7 +2519,7 @@
                     "description": "Latitude onde a estação se encontra."
                 },
                 {
-                    "name": "estacao",
+                    "name": "nome_estacao",
                     "description": "Nome da estação."
                 },
                 {
