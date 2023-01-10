@@ -23,6 +23,11 @@ clean-targets: # directories to be removed by `dbt clean`
   - "target"
   - "dbt_modules"
 
+vars:
+  ### Date default variables ###
+  date_range_start: "None"
+  date_range_end: "2022-12-16"
+
 # Grant acess
   # bq data control: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language
   # dbt grant statements use https://discourse.getdbt.com/t/the-exact-grant-statements-we-use-in-a-dbt-project/430
@@ -54,6 +59,9 @@ models:
     meio_ambiente_clima:
       +materialized: table
       +schema: meio_ambiente_clima
+    clima_pluviometro:
+      +materialized: table
+      +schema: clima_pluviometro
     planejamento_gestao_acordo_resultados:
       +materialized: table
       +schema: planejamento_gestao_acordo_resultados
