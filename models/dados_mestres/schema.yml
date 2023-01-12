@@ -90,3 +90,22 @@ models :
           do trecho de logradouro.
       - name: geometry
         description: Geometria do trecho de logradouro no banco do ArcGIS.
+  - name: subprefeitura
+    description: "**Descrição**: Tabela com as regiões da sub-prefeitura do Rio de\
+      \ Janeiro.\n**Frequência de atualização**: Mensal\n**Cobertura\
+      \ temporal**: Até data corrente\n**Órgão gestor dos dados**: Instituto Pereira\
+      \ Passos (IPP) / Secretaria Municipal de Planejamento Urbano (SMPU)\n**Publicado\
+      \ por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+    columns:
+      - name: id_subprefeitura
+        description: Id da subprefeitura.
+      - name: subprefeitura
+        description: Nome da subprefeitura.
+      - name: area
+        description: Área em m² da região da subprefeitura.
+      - name: perimetro
+        description: Perímetro em metros da região da subprefeitura.
+      - name: geometry
+        description: Geometria do região da região no banco do ArcGIS.
+      - name: geometry_wkt
+        description: Geometria do região da região no banco do ArcGIS.
