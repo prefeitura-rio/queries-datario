@@ -62,6 +62,9 @@ models:
     clima_pluviometro:
       +materialized: table
       +schema: clima_pluviometro
+    clima_estacao_meteorologica:
+      +materialized: table
+      +schema: clima_estacao_meteorologica
     planejamento_gestao_acordo_resultados:
       +materialized: table
       +schema: planejamento_gestao_acordo_resultados
