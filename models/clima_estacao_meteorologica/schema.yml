@@ -1,5 +1,11 @@
 version: 2
 models :
+  - name: estacoes_inmet
+    description: "**Descrição**: Dados sobre as estações meteorológicas do inmet (\
+      \ Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\n**Frequência\
+      \ de atualização**: Nunca\n**Cobertura temporal**: N/A\n**Órgão gestor dos dados**:\
+      \ INMET\n**Publicado por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+    columns: []
   - name: meteorologia_inmet
     description: "**Descrição**: Dados meteorológicos obtidos nas estações pluviométricas\
       \ do INMET ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\r\
@@ -9,78 +15,4 @@ models :
       \ umidade e radiação global.\n**Frequência de atualização**: Diário\n**Cobertura\
       \ temporal**: Desde 2010 até data corrente\n**Órgão gestor dos dados**: INMET\n\
       **Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
-    columns:
-      - name: id_estacao
-        description: ID da estação dada pelo INMET.
-      - name: data_particao
-        description: Data em que foi realizada a medição.
-      - name: horario
-        description: Horário em que foi realizada a medição.
-      - name: acumulado_chuva_1_h
-        description: Acumulado de chuva em 1 hora na estação.
-      - name: direcao_vento
-        description: Direção horária do vento na estação.
-      - name: velocidade_vento
-        description: Velocidade do vento na estação.
-      - name: temperatura
-        description: Temperatura na medição instantânea na estação.
-      - name: pressao
-        description: Pressão atmosférica ao nível da estação.
-      - name: pressao_minima
-        description: Pressão atmosférica mínima na hora anterior.
-      - name: pressao_maxima
-        description: Pressão atmosférica máxima na hora anterior.
-      - name: umidade
-        description: Umidade relativa do ar instantânea na estação.
-      - name: umidade_minima
-        description: Umidade relativa mínima na hora anterior.
-      - name: umidade_maxima
-        description: Umidade relativa máxima na hora anterior.
-      - name: rajada_vento_max
-        description: Rajada de vento máxima na estação.
-      - name: temperatura_minima
-        description: Temperatura mínima na hora anterior na estação.
-      - name: temperatura_maxima
-        description: Temperatura máxima na hora anterior na estação.
-      - name: radiacao_global
-        description: Radiação solar global captada na estação.
-      - name: temperatura_orvalho
-        description: Temperatura de orvalho instantânea na estação.
-      - name: temperatura_orvalho_minimo
-        description: Temperatura mínima de orvalho na hora anterior.
-      - name: temperatura_orvalho_maximo
-        description: Temperatura máxima de orvalho na hora anterior.
-      - name: primary_key
-        description: Chave primária criada a partir da concatenação da coluna id_estacao,
-          data e horário Serve para evitar dados duplicados.
-
-  - name: estacoes_inmet
-    description: "**Descrição**: Dados sobre as estações meteorológicas do inmet (\
-      \ Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\n**Frequência\
-      \ de atualização**: Nunca\n**Cobertura temporal**: N/A\n**Órgão gestor dos dados**:\
-      \ INMET\n**Publicado por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
-    columns:
-      - name: id_municipio
-        description: Código do município do IBGE de 7 dígitos.
-      - name: latitude
-        description: Latitude onde a estação se encontra.
-      - name: data_inicio_operacao
-        description: Data em que a estação começou a operar.
-      - name: data_fim_operacao
-        description: Data em que a estação parou de operar.
-      - name: situacao
-        description: Indica se a estação está operante ou com falha.
-      - name: tipo_estacao
-        description: Indica se a estação é automática ou manual. Pode conter nulos.
-      - name: entidade_responsavel
-        description: Entidade responsável pela estação.
-      - name: data_atualizacao
-        description: Última data em que os dados sobre a data de operação foram atualizados.
-      - name: longitude
-        description: Longitude onde a estação se encontra.
-      - name: sigla_uf
-        description: Sigla do estado.
-      - name: id_estacao
-        description: ID da estação definido pelo INMET.
-      - name: nome_estacao
-        description: Nome da estação.
+    columns: []
