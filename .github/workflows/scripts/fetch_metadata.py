@@ -118,6 +118,7 @@ def fetch_metadata(initial_dict: dict) -> dict:
                 print(
                     f"There is more than one table with the name {table_id} in the dataset {dataset_id}."
                 )
+
             else:
                 print(
                     f"There is no table with the name {table_id} in the dataset {dataset_id}."
@@ -134,8 +135,48 @@ def save_metadata(metadata_dict: dict, path: Union[Path, str]) -> None:
         json.dump(metadata_dict, f, indent=4, ensure_ascii=False)
 
 
+d = {
+    "PlatformID": "B00EU7XL9Q",
+    "Platform": "Amazon",
+    "Type": "Collection",
+    "Products": {
+        "UK": {
+            "URL": "http://www.amazon.co.uk/dp/B00EU7XL9Q",
+            "Rating": None,
+            "_IsAudited": True,
+            "Offers": {
+                "HDBUY": {
+                    "Currency": "GBP",
+                    "FutureReleaseStartDate": None,
+                    "Cost": "14.99",
+                    "IsFutureRelease": False,
+                },
+                "SDBUY": {
+                    "Currency": "GBP",
+                    "FutureReleaseStartDate": None,
+                    "Cost": "14.99",
+                    "IsFutureRelease": False,
+                },
+            },
+        }
+    },
+}
+
+
+def return_non_empty(my_dict):
+    temp_dict = {}
+    for k, v in my_dict.items():
+        if v:
+            if isinstance(v, dict):
+                if return_dict := return_non_empty(v):
+                    temp_dict[k] = return_dict
+            else:
+                temp_dict[k] = v
+    return temp_dict
+
+
 if __name__ == "__main__":
     sql_files = get_all_sql_files("models")
     initial_dict = build_initial_dict(sql_files)
     metadata_dict = fetch_metadata(initial_dict)
-    save_metadata(metadata_dict, "metadata.json")
+    save_metadata(return_non_empty(metadata_dict), "metadata.json")
