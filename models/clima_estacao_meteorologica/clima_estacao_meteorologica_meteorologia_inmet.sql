@@ -1,5 +1,6 @@
 {{
     config(
+        alias='meteorologia_inmet',
         materialized='incremental',
         unique_key="primary_key",
         partition_by={
