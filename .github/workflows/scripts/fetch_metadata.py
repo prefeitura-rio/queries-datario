@@ -134,35 +134,6 @@ def save_metadata(metadata_dict: dict, path: Union[Path, str]) -> None:
     with open(path, "w", encoding="utf-8") as f:
         json.dump(metadata_dict, f, indent=4, ensure_ascii=False)
 
-
-d = {
-    "PlatformID": "B00EU7XL9Q",
-    "Platform": "Amazon",
-    "Type": "Collection",
-    "Products": {
-        "UK": {
-            "URL": "http://www.amazon.co.uk/dp/B00EU7XL9Q",
-            "Rating": None,
-            "_IsAudited": True,
-            "Offers": {
-                "HDBUY": {
-                    "Currency": "GBP",
-                    "FutureReleaseStartDate": None,
-                    "Cost": "14.99",
-                    "IsFutureRelease": False,
-                },
-                "SDBUY": {
-                    "Currency": "GBP",
-                    "FutureReleaseStartDate": None,
-                    "Cost": "14.99",
-                    "IsFutureRelease": False,
-                },
-            },
-        }
-    },
-}
-
-
 def return_non_empty(my_dict):
     temp_dict = {}
     for k, v in my_dict.items():
@@ -179,4 +150,5 @@ if __name__ == "__main__":
     sql_files = get_all_sql_files("models")
     initial_dict = build_initial_dict(sql_files)
     metadata_dict = fetch_metadata(initial_dict)
-    save_metadata(return_non_empty(metadata_dict), "metadata.json")
+    clean_metadata_dict = return_non_empty(metadata_dict)
+    save_metadata(clean_metadata_dict, "metadata.json")
