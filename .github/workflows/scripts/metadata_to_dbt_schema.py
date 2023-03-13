@@ -33,7 +33,8 @@ def dump_metadata_into_schema_yaml(
 
     ruamel = load_ruamel()
     ruamel.dump(
-        schema, open(Path(schema_yaml_path), "w", encoding="utf-8"),
+        schema,
+        open(Path(schema_yaml_path), "w", encoding="utf-8"),
     )
 
 
@@ -138,7 +139,7 @@ if __name__ == "__main__":
             table_metadata = {
                 "name": table_id,
                 "description": format_table_description(metadata[dataset_id][table_id]),
-                "columns": metadata[dataset_id][table_id]["columns"],
+                "columns": metadata[dataset_id][table_id].get("columns", {}),
             }
 
             dump_metadata_into_schema_yaml(dataset_id, table_id, table_metadata)

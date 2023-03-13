@@ -108,15 +108,19 @@ def fetch_metadata(initial_dict: dict) -> dict:
                 initial_dict[dataset_id][table_id]["columns"] = []
                 for column in data["columns"]:
                     initial_dict[dataset_id][table_id]["columns"].append(
-                        {"name": column["name"], "description": column["description"],}
+                        {
+                            "name": column["name"],
+                            "description": column["description"],
+                        }
                     )
             # If the table doesn't exist or there is more than one table, raise
             elif response_json["count"] > 1:
-                raise Exception(
+                print(
                     f"There is more than one table with the name {table_id} in the dataset {dataset_id}."
                 )
+
             else:
-                raise Exception(
+                print(
                     f"There is no table with the name {table_id} in the dataset {dataset_id}."
                 )
 
@@ -130,9 +134,21 @@ def save_metadata(metadata_dict: dict, path: Union[Path, str]) -> None:
     with open(path, "w", encoding="utf-8") as f:
         json.dump(metadata_dict, f, indent=4, ensure_ascii=False)
 
+def return_non_empty(my_dict):
+    temp_dict = {}
+    for k, v in my_dict.items():
+        if v:
+            if isinstance(v, dict):
+                if return_dict := return_non_empty(v):
+                    temp_dict[k] = return_dict
+            else:
+                temp_dict[k] = v
+    return temp_dict
+
 
 if __name__ == "__main__":
     sql_files = get_all_sql_files("models")
     initial_dict = build_initial_dict(sql_files)
     metadata_dict = fetch_metadata(initial_dict)
-    save_metadata(metadata_dict, "metadata.json")
+    clean_metadata_dict = return_non_empty(metadata_dict)
+    save_metadata(clean_metadata_dict, "metadata.json")
