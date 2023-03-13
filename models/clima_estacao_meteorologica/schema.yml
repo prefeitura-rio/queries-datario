@@ -1,5 +1,11 @@
 version: 2
 models :
+  - name: estacoes_inmet
+    description: "**Descrição**: Dados sobre as estações meteorológicas do inmet (\
+      \ Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\n**Frequência\
+      \ de atualização**: Nunca\n**Cobertura temporal**: N/A\n**Órgão gestor dos dados**:\
+      \ INMET\n**Publicado por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+    columns: {}
   - name: meteorologia_inmet
     description: "**Descrição**: Dados meteorológicos obtidos nas estações pluviométricas\
       \ do INMET ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\r\
@@ -9,10 +15,4 @@ models :
       \ umidade e radiação global.\n**Frequência de atualização**: Diário\n**Cobertura\
       \ temporal**: Desde 2010 até data corrente\n**Órgão gestor dos dados**: INMET\n\
       **Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
-    columns: {}
-  - name: estacoes_inmet
-    description: "**Descrição**: Dados sobre as estações meteorológicas do inmet (\
-      \ Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\n**Frequência\
-      \ de atualização**: Nunca\n**Cobertura temporal**: N/A\n**Órgão gestor dos dados**:\
-      \ INMET\n**Publicado por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns: {}
