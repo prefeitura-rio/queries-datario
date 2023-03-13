@@ -6,6 +6,9 @@ models :
   - name: aeis
     description: ''
     columns: {}
+  - name: aeis_bairro_maravilha
+    description: ''
+    columns: {}
   - name: subprefeitura
     description: "**Descrição**: Tabela com as regiões da sub-prefeitura do Rio de\
       \ Janeiro.\n**Frequência de atualização**: Mensal\n**Cobertura temporal**: Até\
@@ -227,9 +230,6 @@ models :
         description: Poligono
       - name: id_zona
         description: ID da zona
-  - name: aeis_bairro_maravilha
-    description: ''
-    columns: {}
   - name: zoneamento_subzonas_subsetores
     description: "**Descrição**: Camadas de zoneamento urbano vigente da Secretaria\
       \ Municipal de Planejamento Urbano (SMPU), Subzonas e Subsetores.\n**Frequência\

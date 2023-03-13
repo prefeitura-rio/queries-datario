@@ -25,8 +25,7 @@
             ],
             "categories": [
                 "0128241e3e024872a7eb46848eb7a7be"
-            ],
-            "columns": []
+            ]
         },
         "meteorologia_inmet": {
             "title": "Meio Ambiente: Meteorologia do Instituto Nacional de Meteorologia (INMET)",
@@ -51,8 +50,7 @@
             ],
             "categories": [
                 "0128241e3e024872a7eb46848eb7a7be"
-            ],
-            "columns": []
+            ]
         }
     },
     "transporte_rodoviario_municipal": {
@@ -2242,8 +2240,6 @@
         }
     },
     "dados_mestres": {
-        "lote": {},
-        "aeis": {},
         "subprefeitura": {
             "title": "Dados Mestres: Subprefeitura",
             "short_description": "Tabela com as regiões da sub-prefeitura do Rio de Janeiro.",
@@ -2661,7 +2657,6 @@
                 }
             ]
         },
-        "aeis_bairro_maravilha": {},
         "zoneamento_subzonas_subsetores": {
             "title": "Dados Mestres: Zoneamento Subzonas e Subsetores",
             "short_description": "Camadas de subzonas e subsetores urbanos vigentes da Secretaria Municipal de Planejamento Urbano (SMPU).",
