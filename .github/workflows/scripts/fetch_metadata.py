@@ -108,15 +108,18 @@ def fetch_metadata(initial_dict: dict) -> dict:
                 initial_dict[dataset_id][table_id]["columns"] = []
                 for column in data["columns"]:
                     initial_dict[dataset_id][table_id]["columns"].append(
-                        {"name": column["name"], "description": column["description"],}
+                        {
+                            "name": column["name"],
+                            "description": column["description"],
+                        }
                     )
             # If the table doesn't exist or there is more than one table, raise
             elif response_json["count"] > 1:
-                raise Exception(
+                print(
                     f"There is more than one table with the name {table_id} in the dataset {dataset_id}."
                 )
             else:
-                raise Exception(
+                print(
                     f"There is no table with the name {table_id} in the dataset {dataset_id}."
                 )
 
