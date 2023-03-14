@@ -1,7 +1,7 @@
 version: 2
 models :
   - name: meteorologia_inmet
-    description: "**Descrição**: Dados meteorológicos obtidos nas estações pluviométricas\
+    description: "**Descrição**: Dados meteorológicos obtidos nas estações meteorológicas\
       \ do INMET ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\r\
       \nAs medidas são feitas de hora em hora, cada registro contendo dados destas\
       \ medidas para cada estação. \r\nEntre os dados temos horário da medição, acumulado\
