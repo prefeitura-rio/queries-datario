@@ -1,6 +1,6 @@
 version: 2
 models :
-  - name: clima_estacao_meteorologica_meteorologia_inmet
+  - name: meteorologia_inmet
     description: "**Descrição**: Dados meteorológicos obtidos nas estações pluviométricas\
       \ do INMET ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\r\
       \nAs medidas são feitas de hora em hora, cada registro contendo dados destas\
@@ -54,7 +54,7 @@ models :
         description: Chave primária criada a partir da concatenação da coluna id_estacao,
           data e horário Serve para evitar dados duplicados.
 
-  - name: clima_estacao_meteorologica_estacoes_inmet
+  - name: estacoes_inmet
     description: "**Descrição**: Dados sobre as estações meteorológicas do inmet (\
       \ Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\n**Frequência\
       \ de atualização**: Nunca\n**Cobertura temporal**: N/A\n**Órgão gestor dos dados**:\
