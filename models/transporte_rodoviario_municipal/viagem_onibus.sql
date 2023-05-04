@@ -44,6 +44,6 @@ WHERE data <= DATE("{{ var("date_range_end") }}")
 {% endif %}
 
 AND
-    data > DATE("{{ date_range_start }}")
+    data >= DATE("{{ date_range_start }}")
 
 {% endif %}
