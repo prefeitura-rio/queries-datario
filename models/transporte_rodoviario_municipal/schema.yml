@@ -148,7 +148,7 @@ models :
   - name: viagem_planejada_onibus
     description: "**Descrição**: Tabela histórica com detalhes das viagens planejadas a cada dia.\
       \ O algorítimo para a viagem planejada está disponível em:\r\nhttps://github.com/prefeitura-rio/queries-rj-smtr/tree/master/models/projeto_subsidio_sppo\r\"
-      \n\r\nCom base nesses dados é realizado o pagamento do subsidio de transportes\
+      \n\r\nCom base nesses dados é realizado o pagamento do subsídio do Serviço Público de Transporte de Passageiros por Ônibus (SPPO) do Município do Rio de Janeiro\
       \ levando em conta o cumprimento da quilometragem total planejada dos serviços.\r\
       \nVeja mais detalhes em:\r\nhttps://transportes.prefeitura.rio/subsidio/\n**Frequência\
       \ de atualização**: Quinzenal\n**Cobertura temporal**: 01/06/2022 até o momento\n\
@@ -160,17 +160,17 @@ models :
       - name: tipo_dia
         description: 'Dia da semana considerado para o cálculo da distância planejada - categorias: Dia Útil, Sábado, Domingo'
       - name: servico
-        description: Serviço planejado
-      - name: vista
         description: Nome do serviço
+      - name: vista
+        description: 'Itinerário da linha (ex: Bananal ↔ Saens Peña)'
       - name: consorcio
         description: Consórcio ao qual o serviço pertence
       - name: sentido
         description: 'Sentido planejado - categorias: I (ida), V (volta), C (circular)'
       - name: distancia_planejada
-        description: Distância do shape (trajeto) planejado em KM
+        description: Distância do shape (trajeto) planejado em km
       - name: distancia_total_planejada
-        description: Distância total planejada do serviço em KM (junta ida+volta).
+        description: Distância total planejada do serviço em km (junta ida+volta).
       - name: inicio_periodo
         description: Início do período de operação planejado
       - name: fim_periodo
@@ -184,19 +184,18 @@ models :
       - name: shape_id_planejado
         description: Código identificador do shape planejado
       - name: data_shape
-        description: Data do shape capturado no GTFS
+        description: Data de referência do shape do GTFS
       - name: shape
-        description: Linestring dos pontos geolocalizados do trajeto
+        description: Polilinha que representa o shape (trajeto) em formato geográfico
       - name: sentido_shape
-        description: 'Sentido do shape (codificado no shape_id - categorias: I (ida),
-          V (volta), C (circular)'
+        description: 'Sentido do shape - categorias: I (ida), V (volta), C (circular)'
       - name: start_pt
         description: Ponto de partida
       - name: end_pt
         description: Ponto de chegada
   - name: subsidio_onibus
   description: "**Descrição**: Sumário de viagens, distância e valor total do subsídio por dia e serviço.\
-      \n\r\nCom base nesses dados é realizado o pagamento do subsidio de transportes\
+      \n\r\nCom base nesses dados é realizado o pagamento do subsídio do Serviço Público de Transporte de Passageiros por Ônibus (SPPO) do Município do Rio de Janeiro\
       \ levando em conta o cumprimento da quilometragem total planejada dos serviços.\r\
       \nVeja mais detalhes em:\r\nhttps://transportes.prefeitura.rio/subsidio/\n**Frequência\
       \ de atualização**: Quinzenal\n**Cobertura temporal**: 01/06/2022 até o momento\n\
@@ -210,20 +209,20 @@ models :
     - name: consorcio
       description: Consórcio ao qual o serviço pertence
     - name: servico
-      description: Nome curto da linha operada pelo veículo com variação de serviço (ex: 010, 011SN, ...)
+      description: Nome do serviço
     - name: vista
-      description: Itinerário da linha (ex: Bananal ↔ Saens Peña)
+      description: 'Itinerário da linha (ex: Bananal ↔ Saens Peña)'
     - name: viagens
-      description: Viagens planejadas no período
+      description: Quantidade de viagens realizadas
     - name: km_apurada
-      description: Distância total contabilizada para o subsídio em KM (viagens subsídio x distância do shape).
+      description: Distância apurada do serviço (km) Distância planejada da viagem multiplicada pela quantidade de viagens
     - name: km_planejada
-      description: Distância total planejada do serviço em KM (junta ida+volta).
+      description: Distância planejada para o serviço (km)
     - name: perc_km_planejada
       description: Indicador percentual de quilometragem apurada em relação à planejada da linha
     - name: valor_subsidio_pago
-      description: Valor de subsídio apurado (R$) Distância apurada do serviço multiplicada
-         pelos respectivos valores pela classificação do veículo
+      description: Valor de subsídio apurado (R$)
+        Distância apurada do serviço multiplicada pelos respectivos valores pela classificação do veículo
     - name: valor_penalidade
       description: Valor de penalidade apurado (R$) Linha com operação entre 40% e 60% da quilometragem estipulada
        - penalidade equivalente a uma infração média prevista no Código Disciplinar do Serviço Público

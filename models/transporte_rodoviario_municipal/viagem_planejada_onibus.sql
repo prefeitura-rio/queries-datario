@@ -7,7 +7,8 @@
                 "granularity": "day"
         },
         unique_key=['data', 'servico'],
-        incremental_strategy='insert_overwrite'
+        incremental_strategy='insert_overwrite',
+        require_partition_filter = true
     )
 }}
 
