@@ -160,7 +160,7 @@ models :
       - name: tipo_dia
         description: 'Dia da semana considerado para o cálculo da distância planejada - categorias: Dia Útil, Sábado, Domingo'
       - name: servico
-        description: Nome do serviço
+        description: Serviço planejado
       - name: vista
         description: 'Itinerário da linha (ex: Bananal ↔ Saens Peña)'
       - name: consorcio
@@ -209,17 +209,17 @@ models :
     - name: consorcio
       description: Consórcio ao qual o serviço pertence
     - name: servico
-      description: Nome do serviço
+      description: Nome curto da linha operada
     - name: vista
       description: 'Itinerário da linha (ex: Bananal ↔ Saens Peña)'
     - name: viagens
       description: Quantidade de viagens realizadas
     - name: km_apurada
-      description: Distância apurada do serviço (km) Distância planejada da viagem multiplicada pela quantidade de viagens
+      description: Distância apurada do serviço (km) - Distância planejada da viagem multiplicada pela quantidade de viagens
     - name: km_planejada
       description: Distância planejada para o serviço (km)
     - name: perc_km_planejada
-      description: Indicador percentual de quilometragem apurada em relação à planejada da linha
+      description: Percentual de operação diário (POD)
     - name: valor_subsidio_pago
       description: Valor de subsídio apurado (R$)
         Distância apurada do serviço multiplicada pelos respectivos valores pela classificação do veículo
