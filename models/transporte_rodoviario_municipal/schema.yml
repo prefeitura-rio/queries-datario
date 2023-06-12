@@ -143,11 +143,11 @@ models :
       - name: shape_id
         description: Código identificador do shape (trajeto) do serviço. O shape de
           serviços Circurlares (C) é quebrado no GTFS como Ida (I) e Volta (V) e tratado
-          no algorítimo do subsídio para identificação da viagem completa - veja o
+          no algoritmo do subsídio para identificação da viagem completa - veja o
           tratamento completo em https://github.com/prefeitura-rio/queries-rj-smtr/tree/master/models/projeto_subsidio_sppo
   - name: viagem_planejada_onibus
     description: "**Descrição**: Tabela histórica com detalhes das viagens planejadas a cada dia.\
-      \ O algorítimo para a viagem planejada está disponível em:\r\nhttps://github.com/prefeitura-rio/queries-rj-smtr/tree/master/models/projeto_subsidio_sppo\r\"
+      \ O algoritmo para a viagem planejada está disponível em:\r\nhttps://github.com/prefeitura-rio/queries-rj-smtr/tree/master/models/projeto_subsidio_sppo\r\"
       \n\r\nCom base nesses dados é realizado o pagamento do subsídio do Serviço Público de Transporte de Passageiros por Ônibus (SPPO) do Município do Rio de Janeiro\
       \ levando em conta o cumprimento da quilometragem total planejada dos serviços.\r\
       \nVeja mais detalhes em:\r\nhttps://transportes.prefeitura.rio/subsidio/\n**Frequência\
