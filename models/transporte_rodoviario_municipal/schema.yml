@@ -224,9 +224,6 @@ models :
       description: Valor de subsídio apurado (R$)
         Distância apurada do serviço multiplicada pelos respectivos valores pela classificação do veículo
     - name: valor_penalidade
-      description: Valor de penalidade apurado (R$) Linha com operação entre 40% e 60% da quilometragem estipulada
-       - penalidade equivalente a uma infração média prevista no Código Disciplinar do Serviço Público
-        de Transporte de Passageiros por Meio de Ônibus do Município do Rio de Janeiro - SPPO.
-        Linha com operação inferior a 40% da quilometragem estipulada - penalidade equivalente a uma infração grave
-        prevista no Código Disciplinar do Serviço Público de Transporte de Passageiros por Meio de Ônibus do
-        Município do Rio de Janeiro - SPPO.
+      description: "Valor de penalidade apurado (R$)\n
+        Linha com operação entre 40% e 60% da quilometragem estipulada - penalidade equivalente a uma infração média prevista no Código Disciplinar do SPPO;\n
+        Linha com operação inferior a 40% da quilometragem estipulada - penalidade equivalente a uma infração grave prevista no Código Disciplinar do SPPO."
