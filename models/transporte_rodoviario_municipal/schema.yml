@@ -194,7 +194,7 @@ models :
       - name: end_pt
         description: Ponto de chegada
   - name: subsidio_onibus
-  description: "**Descrição**: Sumário de viagens, distância e valor total do subsídio por dia e serviço.\
+    description: "**Descrição**: Sumário de viagens, distância e valor total do subsídio por dia e serviço.\
       \n\r\nCom base nesses dados é realizado o pagamento do subsídio do Serviço Público de Transporte de Passageiros por Ônibus (SPPO) do Município do Rio de Janeiro\
       \ levando em conta o cumprimento da quilometragem total planejada dos serviços.\r\
       \nVeja mais detalhes em:\r\nhttps://transportes.prefeitura.rio/subsidio/\n**Frequência\
