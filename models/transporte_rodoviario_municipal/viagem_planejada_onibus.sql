@@ -6,8 +6,8 @@
                 "data_type": "date",
                 "granularity": "day"
         },
-        unique_key=['data', 'servico'],
-        incremental_strategy='insert_overwrite',
+        unique_key="data||'-'||servico",        
+        incremental_strategy='merge',
         require_partition_filter = true
     )
 }}
