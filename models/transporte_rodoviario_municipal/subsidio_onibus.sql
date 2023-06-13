@@ -6,21 +6,20 @@
                 "data_type": "date",
                 "granularity": "day"
         },
-        unique_key=['data', 'servico'],
-        incremental_strategy='insert_overwrite',
-        require_partition_filter = true
+        incremental_strategy='insert_overwrite'
     )
 }}
 
 SELECT
-  *
+  * except(valor_penalidade),
+  IFNULL(valor_penalidade, 0) as valor_penalidade
 FROM
   `rj-smtr.dashboard_subsidio_sppo.sumario_servico_dia_historico`
 
 WHERE 
     data <= DATE("{{ var("date_range_end") }}")
 AND
-    (data < DATE('2023-02-17') OR data > DATE('2023-02-22')) -- Dias do carnaval (pagamento pela média).
+    data NOT BETWEEN DATE('2023-02-17') AND DATE('2023-02-22') -- Dias do carnaval (pagamento pela média).
 
 {% if is_incremental() %}
 
