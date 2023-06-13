@@ -5,10 +5,8 @@
                 "field": "data",
                 "data_type": "date",
                 "granularity": "day"
-        },
-        unique_key=['data', 'servico'],
+        },       
         incremental_strategy='insert_overwrite',
-        require_partition_filter = true
     )
 }}
 
@@ -17,7 +15,10 @@ SELECT
 FROM
   `rj-smtr.projeto_subsidio_sppo.viagem_planejada`
 
-WHERE data <= DATE("{{ var("date_range_end") }}")
+WHERE 
+    data <= DATE("{{ var("date_range_end") }}")
+AND
+    data NOT BETWEEN DATE('2023-02-17') AND DATE('2023-02-22') -- Dias do carnaval (pagamento pela média).
 
 {% if is_incremental() %}
 

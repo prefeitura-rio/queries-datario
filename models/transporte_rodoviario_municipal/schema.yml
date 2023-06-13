@@ -201,29 +201,29 @@ models :
       \ de atualização**: Quinzenal\n**Cobertura temporal**: 01/06/2022 até o momento\n\
       **Órgão gestor dos dados**: Secretaria Municipal de Transportes\n**Publicado\
       \ por**: Fernanda Scovino\n**Publicado por (email)**: fernanda.scovino@rio.rj.gov.br\n"
-  columns:
-    - name: data
-      description: Data
-    - name: tipo_dia
-      description: 'Dia da semana considerado para o cálculo da distância planejada - categorias: Dia Útil, Sábado, Domingo'
-    - name: consorcio
-      description: Consórcio ao qual o serviço pertence
-    - name: servico
-      description: Nome curto da linha operada
-    - name: vista
-      description: 'Itinerário da linha (ex: Bananal ↔ Saens Peña)'
-    - name: viagens
-      description: Quantidade de viagens realizadas
-    - name: km_apurada
-      description: Distância apurada do serviço (km) - Distância planejada da viagem multiplicada pela quantidade de viagens
-    - name: km_planejada
-      description: Distância planejada para o serviço (km)
-    - name: perc_km_planejada
-      description: Percentual de operação diário (POD)
-    - name: valor_subsidio_pago
-      description: Valor de subsídio apurado (R$)
-        Distância apurada do serviço multiplicada pelos respectivos valores pela classificação do veículo
-    - name: valor_penalidade
-      description: "Valor de penalidade apurado (R$)\n
-        Linha com operação entre 40% e 60% da quilometragem estipulada - penalidade equivalente a uma infração média prevista no Código Disciplinar do SPPO;\n
-        Linha com operação inferior a 40% da quilometragem estipulada - penalidade equivalente a uma infração grave prevista no Código Disciplinar do SPPO."
+    columns:
+      - name: data
+        description: Data
+      - name: tipo_dia
+        description: 'Dia da semana considerado para o cálculo da distância planejada - categorias: Dia Útil, Sábado, Domingo'
+      - name: consorcio
+        description: Consórcio ao qual o serviço pertence
+      - name: servico
+        description: Nome curto da linha operada
+      - name: vista
+        description: 'Itinerário da linha (ex: Bananal ↔ Saens Peña)'
+      - name: viagens
+        description: Quantidade de viagens realizadas
+      - name: km_apurada
+        description: Distância apurada do serviço (km) - Distância planejada da viagem multiplicada pela quantidade de viagens
+      - name: km_planejada
+        description: Distância planejada para o serviço (km)
+      - name: perc_km_planejada
+        description: Percentual de operação diário (POD)
+      - name: valor_subsidio_pago
+        description: Valor de subsídio apurado (R$)
+          Distância apurada do serviço multiplicada pelos respectivos valores pela classificação do veículo
+      - name: valor_penalidade
+        description: "Valor de penalidade apurado (R$)\n
+          Linha com operação entre 40% e 60% da quilometragem estipulada - penalidade equivalente a uma infração média prevista no Código Disciplinar do SPPO;\n
+          Linha com operação inferior a 40% da quilometragem estipulada - penalidade equivalente a uma infração grave prevista no Código Disciplinar do SPPO."
