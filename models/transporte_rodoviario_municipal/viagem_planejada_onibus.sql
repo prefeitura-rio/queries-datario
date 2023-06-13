@@ -17,7 +17,10 @@ SELECT
 FROM
   `rj-smtr.projeto_subsidio_sppo.viagem_planejada`
 
-WHERE data <= DATE("{{ var("date_range_end") }}")
+WHERE 
+    data <= DATE("{{ var("date_range_end") }}")
+AND
+    (data < DATE('2023-02-17') OR data > DATE('2023-02-22'))
 
 {% if is_incremental() %}
 
