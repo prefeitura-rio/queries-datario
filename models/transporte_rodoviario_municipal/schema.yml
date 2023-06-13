@@ -143,11 +143,11 @@ models :
       - name: shape_id
         description: Código identificador do shape (trajeto) do serviço. O shape de
           serviços Circurlares (C) é quebrado no GTFS como Ida (I) e Volta (V) e tratado
-          no algorítimo do subsídio para identificação da viagem completa - veja o
+          no algoritmo do subsídio para identificação da viagem completa - veja o
           tratamento completo em https://github.com/prefeitura-rio/queries-rj-smtr/tree/master/models/projeto_subsidio_sppo
   - name: viagem_planejada_onibus
     description: "**Descrição**: Tabela histórica com detalhes das viagens planejadas a cada dia.\
-      \ O algorítimo para a viagem planejada está disponível em:\r\nhttps://github.com/prefeitura-rio/queries-rj-smtr/tree/master/models/projeto_subsidio_sppo\r\"
+      \ O algoritmo para a viagem planejada está disponível em:\r\nhttps://github.com/prefeitura-rio/queries-rj-smtr/tree/master/models/projeto_subsidio_sppo\r\"
       \n\r\nCom base nesses dados é realizado o pagamento do subsídio do Serviço Público de Transporte de Passageiros por Ônibus (SPPO) do Município do Rio de Janeiro\
       \ levando em conta o cumprimento da quilometragem total planejada dos serviços.\r\
       \nVeja mais detalhes em:\r\nhttps://transportes.prefeitura.rio/subsidio/\n**Frequência\
@@ -160,7 +160,7 @@ models :
       - name: tipo_dia
         description: 'Dia da semana considerado para o cálculo da distância planejada - categorias: Dia Útil, Sábado, Domingo'
       - name: servico
-        description: Nome do serviço
+        description: Serviço planejado
       - name: vista
         description: 'Itinerário da linha (ex: Bananal ↔ Saens Peña)'
       - name: consorcio
@@ -201,32 +201,29 @@ models :
       \ de atualização**: Quinzenal\n**Cobertura temporal**: 01/06/2022 até o momento\n\
       **Órgão gestor dos dados**: Secretaria Municipal de Transportes\n**Publicado\
       \ por**: Fernanda Scovino\n**Publicado por (email)**: fernanda.scovino@rio.rj.gov.br\n"
-    columns:
-      - name: data
-        description: Data
-      - name: tipo_dia
-        description: 'Dia da semana considerado para o cálculo da distância planejada - categorias: Dia Útil, Sábado, Domingo'
-      - name: consorcio
-        description: Consórcio ao qual o serviço pertence
-      - name: servico
-        description: Nome do serviço
-      - name: vista
-        description: 'Itinerário da linha (ex: Bananal ↔ Saens Peña)'
-      - name: viagens
-        description: Quantidade de viagens realizadas
-      - name: km_apurada
-        description: Distância apurada do serviço (km) Distância planejada da viagem multiplicada pela quantidade de viagens
-      - name: km_planejada
-        description: Distância planejada para o serviço (km)
-      - name: perc_km_planejada
-        description: Indicador percentual de quilometragem apurada em relação à planejada da linha
-      - name: valor_subsidio_pago
-        description: Valor de subsídio apurado (R$)
-          Distância apurada do serviço multiplicada pelos respectivos valores pela classificação do veículo
-      - name: valor_penalidade
-        description: "Valor de penalidade apurado (R$) Linha com operação entre 40% e 60% da quilometragem estipulada\
-          \ - penalidade equivalente a uma infração média prevista no Código Disciplinar do Serviço Público\
-          \ de Transporte de Passageiros por Meio de Ônibus do Município do Rio de Janeiro - SPPO.\
-          \ Linha com operação inferior a 40% da quilometragem estipulada - penalidade equivalente a uma infração grave\
-          \ prevista no Código Disciplinar do Serviço Público de Transporte de Passageiros por Meio de Ônibus do\
-          \ Município do Rio de Janeiro - SPPO."
+  columns:
+    - name: data
+      description: Data
+    - name: tipo_dia
+      description: 'Dia da semana considerado para o cálculo da distância planejada - categorias: Dia Útil, Sábado, Domingo'
+    - name: consorcio
+      description: Consórcio ao qual o serviço pertence
+    - name: servico
+      description: Nome curto da linha operada
+    - name: vista
+      description: 'Itinerário da linha (ex: Bananal ↔ Saens Peña)'
+    - name: viagens
+      description: Quantidade de viagens realizadas
+    - name: km_apurada
+      description: Distância apurada do serviço (km) - Distância planejada da viagem multiplicada pela quantidade de viagens
+    - name: km_planejada
+      description: Distância planejada para o serviço (km)
+    - name: perc_km_planejada
+      description: Percentual de operação diário (POD)
+    - name: valor_subsidio_pago
+      description: Valor de subsídio apurado (R$)
+        Distância apurada do serviço multiplicada pelos respectivos valores pela classificação do veículo
+    - name: valor_penalidade
+      description: "Valor de penalidade apurado (R$)\n
+        Linha com operação entre 40% e 60% da quilometragem estipulada - penalidade equivalente a uma infração média prevista no Código Disciplinar do SPPO;\n
+        Linha com operação inferior a 40% da quilometragem estipulada - penalidade equivalente a uma infração grave prevista no Código Disciplinar do SPPO."
