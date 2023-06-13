@@ -20,7 +20,7 @@ FROM
 WHERE 
     data <= DATE("{{ var("date_range_end") }}")
 AND
-    (data < DATE('2023-02-17') OR data > DATE('2023-02-22'))
+    (data < DATE('2023-02-17') OR data > DATE('2023-02-22')) -- Dias do carnaval (pagamento pela média).
 
 {% if is_incremental() %}
 
