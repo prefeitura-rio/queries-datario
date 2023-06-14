@@ -1,13 +1,13 @@
 version: 2
 models :
   - name: infravermelho_longo_banda_13_goes_16
-    description: "**Descrição**: Medições da temperatura de brilho das nuvens e umidade\
-      \ utilizando o comprimento de onda de 10,3 µm do infravermelho (banda 13)  na\
-      \ região da cidade do Rio de Janeiro. A unidade está em K.\r\nAs estimativas\
-      \ são feitas a cada 10 minutos.\r\nNome original: \"Clean\" Longwave IR Window\
-      \ Band.\n**Frequência de atualização**: Diário\n**Cobertura temporal**: Desde\
-      \ 2020 Até data corrente\n**Órgão gestor dos dados**: COR\n**Publicado por**:\
-      \ Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+    description: "**Descrição**: Medições da temperatura de brilho das nuvens e umidade
+      utilizando o comprimento de onda de 10,3 µm do infravermelho (banda 13)  na
+      região da cidade do Rio de Janeiro. A unidade está em K.\r\nAs estimativas são
+      feitas a cada 10 minutos.\r\nNome original: \"Clean\" Longwave IR Window Band.\n
+      **Frequência de atualização**: Diário\n**Cobertura temporal**: Desde 2020 Até
+      data corrente\n**Órgão gestor dos dados**: COR\n**Publicado por**: Patrícia
+      Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
       - name: horario
         description: Horário de medição.
@@ -18,27 +18,11 @@ models :
       - name: cmi
         description: Temperatura de brilho da CMI (Cloud Moisture Imagery), medidas
           em K.
-  - name: taxa_precipitacao_goes_16
-    description: "**Descrição**: Taxa de precipitação estimada  da região da cidade\
-      \ do Rio de Janeiro. \r\nAs estimativas são feitas a cada 10 minutos.\r\nDados\
-      \ coletados pelo satélite GOES-16.\n**Frequência de atualização**: Diário\n\
-      **Cobertura temporal**: Desde 2020 até a data corrente\n**Órgão gestor dos dados**:\
-      \ Centro de Operações da Prefeitura do Rio (COR)\n**Publicado por**: Patrícia\
-      \ Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
-    columns:
-      - name: latitude
-        description: Latitude do centro da área.
-      - name: longitude
-        description: Longitude do centro da área.
-      - name: rrqpe
-        description: Taxa de precipitação estimada, medidas em milímetros por hora.
-      - name: horario
-        description: Horário de medição.
   - name: quantidade_agua_precipitavel_goes_16
-    description: "**Descrição**: Taxa de precipitação estimada da região da cidade\
-      \ do Rio de Janeiro. \r\nAs estimativas são feitas a cada 10 minutos.\r\nDados\
-      \ coletados pelo satélite GOES-16.\n**Frequência de atualização**: Nunca\n**Cobertura\
-      \ temporal**: Desde 2020 Até data corrente\n**Órgão gestor dos dados**: COR\n\
+    description: "**Descrição**: Taxa de precipitação estimada da região da cidade
+      do Rio de Janeiro. \r\nAs estimativas são feitas a cada 10 minutos.\r\nDados
+      coletados pelo satélite GOES-16.\n**Frequência de atualização**: Nunca\n**Cobertura
+      temporal**: Desde 2020 Até data corrente\n**Órgão gestor dos dados**: COR\n
       **Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
       - name: latitude
@@ -47,5 +31,21 @@ models :
         description: Longitude do centro da área.
       - name: tpw
         description: Quantidade total de água precipitável, medidas em milímetros.
+      - name: horario
+        description: Horário de medição.
+  - name: taxa_precipitacao_goes_16
+    description: "**Descrição**: Taxa de precipitação estimada  da região da cidade
+      do Rio de Janeiro. \r\nAs estimativas são feitas a cada 10 minutos.\r\nDados
+      coletados pelo satélite GOES-16.\n**Frequência de atualização**: Diário\n**Cobertura
+      temporal**: Desde 2020 até a data corrente\n**Órgão gestor dos dados**: Centro
+      de Operações da Prefeitura do Rio (COR)\n**Publicado por**: Patrícia Catandi\n
+      **Publicado por (email)**: patriciabcatandi@gmail.com\n"
+    columns:
+      - name: latitude
+        description: Latitude do centro da área.
+      - name: longitude
+        description: Longitude do centro da área.
+      - name: rrqpe
+        description: Taxa de precipitação estimada, medidas em milímetros por hora.
       - name: horario
         description: Horário de medição.
