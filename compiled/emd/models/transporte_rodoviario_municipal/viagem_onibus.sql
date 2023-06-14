@@ -29,5 +29,5 @@ WHERE data <= DATE("2022-12-16")
 
 
 AND
-    data > DATE("2022-11-30")
+    data >= DATE("2022-11-30")
 
