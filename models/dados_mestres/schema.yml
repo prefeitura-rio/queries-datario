@@ -1,13 +1,15 @@
 version: 2
-models :
+models:
   - name: aeis_bairro_maravilha
-    description: "**Descrição**: aeis_bairro_maravilha\n**Frequência de atualização**:
+    description:
+      "**Descrição**: aeis_bairro_maravilha\n**Frequência de atualização**:
       Nunca\n**Cobertura temporal**: aeis_bairro_maravilha\n**Órgão gestor dos dados**:
       aeis_bairro_maravilha\n**Publicado por**: aeis_bairro_maravilha\n**Publicado
       por (email)**: aeis@aeis.com\n"
-    columns: {}
+    columns: []
   - name: zoneamento_zonas
-    description: "**Descrição**: Camadas de zoneamento urbano vigente da Secretaria
+    description:
+      "**Descrição**: Camadas de zoneamento urbano vigente da Secretaria
       Municipal de Planejamento Urbano (SMPU).\n**Frequência de atualização**: Nunca\n
       **Cobertura temporal**: Até data corrente\n**Órgão gestor dos dados**: Instituto
       Pereira Passos (IPP) / Secretaria Municipal de Planejamento Urbano (SMPU)\n
@@ -44,7 +46,8 @@ models :
       - name: id_zona
         description: ID da zona
   - name: edificacoes
-    description: "**Descrição**: Base geográfica das edificações da cidade, restituídas
+    description:
+      "**Descrição**: Base geográfica das edificações da cidade, restituídas
       segundo imagens de levantamento aerofotogramétrico coletadas entre maio e junho
       de 2013. Contém atributos da altitude da base, do topo e altura.\n**Frequência
       de atualização**: Nunca\n**Cobertura temporal**: Até data corrente\n**Órgão
@@ -58,10 +61,12 @@ models :
       - name: id_projecao
         description: Não informado
       - name: id_lote
-        description: Código do loteamento onde se encontra a edificação, fornecido
+        description:
+          Código do loteamento onde se encontra a edificação, fornecido
           pela Prefeitura.
       - name: id_logradouro_numero_porta
-        description: Chave com o código do logradouro e o número de porta de cada
+        description:
+          Chave com o código do logradouro e o número de porta de cada
           edificação, fornecido pela Prefeitura.
       - name: tipo
         description: Chave com código e o nome do tipo de edificação.
@@ -70,17 +75,20 @@ models :
       - name: altitude_base
         description: Altitude da base da edificação em relação ao nível do mar.
       - name: altura
-        description: Altura da edificação, que consiste na diferença entre a altitude
+        description:
+          Altura da edificação, que consiste na diferença entre a altitude
           do topo e da base.
       - name: area
-        description: Área do polígono que representa a edificação. Tem o mesmo valor
+        description:
+          Área do polígono que representa a edificação. Tem o mesmo valor
           do atributo SHAPE.STArea().
       - name: comprimento
         description: Perímetro do polígono que representa a edificação.
       - name: geometry
         description: Geometria
   - name: zoneamento_subzonas_subsetores
-    description: "**Descrição**: Camadas de zoneamento urbano vigente da Secretaria
+    description:
+      "**Descrição**: Camadas de zoneamento urbano vigente da Secretaria
       Municipal de Planejamento Urbano (SMPU), Subzonas e Subsetores.\n**Frequência
       de atualização**: Nunca\n**Cobertura temporal**: Até data corrente\n**Órgão
       gestor dos dados**: Instituto Pereira Passos (IPP) / Secretaria Municipal de
@@ -110,7 +118,8 @@ models :
       - name: id_object
         description: Chave identificadora da subzona ou do subsetor.
   - name: bairro
-    description: "**Descrição**: Bairros da Cidade do Rio de Janeiro.\n**Frequência
+    description:
+      "**Descrição**: Bairros da Cidade do Rio de Janeiro.\n**Frequência
       de atualização**: Mensal\n**Cobertura temporal**: Até a presente data\n**Órgão
       gestor dos dados**: Instituto Pereira Passos (IPP) / Câmara dos Vereadores (CMRJ)\n
       **Publicado por**: IPP\n**Publicado por (email)**: contato.siurb@gmail.com\n"
@@ -122,18 +131,22 @@ models :
       - name: nome
         description: Nome do bairro
       - name: id_area_planejamento
-        description: "Código da área de planejamento onde está localizado a região
+        description:
+          "Código da área de planejamento onde está localizado a região
           de planejamento do bairro.\r\nVer atributo nome_regiao_planejamento."
       - name: nome_regiao_planejamento
-        description: "Nome da região de planejamento. \r\nDeve respeitar o atributo
+        description:
+          "Nome da região de planejamento. \r\nDeve respeitar o atributo
           id_regiao_planejamento."
       - name: id_regiao_planejamento
-        description: Código da região de planejamento onde está localizado o região
+        description:
+          Código da região de planejamento onde está localizado o região
           administrativa do bairro. Ver atributo REGIAO_ADM.
       - name: id_regiao_administrativa
         description: Código da região administrativa onde está locallizado o bairro.
       - name: nome_regiao_administrativa
-        description: "Nome da região administrativa onde está localizado o bairro.
+        description:
+          "Nome da região administrativa onde está localizado o bairro.
           \r\nEste atributo deve respeitar o atributo id_regiao_administrativa."
       - name: area
         description: "Área (m²) do bairro. \r\nTem o mesmo valor do atributo SHAPE.STArea()."
@@ -144,12 +157,14 @@ models :
       - name: subprefeitura
         description: Nome da subprefeitura a que pertence o bairro.
   - name: aeis
-    description: "**Descrição**: aeis\n**Frequência de atualização**: Nunca\n**Cobertura
+    description:
+      "**Descrição**: aeis\n**Frequência de atualização**: Nunca\n**Cobertura
       temporal**: aeis\n**Órgão gestor dos dados**: aeis\n**Publicado por**: aeis\n
       **Publicado por (email)**: aeis@aeis.com\n"
     columns: {}
   - name: logradouro
-    description: "**Descrição**: Trechos ativos de logradouros do município do Rio
+    description:
+      "**Descrição**: Trechos ativos de logradouros do município do Rio
       de Janeiro. \r\nTrecho de logradouro é um pedaço do logradouro, no caso de uma
       rua vai de uma esquina à outra. Logradouro é qualquer espaço público comum que
       pode ser usufruído por toda a população (reconhecidos formalmente ou não, de
@@ -162,31 +177,38 @@ models :
       - name: id_logradouro
         description: Código oficial do logradouro dado pela Prefeitura do Rio de Janeiro.
       - name: nome
-        description: "Nome do bairro onde está localizado o trecho de logradouro.\r
+        description:
+          "Nome do bairro onde está localizado o trecho de logradouro.\r
           \nUm trecho pode passar por vários bairros. \r\nEste atributo indica um
           dos bairros contendo o trecho. \r\nDeve respeitar o atributo Cod_Bairro."
       - name: nome_parcial
-        description: "Nome parcial do logradouro. \r\nNome do logradouro sem o tipo
+        description:
+          "Nome parcial do logradouro. \r\nNome do logradouro sem o tipo
           do logradouro (rua, estrada, beco, travessa etc ) e sem a nobreza do logradouro."
       - name: nome_completo
-        description: "Nome completo do logradouro. \r\nNome do logradouro com tipo,
+        description:
+          "Nome completo do logradouro. \r\nNome do logradouro com tipo,
           nobreza e nome parcial."
       - name: id_trecho
         description: Identificador único do trecho no banco de dados.
       - name: id_situacao_trecho
         description: Código de situação do trecho de logradouro.
       - name: situacao_trecho
-        description: "Situação do trecho de logradouro.\r\nPor exemplo ativo, cancelado,
+        description:
+          "Situação do trecho de logradouro.\r\nPor exemplo ativo, cancelado,
           rascunho. Nesta disponibilização do IPP somente entraram os trechos ativos.
           \r\nDeve respeitar o atributo COD_SIT_TRECHO."
       - name: id_tipo
-        description: "Código do tipo do logradouro dado pela prefeitura do Rio de
+        description:
+          "Código do tipo do logradouro dado pela prefeitura do Rio de
           Janeiro.\r\nPor exemplo 41 é associado a rua."
       - name: tipo
-        description: "Tipo do logradouro por extenso.\r\nPor exemplo rua. \r\nDeve
+        description:
+          "Tipo do logradouro por extenso.\r\nPor exemplo rua. \r\nDeve
           respeitar o id_tipo."
       - name: id_bairro
-        description: "Código do bairro, dado pela prefeitura do Rio de Janeiro, do
+        description:
+          "Código do bairro, dado pela prefeitura do Rio de Janeiro, do
           trecho de logradouro.\r\nVer o atributo nome."
       - name: inicio_numero_porta_par
         description: Numeração inicial do lado par do trecho de logradouro.
@@ -197,17 +219,20 @@ models :
       - name: final_numero_porta_impar
         description: Numeração final do lado ímpar do trecho de logradouro.
       - name: hierarquia
-        description: "Hierarquia viária do trecho de logradouro. \r\nPor exemplo estrutural,
+        description:
+          "Hierarquia viária do trecho de logradouro. \r\nPor exemplo estrutural,
           arterial primária, arterial secundária, coletora, local. \r\nClassificação
           relacionada a regras para o tráfego que passa por ela.\r\nPor exemplo fluxo
           de veículos, velocidade máxima etc."
       - name: id_chavegeo
-        description: Código Chavegeo calculado a partir das coordenadas X e Y do centro
+        description:
+          Código Chavegeo calculado a partir das coordenadas X e Y do centro
           do trecho de logradouro.
       - name: geometry
         description: Geometria do trecho de logradouro no banco do ArcGIS.
   - name: subprefeitura
-    description: "**Descrição**: Tabela com as regiões da sub-prefeitura do Rio de
+    description:
+      "**Descrição**: Tabela com as regiões da sub-prefeitura do Rio de
       Janeiro.\n**Frequência de atualização**: Mensal\n**Cobertura temporal**: Até
       data corrente\n**Órgão gestor dos dados**: Instituto Pereira Passos (IPP)\n
       **Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
@@ -225,12 +250,14 @@ models :
       - name: geometry_wkt
         description: Geometria do região da região no banco do ArcGIS.
   - name: lote
-    description: "**Descrição**: lote\n**Frequência de atualização**: Nunca\n**Cobertura
+    description:
+      "**Descrição**: lote\n**Frequência de atualização**: Nunca\n**Cobertura
       temporal**: lote\n**Órgão gestor dos dados**: lote\n**Publicado por**: lote\n
       **Publicado por (email)**: lote@lote.com\n"
     columns: {}
   - name: zoneamento_setores
-    description: "**Descrição**: Camadas do zoneamento urbano vigente da Cidade do
+    description:
+      "**Descrição**: Camadas do zoneamento urbano vigente da Cidade do
       Rio de Janeiro, produzidas pela Secretaria Municipal de Planejamento Urbano
       (SMPU) a partir da Lei Complementar nº 101, de 23 de novembro de 2009 que modificou
       o Plano Diretor da cidade,  autorizando o Poder Executivo a instituir a Operação
@@ -261,7 +288,8 @@ models :
       - name: legislacao_extenso
         description: Legislação escrita por extenso.
       - name: area
-        description: Área do polígono que define o setor. Tem o mesmo valor do atributo
+        description:
+          Área do polígono que define o setor. Tem o mesmo valor do atributo
           SHAPE.STArea().
       - name: perimetro
         description: Perímetro do polígono que define o setor.

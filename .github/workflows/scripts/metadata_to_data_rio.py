@@ -287,7 +287,8 @@ def build_items_data_from_metadata_json() -> List[dict]:
                 # "thumbnail": THUMBNAIL_URL,
             }
             items_data.append(item_data)
-            categories.append(metadata[dataset_id][table_id]["categories"])
+            if "categories" in metadata[dataset_id][table_id]:
+                categories.append(metadata[dataset_id][table_id]["categories"])
             dataset_ids.append(dataset_id)
             table_ids.append(table_id)
     return items_data, categories, dataset_ids, table_ids
