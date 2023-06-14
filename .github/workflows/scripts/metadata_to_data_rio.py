@@ -278,6 +278,8 @@ def build_items_data_from_metadata_json() -> List[dict]:
                     "tags": ",".join(
                         get_default_tags(dataset_id, table_id)
                         + metadata[dataset_id][table_id]["tags"]
+                    ) if "tags" in metadata[dataset_id][table_id] else ",".join(
+                        get_default_tags(dataset_id, table_id)
                     ),
                     "licenseInfo": get_license(),
                     "accessInformation": metadata[dataset_id][table_id]["data_owner"],
