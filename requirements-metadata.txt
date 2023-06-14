@@ -3,3 +3,4 @@ ruamel.yaml==0.17.31
 jinja2==2.11.3
 keyring==23.13.1
 arcgis==1.9.0
+markupsafe==2.0.1
