@@ -26,7 +26,7 @@ jobs:
 
       - name: Install Python dependencies for actions
         run: |-
-          pip install -r requirements-actions.txt
+          pip install -r requirements-metadata.txt
 
       - name: Checkout to the head ref
         run: |-
