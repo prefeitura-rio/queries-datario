@@ -3,3 +3,4 @@ ruamel.yaml==0.17.31
 jinja2==2.11.3
 markupsafe==2.0.1
 arcgis @ https://prefeitura-rio.github.io/storage/arcgis-1.9.1.tar.gz
+urllib3==1.25.11
