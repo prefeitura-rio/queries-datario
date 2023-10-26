@@ -5,3 +5,5 @@ logs/
 .vscode/
 .env
 .user.yml
+.env
+credentials/
