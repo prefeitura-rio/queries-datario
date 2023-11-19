@@ -1,6 +1,49 @@
 version: 2
 
 models :
+  - name: estacoes_websirene
+    description: "**Descrição**: Dados sobre as estações pluviométricas da Defesa
+      Civil (WEB Sirene) na cidade do Rio de Janeiro.\n**Frequência de atualização**:
+      Anual\n**Cobertura temporal**: N/A\n**Órgão gestor dos dados**: COR\n**Publicado
+      por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+    columns:
+      - name: longitude
+        description: Longitude onde a estação se encontra.
+      - name: latitude
+        description: Latitude onde a estação se encontra.
+      - name: nome_estacao
+        description: Nome da estação.
+      - name: id_estacao
+        description: ID da estação meteorológica em que ocorreu a medição
+  - name: estacoes_alertario
+    description: "**Descrição**: Dados sobre as estações pluviométricas do alertario
+      ( Sistema Alerta Rio da Prefeitura do Rio de Janeiro ) na cidade do Rio de Janeiro.\n
+      **Frequência de atualização**: Anual\n**Cobertura temporal**: N/A\n**Órgão gestor
+      dos dados**: COR\n**Publicado por**: Patricia Catandi\n**Publicado por (email)**:
+      patriciabcatandi@gmail.com\n"
+    columns:
+      - name: cota
+        description: Altura em metros onde a estação se encontra.
+      - name: x
+        description: X UTM (SAD69 Zona 23)
+      - name: y
+        description: Y UTM (SAD69 Zona 23)
+      - name: endereco
+        description: Endereço completo da estação.
+      - name: situacao
+        description: Indica se a estação está operante ou com falha.
+      - name: data_inicio_operacao
+        description: Data em que a estação começou a operar.
+      - name: data_atualizacao
+        description: Última data em que os dados sobre a data de operação foram atualizados.
+      - name: nome_estacao
+        description: Nome da estação.
+      - name: id_estacao
+        description: ID da estação meteorológica em que ocorreu a medição
+      - name: longitude
+        description: Longitude onde a estação se encontra.
+      - name: latitude
+        description: Latitude onde a estação se encontra.
   - name: taxa_precipitacao_websirene
     description: "**Descrição**: Taxa medida de precipitação das estações pluviométricas
       da Defesa Civil da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de
@@ -31,20 +74,6 @@ models :
         description: ID da estação meteorológica em que ocorreu a medição
       - name: acumulado_chuva_mes
         description: Acumulado de chuva no mês.
-  - name: estacoes_websirene
-    description: "**Descrição**: Dados sobre as estações pluviométricas da Defesa
-      Civil (WEB Sirene) na cidade do Rio de Janeiro.\n**Frequência de atualização**:
-      Anual\n**Cobertura temporal**: N/A\n**Órgão gestor dos dados**: COR\n**Publicado
-      por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
-    columns:
-      - name: longitude
-        description: Longitude onde a estação se encontra.
-      - name: latitude
-        description: Latitude onde a estação se encontra.
-      - name: nome_estacao
-        description: Nome da estação.
-      - name: id_estacao
-        description: ID da estação meteorológica em que ocorreu a medição
   - name: taxa_precipitacao_alertario
     description: "**Descrição**: Taxa medida de precipitação das estações pluviométricas
       da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos,
@@ -69,32 +98,3 @@ models :
         description: Acumulado de chuva em 24 horas.
       - name: acumulado_chuva_96_h
         description: Acumulado de chuva em 96 horas.
-  - name: estacoes_alertario
-    description: "**Descrição**: Dados sobre as estações pluviométricas do alertario
-      ( Sistema Alerta Rio da Prefeitura do Rio de Janeiro ) na cidade do Rio de Janeiro.\n
-      **Frequência de atualização**: Anual\n**Cobertura temporal**: N/A\n**Órgão gestor
-      dos dados**: COR\n**Publicado por**: Patricia Catandi\n**Publicado por (email)**:
-      patriciabcatandi@gmail.com\n"
-    columns:
-      - name: cota
-        description: Altura em metros onde a estação se encontra.
-      - name: x
-        description: X UTM (SAD69 Zona 23)
-      - name: y
-        description: Y UTM (SAD69 Zona 23)
-      - name: endereco
-        description: Endereço completo da estação.
-      - name: situacao
-        description: Indica se a estação está operante ou com falha.
-      - name: data_inicio_operacao
-        description: Data em que a estação começou a operar.
-      - name: data_atualizacao
-        description: Última data em que os dados sobre a data de operação foram atualizados.
-      - name: nome_estacao
-        description: Nome da estação.
-      - name: id_estacao
-        description: ID da estação meteorológica em que ocorreu a medição
-      - name: longitude
-        description: Longitude onde a estação se encontra.
-      - name: latitude
-        description: Latitude onde a estação se encontra.
