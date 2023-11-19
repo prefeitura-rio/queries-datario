@@ -1,142 +1,45 @@
 version: 2
 models :
-  - name: aeis
-    description: "**Descrição**: aeis\n**Frequência de atualização**: Nunca\n**Cobertura
-      temporal**: aeis\n**Órgão gestor dos dados**: aeis\n**Publicado por**: aeis\n
-      **Publicado por (email)**: aeis@aeis.com\n"
-    columns: []
-  - name: subprefeitura
-    description: "**Descrição**: Tabela com as regiões da sub-prefeitura do Rio de
-      Janeiro.\n**Frequência de atualização**: Mensal\n**Cobertura temporal**: Até
-      data corrente\n**Órgão gestor dos dados**: Instituto Pereira Passos (IPP)\n
-      **Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
-    columns:
-      - name: id_subprefeitura
-        description: Id da subprefeitura
-      - name: subprefeitura
-        description: Nome da subprefeitura.
-      - name: area
-        description: Área em m² da região da subprefeitura.
-      - name: perimetro
-        description: Perímetro em metros da região da subprefeitura.
-      - name: geometry
-        description: Geometria do bairro no banco do ArcGIS.
-      - name: geometry_wkt
-        description: Geometria do região da região no banco do ArcGIS.
-  - name: zoneamento_setores
-    description: "**Descrição**: Camadas do zoneamento urbano vigente da Cidade do
-      Rio de Janeiro, produzidas pela Secretaria Municipal de Planejamento Urbano
-      (SMPU) a partir da Lei Complementar nº 101, de 23 de novembro de 2009 que modificou
-      o Plano Diretor da cidade,  autorizando o Poder Executivo a instituir a Operação
-      Urbana Consorciada da Região do Porto do Rio; da Lei Complementar nº 104 de
-      27 de novembro de 2009, que instituiu o Projeto de Estruturação Urbana (PEU)
-      dos bairros de Vargem Grande, Vargem Pequena, Camorim e parte dos bairros do
-      Recreio dos Bandeirantes, Barra da Tijuca e Jacarepaguá; e da Lei Complementar
-      nº 229 de 14 de julho de 2021, que instituiu o Programa Reviver Centro.\n**Frequência
+  - name: edificacoes
+    description: "**Descrição**: Base geográfica das edificações da cidade, restituídas
+      segundo imagens de levantamento aerofotogramétrico coletadas entre maio e junho
+      de 2013. Contém atributos da altitude da base, do topo e altura.\n**Frequência
       de atualização**: Nunca\n**Cobertura temporal**: Até data corrente\n**Órgão
-      gestor dos dados**: Instituto Pereira Passos (IPP) / Secretaria Municipal de
-      Planejamento Urbano (SMPU)\n**Publicado por**: Rodrigo Abreu Carvalho\n**Publicado
-      por (email)**: abreucarvalho.rodrigo@gmail.com\n"
+      gestor dos dados**: Instituto Pereira Passos (IPP)\n**Publicado por**: IPP\n
+      **Publicado por (email)**: contato.siurb@gmail.com\n"
     columns:
-      - name: id_object
-        description: Chave identificadora de objeto.
-      - name: legenda_setor
-        description: Legenda do setor de A até N.
-      - name: sigla_setor
-        description: Indicação das Leis Complementares que instituíram os setores.
-      - name: nome_setor
-        description: Nome dos setores.
-      - name: legislacao
-        description: Indicativo da legislação que instituiu os setores.
-      - name: abreviacao
-        description: Abreviação da legislação que institui os setores.
-      - name: observacao
-        description: Observação.
-      - name: legislacao_extenso
-        description: Legislação escrita por extenso.
+      - name: id
+        description: Não informado
+      - name: id_unico
+        description: Código único para cada edificação.
+      - name: id_projecao
+        description: Não informado
+      - name: id_lote
+        description: Código do loteamento onde se encontra a edificação, fornecido
+          pela Prefeitura.
+      - name: id_logradouro_numero_porta
+        description: Chave com o código do logradouro e o número de porta de cada
+          edificação, fornecido pela Prefeitura.
+      - name: tipo
+        description: Chave com código e o nome do tipo de edificação.
+      - name: altitude_topo
+        description: Altitude do topo da edificação em relação ao nível do mar.
+      - name: altitude_base
+        description: Altitude da base da edificação em relação ao nível do mar.
+      - name: altura
+        description: Altura da edificação, que consiste na diferença entre a altitude
+          do topo e da base.
       - name: area
-        description: Área do polígono que define o setor. Tem o mesmo valor do atributo
-          SHAPE.STArea().
-      - name: perimetro
-        description: Perímetro do polígono que define o setor.
-      - name: geometry
-        description: Geometria do setor no banco do ArcGIS.
-  - name: bairro
-    description: "**Descrição**: Bairros da Cidade do Rio de Janeiro.\n**Frequência
-      de atualização**: Mensal\n**Cobertura temporal**: Até a presente data\n**Órgão
-      gestor dos dados**: Instituto Pereira Passos (IPP) / Câmara dos Vereadores (CMRJ)\n
-      **Publicado por**: IPP\n**Publicado por (email)**: contato.siurb@gmail.com\n"
-    columns:
-      - name: shape_area
-        description: Área (m²) do bairro. Calculado automaticamente pelo ArqGis.
-      - name: id_bairro
-        description: Código do bairro dado pela prefeitura do Rio de Janeiro.
-      - name: nome
-        description: Nome do bairro
-      - name: id_area_planejamento
-        description: "Código da área de planejamento onde está localizado a região
-          de planejamento do bairro.\r\nVer atributo nome_regiao_planejamento."
-      - name: nome_regiao_planejamento
-        description: "Nome da região de planejamento. \r\nDeve respeitar o atributo
-          id_regiao_planejamento."
-      - name: id_regiao_planejamento
-        description: Código da região de planejamento onde está localizado o região
-          administrativa do bairro. Ver atributo REGIAO_ADM.
-      - name: id_regiao_administrativa
-        description: Código da região administrativa onde está locallizado o bairro.
-      - name: nome_regiao_administrativa
-        description: "Nome da região administrativa onde está localizado o bairro.
-          \r\nEste atributo deve respeitar o atributo id_regiao_administrativa."
-      - name: area
-        description: "Área (m²) do bairro. \r\nTem o mesmo valor do atributo SHAPE.STArea()."
-      - name: perimetro
-        description: Perímetro (m) do bairro.
-      - name: geometry
-        description: Geometria do bairro no banco do ArcGIS.
-      - name: subprefeitura
-        description: Nome da subprefeitura a que pertence o bairro.
-  - name: zoneamento_zonas
-    description: "**Descrição**: Camadas de zoneamento urbano vigente da Secretaria
-      Municipal de Planejamento Urbano (SMPU).\n**Frequência de atualização**: Nunca\n
-      **Cobertura temporal**: Até data corrente\n**Órgão gestor dos dados**: Instituto
-      Pereira Passos (IPP) / Secretaria Municipal de Planejamento Urbano (SMPU)\n
-      **Publicado por**: Rodrigo Abreu Carvalho\n**Publicado por (email)**: abreucarvalho.rodrigo@gmail.com\n"
-    columns:
+        description: Área do polígono que representa a edificação. Tem o mesmo valor
+          do atributo SHAPE.STArea().
       - name: comprimento
-        description: Tamanho do shape
-      - name: id_objeto
-        description: ID do objeto
-      - name: sigla_zona
-        description: Sigla da Zona
-      - name: tipo_zona
-        description: Tipo da zona
-      - name: nome
-        description: Nome da zona
-      - name: legislacao
-        description: legislacao
-      - name: abreviacao_zona
-        description: abreviacao da zona
-      - name: informacao_complementar
-        description: informacao complementar
-      - name: id_area_planejamento
-        description: ID da area planejamento
-      - name: orig_fid
-        description: TODO
-      - name: urbanismogisadminsmu_zona_1area
-        description: urbanismogisadminsmu_zona_1area
-      - name: area
-        description: Área da geometria
-      - name: perimetro
-        description: Perimetro
-      - name: geometria
-        description: Poligono
-      - name: id_zona
-        description: ID da zona
-  - name: aeis_bairro_maravilha
-    description: "**Descrição**: aeis_bairro_maravilha\n**Frequência de atualização**:
-      Nunca\n**Cobertura temporal**: aeis_bairro_maravilha\n**Órgão gestor dos dados**:
-      aeis_bairro_maravilha\n**Publicado por**: aeis_bairro_maravilha\n**Publicado
-      por (email)**: aeis@aeis.com\n"
+        description: Perímetro do polígono que representa a edificação.
+      - name: geometry
+        description: Geometria
+  - name: lote
+    description: "**Descrição**: lote\n**Frequência de atualização**: Nunca\n**Cobertura
+      temporal**: lote\n**Órgão gestor dos dados**: lote\n**Publicado por**: lote\n
+      **Publicado por (email)**: lote@lote.com\n"
     columns: []
   - name: zoneamento_subzonas_subsetores
     description: "**Descrição**: Camadas de zoneamento urbano vigente da Secretaria
@@ -168,11 +71,6 @@ models :
         description: Legenda.
       - name: id_object
         description: Chave identificadora da subzona ou do subsetor.
-  - name: lote
-    description: "**Descrição**: lote\n**Frequência de atualização**: Nunca\n**Cobertura
-      temporal**: lote\n**Órgão gestor dos dados**: lote\n**Publicado por**: lote\n
-      **Publicado por (email)**: lote@lote.com\n"
-    columns: []
   - name: logradouro
     description: "**Descrição**: Trechos ativos de logradouros do município do Rio
       de Janeiro. \r\nTrecho de logradouro é um pedaço do logradouro, no caso de uma
@@ -231,39 +129,141 @@ models :
           do trecho de logradouro.
       - name: geometry
         description: Geometria do trecho de logradouro no banco do ArcGIS.
-  - name: edificacoes
-    description: "**Descrição**: Base geográfica das edificações da cidade, restituídas
-      segundo imagens de levantamento aerofotogramétrico coletadas entre maio e junho
-      de 2013. Contém atributos da altitude da base, do topo e altura.\n**Frequência
-      de atualização**: Nunca\n**Cobertura temporal**: Até data corrente\n**Órgão
-      gestor dos dados**: Instituto Pereira Passos (IPP)\n**Publicado por**: IPP\n
-      **Publicado por (email)**: contato.siurb@gmail.com\n"
+  - name: subprefeitura
+    description: "**Descrição**: Tabela com as regiões da sub-prefeitura do Rio de
+      Janeiro.\n**Frequência de atualização**: Mensal\n**Cobertura temporal**: Até
+      data corrente\n**Órgão gestor dos dados**: Instituto Pereira Passos (IPP)\n
+      **Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
-      - name: id
-        description: Não informado
-      - name: id_unico
-        description: Código único para cada edificação.
-      - name: id_projecao
-        description: Não informado
-      - name: id_lote
-        description: Código do loteamento onde se encontra a edificação, fornecido
-          pela Prefeitura.
-      - name: id_logradouro_numero_porta
-        description: Chave com o código do logradouro e o número de porta de cada
-          edificação, fornecido pela Prefeitura.
-      - name: tipo
-        description: Chave com código e o nome do tipo de edificação.
-      - name: altitude_topo
-        description: Altitude do topo da edificação em relação ao nível do mar.
-      - name: altitude_base
-        description: Altitude da base da edificação em relação ao nível do mar.
-      - name: altura
-        description: Altura da edificação, que consiste na diferença entre a altitude
-          do topo e da base.
+      - name: id_subprefeitura
+        description: Id da subprefeitura
+      - name: subprefeitura
+        description: Nome da subprefeitura.
       - name: area
-        description: Área do polígono que representa a edificação. Tem o mesmo valor
-          do atributo SHAPE.STArea().
-      - name: comprimento
-        description: Perímetro do polígono que representa a edificação.
+        description: Área em m² da região da subprefeitura.
+      - name: perimetro
+        description: Perímetro em metros da região da subprefeitura.
       - name: geometry
-        description: Geometria
+        description: Geometria do bairro no banco do ArcGIS.
+      - name: geometry_wkt
+        description: Geometria do região da região no banco do ArcGIS.
+  - name: zoneamento_setores
+    description: "**Descrição**: Camadas do zoneamento urbano vigente da Cidade do
+      Rio de Janeiro, produzidas pela Secretaria Municipal de Planejamento Urbano
+      (SMPU) a partir da Lei Complementar nº 101, de 23 de novembro de 2009 que modificou
+      o Plano Diretor da cidade,  autorizando o Poder Executivo a instituir a Operação
+      Urbana Consorciada da Região do Porto do Rio; da Lei Complementar nº 104 de
+      27 de novembro de 2009, que instituiu o Projeto de Estruturação Urbana (PEU)
+      dos bairros de Vargem Grande, Vargem Pequena, Camorim e parte dos bairros do
+      Recreio dos Bandeirantes, Barra da Tijuca e Jacarepaguá; e da Lei Complementar
+      nº 229 de 14 de julho de 2021, que instituiu o Programa Reviver Centro.\n**Frequência
+      de atualização**: Nunca\n**Cobertura temporal**: Até data corrente\n**Órgão
+      gestor dos dados**: Instituto Pereira Passos (IPP) / Secretaria Municipal de
+      Planejamento Urbano (SMPU)\n**Publicado por**: Rodrigo Abreu Carvalho\n**Publicado
+      por (email)**: abreucarvalho.rodrigo@gmail.com\n"
+    columns:
+      - name: id_object
+        description: Chave identificadora de objeto.
+      - name: legenda_setor
+        description: Legenda do setor de A até N.
+      - name: sigla_setor
+        description: Indicação das Leis Complementares que instituíram os setores.
+      - name: nome_setor
+        description: Nome dos setores.
+      - name: legislacao
+        description: Indicativo da legislação que instituiu os setores.
+      - name: abreviacao
+        description: Abreviação da legislação que institui os setores.
+      - name: observacao
+        description: Observação.
+      - name: legislacao_extenso
+        description: Legislação escrita por extenso.
+      - name: area
+        description: Área do polígono que define o setor. Tem o mesmo valor do atributo
+          SHAPE.STArea().
+      - name: perimetro
+        description: Perímetro do polígono que define o setor.
+      - name: geometry
+        description: Geometria do setor no banco do ArcGIS.
+  - name: aeis_bairro_maravilha
+    description: "**Descrição**: aeis_bairro_maravilha\n**Frequência de atualização**:
+      Nunca\n**Cobertura temporal**: aeis_bairro_maravilha\n**Órgão gestor dos dados**:
+      aeis_bairro_maravilha\n**Publicado por**: aeis_bairro_maravilha\n**Publicado
+      por (email)**: aeis@aeis.com\n"
+    columns: []
+  - name: zoneamento_zonas
+    description: "**Descrição**: Camadas de zoneamento urbano vigente da Secretaria
+      Municipal de Planejamento Urbano (SMPU).\n**Frequência de atualização**: Nunca\n
+      **Cobertura temporal**: Até data corrente\n**Órgão gestor dos dados**: Instituto
+      Pereira Passos (IPP) / Secretaria Municipal de Planejamento Urbano (SMPU)\n
+      **Publicado por**: Rodrigo Abreu Carvalho\n**Publicado por (email)**: abreucarvalho.rodrigo@gmail.com\n"
+    columns:
+      - name: comprimento
+        description: Tamanho do shape
+      - name: id_objeto
+        description: ID do objeto
+      - name: sigla_zona
+        description: Sigla da Zona
+      - name: tipo_zona
+        description: Tipo da zona
+      - name: nome
+        description: Nome da zona
+      - name: legislacao
+        description: legislacao
+      - name: abreviacao_zona
+        description: abreviacao da zona
+      - name: informacao_complementar
+        description: informacao complementar
+      - name: id_area_planejamento
+        description: ID da area planejamento
+      - name: orig_fid
+        description: TODO
+      - name: urbanismogisadminsmu_zona_1area
+        description: urbanismogisadminsmu_zona_1area
+      - name: area
+        description: Área da geometria
+      - name: perimetro
+        description: Perimetro
+      - name: geometria
+        description: Poligono
+      - name: id_zona
+        description: ID da zona
+  - name: aeis
+    description: "**Descrição**: aeis\n**Frequência de atualização**: Nunca\n**Cobertura
+      temporal**: aeis\n**Órgão gestor dos dados**: aeis\n**Publicado por**: aeis\n
+      **Publicado por (email)**: aeis@aeis.com\n"
+    columns: []
+  - name: bairro
+    description: "**Descrição**: Bairros da Cidade do Rio de Janeiro.\n**Frequência
+      de atualização**: Mensal\n**Cobertura temporal**: Até a presente data\n**Órgão
+      gestor dos dados**: Instituto Pereira Passos (IPP) / Câmara dos Vereadores (CMRJ)\n
+      **Publicado por**: IPP\n**Publicado por (email)**: contato.siurb@gmail.com\n"
+    columns:
+      - name: shape_area
+        description: Área (m²) do bairro. Calculado automaticamente pelo ArqGis.
+      - name: id_bairro
+        description: Código do bairro dado pela prefeitura do Rio de Janeiro.
+      - name: nome
+        description: Nome do bairro
+      - name: id_area_planejamento
+        description: "Código da área de planejamento onde está localizado a região
+          de planejamento do bairro.\r\nVer atributo nome_regiao_planejamento."
+      - name: nome_regiao_planejamento
+        description: "Nome da região de planejamento. \r\nDeve respeitar o atributo
+          id_regiao_planejamento."
+      - name: id_regiao_planejamento
+        description: Código da região de planejamento onde está localizado o região
+          administrativa do bairro. Ver atributo REGIAO_ADM.
+      - name: id_regiao_administrativa
+        description: Código da região administrativa onde está locallizado o bairro.
+      - name: nome_regiao_administrativa
+        description: "Nome da região administrativa onde está localizado o bairro.
+          \r\nEste atributo deve respeitar o atributo id_regiao_administrativa."
+      - name: area
+        description: "Área (m²) do bairro. \r\nTem o mesmo valor do atributo SHAPE.STArea()."
+      - name: perimetro
+        description: Perímetro (m) do bairro.
+      - name: geometry
+        description: Geometria do bairro no banco do ArcGIS.
+      - name: subprefeitura
+        description: Nome da subprefeitura a que pertence o bairro.
