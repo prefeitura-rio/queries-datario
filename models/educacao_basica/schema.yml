@@ -236,162 +236,6 @@ models :
       - name: numero_salas_utilizadas
         description: Número de salas de aula, na unidade escolar, efetivamente usadas
           por turmas.
-  - name: aluno
-    description: "**Descrição**: Alunos matriculados em escolas da prefeitura do Rio
-      de Janeiro no ano corrente. \r\nCampos anonimizados para atendimento a LGPD.\n
-      **Frequência de atualização**: Anual\n**Cobertura temporal**: Até data corrente\n
-      **Órgão gestor dos dados**: Secretaria Municipal de Educação\n**Publicado por**:
-      Nuno Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
-    columns:
-      - name: ano
-        description: Ano em que o aluno está matriculado.
-      - name: id_turma
-        description: Identificador da turma do aluno na base de dados.
-      - name: turma
-        description: Número da turma do aluno.
-      - name: id_aluno
-        description: Identificador do aluno na base de dados.
-      - name: matricula
-        description: Matrícula do aluno (mascarada, os quatro primeiros dígitos originais
-          e o resto está preenchido com 9s)
-      - name: situacao
-        description: "Boleano indicando se o aluno está ativo na rede de ensino.\r
-          \nPode ter os valores ativo ou inativo."
-      - name: id_utltima_movimentacao
-        description: "Código do tipo da última movimentação do aluno. \r\nA movimentação
-          do aluno indica que o aluno saiu de uma turma, podendo ter ido para outra
-          turma em outra ou na mesma escola."
-      - name: ultima_movimentacao
-        description: 'Indica o tipo da última movimentação do aluno. Ex: Abandono,
-          renovação de matrícula, mudança de turma.'
-      - name: genero
-        description: Sexo do aluno, pode ser masculino ou feminino
-      - name: raca_cor
-        description: Raça ou cor do aluno. Branca, preta, parda, amarela, indígena,
-          não declarada ou sem informação.
-      - name: data_nascimento
-        description: Data de nascimento do aluno.
-      - name: idade_atual
-        description: Idade atual do aluno.
-      - name: idade_final_ano
-        description: Idade do aluno no final do ano.
-      - name: id_deficiencia
-        description: Código da deficiência do aluno. 00 caso não tenha nenhuma deficiência.
-      - name: deficiencia
-        description: Tipo da deficiência do aluno, caso ele tenha.
-      - name: bairro
-        description: Bairro do endereço do aluno
-      - name: mora_com_filiacao
-        description: 0 se não mora com nenhum dos dois pais, 1 se mora com um dos
-          dois.
-      - name: tipo_transporte
-        description: Transporte que o aluno usa para ir para a escola. Ex. pedestre,
-          ônibus, metrô, carro, trem, outros ou sem informação.
-      - name: bolsa_familia
-        description: Booleana que indica se o aluno recebe bolsa familia. 0 se não
-          recebe e 1 se recebe.
-      - name: cartao_familia_carioca
-        description: Booleana que indica se o aluno recebe o cartão família carioca.
-          0 se não recebe e 1 se recebe.
-      - name: clube_escolar
-        description: Booleano indicando que o aluno está inscrito em um clube escolar,
-          0 se não inscrito e 1 se inscrito. Um clube escolar é um clube pertencente
-          a prefeitura e faz parte de uma escola da prefeitura do Rio de Janeiro.
-      - name: nucleo_artes
-        description: "Booleano indicando que o aluno está inscrito em um núcleo de
-          artes, 0 se não inscrito e 1 se inscrito. \r\nUm núcleo de artes pertence
-          a prefeitura e faz parte de uma escola da prefeitura do Rio de Janeiro."
-      - name: mais_educacao
-        description: "Boleano indicando que o aluno está inscrito no Mais Educação,
-          0 se não inscrito e 1 se inscrito. \r\nPrograma do MEC que dá atividades
-          específicas e acompanhamento ao aluno. Específico para alunos com histórico
-          de evasão ou reprovação."
-      - name: territorio_social
-        description: "Booleano indicando que o aluno mora em um território social,
-          0 se não mora e 1 se mora.\r\nUm território social é uma região geográfica
-          do município do Rio de Janeiro, classificada pela prefeitura como de extrema
-          vulnerabilidade social."
-      - name: tipo_avaliacao_jovens_adultos
-        description: 'Tipo de avaliação usada, para o aluno, no ensino de jovens e
-          adultos. Ex: UP 1 ou aval 2.'
-      - name: nome
-        description: Nome do aluno (mascarado, está preenchido com Xs)
-      - name: cpf
-        description: CPF do aluno (mascarado, está preenchido com 9s)
-  - name: aluno_turma
-    description: "**Descrição**: Relacionamento entre alunos e turmas.\n**Frequência
-      de atualização**: Anual\n**Cobertura temporal**: Até data corrente\n**Órgão
-      gestor dos dados**: Secretaria Municipal de Educação\n**Publicado por**: Nuno
-      Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
-    columns:
-      - name: ano
-        description: Ano da turma associado ao id da turma.
-      - name: id_turma
-        description: Identificador da turma, criado anualmente.
-      - name: id_aluno
-        description: Identificador do aluno.
-  - name: movimentacao
-    description: "**Descrição**: Movimentações feitas de alunos de interesse da prefeitura
-      do Rio de Janeiro ( algumas informações desde 1973, são mais completas a partir
-      de 2012 ).\r\nMovimentação é a saída do aluno de uma turma, potencialmente para
-      entrada em outra turma da mesma unidade escolar ou para outra unidade escolar,
-      do município ou não.\n**Frequência de atualização**: Anual\n**Cobertura temporal**:
-      Desde 1973 até data corrente\n**Órgão gestor dos dados**: Secretaria Municipal
-      de Educação\n**Publicado por**: Nuno Caminada Silva\n**Publicado por (email)**:
-      nuno.silva@rioeduca.net\n"
-    columns:
-      - name: ano
-        description: Ano da movimentação.
-      - name: id_cre
-        description: "Número da CRE que administra a unidade escolar onde a movimentação
-          foi registrada. \r\nNo caso de saída de uma unidade escolar ela é registrada
-          nesta unidade. \r\nCRE é a sigla para coordenadoria regional de educação.
-          \r\nUma CRE reúne unidades escolares da prefeitura em uma determinada região."
-      - name: id_coc
-        description: "COC cujo período onde o aluno sofreu movimentação. Número do
-          conselho de classe.\r\nÉ único por período letivo. \r\nConselho de classe
-          é um conjunto de reuniões de professores que ocorre no final do bimestre."
-      - name: id_unidade
-        description: "Número da unidade escolar dado pela SME onde foi registrada
-          a movimentação.\r\nContém 7 dígitos."
-      - name: id_turma_escola
-        description: "Identificador da turma da unidade escolar que registrou a movimentação.\r
-          \nÉ dado pela unidade escolar.\r\nÉ único em determinada escola e determinado
-          ano.\r\nHá uma padronização, ex. 1601 é para o sexto ano."
-      - name: grupamento
-        description: "Ano da turma da unidade escolar que registrou a movimentação.\r
-          \nEx. primeiro ano, segundo ano etc."
-      - name: id_aluno
-        description: Identificador do aluno na base de dados.
-      - name: matricula
-        description: Matricula do aluno que fez a movimentação. Campo anonimizado.
-      - name: genero
-        description: Sexo do aluno, pode ser masculino ou feminino
-      - name: id_deficiencia
-        description: "Código da deficiência do aluno.\r\n00 caso não tenha nenhuma
-          deficiência."
-      - name: deficiencia
-        description: Tipo da deficiência do aluno, caso ele tenha.
-      - name: data_nascimento
-        description: Data de nascimento do aluno.
-      - name: idade_atual
-        description: Idade atual do aluno.
-      - name: idade_final_ano
-        description: Idade do aluno no final do ano.
-      - name: data_movimentacao
-        description: Data em que ocorreu a movimentação.
-      - name: id_movimentacao
-        description: Identificador do tipo da movimentação na base de dados.
-      - name: movimentacao
-        description: "Nome do tipo da movimentação.\r\nEx. Transferência da rede particular,
-          transferência para a rede particular, Abandono etc."
-      - name: ordem
-        description: Ordem da movimentação de determinado aluno durante a sua vida
-          escolar no município do Rio de Janeiro.
-      - name: tipo
-        description: Indica se a movimentação é de entrada ou saída, mesmo dentro
-          da mesma unidade escolar. Tem sempre o valor 'Entrada' quando a transferência
-          é entre turmas dentro da mesma unidade escolar.
   - name: turma
     description: "**Descrição**: Turma de alunos, atuais ou passadas, em unidades
       escolares pertencentes ou de interesse da prefeitura do Rio de Janeiro.\n**Frequência
@@ -553,6 +397,162 @@ models :
           para o fundamental 2.
       - name: reuniao_pais
         description: Indica se teve reunião dos pais
+  - name: movimentacao
+    description: "**Descrição**: Movimentações feitas de alunos de interesse da prefeitura
+      do Rio de Janeiro ( algumas informações desde 1973, são mais completas a partir
+      de 2012 ).\r\nMovimentação é a saída do aluno de uma turma, potencialmente para
+      entrada em outra turma da mesma unidade escolar ou para outra unidade escolar,
+      do município ou não.\n**Frequência de atualização**: Anual\n**Cobertura temporal**:
+      Desde 1973 até data corrente\n**Órgão gestor dos dados**: Secretaria Municipal
+      de Educação\n**Publicado por**: Nuno Caminada Silva\n**Publicado por (email)**:
+      nuno.silva@rioeduca.net\n"
+    columns:
+      - name: ano
+        description: Ano da movimentação.
+      - name: id_cre
+        description: "Número da CRE que administra a unidade escolar onde a movimentação
+          foi registrada. \r\nNo caso de saída de uma unidade escolar ela é registrada
+          nesta unidade. \r\nCRE é a sigla para coordenadoria regional de educação.
+          \r\nUma CRE reúne unidades escolares da prefeitura em uma determinada região."
+      - name: id_coc
+        description: "COC cujo período onde o aluno sofreu movimentação. Número do
+          conselho de classe.\r\nÉ único por período letivo. \r\nConselho de classe
+          é um conjunto de reuniões de professores que ocorre no final do bimestre."
+      - name: id_unidade
+        description: "Número da unidade escolar dado pela SME onde foi registrada
+          a movimentação.\r\nContém 7 dígitos."
+      - name: id_turma_escola
+        description: "Identificador da turma da unidade escolar que registrou a movimentação.\r
+          \nÉ dado pela unidade escolar.\r\nÉ único em determinada escola e determinado
+          ano.\r\nHá uma padronização, ex. 1601 é para o sexto ano."
+      - name: grupamento
+        description: "Ano da turma da unidade escolar que registrou a movimentação.\r
+          \nEx. primeiro ano, segundo ano etc."
+      - name: id_aluno
+        description: Identificador do aluno na base de dados.
+      - name: matricula
+        description: Matricula do aluno que fez a movimentação. Campo anonimizado.
+      - name: genero
+        description: Sexo do aluno, pode ser masculino ou feminino
+      - name: id_deficiencia
+        description: "Código da deficiência do aluno.\r\n00 caso não tenha nenhuma
+          deficiência."
+      - name: deficiencia
+        description: Tipo da deficiência do aluno, caso ele tenha.
+      - name: data_nascimento
+        description: Data de nascimento do aluno.
+      - name: idade_atual
+        description: Idade atual do aluno.
+      - name: idade_final_ano
+        description: Idade do aluno no final do ano.
+      - name: data_movimentacao
+        description: Data em que ocorreu a movimentação.
+      - name: id_movimentacao
+        description: Identificador do tipo da movimentação na base de dados.
+      - name: movimentacao
+        description: "Nome do tipo da movimentação.\r\nEx. Transferência da rede particular,
+          transferência para a rede particular, Abandono etc."
+      - name: ordem
+        description: Ordem da movimentação de determinado aluno durante a sua vida
+          escolar no município do Rio de Janeiro.
+      - name: tipo
+        description: Indica se a movimentação é de entrada ou saída, mesmo dentro
+          da mesma unidade escolar. Tem sempre o valor 'Entrada' quando a transferência
+          é entre turmas dentro da mesma unidade escolar.
+  - name: aluno
+    description: "**Descrição**: Alunos matriculados em escolas da prefeitura do Rio
+      de Janeiro no ano corrente. \r\nCampos anonimizados para atendimento a LGPD.\n
+      **Frequência de atualização**: Anual\n**Cobertura temporal**: Até data corrente\n
+      **Órgão gestor dos dados**: Secretaria Municipal de Educação\n**Publicado por**:
+      Nuno Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
+    columns:
+      - name: ano
+        description: Ano em que o aluno está matriculado.
+      - name: id_turma
+        description: Identificador da turma do aluno na base de dados.
+      - name: turma
+        description: Número da turma do aluno.
+      - name: id_aluno
+        description: Identificador do aluno na base de dados.
+      - name: matricula
+        description: Matrícula do aluno (mascarada, os quatro primeiros dígitos originais
+          e o resto está preenchido com 9s)
+      - name: situacao
+        description: "Boleano indicando se o aluno está ativo na rede de ensino.\r
+          \nPode ter os valores ativo ou inativo."
+      - name: id_utltima_movimentacao
+        description: "Código do tipo da última movimentação do aluno. \r\nA movimentação
+          do aluno indica que o aluno saiu de uma turma, podendo ter ido para outra
+          turma em outra ou na mesma escola."
+      - name: ultima_movimentacao
+        description: 'Indica o tipo da última movimentação do aluno. Ex: Abandono,
+          renovação de matrícula, mudança de turma.'
+      - name: genero
+        description: Sexo do aluno, pode ser masculino ou feminino
+      - name: raca_cor
+        description: Raça ou cor do aluno. Branca, preta, parda, amarela, indígena,
+          não declarada ou sem informação.
+      - name: data_nascimento
+        description: Data de nascimento do aluno.
+      - name: idade_atual
+        description: Idade atual do aluno.
+      - name: idade_final_ano
+        description: Idade do aluno no final do ano.
+      - name: id_deficiencia
+        description: Código da deficiência do aluno. 00 caso não tenha nenhuma deficiência.
+      - name: deficiencia
+        description: Tipo da deficiência do aluno, caso ele tenha.
+      - name: bairro
+        description: Bairro do endereço do aluno
+      - name: mora_com_filiacao
+        description: 0 se não mora com nenhum dos dois pais, 1 se mora com um dos
+          dois.
+      - name: tipo_transporte
+        description: Transporte que o aluno usa para ir para a escola. Ex. pedestre,
+          ônibus, metrô, carro, trem, outros ou sem informação.
+      - name: bolsa_familia
+        description: Booleana que indica se o aluno recebe bolsa familia. 0 se não
+          recebe e 1 se recebe.
+      - name: cartao_familia_carioca
+        description: Booleana que indica se o aluno recebe o cartão família carioca.
+          0 se não recebe e 1 se recebe.
+      - name: clube_escolar
+        description: Booleano indicando que o aluno está inscrito em um clube escolar,
+          0 se não inscrito e 1 se inscrito. Um clube escolar é um clube pertencente
+          a prefeitura e faz parte de uma escola da prefeitura do Rio de Janeiro.
+      - name: nucleo_artes
+        description: "Booleano indicando que o aluno está inscrito em um núcleo de
+          artes, 0 se não inscrito e 1 se inscrito. \r\nUm núcleo de artes pertence
+          a prefeitura e faz parte de uma escola da prefeitura do Rio de Janeiro."
+      - name: mais_educacao
+        description: "Boleano indicando que o aluno está inscrito no Mais Educação,
+          0 se não inscrito e 1 se inscrito. \r\nPrograma do MEC que dá atividades
+          específicas e acompanhamento ao aluno. Específico para alunos com histórico
+          de evasão ou reprovação."
+      - name: territorio_social
+        description: "Booleano indicando que o aluno mora em um território social,
+          0 se não mora e 1 se mora.\r\nUm território social é uma região geográfica
+          do município do Rio de Janeiro, classificada pela prefeitura como de extrema
+          vulnerabilidade social."
+      - name: tipo_avaliacao_jovens_adultos
+        description: 'Tipo de avaliação usada, para o aluno, no ensino de jovens e
+          adultos. Ex: UP 1 ou aval 2.'
+      - name: nome
+        description: Nome do aluno (mascarado, está preenchido com Xs)
+      - name: cpf
+        description: CPF do aluno (mascarado, está preenchido com 9s)
+  - name: aluno_turma
+    description: "**Descrição**: Relacionamento entre alunos e turmas.\n**Frequência
+      de atualização**: Anual\n**Cobertura temporal**: Até data corrente\n**Órgão
+      gestor dos dados**: Secretaria Municipal de Educação\n**Publicado por**: Nuno
+      Caminada Silva\n**Publicado por (email)**: nuno.silva@rioeduca.net\n"
+    columns:
+      - name: ano
+        description: Ano da turma associado ao id da turma.
+      - name: id_turma
+        description: Identificador da turma, criado anualmente.
+      - name: id_aluno
+        description: Identificador do aluno.
   - name: coc
     description: "**Descrição**: COCs fechados (não leva em conta o atual ) das turmas
       de escolas da prefeitura do Rio de Janeiro, com informações desde 2014. \r\n
