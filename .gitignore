@@ -6,3 +6,5 @@ logs/
 .env
 .user.yml
 dev/
+.env
+credentials/
