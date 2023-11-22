@@ -1,26 +1,67 @@
 version: 2
 
 models :
-  - name: estacoes_websirene
-    description: "**Descrição**: Dados sobre as estações pluviométricas da Defesa
-      Civil (WEB Sirene) na cidade do Rio de Janeiro.\n**Frequência de atualização**:
-      Anual\n**Cobertura temporal**: N/A\n**Órgão gestor dos dados**: COR\n**Publicado
-      por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+  - name: taxa_precipitacao_websirene
+    description: "**Descrição**: Taxa medida de precipitação das estações pluviométricas\
+      \ da Defesa Civil da cidade do Rio de Janeiro.\r\nAs estimativas são feitas\
+      \ de 15 em 15 minutos, cada registro contendo dados desta medida.\r\nAs medições\
+      \ dsses pluviômetros são utilizadas para ligar as sirenes da cidade.\n**Frequência\
+      \ de atualização**: Diário\n**Cobertura temporal**: Desde março de 2012 até\
+      \ data corrente\n**Órgão gestor dos dados**: COR\n**Publicado por**: Patrícia\
+      \ Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
-      - name: longitude
-        description: Longitude onde a estação se encontra.
-      - name: latitude
-        description: Latitude onde a estação se encontra.
-      - name: nome_estacao
-        description: Nome da estação.
+      - name: data_particao
+        description: Data em que foi realizada a medição
+      - name: primary_key
+        description: Chave primária criada a partir da coluna id_estacao e da data_medicao.
+          Serve para evitar dados duplicados.
+      - name: horario
+        description: Horário no qual foi realizada a medição
+      - name: acumulado_chuva_15_min
+        description: Acumulado de chuva em 15 minutos
+      - name: acumulado_chuva_1_h
+        description: Acumulado de chuva em 1 hora.
+      - name: acumulado_chuva_4_h
+        description: Acumulado de chuva em 4 horas.
+      - name: acumulado_chuva_24_h
+        description: Acumulado de chuva em 24 horas.
+      - name: acumulado_chuva_96_h
+        description: Acumulado de chuva em 96 horas.
       - name: id_estacao
         description: ID da estação meteorológica em que ocorreu a medição
+      - name: acumulado_chuva_mes
+        description: Acumulado de chuva no mês.
+  - name: taxa_precipitacao_alertario
+    description: "**Descrição**: Taxa medida de precipitação das estações pluviométricas\
+      \ da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos,\
+      \ cada registro contendo dados desta medida.\n**Frequência de atualização**:\
+      \ Nunca\n**Cobertura temporal**: Desde 1997 até data corrente\n**Órgão gestor\
+      \ dos dados**: COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**:\
+      \ patriciabcatandi@gmail.com\n"
+    columns:
+      - name: data_particao
+        description: Data em que foi realizada a medição
+      - name: primary_key
+        description: Chave primária criada a partir da coluna id_estacao e da data_medicao.
+          Serve para evitar dados duplicados.
+      - name: horario
+        description: Horário no qual foi realizada a medição
+      - name: acumulado_chuva_15_min
+        description: Acumulado de chuva em 15 minutos
+      - name: acumulado_chuva_1_h
+        description: Acumulado de chuva em 1 hora.
+      - name: acumulado_chuva_4_h
+        description: Acumulado de chuva em 4 horas.
+      - name: acumulado_chuva_24_h
+        description: Acumulado de chuva em 24 horas.
+      - name: acumulado_chuva_96_h
+        description: Acumulado de chuva em 96 horas.
   - name: estacoes_alertario
-    description: "**Descrição**: Dados sobre as estações pluviométricas do alertario
-      ( Sistema Alerta Rio da Prefeitura do Rio de Janeiro ) na cidade do Rio de Janeiro.\n
-      **Frequência de atualização**: Anual\n**Cobertura temporal**: N/A\n**Órgão gestor
-      dos dados**: COR\n**Publicado por**: Patricia Catandi\n**Publicado por (email)**:
-      patriciabcatandi@gmail.com\n"
+    description: "**Descrição**: Dados sobre as estações pluviométricas do alertario\
+      \ ( Sistema Alerta Rio da Prefeitura do Rio de Janeiro ) na cidade do Rio de\
+      \ Janeiro.\n**Frequência de atualização**: Anual\n**Cobertura temporal**: N/A\n\
+      **Órgão gestor dos dados**: COR\n**Publicado por**: Patricia Catandi\n**Publicado\
+      \ por (email)**: patriciabcatandi@gmail.com\n"
     columns:
       - name: cota
         description: Altura em metros onde a estação se encontra.
@@ -44,57 +85,17 @@ models :
         description: Longitude onde a estação se encontra.
       - name: latitude
         description: Latitude onde a estação se encontra.
-  - name: taxa_precipitacao_alertario
-    description: "**Descrição**: Taxa medida de precipitação das estações pluviométricas
-      da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos,
-      cada registro contendo dados desta medida.\n**Frequência de atualização**: Nunca\n
-      **Cobertura temporal**: Desde 1997 até data corrente\n**Órgão gestor dos dados**:
-      COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+  - name: estacoes_websirene
+    description: "**Descrição**: Dados sobre as estações pluviométricas da Defesa\
+      \ Civil (WEB Sirene) na cidade do Rio de Janeiro.\n**Frequência de atualização**:\
+      \ Anual\n**Cobertura temporal**: N/A\n**Órgão gestor dos dados**: COR\n**Publicado\
+      \ por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
-      - name: data_particao
-        description: Data em que foi realizada a medição
-      - name: primary_key
-        description: Chave primária criada a partir da coluna id_estacao e da data_medicao.
-          Serve para evitar dados duplicados.
-      - name: horario
-        description: Horário no qual foi realizada a medição
-      - name: acumulado_chuva_15_min
-        description: Acumulado de chuva em 15 minutos
-      - name: acumulado_chuva_1_h
-        description: Acumulado de chuva em 1 hora.
-      - name: acumulado_chuva_4_h
-        description: Acumulado de chuva em 4 horas.
-      - name: acumulado_chuva_24_h
-        description: Acumulado de chuva em 24 horas.
-      - name: acumulado_chuva_96_h
-        description: Acumulado de chuva em 96 horas.
-  - name: taxa_precipitacao_websirene
-    description: "**Descrição**: Taxa medida de precipitação das estações pluviométricas
-      da Defesa Civil da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de
-      15 em 15 minutos, cada registro contendo dados desta medida.\r\nAs medições
-      dsses pluviômetros são utilizadas para ligar as sirenes da cidade.\n**Frequência
-      de atualização**: Diário\n**Cobertura temporal**: Desde março de 2012 até data
-      corrente\n**Órgão gestor dos dados**: COR\n**Publicado por**: Patrícia Catandi\n
-      **Publicado por (email)**: patriciabcatandi@gmail.com\n"
-    columns:
-      - name: data_particao
-        description: Data em que foi realizada a medição
-      - name: primary_key
-        description: Chave primária criada a partir da coluna id_estacao e da data_medicao.
-          Serve para evitar dados duplicados.
-      - name: horario
-        description: Horário no qual foi realizada a medição
-      - name: acumulado_chuva_15_min
-        description: Acumulado de chuva em 15 minutos
-      - name: acumulado_chuva_1_h
-        description: Acumulado de chuva em 1 hora.
-      - name: acumulado_chuva_4_h
-        description: Acumulado de chuva em 4 horas.
-      - name: acumulado_chuva_24_h
-        description: Acumulado de chuva em 24 horas.
-      - name: acumulado_chuva_96_h
-        description: Acumulado de chuva em 96 horas.
+      - name: longitude
+        description: Longitude onde a estação se encontra.
+      - name: latitude
+        description: Latitude onde a estação se encontra.
+      - name: nome_estacao
+        description: Nome da estação.
       - name: id_estacao
         description: ID da estação meteorológica em que ocorreu a medição
-      - name: acumulado_chuva_mes
-        description: Acumulado de chuva no mês.

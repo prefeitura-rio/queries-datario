@@ -1,0 +1,20 @@
+version: 2
+models :
+  - name: visita_valongo
+    description: "**Descrição**: Total de pessoas que visitaram o Cais do Valongo\
+      \ em determinado mês. As visitas são feitas por turistas nacionais e internacionais,\
+      \ de todas as idades. O número de pessoas de cada visita é informado por diversas\
+      \ fontes, ou seja, guias turísticos etc.\n**Frequência de atualização**: Mensal\n\
+      **Cobertura temporal**: A partir de 2016\n**Órgão gestor dos dados**: Assessoria\
+      \ para Povos e Comunidades Tradicionais da Secretaria Municipal de Meio Ambiente\
+      \ e Clima\n**Publicado por**: Leonardo Mattos\n**Publicado por (email)**: leonardomattos.meioambiente.rio@gmail.com\n"
+    columns:
+      - name: mes
+        description: Mês, no formato mm, em que o total de visitantes foi computado.
+      - name: ano
+        description: Ano relativo ao mês em que o total de visitantes foi computado.
+      - name: ano_mes
+        description: Mês, no formato mm/aaaa, em que o total de visitantes foi computado.
+          Mesmo mês do atributo mes.
+      - name: valor_visitacao
+        description: Número de pessoas que visitaram o Cais do Valongo no mês.

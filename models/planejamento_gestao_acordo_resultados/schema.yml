@@ -1,12 +1,13 @@
 version: 2
 models :
   - name: meta
-    description: "**Descrição**: Metas, por indicador e por órgão, dos Acordos de
-      Resultados. Se uma meta tiver dois indicadores ela aparecerá duas vezes. Uma
-      mesma meta que inclua mais de um órgão também aparecerá mais de uma vez.\n**Frequência
-      de atualização**: Mensal\n**Cobertura temporal**: Desde 2013 até a data corrente.\n
-      **Órgão gestor dos dados**: Secretaria Municipal de Fazenda e Planejamento (SMFP)\n
-      **Publicado por**: Bruno Almeida\n**Publicado por (email)**: brunodepauloalmeida@gmail.com\n"
+    description: "**Descrição**: Metas, por indicador e por órgão, dos Acordos de\
+      \ Resultados. Se uma meta tiver dois indicadores ela aparecerá duas vezes. Uma\
+      \ mesma meta que inclua mais de um órgão também aparecerá mais de uma vez.\n\
+      **Frequência de atualização**: Mensal\n**Cobertura temporal**: Desde 2013 até\
+      \ a data corrente.\n**Órgão gestor dos dados**: Secretaria Municipal de Fazenda\
+      \ e Planejamento (SMFP)\n**Publicado por**: Bruno Almeida\n**Publicado por (email)**:\
+      \ brunodepauloalmeida@gmail.com\n"
     columns:
       - name: id_meta
         description: Código identificador da meta por indicador e por órgão.
