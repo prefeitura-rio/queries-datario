@@ -1,49 +1,21 @@
 version: 2
 
 models :
-  - name: estacoes_alertario
-    description: "**Descrição**: Dados sobre as estações pluviométricas do alertario
-      ( Sistema Alerta Rio da Prefeitura do Rio de Janeiro ) na cidade do Rio de Janeiro.\n
-      **Frequência de atualização**: Anual\n**Cobertura temporal**: N/A\n**Órgão gestor
-      dos dados**: COR\n**Publicado por**: Patricia Catandi\n**Publicado por (email)**:
-      patriciabcatandi@gmail.com\n"
-    columns:
-      - name: cota
-        description: Altura em metros onde a estação se encontra.
-      - name: x
-        description: X UTM (SAD69 Zona 23)
-      - name: y
-        description: Y UTM (SAD69 Zona 23)
-      - name: endereco
-        description: Endereço completo da estação.
-      - name: situacao
-        description: Indica se a estação está operante ou com falha.
-      - name: data_inicio_operacao
-        description: Data em que a estação começou a operar.
-      - name: data_atualizacao
-        description: Última data em que os dados sobre a data de operação foram atualizados.
-      - name: nome_estacao
-        description: Nome da estação.
-      - name: id_estacao
-        description: ID da estação meteorológica em que ocorreu a medição
-      - name: longitude
-        description: Longitude onde a estação se encontra.
-      - name: latitude
-        description: Latitude onde a estação se encontra.
-  - name: estacoes_websirene
-    description: "**Descrição**: Dados sobre as estações pluviométricas da Defesa
-      Civil (WEB Sirene) na cidade do Rio de Janeiro.\n**Frequência de atualização**:
-      Anual\n**Cobertura temporal**: N/A\n**Órgão gestor dos dados**: COR\n**Publicado
+  - name: estacoes_cemaden
+    description: "**Descrição**: Dados sobre as estações pluviométricas do CEMADEN
+      presentes no perímetro da cidade do Rio de Janeiro.\n**Frequência de atualização**:
+      Mensal\n**Cobertura temporal**: N/A\n**Órgão gestor dos dados**: CEMADEN\n**Publicado
       por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
     columns:
+      - name: id_estacao
+        description: ID da estação meteorológica em que ocorreu a medição definido
+          pelo CEMADEN.
       - name: longitude
         description: Longitude onde a estação se encontra.
       - name: latitude
         description: Latitude onde a estação se encontra.
-      - name: nome_estacao
+      - name: estacao
         description: Nome da estação.
-      - name: id_estacao
-        description: ID da estação meteorológica em que ocorreu a medição
   - name: taxa_precipitacao_alertario
     description: "**Descrição**: Taxa medida de precipitação das estações pluviométricas
       da cidade do Rio de Janeiro.\r\nAs estimativas são feitas de 15 em 15 minutos,
@@ -98,3 +70,82 @@ models :
         description: ID da estação meteorológica em que ocorreu a medição
       - name: acumulado_chuva_mes
         description: Acumulado de chuva no mês.
+  - name: estacoes_websirene
+    description: "**Descrição**: Dados sobre as estações pluviométricas da Defesa
+      Civil (WEB Sirene) na cidade do Rio de Janeiro.\n**Frequência de atualização**:
+      Anual\n**Cobertura temporal**: N/A\n**Órgão gestor dos dados**: COR\n**Publicado
+      por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+    columns:
+      - name: longitude
+        description: Longitude onde a estação se encontra.
+      - name: latitude
+        description: Latitude onde a estação se encontra.
+      - name: nome_estacao
+        description: Nome da estação.
+      - name: id_estacao
+        description: ID da estação meteorológica em que ocorreu a medição
+  - name: estacoes_alertario
+    description: "**Descrição**: Dados sobre as estações pluviométricas do alertario
+      ( Sistema Alerta Rio da Prefeitura do Rio de Janeiro ) na cidade do Rio de Janeiro.\n
+      **Frequência de atualização**: Anual\n**Cobertura temporal**: N/A\n**Órgão gestor
+      dos dados**: COR\n**Publicado por**: Patricia Catandi\n**Publicado por (email)**:
+      patriciabcatandi@gmail.com\n"
+    columns:
+      - name: cota
+        description: Altura em metros onde a estação se encontra.
+      - name: x
+        description: X UTM (SAD69 Zona 23)
+      - name: y
+        description: Y UTM (SAD69 Zona 23)
+      - name: endereco
+        description: Endereço completo da estação.
+      - name: situacao
+        description: Indica se a estação está operante ou com falha.
+      - name: data_inicio_operacao
+        description: Data em que a estação começou a operar.
+      - name: data_atualizacao
+        description: Última data em que os dados sobre a data de operação foram atualizados.
+      - name: nome_estacao
+        description: Nome da estação.
+      - name: id_estacao
+        description: ID da estação meteorológica em que ocorreu a medição
+      - name: longitude
+        description: Longitude onde a estação se encontra.
+      - name: latitude
+        description: Latitude onde a estação se encontra.
+  - name: taxa_precipitacao_cemaden
+    description: "**Descrição**: Taxa medida de precipitação das estações pluviométricas
+      do CEMADEN presentes dentro do perímetro da cidade do Rio de Janeiro.\r\nAs
+      estimativas são feitas de 10 em 10 minutos, cada registro contendo dados acumulados
+      de chuva.\n**Frequência de atualização**: Diário\n**Cobertura temporal**: Desde
+      2023 até data corrente\n**Órgão gestor dos dados**: Cemaden\n**Publicado por**:
+      Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+    columns:
+      - name: id_estacao
+        description: ID da estação dada pelo Cemaden.
+      - name: data_particao
+        description: Data em que foi realizada a medição.
+      - name: acumulado_chuva_10_min
+        description: Medição instantânea de chuva na estação.
+      - name: acumulado_chuva_1_h
+        description: Acumulado de chuva em 1 hora na estação.
+      - name: acumulado_chuva_3_h
+        description: Acumulado de chuva em 3 horas na estação.
+      - name: acumulado_chuva_6_h
+        description: Acumulado de chuva em 6 horas na estação.
+      - name: acumulado_chuva_12_h
+        description: Acumulado de chuva em 12 horas na estação.
+      - name: acumulado_chuva_24_h
+        description: Acumulado de chuva em 24 horas na estação.
+      - name: acumulado_chuva_48_h
+        description: Acumulado de chuva em 48 horas na estação.
+      - name: acumulado_chuva_72_h
+        description: Acumulado de chuva em 72 horas na estação.
+      - name: primary_key
+        description: Chave primária criada a partir da concatenação da coluna id_estacao,
+          data_particao e horario. Serve para evitar dados duplicados.
+      - name: acumulado_chuva_96_h
+        description: Acumulado de chuva em 96 horas na estação.
+      - name: data_medicao
+        description: Data e horário em que foi realizada a medição no formato YYYY-MM-DD
+          HH:MM:SS.
