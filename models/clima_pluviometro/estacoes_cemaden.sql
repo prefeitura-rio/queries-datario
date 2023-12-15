@@ -1,0 +1,1 @@
+SELECT * FROM `rj-cor.clima_pluviometro.estacoes_cemaden`
