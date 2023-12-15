@@ -1,35 +1,53 @@
 version: 2
 models :
-  - name: estacoes_inmet
-    description: "**Descrição**: Dados sobre as estações meteorológicas do inmet (
-      Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\n**Frequência
-      de atualização**: Nunca\n**Cobertura temporal**: N/A\n**Órgão gestor dos dados**:
-      INMET\n**Publicado por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+  - name: estacoes_redemet
+    description: "**Descrição**: Dados sobre as estações meteorológicas da REDEMET
+      (Rede de Meteorologia do Comando da Aeronáutica) na cidade do Rio de Janeiro.\n
+      **Frequência de atualização**: Mensal\n**Cobertura temporal**: N/A\n**Órgão
+      gestor dos dados**: REDEMET\n**Publicado por**: Patricia Catandi\n**Publicado
+      por (email)**: patriciabcatandi@gmail.com\n"
     columns:
-      - name: sigla_uf
-        description: Sigla do estado.
-      - name: id_municipio
-        description: Código do município do IBGE de 7 dígitos.
       - name: id_estacao
-        description: ID da estação definido pelo INMET.
+        description: Código da estação definido pela REDEMET.
       - name: estacao
         description: Nome da estação.
       - name: latitude
         description: Latitude onde a estação se encontra.
       - name: longitude
         description: Longitude onde a estação se encontra.
-      - name: data_inicio_operacao
-        description: Data em que a estação começou a operar.
-      - name: data_fim_operacao
-        description: Data em que a estação parou de operar.
-      - name: situacao
-        description: Indica se a estação está operante ou com falha.
-      - name: tipo_estacao
-        description: Indica se a estação é automática ou manual. Pode conter nulos.
-      - name: entidade_responsavel
-        description: Entidade responsável pela estação.
+      - name: altitude
+        description: Altitude onde a estação se encontra em metros.
       - name: data_atualizacao
-        description: Última data em que os dados sobre a data de operação foram atualizados.
+        description: Última data em que os dados foram atualizados.
+  - name: meteorologia_redemet
+    description: "**Descrição**: Dados meteorológicos obtidos das estações meteorológicas
+      dos aeródromos (aeroportos e bases aéreas) na cidade do Rio de Janeiro.\r\n
+      As medidas são feitas de hora em hora, cada registro contendo dados destas medidas
+      para cada estação.\n**Frequência de atualização**: Diário\n**Cobertura temporal**:
+      Desde 2003 até data corrente\n**Órgão gestor dos dados**: REDEMET\n**Publicado
+      por**: Richard Gatinho\n**Publicado por (email)**: richardg867@gmail.com\n"
+    columns:
+      - name: primary_key
+        description: Chave primária criada a partir da coluna id_estacao e da data_medicao.
+          Serve para evitar dados duplicados.
+      - name: id_estacao
+        description: Código ICAO do aeródromo da estação.
+      - name: data_particao
+        description: Data em que foi realizada a medição
+      - name: data_medicao
+        description: Horário no qual foi realizada a medição
+      - name: temperatura
+        description: Temperatura na medição instantânea na estação.
+      - name: umidade
+        description: Umidade relativa do ar instantânea na estação.
+      - name: condicoes_tempo
+        description: Condições de tempo instantâneas na estação.
+      - name: ceu
+        description: Condições de céu instantâneas na estação.
+      - name: teto
+        description: Condições de formação de teto instantâneas na estação.
+      - name: visibilidade
+        description: Condições de visibilidade instantâneas na estação.
   - name: meteorologia_inmet
     description: "**Descrição**: Dados meteorológicos obtidos nas estações meteorológicas
       do INMET ( Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\r
@@ -81,3 +99,33 @@ models :
       - name: primary_key
         description: Chave primária criada a partir da concatenação da coluna id_estacao,
           data e horário Serve para evitar dados duplicados.
+  - name: estacoes_inmet
+    description: "**Descrição**: Dados sobre as estações meteorológicas do inmet (
+      Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\n**Frequência
+      de atualização**: Nunca\n**Cobertura temporal**: N/A\n**Órgão gestor dos dados**:
+      INMET\n**Publicado por**: Patricia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+    columns:
+      - name: sigla_uf
+        description: Sigla do estado.
+      - name: id_municipio
+        description: Código do município do IBGE de 7 dígitos.
+      - name: id_estacao
+        description: ID da estação definido pelo INMET.
+      - name: estacao
+        description: Nome da estação.
+      - name: latitude
+        description: Latitude onde a estação se encontra.
+      - name: longitude
+        description: Longitude onde a estação se encontra.
+      - name: data_inicio_operacao
+        description: Data em que a estação começou a operar.
+      - name: data_fim_operacao
+        description: Data em que a estação parou de operar.
+      - name: situacao
+        description: Indica se a estação está operante ou com falha.
+      - name: tipo_estacao
+        description: Indica se a estação é automática ou manual. Pode conter nulos.
+      - name: entidade_responsavel
+        description: Entidade responsável pela estação.
+      - name: data_atualizacao
+        description: Última data em que os dados sobre a data de operação foram atualizados.
