@@ -50,6 +50,45 @@ models :
         description: Ponto de partida
       - name: end_pt
         description: Ponto de chegada
+  - name: subsidio_onibus
+    description: "**Descrição**: Sumário de viagens, distância e valor total do subsídio
+      por dia e serviço. Com base nesses dados é realizado o pagamento do subsídio
+      do Serviço Público de Transporte de Passageiros por Ônibus (SPPO) do Município
+      do Rio de Janeiro levando em conta o cumprimento da quilometragem total planejada
+      dos serviços.\r\n\r\nVeja mais detalhes em: https://transportes.prefeitura.rio/subsidio/\n
+      **Frequência de atualização**: Nunca\n**Cobertura temporal**: 01/06/2022 até
+      o momento\n**Órgão gestor dos dados**: Secretaria Municipal de Transportes\n
+      **Publicado por**: Fernanda Scovino\n**Publicado por (email)**: fernanda.scovino@rio.rj.gov.br\n"
+    columns:
+      - name: data
+        description: Data
+      - name: tipo_dia
+        description: 'Dia da semana considerado para o cálculo da distância planejada
+          - categorias: Dia Útil, Sábado, Domingo'
+      - name: consorcio
+        description: Consórcio ao qual o serviço pertence
+      - name: servico
+        description: Nome curto da linha operada
+      - name: vista
+        description: 'Itinerário da linha (ex: Bananal ↔ Saens Peña)'
+      - name: viagens
+        description: Quantidade de viagens realizadas
+      - name: km_apurada
+        description: Distância apurada do serviço (km) - Distância planejada da viagem
+          multiplicada pela quantidade de viagens
+      - name: km_planejada
+        description: Distância planejada para o serviço (km)
+      - name: perc_km_planejada
+        description: Percentual de operação diário (POD)
+      - name: valor_subsidio_pago
+        description: Valor de subsídio apurado (R$) - Distância apurada do serviço
+          multiplicada pelos respectivos valores pela classificação do veículo
+      - name: valor_penalidade
+        description: "Valor de penalidade apurado (R$)\r\n- Linha com operação entre
+          40% e 60% da quilometragem estipulada - penalidade equivalente a uma infração
+          média prevista no Código Disciplinar do SPPO;\r\n- Linha com operação inferior
+          a 40% da quilometragem estipulada - penalidade equivalente a uma infração
+          grave prevista no Código Disciplinar do SPPO."
   - name: viagem_onibus
     description: "**Descrição**: Detalhes de todas as viagens identificadas por GPS.
       O algorítimo para a identificação das viagens está disponível em:\r\nhttps://github.com/prefeitura-rio/queries-rj-smtr/tree/master/models/projeto_subsidio_sppo\r
@@ -100,6 +139,57 @@ models :
       - name: id_viagem
         description: Código identificador da viagem (id_veiculo + servico_realizado
           + sentido + shape_id_planejado + datetime_partida)
+  - name: gps_brt
+    description: "**Descrição**: Dados completos disponíveis para consulta e download
+      no datalake do data.rio. Os dados são capturados a cada minuto, tratados a cada
+      hora e diariamente (00H) são disponibilizadas no datalake todas as posições
+      do dia anterior.\r\n\r\nDados sujeitos a alteração, como correções de buracos
+      de captura e/ou ajustes de tratamento. Código de captura e tratamento em: https://github.com/prefeitura-rio/pipelines/tree/master/pipelines/rj_smtr/br_rj_riodejaneiro_brt_gps\n
+      **Frequência de atualização**: Diário\n**Cobertura temporal**: 24/11/2021 até
+      o momento\n**Órgão gestor dos dados**: Secretaria Municipal de Transportes (SMTR)\n
+      **Publicado por**: Fernanda Scovino\n**Publicado por (email)**: fernanda.scovino@rio.rj.gov.br\n"
+    columns:
+      - name: modo
+        description: Tipo de transporte (SPPO = ônibus, STPL = van, BRT)
+      - name: timestamp_gps
+        description: Carimbo de data/hora no qual o veículo reportou sua posição
+      - name: data
+        description: Data de captura do GPS (formato YYYY-MM-DD)
+      - name: hora
+        description: Horário de captura do GPS (formato HH:MM:SS)
+      - name: id_veiculo
+        description: Identificador único do veículo
+      - name: servico
+        description: 'Nome curto da rota operada pelo veículo (ex: 10, 11N, ...)'
+      - name: latitude
+        description: Latitude da posição do veículo
+      - name: longitude
+        description: Longitude da posição do veículo
+      - name: flag_em_operacao
+        description: (Em desenvolvimento) Flag que indica se o veículo está operando
+          conforme esperado
+      - name: flag_em_movimento
+        description: Flag que indica se o veículo está parado ou em movimento. Um
+          veículo é considerado parado se a velocidade média dele nos últimos 10 minutos
+          for menor que 3km/h
+      - name: tipo_parada
+        description: Identifica o estado do veículo como "terminal", "garagem" (para
+          veículos parados) ou "nao_identificado" (para veículos que distam acima
+          do limiar definido de um ponto de parada)
+      - name: velocidade_instantanea
+        description: Velocidade estimada do veículo com base nas posições de GPS ao
+          longo do tempo
+      - name: versao
+        description: Versão de código da pipeline que gerou o dado
+      - name: status
+        description: '(Em desenvolvimento) Estado categórico do veículo, pode assumir
+          os seguintes valores: "Em operação", "Parado garagem", "Parado terminal",
+          "Parado". A lógica completa está em:'
+      - name: velocidade_estimada_10_min
+        description: Velocidade média estimada para o veículo nos últimos 10 minutos
+      - name: distancia
+        description: Distância, em metros, da posição atual do veículo e sua posição
+          1 minuto antes
   - name: gps_onibus
     description: "**Descrição**: Dados completos disponíveis para consulta e download
       no datalake do data.rio. Os dados são capturados a cada minuto, tratados a cada
@@ -152,93 +242,3 @@ models :
           posição informada
       - name: versao
         description: Versão de código da pipeline que gerou o dado
-  - name: gps_brt
-    description: "**Descrição**: Dados completos disponíveis para consulta e download
-      no datalake do data.rio. Os dados são capturados a cada minuto, tratados a cada
-      hora e diariamente (00H) são disponibilizadas no datalake todas as posições
-      do dia anterior.\r\n\r\nDados sujeitos a alteração, como correções de buracos
-      de captura e/ou ajustes de tratamento. Código de captura e tratamento em: https://github.com/prefeitura-rio/pipelines/tree/master/pipelines/rj_smtr/br_rj_riodejaneiro_brt_gps\n
-      **Frequência de atualização**: Diário\n**Cobertura temporal**: 24/11/2021 até
-      o momento\n**Órgão gestor dos dados**: Secretaria Municipal de Transportes (SMTR)\n
-      **Publicado por**: Fernanda Scovino\n**Publicado por (email)**: fernanda.scovino@rio.rj.gov.br\n"
-    columns:
-      - name: modo
-        description: Tipo de transporte (SPPO = ônibus, STPL = van, BRT)
-      - name: timestamp_gps
-        description: Carimbo de data/hora no qual o veículo reportou sua posição
-      - name: data
-        description: Data de captura do GPS (formato YYYY-MM-DD)
-      - name: hora
-        description: Horário de captura do GPS (formato HH:MM:SS)
-      - name: id_veiculo
-        description: Identificador único do veículo
-      - name: servico
-        description: 'Nome curto da rota operada pelo veículo (ex: 10, 11N, ...)'
-      - name: latitude
-        description: Latitude da posição do veículo
-      - name: longitude
-        description: Longitude da posição do veículo
-      - name: flag_em_operacao
-        description: (Em desenvolvimento) Flag que indica se o veículo está operando
-          conforme esperado
-      - name: flag_em_movimento
-        description: Flag que indica se o veículo está parado ou em movimento. Um
-          veículo é considerado parado se a velocidade média dele nos últimos 10 minutos
-          for menor que 3km/h
-      - name: tipo_parada
-        description: Identifica o estado do veículo como "terminal", "garagem" (para
-          veículos parados) ou "nao_identificado" (para veículos que distam acima
-          do limiar definido de um ponto de parada)
-      - name: velocidade_instantanea
-        description: Velocidade estimada do veículo com base nas posições de GPS ao
-          longo do tempo
-      - name: versao
-        description: Versão de código da pipeline que gerou o dado
-      - name: status
-        description: '(Em desenvolvimento) Estado categórico do veículo, pode assumir
-          os seguintes valores: "Em operação", "Parado garagem", "Parado terminal",
-          "Parado". A lógica completa está em:'
-      - name: velocidade_estimada_10_min
-        description: Velocidade média estimada para o veículo nos últimos 10 minutos
-      - name: distancia
-        description: Distância, em metros, da posição atual do veículo e sua posição
-          1 minuto antes
-  - name: subsidio_onibus
-    description: "**Descrição**: Sumário de viagens, distância e valor total do subsídio
-      por dia e serviço. Com base nesses dados é realizado o pagamento do subsídio
-      do Serviço Público de Transporte de Passageiros por Ônibus (SPPO) do Município
-      do Rio de Janeiro levando em conta o cumprimento da quilometragem total planejada
-      dos serviços.\r\n\r\nVeja mais detalhes em: https://transportes.prefeitura.rio/subsidio/\n
-      **Frequência de atualização**: Nunca\n**Cobertura temporal**: 01/06/2022 até
-      o momento\n**Órgão gestor dos dados**: Secretaria Municipal de Transportes\n
-      **Publicado por**: Fernanda Scovino\n**Publicado por (email)**: fernanda.scovino@rio.rj.gov.br\n"
-    columns:
-      - name: data
-        description: Data
-      - name: tipo_dia
-        description: 'Dia da semana considerado para o cálculo da distância planejada
-          - categorias: Dia Útil, Sábado, Domingo'
-      - name: consorcio
-        description: Consórcio ao qual o serviço pertence
-      - name: servico
-        description: Nome curto da linha operada
-      - name: vista
-        description: 'Itinerário da linha (ex: Bananal ↔ Saens Peña)'
-      - name: viagens
-        description: Quantidade de viagens realizadas
-      - name: km_apurada
-        description: Distância apurada do serviço (km) - Distância planejada da viagem
-          multiplicada pela quantidade de viagens
-      - name: km_planejada
-        description: Distância planejada para o serviço (km)
-      - name: perc_km_planejada
-        description: Percentual de operação diário (POD)
-      - name: valor_subsidio_pago
-        description: Valor de subsídio apurado (R$) - Distância apurada do serviço
-          multiplicada pelos respectivos valores pela classificação do veículo
-      - name: valor_penalidade
-        description: "Valor de penalidade apurado (R$)\r\n- Linha com operação entre
-          40% e 60% da quilometragem estipulada - penalidade equivalente a uma infração
-          média prevista no Código Disciplinar do SPPO;\r\n- Linha com operação inferior
-          a 40% da quilometragem estipulada - penalidade equivalente a uma infração
-          grave prevista no Código Disciplinar do SPPO."
