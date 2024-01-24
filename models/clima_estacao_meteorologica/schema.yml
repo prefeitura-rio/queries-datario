@@ -1,5 +1,24 @@
 version: 2
 models :
+  - name: estacoes_redemet
+    description: "**Descrição**: Dados sobre as estações meteorológicas da REDEMET
+      (Rede de Meteorologia do Comando da Aeronáutica) na cidade do Rio de Janeiro.\n
+      **Frequência de atualização**: Mensal\n**Cobertura temporal**: N/A\n**Órgão
+      gestor dos dados**: REDEMET\n**Publicado por**: Patricia Catandi\n**Publicado
+      por (email)**: patriciabcatandi@gmail.com\n"
+    columns:
+      - name: id_estacao
+        description: Código da estação definido pela REDEMET.
+      - name: estacao
+        description: Nome da estação.
+      - name: latitude
+        description: Latitude onde a estação se encontra.
+      - name: longitude
+        description: Longitude onde a estação se encontra.
+      - name: altitude
+        description: Altitude onde a estação se encontra em metros.
+      - name: data_atualizacao
+        description: Última data em que os dados foram atualizados.
   - name: meteorologia_redemet
     description: "**Descrição**: Dados meteorológicos obtidos das estações meteorológicas
       dos aeródromos (aeroportos e bases aéreas) na cidade do Rio de Janeiro.\r\n
@@ -80,25 +99,6 @@ models :
       - name: primary_key
         description: Chave primária criada a partir da concatenação da coluna id_estacao,
           data e horário Serve para evitar dados duplicados.
-  - name: estacoes_redemet
-    description: "**Descrição**: Dados sobre as estações meteorológicas da REDEMET
-      (Rede de Meteorologia do Comando da Aeronáutica) na cidade do Rio de Janeiro.\n
-      **Frequência de atualização**: Mensal\n**Cobertura temporal**: N/A\n**Órgão
-      gestor dos dados**: REDEMET\n**Publicado por**: Patricia Catandi\n**Publicado
-      por (email)**: patriciabcatandi@gmail.com\n"
-    columns:
-      - name: id_estacao
-        description: Código da estação definido pela REDEMET.
-      - name: estacao
-        description: Nome da estação.
-      - name: latitude
-        description: Latitude onde a estação se encontra.
-      - name: longitude
-        description: Longitude onde a estação se encontra.
-      - name: altitude
-        description: Altitude onde a estação se encontra em metros.
-      - name: data_atualizacao
-        description: Última data em que os dados foram atualizados.
   - name: estacoes_inmet
     description: "**Descrição**: Dados sobre as estações meteorológicas do inmet (
       Instituto Nacional de Meteorologia ) na cidade do Rio de Janeiro.\n**Frequência

@@ -67,20 +67,6 @@ models :
       - name: primary_key
         description: Chave primária criada a partir da concatenação da coluna id_evento,
           sigla e descricao. Serve para evitar dados duplicados.
-  - name: procedimento_operacional_padrao
-    description: "**Descrição**: Procedimentos operacionais padrões (POP) existentes
-      na PCRJ.  Um POP é um procedimento que será usado para solucionar um evento.
-      Um POP é composto de várias atividades. Um evento é uma ocorrência na cidade
-      do Rio de Janeiro que exija um acompanhamento e na maioria das vezes uma ação
-      da PCRJ, como por exemplo um buraco na rua. Acesse também através da API do
-      Escritório de Dados: https://api.dados.rio/v1/\n**Frequência de atualização**:
-      Mensal\n**Cobertura temporal**: Não informado.\n**Órgão gestor dos dados**:
-      COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
-    columns:
-      - name: id_pop
-        description: Identificador do POP procedimento operacional padrão).
-      - name: pop_titulo
-        description: Nome do procedimento operacional padrão.
   - name: procedimento_operacional_padrao_orgaos_responsaveis
     description: "**Descrição**: Um Procedimento operacional padrão (POP) é um procedimento
       que será usado para solucionar uma ocorrência. Cada ocorrência necessita o acionamento
@@ -101,6 +87,20 @@ models :
         description: Orgão responsável pela atividade.
       - name: acao
         description: Descrição da atividade.
+  - name: procedimento_operacional_padrao
+    description: "**Descrição**: Procedimentos operacionais padrões (POP) existentes
+      na PCRJ.  Um POP é um procedimento que será usado para solucionar um evento.
+      Um POP é composto de várias atividades. Um evento é uma ocorrência na cidade
+      do Rio de Janeiro que exija um acompanhamento e na maioria das vezes uma ação
+      da PCRJ, como por exemplo um buraco na rua. Acesse também através da API do
+      Escritório de Dados: https://api.dados.rio/v1/\n**Frequência de atualização**:
+      Mensal\n**Cobertura temporal**: Não informado.\n**Órgão gestor dos dados**:
+      COR\n**Publicado por**: Patrícia Catandi\n**Publicado por (email)**: patriciabcatandi@gmail.com\n"
+    columns:
+      - name: id_pop
+        description: Identificador do POP procedimento operacional padrão).
+      - name: pop_titulo
+        description: Nome do procedimento operacional padrão.
   - name: ocorrencias
     description: "**Descrição**: Ocorrências disparadas pelo COR desde 2015. Uma ocorrência
       na cidade do Rio de Janeiro é um  acontecimento que exije um acompanhamento
