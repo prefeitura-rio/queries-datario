@@ -1,0 +1,1 @@
+SELECT * FROM `rj-setur.turismo_fluxo_visitantes.rede_hoteleira_ocupacao_eventos`
