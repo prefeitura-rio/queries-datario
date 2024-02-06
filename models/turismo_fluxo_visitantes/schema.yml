@@ -1,0 +1,15 @@
+version: 2
+models:
+  - name: turismo_fluxo_visitantes
+    description: Taxa de ocupação hoteleira do Rio de Janeiro durante grandes eventos turísticos nos anos de 2022 e 2023.
+    columns:
+      - name: ano
+        description: Ano 
+      - name: data_inicial
+        description: Data inicial 
+      - name: data_final
+        description: Data final
+      - name: evento
+        description: Nome do evento
+      - name: taxa_ocupacao
+        description: Taxa de ocupação hoteleira 
