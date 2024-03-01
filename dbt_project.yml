@@ -44,9 +44,9 @@ models:
     relation: true
     columns: true
   emd:
-    administracao_servicos_publicos:
+    adm_central_atendimento_1746:
       +materialized: table
-      +schema: administracao_servicos_publicos
+      +schema: adm_central_atendimento_1746
     adm_cor_comando:
       +materialized: table
       +schema: adm_cor_comando

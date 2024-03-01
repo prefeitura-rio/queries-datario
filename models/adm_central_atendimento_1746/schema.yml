@@ -1,6 +1,6 @@
 version: 2
 models :
-  - name: chamado_1746
+  - name: chamado
     description: "**Descrição**: Chamados feitos ao 1746. São chamados desde março\
       \ de  2011, quando começou o projeto 1746.\n**Frequência de atualização**: Diário\n\
       **Cobertura temporal**: Março de  2011\n**Órgão gestor dos dados**: SEGOVI\n\
