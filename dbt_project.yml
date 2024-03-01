@@ -71,3 +71,6 @@ models:
     transporte_rodoviario_municipal:
       +materialized: table
       +schema: transporte_rodoviario_municipal
+    turismo_fluxo_visitantes:
+      +materialized: table
+      +schema: turismo_fluxo_visitantes
