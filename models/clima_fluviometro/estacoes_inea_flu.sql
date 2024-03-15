@@ -1,0 +1,1 @@
+SELECT * FROM `rj-cor.clima_fluviometro.estacoes_inea`
