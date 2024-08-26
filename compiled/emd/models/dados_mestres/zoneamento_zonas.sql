@@ -1,1 +1,0 @@
-SELECT * FROM `rj-escritorio-dev.dados_mestres.zoneamento_zonas`
